@@ -53,6 +53,7 @@
     }
     body.rtl { direction: rtl; text-align: right; }
     body.ltr { direction: ltr; text-align: left; }
+    body.ltr .nav-links a { font-family: 'Segoe UI', sans-serif; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
     ::-webkit-scrollbar { width: 7px; }
@@ -74,7 +75,7 @@
     @keyframes logoFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);} }
     .logo-text { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .logo-sub { font-size: 0.6rem; font-weight: 300; color: var(--text-muted); display: block; margin-top: -3px; }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
     .nav-links a { padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: var(--text-muted); transition: 0.3s; position: relative; }
     .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
     .nav-links a.active::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 18px; height: 2.5px; background: var(--gold); border-radius: 4px; }
@@ -407,7 +408,7 @@
     </div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
+  <!-- ===== SERVICES (محتوى ثابت) ===== -->
   <section class="section" id="services">
     <div class="container">
       <div class="section-title reveal">
@@ -415,11 +416,13 @@
         <p id="servicesSub">نقدم لك كل ما تحتاجه لرحلة سلسة وممتعة – جميع الخدمات السياحية في مكان واحد</p>
         <div class="section-divider"></div>
       </div>
-      <div class="services-grid" id="servicesGrid"></div>
+      <div class="services-grid" id="servicesGrid">
+        <!-- سيتم تعبئتها بـ HTML ثابت مباشر -->
+      </div>
     </div>
   </section>
 
-  <!-- ===== PACKAGES ===== -->
+  <!-- ===== PACKAGES (محتوى ثابت) ===== -->
   <section class="section section-alt" id="packages">
     <div class="container">
       <div class="section-title reveal">
@@ -431,7 +434,7 @@
     </div>
   </section>
 
-  <!-- ===== HOTELS ===== -->
+  <!-- ===== HOTELS (محتوى ثابت) ===== -->
   <section class="section" id="hotels">
     <div class="container">
       <div class="section-title reveal">
@@ -443,7 +446,7 @@
     </div>
   </section>
 
-  <!-- ===== CAR RENTAL ===== -->
+  <!-- ===== CAR RENTAL (محتوى ثابت) ===== -->
   <section class="section section-alt" id="cars">
     <div class="container">
       <div class="section-title reveal">
@@ -675,7 +678,7 @@
   </div>
 
   <!-- ============================================================
-  JAVASCRIPT – جميع الوظائف المتقدمة
+  JAVASCRIPT – جميع الوظائف
   ============================================================ -->
   <script>
     // ====================
@@ -781,7 +784,7 @@
       .forEach(el => observer.observe(el));
 
     // ====================
-    // 5. GENERATE SERVICES (13 خدمة)
+    // 5. GENERATE SERVICES (13 خدمة) – معبأة مباشرة
     // ====================
     const services = [
       { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران' },

@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>صعود الطائرة للسفر والسياحة | الوكالة الرائدة</title>
+
+    <!-- ===== PRELOADER STYLES (inline for speed) ===== -->
+    <style>
+        /* ---- preloader ---- */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #061d3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 28px;
+            transition: opacity 0.9s ease, visibility 0.9s ease;
+        }
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .preloader-logo {
+            font-size: 2.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #d4af37, #f5e56b, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+        .preloader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(212, 175, 55, 0.12);
+            border-top-color: #d4af37;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .preloader-bar {
+            width: 220px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .preloader-bar span {
+            display: block;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #d4af37, #f5e56b);
+            border-radius: 4px;
+            animation: loadBar 2s ease forwards;
+        }
+        @keyframes loadBar {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        .preloader-sub {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+            font-family: 'Tajawal', sans-serif;
+            letter-spacing: 4px;
+        }
+    </style>
+
+    <!-- ===== FONTS & ICONS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- ===== MAIN STYLES ===== -->
+    <style>
+        /* ============================================================
+               RESET & BASE
+               ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a2e5c;
+            --primary-light: #1a4a7a;
+            --primary-dark: #061d3a;
+            --gold: #d4af37;
+            --gold-light: #f0d060;
+            --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b, #d4af37);
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            --text-light: #f0f4ff;
+            --text-muted: rgba(255, 255, 255, 0.65);
+            --radius: 20px;
+            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --font: 'Tajawal', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--primary-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* ============================================================
+               SCROLLBAR
+               ============================================================ */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
+
+        /* ============================================================
+               PARTICLES CANVAS
+               ============================================================ */
+        #particles-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.45;
+        }
+
+        /* ============================================================
+               GLASS UTILITY
+               ============================================================ */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(18px) saturate(1.3);
+            -webkit-backdrop-filter: blur(18px) saturate(1.3);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            box-shadow: var(--glass-shadow);
+        }
+
+        /* ============================================================
+               HEADER / NAV
+               ============================================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 14px 0;
+            transition: all var(--transition);
+        }
+        .header.scrolled {
+            background: rgba(6, 29, 58, 0.92);
+            backdrop-filter: blur(22px) saturate(1.5);
+            -webkit-backdrop-filter: blur(22px) saturate(1.5);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+            box-shadow: 0 8px 50px rgba(0, 0, 0, 0.45);
+            padding: 8px 0;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        @keyframes logoFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+        .logo-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo-sub {
+            font-size: 0.6rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted);
+            display: block;
+            margin-top: -3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-links a {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition);
+            color: var(--text-muted);
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: rgba(212, 175, 55, 0.12);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 2.5px;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        .nav-cta {
+            background: var(--gold-gradient) !important;
+            color: var(--primary-dark) !important;
+            font-weight: 700 !important;
+            padding: 8px 26px !important;
+            border-radius: 50px !important;
+            -webkit-text-fill-color: var(--primary-dark) !important;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+        }
+        .nav-cta:hover {
+            transform: scale(1.06);
+            box-shadow: 0 8px 40px rgba(212, 175, 55, 0.35) !important;
+            background: var(--gold-gradient) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 4px;
+            transition: all var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============================================================
+               HERO
+               ============================================================ */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 130px 24px 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent 70%);
+            top: -200px;
+            right: -200px;
+            z-index: 0;
+            animation: glowFloat 8s ease-in-out infinite alternate;
+        }
+        .hero-bg-glow-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(10, 46, 92, 0.35), transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            z-index: 0;
+            animation: glowFloat 11s ease-in-out infinite alternate-reverse;
+        }
+        .hero-bg-glow-3 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent 70%);
+            top: 40%;
+            left: 40%;
+            z-index: 0;
+            animation: glowFloat 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(40px, -30px) scale(1.12);
+            }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1320px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.6rem, 6vw, 4.8rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+        .hero-content h1 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin-bottom: 32px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: var(--font);
+        }
+        .btn-primary {
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 28px rgba(212, 175, 55, 0.2);
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 56px rgba(212, 175, 55, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+        }
+        .btn-outline:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.06);
+            transform: translateY(-4px);
+        }
+        .btn-whatsapp {
+            background: #25d366;
+            color: #fff;
+            box-shadow: 0 4px 28px rgba(37, 211, 102, 0.2);
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 56px rgba(37, 211, 102, 0.35);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 44px;
+            margin-top: 44px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .hero-stats .stat h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold);
+            direction: ltr;
+        }
+        .hero-stats .stat p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Hero 3D Card */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-card {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 1/1.08;
+            border-radius: 32px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .hero-card:hover {
+            transform: perspective(900px) rotateY(-4deg) rotateX(4deg) scale(1.01);
+        }
+        .hero-card .big-icon {
+            font-size: 5.2rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+        @keyframes iconPulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.06);
+            }
+        }
+        .hero-card h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .hero-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 320px;
+        }
+        .hero-card .badge-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .hero-card .badge-row span {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 5px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            transition: all var(--transition);
+        }
+        .hero-card .badge-row span:hover {
+            background: rgba(212, 175, 55, 0.18);
+            transform: scale(1.05);
+        }
+        .hero-card .floating-icon {
+            position: absolute;
+            font-size: 2.2rem;
+            color: rgba(212, 175, 55, 0.12);
+            animation: floatIcon 7s ease-in-out infinite;
+        }
+        .hero-card .floating-icon:nth-child(1) {
+            top: 8%;
+            left: 6%;
+            animation-delay: 0s;
+        }
+        .hero-card .floating-icon:nth-child(2) {
+            bottom: 8%;
+            right: 6%;
+            animation-delay: 2.5s;
+        }
+        .hero-card .floating-icon:nth-child(3) {
+            top: 48%;
+            right: 4%;
+            animation-delay: 4.5s;
+            font-size: 1.6rem;
+        }
+        .hero-card .floating-icon:nth-child(4) {
+            bottom: 30%;
+            left: 4%;
+            animation-delay: 1.5s;
+            font-size: 1.4rem;
+        }
+
+        @keyframes floatIcon {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-18px) rotate(8deg);
+            }
+        }
+
+        /* ============================================================
+               SECTION
+               ============================================================ */
+        .section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 24px;
+        }
+        .section .container {
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+        .section-alt {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+        .section-title h2 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        .section-divider {
+            width: 60px;
+            height: 3.5px;
+            background: var(--gold-gradient);
+            border-radius: 4px;
+            margin: 14px auto 0;
+        }
+
+        /* ============================================================
+               SERVICES
+               ============================================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card {
+            padding: 36px 26px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.025);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all var(--transition);
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.04), transparent 60%);
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(212, 175, 55, 0.18);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .service-card .icon {
+            font-size: 3.2rem;
+            color: var(--gold);
+            margin-bottom: 14px;
+            display: inline-block;
+            transition: transform var(--transition);
+        }
+        .service-card:hover .icon {
+            transform: scale(1.15) rotate(-4deg);
+        }
+        .service-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+        }
+        .service-card .service-tag {
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 50px;
+            background: rgba(212, 175, 55, 0.08);
+            color: var(--gold-light);
+            font-size: 0.7rem;
+            font-weight: 500;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+        .service-card .click-hint {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            opacity: 0.4;
+            transition: opacity var(--transition);
+        }
+        .service-card:hover .click-hint {
+            opacity: 1;
+        }
+        .service-card .card-number {
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.06);
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================================
+               ABOUT
+               ============================================================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .about-image .about-card {
+            padding: 40px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.025);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+        }
+        .about-image .about-card .owner-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), #b8960f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 4rem;
+            color: var(--primary-dark);
+            box-shadow: 0 8px 50px rgba(212, 175, 55, 0.15);
+        }
+        .about-image .about-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+        .about-image .about-card .owner-title {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .about-image .about-card .owner-detail {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        .about-text h2 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+            line-height: 1.9;
+        }
+        .about-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 24px;
+            margin-top: 22px;
+        }
+        .about-info-grid .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .about-info-grid .info-item i {
+            color: var(--gold);
+            width: 20px;
+        }
+
+        /* ============================================================
+               WHY US
+               ============================================================ */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 28px;
+        }
+        .why-item {
+            padding: 32px 20px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            transition: all var(--transition);
+        }
+        .why-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.12);
+            background: rgba(255, 255, 255, 0.035);
+        }
+        .why-item .icon {
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .why-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .why-item p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ============================================================
+               CONTACT
+               ============================================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+        }
+
+        .contact-info .info-card {
+            padding: 24px 28px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 16px;
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .contact-info .info-card:hover {
+            border-color: rgba(212, 175, 55, 0.12);
+            transform: translateX(-4px);
+            background: rgba(255, 255, 255, 0.035);
+        }
+        .contact-info .info-card .icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(212, 175, 55, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .contact-info .info-card .info-text .label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .contact-info .info-card .info-text .value {
+            font-size: 1rem;
+            font-weight: 600;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .contact-form {
+            padding: 40px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.025);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .contact-form h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .contact-form .form-sub {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .contact-form .form-group {
+            margin-bottom: 18px;
+        }
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-family: var(--font);
+            font-size: 0.95rem;
+            transition: all var(--transition);
+            outline: none;
+        }
+        .contact-form .form-group input::placeholder,
+        .contact-form .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.05);
+        }
+        .contact-form .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        .contact-form .btn-submit {
+            width: 100%;
+            padding: 16px;
+            border-radius: 60px;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: var(--font);
+        }
+        .contact-form .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 48px rgba(212, 175, 55, 0.3);
+        }
+        .contact-form .form-status {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            text-align: center;
+            min-height: 28px;
+        }
+
+        /* ============================================================
+               FLOATING WHATSAPP
+               ============================================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .whatsapp-float .wa-btn {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: #25d366;
+            color: #fff;
+            font-size: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 48px rgba(37, 211, 102, 0.3);
+            transition: all var(--transition);
+            border: none;
+            cursor: pointer;
+            animation: waPulse 2.8s ease-in-out infinite;
+            position: relative;
+        }
+        .whatsapp-float .wa-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 64px rgba(37, 211, 102, 0.45);
+        }
+        .whatsapp-float .wa-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3px 14px;
+            border-radius: 50px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            white-space: nowrap;
+        }
+        @keyframes waPulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 48px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 64px rgba(37, 211, 102, 0.55), 0 0 0 14px rgba(37, 211, 102, 0.06);
+            }
+        }
+
+        /* ============================================================
+               FOOTER
+               ============================================================ */
+        .footer {
+            position: relative;
+            z-index: 1;
+            padding: 60px 24px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(6, 29, 58, 0.5);
+            backdrop-filter: blur(12px);
+        }
+        .footer .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer .brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 340px;
+            margin-top: 8px;
+        }
+        .footer .brand .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .footer .brand .socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            color: var(--text-muted);
+        }
+        .footer .brand .socials a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer h5 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #fff;
+        }
+        .footer ul li {
+            margin-bottom: 6px;
+        }
+        .footer ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: all var(--transition);
+        }
+        .footer ul li a:hover {
+            color: var(--gold);
+            padding-right: 6px;
+        }
+
+        .footer-bottom {
+            max-width: 1320px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .footer-bottom span {
+            color: var(--gold);
+        }
+
+        /* ============================================================
+               RESPONSIVE
+               ============================================================ */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content .subtitle {
+                margin: 0 auto 32px;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-visual {
+                order: -1;
+            }
+            .hero-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-info-grid {
+                justify-items: center;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 290px;
+                height: 100vh;
+                background: rgba(6, 29, 58, 0.97);
+                backdrop-filter: blur(28px);
+                flex-direction: column;
+                padding: 80px 28px 32px;
+                gap: 2px;
+                transition: right 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                border-left: 1px solid rgba(255, 255, 255, 0.04);
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a {
+                width: 100%;
+                padding: 14px 18px;
+                border-radius: 12px;
+                font-size: 1rem;
+            }
+            .nav-links a.active::after {
+                display: none;
+            }
+            .nav-cta {
+                margin-top: 8px;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-card {
+                max-width: 100%;
+                padding: 28px;
+            }
+            .hero-card .big-icon {
+                font-size: 3.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer .brand .socials {
+                justify-content: center;
+            }
+
+            .about-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 24px;
+            }
+            .contact-info .info-card {
+                padding: 18px 20px;
+            }
+
+            .whatsapp-float {
+                bottom: 16px;
+                left: 16px;
+            }
+            .whatsapp-float .wa-btn {
+                width: 58px;
+                height: 58px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .section {
+                padding: 56px 16px;
+            }
+            .logo {
+                font-size: 1.15rem;
+            }
+            .logo-icon {
+                font-size: 1.6rem;
+            }
+            .hero-card .badge-row span {
+                font-size: 0.65rem;
+                padding: 4px 12px;
+            }
+            .contact-form {
+                padding: 18px;
+            }
+        }
+
+        /* ============================================================
+               SCROLL REVEAL
+               ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .delay-1 {
+            transition-delay: 0.08s;
+        }
+        .delay-2 {
+            transition-delay: 0.16s;
+        }
+        .delay-3 {
+            transition-delay: 0.24s;
+        }
+        .delay-4 {
+            transition-delay: 0.32s;
+        }
+        .delay-5 {
+            transition-delay: 0.4s;
+        }
+        .delay-6 {
+            transition-delay: 0.48s;
+        }
+        .delay-7 {
+            transition-delay: 0.56s;
+        }
+        .delay-8 {
+            transition-delay: 0.64s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    PRELOADER
+    ============================================================ -->
+    <div id="preloader">
+        <div class="preloader-logo">✈️ صعود الطائرة</div>
+        <div class="preloader-spinner"></div>
+        <div class="preloader-bar"><span></span></div>
+        <div class="preloader-sub">للسفر والسياحة</div>
+    </div>
+
+    <!-- ============================================================
+    PARTICLES CANVAS
+    ============================================================ -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-icon">✈️</span>
+                <span>
+                    <span class="logo-text">صعود الطائرة</span>
+                    <span class="logo-sub">للسفر والسياحة</span>
+                </span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="active">الرئيسية</a>
+                <a href="#services">خدماتنا</a>
+                <a href="#about">من نحن</a>
+                <a href="#why">مميزاتنا</a>
+                <a href="#contact">اتصل بنا</a>
+                <a href="#contact" class="nav-cta">📞 احجز الآن</a>
+            </nav>
+
+            <div class="hamburger" id="hamburger" aria-label="القائمة">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="home">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-bg-glow-2"></div>
+        <div class="hero-bg-glow-3"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    اكتشف العالم مع
+                    <br />
+                    <span class="highlight">صعود الطائرة</span>
+                </h1>
+                <p class="subtitle">
+                    وجهتك الموثوقة للسفر والسياحة — نقدم لك أفضل باقات العمرة،
+                    التأشيرات، تذاكر الطيران، العطلات، والفنادق. رحلتك المثالية
+                    تبدأ من هنا.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        <i class="fas fa-compass"></i> استكشف الخدمات
+                    </a>
+                    <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمات%20السفر" target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> واتساب
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>+٨٥٠</h3>
+                        <p>عميل سعيد</p>
+                    </div>
+                    <div class="stat">
+                        <h3>+١٣٠</h3>
+                        <p>وجهة سفر</p>
+                    </div>
+                    <div class="stat">
+                        <h3>٩٨٪</h3>
+                        <p>رضا العملاء</p>
+                    </div>
+                    <div class="stat">
+                        <h3>+٥</h3>
+                        <p>سنوات خبرة</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="floating-icon"><i class="fas fa-plane-departure"></i></div>
+                    <div class="floating-icon"><i class="fas fa-umrah"></i></div>
+                    <div class="floating-icon"><i class="fas fa-passport"></i></div>
+                    <div class="floating-icon"><i class="fas fa-hotel"></i></div>
+
+                    <div class="big-icon">🌍</div>
+                    <h3>رحلتك تبدأ هنا</h3>
+                    <p>خدمات سياحية متكاملة بأعلى معايير الجودة والاحترافية</p>
+                    <div class="badge-row">
+                        <span>✈️ تذاكر</span>
+                        <span>🕋 عمرة</span>
+                        <span>🛂 تأشيرات</span>
+                        <span>🏨 فنادق</span>
+                        <span>🚗 تأجير</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SERVICES
+    ============================================================ -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>خدماتنا <span class="highlight">المتميزة</span></h2>
+                <p>نقدم لك مجموعة متكاملة من الخدمات السياحية لتجعل رحلتك لا تُنسى</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1 -->
+                <div class="service-card reveal delay-1" data-service="باقات العمرة" data-msg="أرغب في الاستفسار عن باقات العمرة">
+                    <span class="card-number">01</span>
+                    <div class="icon">🕋</div>
+                    <h4>باقات العمرة</h4>
+                    <p>أفضل باقات العمرة بأسعار تنافسية وخدمات فندقية مميزة</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                </div>
+
+                <!-- 2 -->
+                <div class="service-card reveal delay-2" data-service="خدمات التأشيرات" data-msg="أرغب في الاستفسار عن خدمات التأشيرات">
+                    <span class="card-number">02</span>
+                    <div class="icon">🛂</div>
+                    <h4>خدمات التأشيرات</h4>
+                    <p>تأشيرات سياحية، عمل، زيارة، وعلاج لكافة الدول</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                </div>
+
+                <!-- 3 -->
+                <div class="service-card reveal delay-3" data-service="تذاكر الطيران" data-msg="أرغب في الاستفسار عن تذاكر الطيران">
+                    <span class="card-number">03</span>
+                    <div class="icon">✈️</div>
+                    <h4>تذاكر الطيران</h4>
+                    <p>أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                </div>
+
+                <!-- 4 -->
+                <div class="service-card reveal delay-4" data-service="الباقات السياحية" data-msg="أرغب في الاستفسار عن الباقات السياحية">
+                    <span class="card-number">04</span>
+                    <div class="icon">🏝️</div>
+                    <h4>باقات سياحية</h4>
+                    <p>عطلات مميزة في أجمل وجهات العالم بأسعار لا تُقاوم</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                </div>
+
+                <!-- 5 -->
+                <div class="service-card reveal delay-5" data-service="حجز الفنادق" data-msg="أرغب في الاستفسار عن حجز الفنادق">
+                    <span class="card-number">05</span>
+                    <div class="icon">🏨</div>
+                    <h4>حجز الفنادق</h4>
+                    <p>أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                </div>
+
+                <!-- 6 -->
+                <div class="service-card reveal delay-6" data-service="تأجير السيارات" data-msg="أرغب في الاستفسار عن تأجير السيارات">
+                    <span class="card-number">06</span>
+                    <div class="icon">🚗</div>
+                    <h4>تأجير السيارات</h4>
+                    <p>سيارات فاخرة واقتصادية بأسعار مميزة لتجربة قيادة لا تُنسى</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                </div>
+
+                <!-- 7 -->
+                <div class="service-card reveal delay-7" data-service="تأمين السفر" data-msg="أرغب في الاستفسار عن تأمين السفر">
+                    <span class="card-number">07</span>
+                    <div class="icon">🛡️</div>
+                    <h4>تأمين السفر</h4>
+                    <p>تأمين شامل يغطي جميع مخاطر السفر لتطمئن أثناء رحلتك</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                </div>
+
+                <!-- 8 -->
+                <div class="service-card reveal delay-8" data-service="الرحلات الجماعية" data-msg="أرغب في الاستفسار عن الرحلات الجماعية">
+                    <span class="card-number">08</span>
+                    <div class="icon">👥</div>
+                    <h4>رحلات جماعية</h4>
+                    <p>رحلات منظمة للمجموعات مع مرشدين سياحيين محترفين</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ABOUT
+    ============================================================ -->
+    <section class="section section-alt" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal-left">
+                    <div class="about-card">
+                        <div class="owner-avatar">👤</div>
+                        <h3>عطاالله بن مدخل بن صياح المضياني العنزي</h3>
+                        <p class="owner-title">🇸🇦 مالك ومؤسس صعود الطائرة</p>
+                        <p class="owner-detail">
+                            <i class="fas fa-phone" style="color:var(--gold);"></i> 0555382038
+                        </p>
+                        <p class="owner-detail">
+                            <i class="fas fa-envelope" style="color:var(--gold);"></i> atallahalanazi@sueudaltaayira.com
+                        </p>
+                        <div style="margin-top: 16px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                            <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">✈️ خبير سفر</span>
+                            <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">🕋 عمرة</span>
+                            <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">🌍 سياحة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text reveal-right">
+                    <h2>من نحن <span class="highlight">في صعود الطائرة</span></h2>
+                    <p>
+                        <strong>صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر رائدة في المملكة
+                        العربية السعودية، نقدم خدمات سياحية متكاملة لعملائنا الكرام. نفخر بتقديم
+                        أفضل باقات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية
+                        بأعلى معايير الجودة والاحترافية.
+                    </p>
+                    <p>
+                        فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة
+                        لعملائنا، مع أسعار تنافسية وخدمات متميزة.
+                    </p>
+
+                    <div class="about-info-grid">
+                        <div class="info-item"><i class="fas fa-phone"></i> 0555382038</div>
+                        <div class="info-item"><i class="fas fa-phone"></i> 0554126832</div>
+                        <div class="info-item"><i class="fas fa-envelope"></i> hamdan@sueudaltaayira.com</div>
+                        <div class="info-item"><i class="fas fa-envelope"></i> atallahalanazi@sueudaltaayira.com</div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> طريق ملك عبدالعزيز، عرعر</div>
+                        <div class="info-item"><i class="fas fa-flag"></i> المملكة العربية السعودية</div>
+                    </div>
+
+                    <a href="#contact" class="btn btn-primary" style="margin-top:28px;">
+                        <i class="fas fa-paper-plane"></i> تواصل معنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    WHY US
+    ============================================================ -->
+    <section class="section" id="why">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>لماذا <span class="highlight">صعود الطائرة</span></h2>
+                <p>نحن نضع رضاك فوق كل اعتبار ونقدم لك تجربة سفر استثنائية</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-item reveal delay-1">
+                    <div class="icon">🏆</div>
+                    <h4>خبرة متميزة</h4>
+                    <p>أكثر من 5 سنوات من الخبرة في مجال السفر والسياحة</p>
+                </div>
+                <div class="why-item reveal delay-2">
+                    <div class="icon">💰</div>
+                    <h4>أسعار تنافسية</h4>
+                    <p>أفضل الأسعار مع عروض حصرية لعملائنا الكرام</p>
+                </div>
+                <div class="why-item reveal delay-3">
+                    <div class="icon">🛡️</div>
+                    <h4>خدمة موثوقة</h4>
+                    <p>خدمات معتمدة وموثوقة تضمن لك رحلة آمنة ومريحة</p>
+                </div>
+                <div class="why-item reveal delay-4">
+                    <div class="icon">⏰</div>
+                    <h4>دعم على مدار الساعة</h4>
+                    <p>فريق دعم متخصص جاهز لمساعدتك في أي وقت</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CONTACT
+    ============================================================ -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>اتصل <span class="highlight">بنا</span></h2>
+                <p>نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <div class="info-card">
+                        <div class="icon-box"><i class="fas fa-phone"></i></div>
+                        <div class="info-text">
+                            <div class="label">هاتف العمل</div>
+                            <div class="value" dir="ltr">0554126832</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon-box"><i class="fas fa-phone"></i></div>
+                        <div class="info-text">
+                            <div class="label">هاتف المالك</div>
+                            <div class="value" dir="ltr">0555382038</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                        <div class="info-text">
+                            <div class="label">البريد الإلكتروني</div>
+                            <div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div>
+                            <div class="value" dir="ltr" style="font-size:0.8rem; font-weight:400; margin-top:2px;">atallahalanazi@sueudaltaayira.com</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-text">
+                            <div class="label">العنوان</div>
+                            <div class="value" style="font-weight:400; font-size:0.95rem;">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+                        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1; justify-content:center;">
+                            <i class="fab fa-whatsapp"></i> واتساب المالك
+                        </a>
+                        <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1; justify-content:center; background:#1ebe5c;">
+                            <i class="fab fa-whatsapp"></i> واتساب العمل
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form reveal-right">
+                    <h3>📩 أرسل لنا رسالة</h3>
+                    <p class="form-sub">سنرد عليك في أقرب وقت ممكن</p>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="contactName" placeholder="الاسم الكامل" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="contactPhone" placeholder="رقم الجوال" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" placeholder="البريد الإلكتروني" />
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" placeholder="اكتب رسالتك هنا..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                        </button>
+                    </form>
+                    <div class="form-status" id="formStatus"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="brand">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                    <span style="font-size:2.2rem; color:var(--gold);">✈️</span>
+                    <span style="font-size:1.4rem; font-weight:900; background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+                        صعود الطائرة
+                    </span>
+                </div>
+                <p>وجهتك الأولى للسفر والسياحة في المملكة العربية السعودية. نقدم خدمات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية.</p>
+                <div class="socials">
+                    <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="لينكدإن"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5>روابط سريعة</h5>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#why">مميزاتنا</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>خدماتنا</h5>
+                <ul>
+                    <li><a href="#services">باقات العمرة</a></li>
+                    <li><a href="#services">تأشيرات</a></li>
+                    <li><a href="#services">تذاكر طيران</a></li>
+                    <li><a href="#services">باقات سياحية</a></li>
+                    <li><a href="#services">فنادق</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>معلومات</h5>
+                <ul>
+                    <li><a href="#about">عن الوكالة</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                    <li><a href="#">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 <span>صعود الطائرة للسفر والسياحة</span> — جميع الحقوق محفوظة
+            <br style="display:block; margin-top:4px;" />
+            تصميم وتطوير <span>✧</span> برؤية عصرية
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    FLOATING WHATSAPP
+    ============================================================ -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمات%20السفر" target="_blank" class="wa-btn" aria-label="واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <span class="wa-label">تواصل واتساب</span>
+    </div>
+
+    <!-- ============================================================
+    JAVASCRIPT — Complete
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // 1. PRELOADER
+        // ============================================================
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hide');
+            }, 1400);
+        });
+
+        // ============================================================
+        // 2. PARTICLES (canvas)
+        // ============================================================
+        (function initParticles() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            const particles = [];
+            const COUNT = 70;
+
+            function resize() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.size = Math.random() * 2.8 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.5;
+                    this.speedY = (Math.random() - 0.5) * 0.5;
+                    this.opacity = Math.random() * 0.35 + 0.08;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > w) this.speedX *= -1;
+                    if (this.y < 0 || this.y > h) this.speedY *= -1;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < COUNT; i++) {
+                particles.push(new Particle());
+            }
+
+            function drawLines() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 160) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(212, 175, 55, ${0.05 * (1 - dist / 160)})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                particles.forEach(p => { p.update();
+                    p.draw(); });
+                drawLines();
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // ============================================================
+        // 3. HEADER SCROLL
+        // ============================================================
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 60) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ============================================================
+        // 4. MOBILE HAMBURGER
+        // ============================================================
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // ============================================================
+        // 5. SCROLL REVEAL (Intersection Observer)
+        // ============================================================
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -20px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Also observe service cards and why items
+        document.querySelectorAll('.service-card, .why-item').forEach(el => revealObserver.observe(el));
+
+        // ============================================================
+        // 6. SERVICE CARDS → WHATSAPP
+        // ============================================================
+        const WA_OWNER = '966555382038';
+        const WA_WORK = '966554126832';
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const service = card.dataset.service || 'خدمة';
+                const msg = card.dataset.msg || `أرغب في الاستفسار عن خدمة ${service}`;
+                const url =
+                    `https://wa.me/${WA_OWNER}?text=${encodeURIComponent(`مرحباً، ${msg} (من موقع صعود الطائرة)`)}`;
+                window.open(url, '_blank');
+            });
+        });
+
+        // ============================================================
+        // 7. CONTACT FORM → WHATSAPP
+        // ============================================================
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('contactName').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+
+            if (!name || !phone || !message) {
+                formStatus.textContent = '⚠️ الرجاء ملء جميع الحقول المطلوبة';
+                formStatus.style.color = '#f87171';
+                return;
+            }
+
+            const fullMsg =
+                `📩 رسالة جديدة من موقع صعود الطائرة\n\n👤 الاسم: ${name}\n📱 الجوال: ${phone}\n📧 البريد: ${email || 'غير مدخل'}\n\n💬 الرسالة:\n${message}`;
+
+            const url = `https://wa.me/${WA_OWNER}?text=${encodeURIComponent(fullMsg)}`;
+
+            formStatus.textContent = '✅ جاري التحويل إلى واتساب ...';
+            formStatus.style.color = '#4ade80';
+
+            setTimeout(() => {
+                window.open(url, '_blank');
+                contactForm.reset();
+                formStatus.textContent = '✅ تم إرسال رسالتك بنجاح!';
+                formStatus.style.color = '#4ade80';
+                setTimeout(() => { formStatus.textContent = ''; }, 5000);
+            }, 700);
+        });
+
+        // ============================================================
+        // 8. SMOOTH SCROLL FOR NAV LINKS
+        // ============================================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    const offset = 80;
+                    const top = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ============================================================
+        // 9. DYNAMIC YEAR IN FOOTER
+        // ============================================================
+        document.querySelector('.footer-bottom').innerHTML =
+            `&copy; ${new Date().getFullYear()} <span>صعود الطائرة للسفر والسياحة</span> — جميع الحقوق محفوظة
+            <br style="display:block; margin-top:4px;" />
+            تصميم وتطوير <span>✧</span> برؤية عصرية`;
+
+        // ============================================================
+        // 10. KEYBOARD: ESC to close nav
+        // ============================================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            }
+        });
+
+        // ============================================================
+        // 11. CONSOLE BRANDING
+        // ============================================================
+        console.log('%c✈️ صعود الطائرة للسفر والسياحة', 'font-size:20px; font-weight:bold; color:#d4af37;');
+        console.log('%c📞 0555382038 | 0554126832', 'font-size:14px; color:#aaa;');
+        console.log('%c📧 hamdan@sueudaltaayira.com', 'font-size:14px; color:#aaa;');
+        console.log('%c🌍 https://sueudaltaayira.com', 'font-size:14px; color:#aaa;');
+        console.log('%c✨ وكالة سفر رائدة في المملكة', 'font-size:12px; color:#888;');
+    </script>
+
+</body>
+</html>

@@ -1,10 +1,270 @@
 <!DOCTYPE html>
-... (عنوان مختلف: "خدماتنا – صعود الطائرة") ...
-<section class="section" style="padding-top:140px;">
-  <div class="container">
-    <h1>خدماتنا</h1>
-    <div class="services-grid">
-      <!-- نفس بطاقات الخدمات الـ 10 -->
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خدماتنا – صعود الطائرة</title>
+  <meta name="description" content="جميع خدمات السفر التي نقدمها." />
+  <link rel="canonical" href="https://sueudaltaayira.com/services.html" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== نفس الستايل العام (انسخه من index.html) ===== */
+    /* (للتوفير، سأختصر هنا، لكن يجب نسخه بالكامل – استخدم نفس الستايل من index.html) */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root { --primary-dark:#061d3a; --gold:#d4af37; --gold-light:#f0d060; --gold-gradient:linear-gradient(135deg,#d4af37,#f5e56b); --glass-bg:rgba(255,255,255,0.04); --glass-border:rgba(255,255,255,0.06); --text-muted:rgba(255,255,255,0.6); --radius:20px; --font:'Tajawal',sans-serif; }
+    html { scroll-behavior:smooth; }
+    body { font-family:var(--font); background:var(--primary-dark); color:#f0f4ff; line-height:1.7; }
+    body.rtl { direction:rtl; text-align:right; }
+    body.ltr { direction:ltr; text-align:left; }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; }
+    ::-webkit-scrollbar { width:7px; }
+    ::-webkit-scrollbar-track { background:var(--primary-dark); }
+    ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:10px; }
+    /* ===== HEADER ===== */
+    .header { position:fixed; top:0; left:0; right:0; z-index:1000; padding:14px 0; background:rgba(6,29,58,0.94); backdrop-filter:blur(20px); border-bottom:1px solid rgba(212,175,55,0.1); }
+    .header .container { display:flex; align-items:center; justify-content:space-between; max-width:1320px; margin:0 auto; padding:0 24px; }
+    .logo { display:flex; align-items:center; gap:10px; font-size:1.5rem; font-weight:900; }
+    .logo-icon { font-size:2rem; color:var(--gold); }
+    .logo-text { background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .logo-sub { font-size:0.6rem; font-weight:300; color:var(--text-muted); display:block; margin-top:-3px; }
+    .nav-links { display:flex; align-items:center; gap:4px; flex-wrap:wrap; }
+    .nav-links a { padding:8px 18px; border-radius:50px; font-size:0.9rem; font-weight:500; color:var(--text-muted); transition:0.3s; }
+    .nav-links a:hover, .nav-links a.active { color:#fff; background:rgba(212,175,55,0.1); }
+    .nav-links a.active { position:relative; }
+    .nav-links a.active::after { content:''; position:absolute; bottom:4px; left:50%; transform:translateX(-50%); width:18px; height:2.5px; background:var(--gold); border-radius:4px; }
+    .nav-cta { background:var(--gold-gradient) !important; color:var(--primary-dark) !important; font-weight:700 !important; padding:8px 26px !important; border-radius:50px !important; }
+    .nav-cta:hover { transform:scale(1.05); }
+    .lang-toggle { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; padding:6px 16px; border-radius:50px; font-weight:600; cursor:pointer; font-size:0.8rem; transition:0.3s; }
+    .lang-toggle:hover { background:rgba(212,175,55,0.15); border-color:var(--gold); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; z-index:1001; }
+    .hamburger span { width:28px; height:2.5px; background:#fff; border-radius:4px; transition:0.3s; }
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+    .hamburger.active span:nth-child(2){opacity:0; transform:scaleX(0);}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+    @media (max-width:768px) {
+      .nav-links { position:fixed; top:0; right:-100%; width:280px; height:100vh; background:rgba(6,29,58,0.97); flex-direction:column; padding:80px 28px 32px; transition:right 0.4s; border-left:1px solid rgba(255,255,255,0.04); }
+      .nav-links.open { right:0; }
+      .nav-links a { width:100%; padding:14px 18px; border-radius:12px; }
+      .nav-cta { margin-top:8px; }
+      .hamburger { display:flex; }
+    }
+    /* ===== SECTION ===== */
+    .section { padding:130px 24px 80px; }
+    .section .container { max-width:1320px; margin:0 auto; }
+    .section-title { text-align:center; margin-bottom:56px; }
+    .section-title h2 { font-size:clamp(2rem,4vw,3.2rem); font-weight:900; margin-bottom:8px; }
+    .section-title h2 .highlight { background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .section-title p { color:var(--text-muted); font-size:1.1rem; max-width:620px; margin:0 auto; }
+    .section-divider { width:60px; height:3.5px; background:var(--gold-gradient); border-radius:4px; margin:14px auto 0; }
+    .grid { display:grid; gap:24px; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); }
+    .card { background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); border-radius:var(--radius); padding:24px; text-align:center; transition:0.4s; }
+    .card:hover { transform:translateY(-8px); border-color:rgba(212,175,55,0.2); background:rgba(255,255,255,0.05); }
+    .card .icon { font-size:2.8rem; color:var(--gold); margin-bottom:12px; }
+    .card h4 { font-size:1.2rem; font-weight:700; }
+    .card p { color:var(--text-muted); font-size:0.9rem; margin-bottom:12px; }
+    .card .tag { display:inline-block; padding:2px 12px; border-radius:50px; background:rgba(212,175,55,0.08); color:var(--gold-light); font-size:0.7rem; border:1px solid rgba(212,175,55,0.06); }
+    /* ===== FOOTER ===== */
+    .footer { padding:60px 24px 30px; border-top:1px solid rgba(255,255,255,0.03); background:rgba(6,29,58,0.5); backdrop-filter:blur(12px); }
+    .footer .container { max-width:1320px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; }
+    .footer .brand p { color:var(--text-muted); font-size:0.9rem; max-width:340px; margin-top:8px; }
+    .footer .brand .socials { display:flex; gap:10px; margin-top:16px; }
+    .footer .brand .socials a { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:0.3s; }
+    .footer .brand .socials a:hover { background:rgba(212,175,55,0.1); border-color:var(--gold); color:var(--gold); transform:translateY(-3px); }
+    .footer h5 { font-size:1.05rem; font-weight:700; margin-bottom:14px; color:#fff; }
+    .footer ul li { margin-bottom:6px; }
+    .footer ul li a { color:var(--text-muted); font-size:0.9rem; transition:0.3s; }
+    .footer ul li a:hover { color:var(--gold); padding-right:6px; }
+    .footer-bottom { max-width:1320px; margin:40px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.03); text-align:center; color:var(--text-muted); font-size:0.8rem; }
+    .footer-bottom span { color:var(--gold); }
+    /* ===== WHATSAPP FLOAT & AI CHAT ===== */
+    .whatsapp-float { position:fixed; bottom:28px; left:28px; z-index:9999; display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .whatsapp-float .wa-btn { width:68px; height:68px; border-radius:50%; background:#25d366; color:#fff; font-size:2.4rem; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 40px rgba(37,211,102,0.3); transition:0.3s; border:none; cursor:pointer; animation:waPulse 2.8s ease-in-out infinite; }
+    .whatsapp-float .wa-btn:hover { transform:scale(1.1); }
+    .whatsapp-float .wa-label { font-size:0.65rem; color:var(--text-muted); background:rgba(0,0,0,0.5); padding:3px 14px; border-radius:50px; backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.04); }
+    @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3);} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06);} }
+    .ai-chat-toggle { position:fixed; bottom:100px; right:28px; z-index:9998; width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; font-size:1.8rem; border:none; cursor:pointer; box-shadow:0 8px 40px rgba(108,60,224,0.35); transition:0.3s; animation:aiPulse 3s ease-in-out infinite; display:flex; align-items:center; justify-content:center; }
+    .ai-chat-toggle:hover { transform:scale(1.1); }
+    @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35);} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06);} }
+    .ai-chat-box { position:fixed; bottom:175px; right:28px; z-index:9997; width:380px; max-width:calc(100vw - 56px); max-height:500px; border-radius:24px; background:rgba(6,29,58,0.96); backdrop-filter:blur(30px); border:1px solid rgba(255,255,255,0.06); box-shadow:0 30px 80px rgba(0,0,0,0.6); display:none; flex-direction:column; overflow:hidden; }
+    .ai-chat-box.open { display:flex; animation:chatSlideUp 0.4s ease; }
+    @keyframes chatSlideUp { from{opacity:0;transform:translateY(30px) scale(0.96);} to{opacity:1;transform:translateY(0) scale(1);} }
+    .ai-chat-header { padding:16px 20px; background:rgba(108,60,224,0.1); border-bottom:1px solid rgba(255,255,255,0.04); display:flex; align-items:center; justify-content:space-between; }
+    .ai-chat-header .title { display:flex; align-items:center; gap:10px; font-weight:700; }
+    .ai-chat-header .title i { color:#a855f7; }
+    .ai-chat-header .close-btn { background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer; transition:0.3s; padding:4px; }
+    .ai-chat-header .close-btn:hover { color:#fff; transform:rotate(90deg); }
+    .ai-chat-messages { flex:1; padding:16px 18px; overflow-y:auto; max-height:320px; display:flex; flex-direction:column; gap:10px; }
+    .ai-chat-messages .msg { padding:10px 16px; border-radius:16px; max-width:85%; font-size:0.9rem; line-height:1.6; animation:msgPop 0.3s ease; }
+    @keyframes msgPop { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    .ai-chat-messages .msg.bot { background:rgba(108,60,224,0.12); border:1px solid rgba(108,60,224,0.08); align-self:flex-start; border-bottom-right-radius:4px; }
+    .ai-chat-messages .msg.user { background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.06); align-self:flex-end; border-bottom-left-radius:4px; }
+    .ai-chat-messages .msg .time { font-size:0.6rem; color:var(--text-muted); margin-top:4px; display:block; opacity:0.5; }
+    .ai-chat-input { padding:12px 16px 16px; border-top:1px solid rgba(255,255,255,0.04); display:flex; gap:10px; }
+    .ai-chat-input input { flex:1; padding:10px 16px; border-radius:50px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); color:#fff; font-family:inherit; font-size:0.9rem; outline:none; }
+    .ai-chat-input input:focus { border-color:#a855f7; }
+    .ai-chat-input button { padding:10px 20px; border-radius:50px; border:none; background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; font-weight:700; cursor:pointer; transition:0.3s; font-family:inherit; }
+    .ai-chat-input button:hover { transform:scale(1.04); }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:1024px) { .footer .container { grid-template-columns:1fr 1fr; } }
+    @media (max-width:768px) { .grid { grid-template-columns:1fr 1fr; } .footer .container { grid-template-columns:1fr; text-align:center; } .footer .brand .socials { justify-content:center; } .ai-chat-box { width:calc(100vw - 32px); right:16px; bottom:155px; } .ai-chat-toggle { right:16px; bottom:85px; width:50px; height:50px; font-size:1.4rem; } }
+    @media (max-width:480px) { .grid { grid-template-columns:1fr; } .section { padding:56px 16px; } }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER (مشترك) ===== -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span><span class="logo-text">صعود الطائرة</span><span class="logo-sub">للسفر والسياحة</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">الرئيسية</a>
+        <a href="services.html" class="active">خدماتنا</a>
+        <a href="packages.html">باقات</a>
+        <a href="hotels.html">فنادق</a>
+        <a href="cars.html">سيارات</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="lang-toggle" id="langToggle">🇬🇧 EN</button>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>خدماتنا <span class="highlight">المتكاملة</span></h2>
+        <p>نقدم لك كل ما تحتاجه لرحلة سلسة وممتعة – جميع الخدمات السياحية في مكان واحد</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="icon">✈️</div><h4>تذاكر طيران</h4><p>أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🕋</div><h4>باقات العمرة</h4><p>باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🛂</div><h4>التأشيرات</h4><p>تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🏨</div><h4>حجز الفنادق</h4><p>أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🚗</div><h4>تأجير السيارات</h4><p>سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🏝️</div><h4>باقات سياحية</h4><p>عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🚆</div><h4>حجز القطارات</h4><p>حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🚌</div><h4>حجز الباصات</h4><p>رحلات برية مريحة بأفضل الأسعار على شبكات الباصات</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">✈️</div><h4>نقل المطار</h4><p>خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🛡️</div><h4>تأمين السفر</h4><p>تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">👥</div><h4>رحلات جماعية</h4><p>تنظيم رحلات للمجموعات مع مرشدين سياحيين محترفين</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">🚢</div><h4>رحلات بحرية</h4><p>كروز فاخر على متن أفضل السفن السياحية العالمية</p><span class="tag">احجز الآن</span></div>
+        <div class="card"><div class="icon">💼</div><h4>سفر رجال أعمال</h4><p>خدمات مخصصة لرجال الأعمال مع أفضل وسائل الراحة</p><span class="tag">احجز الآن</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHATSAPP FLOAT & AI CHAT (مثل index) ===== -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+    <span class="wa-label">تواصل واتساب</span>
+  </div>
+  <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
+  <div class="ai-chat-box" id="aiChatBox">
+    <div class="ai-chat-header">
+      <div class="title"><i class="fas fa-robot"></i> مساعد صعود الطائرة AI</div>
+      <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="msg bot">👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟<span class="time">الآن</span></div>
+    </div>
+    <div class="ai-chat-input">
+      <input type="text" id="aiChatInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
+      <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
-</section>
+
+  <script>
+    // ===== نفس الـ JS من index (هامبرغر، شات، لغة) =====
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+    // AI Chat
+    const chatBox = document.getElementById('aiChatBox');
+    const chatMessages = document.getElementById('aiChatMessages');
+    const chatInput = document.getElementById('aiChatInput');
+    const aiResponses = {
+      'مرحبا': '👋 أهلاً بك! كيف يمكنني مساعدتك اليوم؟',
+      'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال.',
+      'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، وعلاج.',
+      'تذكرة': '✈️ نوفر أرخص تذاكر الطيران.',
+      'فندق': '🏨 عروض حصرية على الفنادق الفاخرة.',
+      'سيارة': '🚗 تأجير سيارات بأسعار مميزة.',
+      'سعر': '💰 أسعارنا تنافسية جداً!',
+      'شكرا': '🙏 العفو! سعداء بمساعدتك.'
+    };
+    const defaultReplies = ['🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك.', '📱 يرجى مراسلتنا على واتساب 0555382038.', '🌍 اكتشف عروضنا في قسم الباقات!'];
+    function getAIResponse(text) {
+      const lower = text.toLowerCase().trim();
+      for (const [key, response] of Object.entries(aiResponses)) {
+        if (lower.includes(key)) return response;
+      }
+      return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
+    }
+    window.toggleAIChat = function() {
+      chatBox.classList.toggle('open');
+      if (chatBox.classList.contains('open')) chatInput.focus();
+    };
+    function addMessage(type, text) {
+      const msg = document.createElement('div');
+      msg.className = `msg ${type}`;
+      const time = new Date().toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' });
+      msg.innerHTML = `${text}<span class="time">${time}</span>`;
+      chatMessages.appendChild(msg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    window.sendAIMessage = function() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+      addMessage('user', text);
+      chatInput.value = '';
+      const typing = document.createElement('div');
+      typing.className = 'msg bot';
+      typing.innerHTML = '🤖 جاري التفكير...';
+      typing.id = 'typingIndicator';
+      chatMessages.appendChild(typing);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      setTimeout(() => {
+        document.getElementById('typingIndicator')?.remove();
+        addMessage('bot', getAIResponse(text));
+      }, 500 + Math.random() * 400);
+    };
+    // Language toggle (مختصر)
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = 'ar';
+    langToggle.addEventListener('click', () => {
+      const newLang = currentLang === 'ar' ? 'en' : 'ar';
+      currentLang = newLang;
+      document.body.className = newLang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = newLang;
+      document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+      langToggle.textContent = newLang === 'ar' ? '🇬🇧 EN' : '🇸🇦 عربي';
+      localStorage.setItem('lang', newLang);
+    });
+    const savedLang = localStorage.getItem('lang') || 'ar';
+    document.body.className = savedLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = savedLang;
+    document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+    langToggle.textContent = savedLang === 'ar' ? '🇬🇧 EN' : '🇸🇦 عربي';
+    currentLang = savedLang;
+  </script>
+</body>
+</html>

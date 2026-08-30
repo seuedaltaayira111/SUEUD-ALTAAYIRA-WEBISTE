@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>صعود الطائرة – وكالة سفر وسياحة</title>
-  <meta name="description" content="وجهتك الأولى للسفر – حجز العمرة، التأشيرات، الباقات العالمية، وتأجير السيارات. خدمة عربية وإنجليزية." />
+  <meta name="description" content="وجهتك الأولى للسفر – حجز العمرة، التأشيرات، الباقات العالمية، وتأجير السيارات." />
   <link rel="canonical" href="https://sueudaltaayira.com/" />
-  <!-- Open Graph -->
   <meta property="og:title" content="صعود الطائرة – وكالة سفر وسياحة" />
-  <meta property="og:description" content="خدمات سياحية متكاملة بأفضل الأسعار – العمرة، التأشيرات، الباقات، وتأجير السيارات." />
+  <meta property="og:description" content="خدمات سياحية متكاملة بأفضل الأسعار." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sueudaltaayira.com/" />
-  <!-- JSON-LD (منظم) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -24,140 +22,99 @@
       "streetAddress": "طريق ملك عبدالعزيز",
       "addressLocality": "عرعر",
       "addressCountry": "SA"
-    },
-    "sameAs": [
-      "https://www.facebook.com/sueudaltaayira",
-      "https://www.instagram.com/sueudaltaayira"
-    ]
+    }
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
-    /* ============================================================
-       RESET & BASE (دعم RTL/LTR)
-       ============================================================ */
+    /* ===== RESET & BASE ===== */
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --primary: #0a2e5c;
-      --primary-light: #1a4a7a;
       --primary-dark: #061d3a;
       --gold: #d4af37;
       --gold-light: #f0d060;
       --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b, #d4af37);
       --glass-bg: rgba(255,255,255,0.05);
       --glass-border: rgba(255,255,255,0.07);
-      --glass-shadow: 0 8px 40px rgba(0,0,0,0.3);
-      --text-light: #f0f4ff;
       --text-muted: rgba(255,255,255,0.6);
       --radius: 20px;
-      --transition: 0.5s cubic-bezier(0.23,1,0.32,1);
-      --font-ar: 'Tajawal', sans-serif;
-      --font-en: 'Inter', sans-serif;
+      --font: 'Tajawal', sans-serif;
     }
     html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-ar);
+      font-family: var(--font);
       background: var(--primary-dark);
-      color: var(--text-light);
+      color: #f0f4ff;
       overflow-x: hidden;
       line-height: 1.7;
-      transition: all 0.3s;
     }
     body.rtl { direction: rtl; text-align: right; }
     body.ltr { direction: ltr; text-align: left; }
-    body.ltr .hero-content h1 { text-align: left; }
-    body.ltr .section-title { text-align: center; }
-    body.ltr .about-text { text-align: left; }
-    /* تعديلات بسيطة للغة */
-    body.ltr .nav-links a { font-family: var(--font-en); }
-    body.ltr .btn, body.ltr .service-card h4, body.ltr .package-card h4, body.ltr .car-card h4 { font-family: var(--font-en); }
+    body.ltr .nav-links a { font-family: 'Segoe UI', sans-serif; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
-
     ::-webkit-scrollbar { width:7px; }
     ::-webkit-scrollbar-track { background:var(--primary-dark); }
     ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:10px; }
-    ::-webkit-scrollbar-thumb:hover { background:var(--gold-light); }
 
-    #particles-canvas { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.4; }
-    .glass { background:var(--glass-bg); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border:1px solid var(--glass-border); border-radius:var(--radius); box-shadow:var(--glass-shadow); }
+    /* ===== PARTICLES ===== */
+    #particles-canvas { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.3; }
 
-    /* ============================================================
-       HEADER
-       ============================================================ */
-    .header { position:fixed; top:0; left:0; right:0; z-index:1000; padding:14px 0; transition:all var(--transition); }
-    .header.scrolled { background:rgba(6,29,58,0.94); backdrop-filter:blur(22px); border-bottom:1px solid rgba(212,175,55,0.1); box-shadow:0 8px 50px rgba(0,0,0,0.45); padding:8px 0; }
+    /* ===== GLASS ===== */
+    .glass { background:var(--glass-bg); backdrop-filter:blur(18px); border:1px solid var(--glass-border); border-radius:var(--radius); }
+
+    /* ===== HEADER ===== */
+    .header { position:fixed; top:0; left:0; right:0; z-index:1000; padding:14px 0; transition:0.3s; }
+    .header.scrolled { background:rgba(6,29,58,0.94); backdrop-filter:blur(20px); border-bottom:1px solid rgba(212,175,55,0.1); padding:8px 0; }
     .header .container { display:flex; align-items:center; justify-content:space-between; max-width:1320px; margin:0 auto; padding:0 24px; }
     .logo { display:flex; align-items:center; gap:10px; font-size:1.5rem; font-weight:900; }
     .logo-icon { font-size:2rem; color:var(--gold); animation:logoFloat 3s ease-in-out infinite; }
     @keyframes logoFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);} }
     .logo-text { background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .logo-sub { font-size:0.6rem; font-weight:300; letter-spacing:2px; color:var(--text-muted); -webkit-text-fill-color:var(--text-muted); display:block; margin-top:-3px; }
+    .logo-sub { font-size:0.6rem; font-weight:300; color:var(--text-muted); display:block; margin-top:-3px; }
     .nav-links { display:flex; align-items:center; gap:4px; }
-    .nav-links a { padding:8px 18px; border-radius:50px; font-size:0.9rem; font-weight:500; transition:all var(--transition); color:var(--text-muted); position:relative; }
+    .nav-links a { padding:8px 18px; border-radius:50px; font-size:0.9rem; font-weight:500; color:var(--text-muted); transition:0.3s; position:relative; }
     .nav-links a:hover, .nav-links a.active { color:#fff; background:rgba(212,175,55,0.1); }
     .nav-links a.active::after { content:''; position:absolute; bottom:4px; left:50%; transform:translateX(-50%); width:18px; height:2.5px; background:var(--gold); border-radius:4px; }
-    .nav-cta { background:var(--gold-gradient) !important; color:var(--primary-dark) !important; font-weight:700 !important; padding:8px 26px !important; border-radius:50px !important; -webkit-text-fill-color:var(--primary-dark) !important; box-shadow:0 4px 20px rgba(212,175,55,0.2); }
-    .nav-cta:hover { transform:scale(1.06); box-shadow:0 8px 40px rgba(212,175,55,0.35) !important; }
-    .lang-toggle { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); color:#fff; padding:6px 16px; border-radius:50px; font-weight:600; cursor:pointer; font-size:0.8rem; transition:all var(--transition); }
+    .nav-cta { background:var(--gold-gradient) !important; color:var(--primary-dark) !important; font-weight:700 !important; padding:8px 26px !important; border-radius:50px !important; }
+    .nav-cta:hover { transform:scale(1.05); }
+    .lang-toggle { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; padding:6px 16px; border-radius:50px; font-weight:600; cursor:pointer; font-size:0.8rem; transition:0.3s; }
     .lang-toggle:hover { background:rgba(212,175,55,0.15); border-color:var(--gold); }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; z-index:1001; }
-    .hamburger span { width:28px; height:2.5px; background:#fff; border-radius:4px; transition:all var(--transition); }
+    .hamburger span { width:28px; height:2.5px; background:#fff; border-radius:4px; transition:0.3s; }
     .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
     .hamburger.active span:nth-child(2){opacity:0; transform:scaleX(0);}
     .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
 
-    /* ============================================================
-       HERO
-       ============================================================ */
+    /* ===== HERO ===== */
     .hero { position:relative; z-index:1; min-height:100vh; display:flex; align-items:center; padding:130px 24px 80px; overflow:hidden; }
-    .hero-bg-glow { position:absolute; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(212,175,55,0.08),transparent 70%); top:-200px; right:-200px; z-index:0; animation:glowFloat 8s ease-in-out infinite alternate; }
-    .hero-bg-glow-2 { position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(10,46,92,0.3),transparent 70%); bottom:-100px; left:-100px; z-index:0; animation:glowFloat 11s ease-in-out infinite alternate-reverse; }
-    .hero-bg-glow-3 { position:absolute; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle,rgba(212,175,55,0.04),transparent 70%); top:40%; left:40%; z-index:0; animation:glowFloat 14s ease-in-out infinite alternate; }
-    @keyframes glowFloat { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(40px,-30px) scale(1.12);} }
-    .hero .container { position:relative; z-index:1; max-width:1320px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .hero .container { position:relative; z-index:1; max-width:1320px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
     .hero-content h1 { font-size:clamp(2.6rem,6vw,4.8rem); font-weight:900; line-height:1.15; margin-bottom:18px; }
     .hero-content h1 .highlight { background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .hero-content .subtitle { font-size:1.2rem; color:var(--text-muted); max-width:540px; margin-bottom:32px; line-height:1.9; }
     .hero-buttons { display:flex; flex-wrap:wrap; gap:14px; }
-    .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 36px; border-radius:60px; font-weight:700; font-size:1rem; border:none; cursor:pointer; transition:all var(--transition); font-family:inherit; }
-    .btn-primary { background:var(--gold-gradient); color:var(--primary-dark); box-shadow:0 4px 28px rgba(212,175,55,0.2); }
-    .btn-primary:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 12px 56px rgba(212,175,55,0.35); }
-    .btn-outline { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.15); }
-    .btn-outline:hover { border-color:var(--gold); background:rgba(212,175,55,0.06); transform:translateY(-4px); }
-    .btn-whatsapp { background:#25d366; color:#fff; box-shadow:0 4px 28px rgba(37,211,102,0.2); }
-    .btn-whatsapp:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 12px 56px rgba(37,211,102,0.35); }
-    .btn-ai { background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; box-shadow:0 4px 28px rgba(108,60,224,0.3); }
-    .btn-ai:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 12px 56px rgba(108,60,224,0.4); }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 36px; border-radius:60px; font-weight:700; font-size:1rem; border:none; cursor:pointer; transition:0.3s; font-family:inherit; }
+    .btn-primary { background:var(--gold-gradient); color:var(--primary-dark); }
+    .btn-primary:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(212,175,55,0.35); }
+    .btn-whatsapp { background:#25d366; color:#fff; }
+    .btn-whatsapp:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(37,211,102,0.35); }
+    .btn-ai { background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; }
+    .btn-ai:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(108,60,224,0.4); }
     .hero-stats { display:flex; gap:44px; margin-top:44px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.05); }
     .hero-stats .stat h3 { font-size:2rem; font-weight:900; color:var(--gold); direction:ltr; }
     .hero-stats .stat p { font-size:0.85rem; color:var(--text-muted); margin:0; }
-    .hero-visual { position:relative; display:flex; justify-content:center; align-items:center; }
-    .hero-card { width:100%; max-width:480px; aspect-ratio:1/1.08; border-radius:32px; background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01)); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px; text-align:center; box-shadow:0 40px 90px rgba(0,0,0,0.45); position:relative; overflow:hidden; transition:transform 0.7s cubic-bezier(0.23,1,0.32,1); }
-    .hero-card:hover { transform:perspective(900px) rotateY(-4deg) rotateX(4deg) scale(1.01); }
-    .hero-card .big-icon { font-size:5.2rem; color:var(--gold); margin-bottom:16px; animation:iconPulse 3s ease-in-out infinite; }
-    @keyframes iconPulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.06);} }
-    .hero-card h3 { font-size:1.8rem; font-weight:800; margin-bottom:6px; }
+    .hero-card { width:100%; max-width:480px; aspect-ratio:1/1.08; border-radius:32px; background:rgba(255,255,255,0.03); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px; text-align:center; box-shadow:0 40px 80px rgba(0,0,0,0.4); }
+    .hero-card .big-icon { font-size:5.2rem; color:var(--gold); margin-bottom:16px; }
+    .hero-card h3 { font-size:1.8rem; font-weight:800; }
     .hero-card p { color:var(--text-muted); font-size:0.95rem; max-width:320px; }
     .hero-card .badge-row { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; justify-content:center; }
-    .hero-card .badge-row span { background:rgba(212,175,55,0.1); padding:5px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.08); transition:all var(--transition); }
-    .hero-card .badge-row span:hover { background:rgba(212,175,55,0.18); transform:scale(1.05); }
-    .hero-card .floating-icon { position:absolute; font-size:2.2rem; color:rgba(212,175,55,0.1); animation:floatIcon 7s ease-in-out infinite; }
-    .hero-card .floating-icon:nth-child(1){top:8%;left:6%;animation-delay:0s;}
-    .hero-card .floating-icon:nth-child(2){bottom:8%;right:6%;animation-delay:2.5s;}
-    .hero-card .floating-icon:nth-child(3){top:48%;right:4%;animation-delay:4.5s;font-size:1.6rem;}
-    .hero-card .floating-icon:nth-child(4){bottom:30%;left:4%;animation-delay:1.5s;font-size:1.4rem;}
-    @keyframes floatIcon { 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-18px) rotate(8deg);} }
+    .hero-card .badge-row span { background:rgba(212,175,55,0.1); padding:5px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.08); }
 
-    /* ============================================================
-       SECTION
-       ============================================================ */
-    .section { position:relative; z-index:1; padding:100px 24px; }
+    /* ===== SECTIONS ===== */
+    .section { padding:100px 24px; position:relative; z-index:1; }
     .section .container { max-width:1320px; margin:0 auto; }
     .section-alt { background:rgba(255,255,255,0.005); }
     .section-title { text-align:center; margin-bottom:56px; }
@@ -166,69 +123,113 @@
     .section-title p { color:var(--text-muted); font-size:1.1rem; max-width:620px; margin:0 auto; }
     .section-divider { width:60px; height:3.5px; background:var(--gold-gradient); border-radius:4px; margin:14px auto 0; }
 
-    /* ============================================================
-       SERVICES
-       ============================================================ */
+    /* ===== SERVICES ===== */
     .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
-    .service-card { padding:32px 22px; border-radius:var(--radius); background:rgba(255,255,255,0.025); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.04); transition:all var(--transition); cursor:pointer; text-align:center; position:relative; overflow:hidden; }
-    .service-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(212,175,55,0.04),transparent 60%); opacity:0; transition:opacity var(--transition); }
-    .service-card:hover::before { opacity:1; }
-    .service-card:hover { transform:translateY(-12px); border-color:rgba(212,175,55,0.18); box-shadow:0 24px 70px rgba(0,0,0,0.35); background:rgba(255,255,255,0.05); }
-    .service-card .icon { font-size:3rem; color:var(--gold); margin-bottom:12px; display:inline-block; transition:transform var(--transition); }
-    .service-card:hover .icon { transform:scale(1.15) rotate(-4deg); }
-    .service-card h4 { font-size:1.2rem; font-weight:700; margin-bottom:4px; }
+    .service-card { padding:32px 22px; border-radius:var(--radius); background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); text-align:center; cursor:pointer; transition:0.4s; }
+    .service-card:hover { transform:translateY(-12px); border-color:rgba(212,175,55,0.2); background:rgba(255,255,255,0.05); }
+    .service-card .icon { font-size:3rem; color:var(--gold); margin-bottom:12px; }
+    .service-card h4 { font-size:1.2rem; font-weight:700; }
     .service-card p { color:var(--text-muted); font-size:0.85rem; margin-bottom:12px; }
-    .service-card .service-tag { display:inline-block; padding:3px 14px; border-radius:50px; background:rgba(212,175,55,0.08); color:var(--gold-light); font-size:0.7rem; font-weight:500; border:1px solid rgba(212,175,55,0.06); }
-    .service-card .click-hint { font-size:0.65rem; color:var(--text-muted); margin-top:10px; opacity:0.4; transition:opacity var(--transition); }
-    .service-card:hover .click-hint { opacity:1; }
+    .service-card .service-tag { display:inline-block; padding:3px 14px; border-radius:50px; background:rgba(212,175,55,0.08); color:var(--gold-light); font-size:0.7rem; border:1px solid rgba(212,175,55,0.06); }
+    .service-card .click-hint { font-size:0.65rem; color:var(--text-muted); margin-top:10px; opacity:0.4; }
 
-    /* ============================================================
-       PACKAGES
-       ============================================================ */
+    /* ===== PACKAGES ===== */
     .packages-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
-    .package-card { border-radius:var(--radius); overflow:hidden; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); transition:all var(--transition); }
-    .package-card:hover { transform:translateY(-10px); border-color:rgba(212,175,55,0.15); box-shadow:0 24px 70px rgba(0,0,0,0.3); }
-    .package-card .package-img { height:200px; display:flex; align-items:center; justify-content:center; font-size:4rem; background:linear-gradient(135deg,rgba(212,175,55,0.05),rgba(255,255,255,0.02)); border-bottom:1px solid rgba(255,255,255,0.04); position:relative; overflow:hidden; }
-    .package-card .package-img .overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(6,29,58,0.7),transparent); }
-    .package-card .package-img .price-tag { position:absolute; bottom:14px; left:14px; background:var(--gold-gradient); color:var(--primary-dark); padding:4px 16px; border-radius:50px; font-weight:800; font-size:0.9rem; box-shadow:0 4px 20px rgba(212,175,55,0.25); }
+    .package-card { border-radius:var(--radius); overflow:hidden; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); transition:0.4s; }
+    .package-card:hover { transform:translateY(-10px); border-color:rgba(212,175,55,0.15); }
+    .package-card .package-img { height:200px; display:flex; align-items:center; justify-content:center; font-size:4rem; background:rgba(212,175,55,0.05); border-bottom:1px solid rgba(255,255,255,0.04); position:relative; }
+    .package-card .package-img .price-tag { position:absolute; bottom:14px; left:14px; background:var(--gold-gradient); color:var(--primary-dark); padding:4px 16px; border-radius:50px; font-weight:800; font-size:0.9rem; }
     .package-card .package-body { padding:22px 24px 26px; }
-    .package-card .package-body h4 { font-size:1.2rem; font-weight:800; margin-bottom:4px; }
-    .package-card .package-body .location { color:var(--gold); font-size:0.85rem; font-weight:500; margin-bottom:8px; }
+    .package-card .package-body h4 { font-size:1.2rem; font-weight:800; }
+    .package-card .package-body .location { color:var(--gold); font-size:0.85rem; margin-bottom:8px; }
     .package-card .package-body p { color:var(--text-muted); font-size:0.9rem; margin-bottom:14px; }
     .package-card .package-body .package-features { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
     .package-card .package-body .package-features span { font-size:0.75rem; color:var(--text-muted); background:rgba(255,255,255,0.04); padding:2px 12px; border-radius:50px; border:1px solid rgba(255,255,255,0.04); }
-    .package-card .package-body .btn-sm { padding:8px 24px; border-radius:50px; font-size:0.85rem; font-weight:700; border:none; cursor:pointer; transition:all var(--transition); background:var(--gold-gradient); color:var(--primary-dark); font-family:inherit; }
-    .package-card .package-body .btn-sm:hover { transform:scale(1.05); box-shadow:0 8px 30px rgba(212,175,55,0.25); }
+    .package-card .package-body .btn-sm { padding:8px 24px; border-radius:50px; font-size:0.85rem; font-weight:700; border:none; cursor:pointer; background:var(--gold-gradient); color:var(--primary-dark); font-family:inherit; transition:0.3s; }
+    .package-card .package-body .btn-sm:hover { transform:scale(1.05); }
 
-    /* ============================================================
-       CARS
-       ============================================================ */
+    /* ===== CARS ===== */
     .cars-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px; }
-    .car-card { border-radius:var(--radius); padding:28px 22px 26px; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); text-align:center; transition:all var(--transition); }
-    .car-card:hover { transform:translateY(-8px); border-color:rgba(212,175,55,0.12); box-shadow:0 20px 60px rgba(0,0,0,0.25); }
+    .car-card { border-radius:var(--radius); padding:28px 22px 26px; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); text-align:center; transition:0.4s; }
+    .car-card:hover { transform:translateY(-8px); border-color:rgba(212,175,55,0.12); }
     .car-card .car-icon { font-size:3.6rem; color:var(--gold); margin-bottom:10px; display:block; }
     .car-card h4 { font-size:1.15rem; font-weight:800; }
-    .car-card .car-type { color:var(--text-muted); font-size:0.8rem; margin-bottom:6px; }
-    .car-card .car-price { color:var(--gold); font-size:1.2rem; font-weight:700; margin-bottom:4px; }
+    .car-card .car-type { color:var(--text-muted); font-size:0.8rem; }
+    .car-card .car-price { color:var(--gold); font-size:1.2rem; font-weight:700; }
     .car-card .car-price small { font-size:0.7rem; color:var(--text-muted); font-weight:400; }
     .car-card .car-features { display:flex; justify-content:center; gap:12px; margin:12px 0 16px; flex-wrap:wrap; }
     .car-card .car-features span { font-size:0.7rem; color:var(--text-muted); background:rgba(255,255,255,0.04); padding:2px 10px; border-radius:50px; border:1px solid rgba(255,255,255,0.04); }
-    .car-card .btn-sm { padding:8px 28px; border-radius:50px; font-size:0.85rem; font-weight:700; border:none; cursor:pointer; transition:all var(--transition); background:var(--gold-gradient); color:var(--primary-dark); font-family:inherit; }
-    .car-card .btn-sm:hover { transform:scale(1.05); box-shadow:0 8px 30px rgba(212,175,55,0.25); }
+    .car-card .btn-sm { padding:8px 28px; border-radius:50px; font-size:0.85rem; font-weight:700; border:none; cursor:pointer; background:var(--gold-gradient); color:var(--primary-dark); font-family:inherit; transition:0.3s; }
+    .car-card .btn-sm:hover { transform:scale(1.05); }
 
-    /* ============================================================
-       AI CHAT BOT (مضمن)
-       ============================================================ */
-    .ai-chat-toggle { position:fixed; bottom:100px; right:28px; z-index:9998; width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; font-size:1.8rem; border:none; cursor:pointer; box-shadow:0 8px 40px rgba(108,60,224,0.35); transition:all var(--transition); animation:aiPulse 3s ease-in-out infinite; display:flex; align-items:center; justify-content:center; }
-    .ai-chat-toggle:hover { transform:scale(1.1); box-shadow:0 12px 56px rgba(108,60,224,0.5); }
+    /* ===== TRIP PLANNER ===== */
+    .planner-box { background:rgba(255,255,255,0.03); border-radius:20px; padding:30px; border:1px solid rgba(255,255,255,0.06); margin-top:40px; }
+    .planner-box h3 { color:var(--gold); margin-bottom:12px; }
+    .planner-box .form-group { margin-bottom:14px; }
+    .planner-box label { display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:4px; }
+    .planner-box select, .planner-box input { width:100%; padding:12px; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); color:#fff; font-family:inherit; outline:none; }
+    .planner-box select:focus, .planner-box input:focus { border-color:var(--gold); }
+    .planner-box .btn-planner { background:var(--gold-gradient); color:#061d3a; font-weight:700; padding:12px 30px; border:none; border-radius:50px; cursor:pointer; width:100%; font-family:inherit; transition:0.3s; }
+    .planner-box .btn-planner:hover { transform:scale(1.02); }
+    #plannerResult { margin-top:16px; padding:16px; background:rgba(212,175,55,0.08); border-radius:12px; border:1px solid rgba(212,175,55,0.1); display:none; }
+
+    /* ===== ABOUT ===== */
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+    .about-image .about-card { padding:40px; border-radius:var(--radius); background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); text-align:center; }
+    .about-image .about-card .owner-avatar { width:130px; height:130px; border-radius:50%; background:linear-gradient(135deg,var(--gold),#b8960f); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:4rem; color:var(--primary-dark); }
+    .about-image .about-card h3 { font-size:1.4rem; font-weight:800; }
+    .about-image .about-card .owner-title { color:var(--gold); font-size:0.9rem; }
+    .about-image .about-card .owner-detail { color:var(--text-muted); font-size:0.85rem; }
+    .about-text h2 { font-size:clamp(2rem,3vw,2.8rem); font-weight:900; margin-bottom:12px; }
+    .about-text h2 .highlight { background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .about-text p { color:var(--text-muted); font-size:1.05rem; margin-bottom:18px; line-height:1.9; }
+    .about-info-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; margin-top:22px; }
+    .about-info-grid .info-item { display:flex; align-items:center; gap:10px; color:var(--text-muted); font-size:0.9rem; }
+    .about-info-grid .info-item i { color:var(--gold); width:20px; }
+
+    /* ===== WHY US ===== */
+    .why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:28px; }
+    .why-item { padding:32px 20px; border-radius:var(--radius); background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); text-align:center; transition:0.3s; }
+    .why-item:hover { transform:translateY(-6px); border-color:rgba(212,175,55,0.12); }
+    .why-item .icon { font-size:2.8rem; color:var(--gold); margin-bottom:12px; }
+    .why-item h4 { font-size:1.1rem; font-weight:700; }
+    .why-item p { color:var(--text-muted); font-size:0.85rem; }
+
+    /* ===== CONTACT ===== */
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+    .contact-info .info-card { padding:20px 24px; border-radius:var(--radius); background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); margin-bottom:14px; display:flex; align-items:center; gap:16px; }
+    .contact-info .info-card .icon-box { width:44px; height:44px; border-radius:14px; background:rgba(212,175,55,0.08); display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.2rem; flex-shrink:0; }
+    .contact-info .info-card .info-text .label { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; }
+    .contact-info .info-card .info-text .value { font-size:1rem; font-weight:600; direction:ltr; text-align:right; }
+    .contact-form { padding:40px; border-radius:var(--radius); background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); }
+    .contact-form h3 { font-size:1.6rem; font-weight:800; }
+    .contact-form .form-sub { color:var(--text-muted); margin-bottom:24px; }
+    .contact-form .form-group { margin-bottom:18px; }
+    .contact-form .form-group input, .contact-form .form-group textarea { width:100%; padding:14px 18px; border-radius:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); color:#fff; font-family:inherit; font-size:0.95rem; outline:none; transition:0.3s; }
+    .contact-form .form-group input:focus, .contact-form .form-group textarea:focus { border-color:var(--gold); background:rgba(255,255,255,0.06); }
+    .contact-form .form-group textarea { height:120px; resize:vertical; }
+    .contact-form .btn-submit { width:100%; padding:16px; border-radius:60px; background:var(--gold-gradient); color:var(--primary-dark); font-weight:700; font-size:1.05rem; border:none; cursor:pointer; transition:0.3s; font-family:inherit; }
+    .contact-form .btn-submit:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(212,175,55,0.3); }
+    .contact-form .form-status { margin-top:12px; text-align:center; min-height:28px; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float { position:fixed; bottom:28px; left:28px; z-index:9999; display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .whatsapp-float .wa-btn { width:68px; height:68px; border-radius:50%; background:#25d366; color:#fff; font-size:2.4rem; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 40px rgba(37,211,102,0.3); transition:0.3s; border:none; cursor:pointer; animation:waPulse 2.8s ease-in-out infinite; }
+    .whatsapp-float .wa-btn:hover { transform:scale(1.1); }
+    .whatsapp-float .wa-label { font-size:0.65rem; color:var(--text-muted); background:rgba(0,0,0,0.5); padding:3px 14px; border-radius:50px; backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.04); }
+    @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3);} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06);} }
+
+    /* ===== AI CHAT ===== */
+    .ai-chat-toggle { position:fixed; bottom:100px; right:28px; z-index:9998; width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; font-size:1.8rem; border:none; cursor:pointer; box-shadow:0 8px 40px rgba(108,60,224,0.35); transition:0.3s; animation:aiPulse 3s ease-in-out infinite; display:flex; align-items:center; justify-content:center; }
+    .ai-chat-toggle:hover { transform:scale(1.1); }
     @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35);} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06);} }
     .ai-chat-box { position:fixed; bottom:175px; right:28px; z-index:9997; width:380px; max-width:calc(100vw - 56px); max-height:500px; border-radius:24px; background:rgba(6,29,58,0.96); backdrop-filter:blur(30px); border:1px solid rgba(255,255,255,0.06); box-shadow:0 30px 80px rgba(0,0,0,0.6); display:none; flex-direction:column; overflow:hidden; }
-    .ai-chat-box.open { display:flex; animation:chatSlideUp 0.4s cubic-bezier(0.23,1,0.32,1); }
+    .ai-chat-box.open { display:flex; animation:chatSlideUp 0.4s ease; }
     @keyframes chatSlideUp { from{opacity:0;transform:translateY(30px) scale(0.96);} to{opacity:1;transform:translateY(0) scale(1);} }
     .ai-chat-header { padding:16px 20px; background:rgba(108,60,224,0.1); border-bottom:1px solid rgba(255,255,255,0.04); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
     .ai-chat-header .title { display:flex; align-items:center; gap:10px; font-weight:700; }
     .ai-chat-header .title i { color:#a855f7; }
-    .ai-chat-header .close-btn { background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer; transition:all var(--transition); padding:4px; }
+    .ai-chat-header .close-btn { background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer; transition:0.3s; padding:4px; }
     .ai-chat-header .close-btn:hover { color:#fff; transform:rotate(90deg); }
     .ai-chat-messages { flex:1; padding:16px 18px; overflow-y:auto; max-height:320px; display:flex; flex-direction:column; gap:10px; }
     .ai-chat-messages .msg { padding:10px 16px; border-radius:16px; max-width:85%; font-size:0.9rem; line-height:1.6; animation:msgPop 0.3s ease; }
@@ -237,108 +238,32 @@
     .ai-chat-messages .msg.user { background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.06); align-self:flex-end; border-bottom-left-radius:4px; }
     .ai-chat-messages .msg .time { font-size:0.6rem; color:var(--text-muted); margin-top:4px; display:block; opacity:0.5; }
     .ai-chat-input { padding:12px 16px 16px; border-top:1px solid rgba(255,255,255,0.04); display:flex; gap:10px; flex-shrink:0; }
-    .ai-chat-input input { flex:1; padding:10px 16px; border-radius:50px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); color:#fff; font-family:inherit; font-size:0.9rem; outline:none; transition:all var(--transition); }
-    .ai-chat-input input::placeholder { color:rgba(255,255,255,0.25); }
-    .ai-chat-input input:focus { border-color:#a855f7; background:rgba(255,255,255,0.06); }
-    .ai-chat-input button { padding:10px 20px; border-radius:50px; border:none; background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; font-weight:700; cursor:pointer; transition:all var(--transition); font-family:inherit; }
+    .ai-chat-input input { flex:1; padding:10px 16px; border-radius:50px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); color:#fff; font-family:inherit; font-size:0.9rem; outline:none; }
+    .ai-chat-input input:focus { border-color:#a855f7; }
+    .ai-chat-input button { padding:10px 20px; border-radius:50px; border:none; background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; font-weight:700; cursor:pointer; transition:0.3s; font-family:inherit; }
     .ai-chat-input button:hover { transform:scale(1.04); }
 
-    /* ============================================================
-       TRIP PLANNER (مخطط رحلتك الذكي)
-       ============================================================ */
-    .planner-box { background:rgba(255,255,255,0.03); border-radius:20px; padding:30px; border:1px solid rgba(255,255,255,0.06); margin-top:40px; }
-    .planner-box h3 { color:var(--gold); margin-bottom:12px; }
-    .planner-box .form-group { margin-bottom:14px; }
-    .planner-box label { display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:4px; }
-    .planner-box select, .planner-box input { width:100%; padding:12px; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); color:#fff; font-family:inherit; outline:none; transition:all var(--transition); }
-    .planner-box select:focus, .planner-box input:focus { border-color:var(--gold); background:rgba(255,255,255,0.08); }
-    .planner-box .btn-planner { background:var(--gold-gradient); color:#061d3a; font-weight:700; padding:12px 30px; border:none; border-radius:50px; cursor:pointer; width:100%; font-family:inherit; transition:all var(--transition); }
-    .planner-box .btn-planner:hover { transform:scale(1.02); box-shadow:0 8px 30px rgba(212,175,55,0.3); }
-    #plannerResult { margin-top:16px; padding:16px; background:rgba(212,175,55,0.08); border-radius:12px; border:1px solid rgba(212,175,55,0.1); display:none; }
-
-    /* ============================================================
-       ABOUT
-       ============================================================ */
-    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
-    .about-image .about-card { padding:40px; border-radius:var(--radius); background:rgba(255,255,255,0.025); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.04); text-align:center; }
-    .about-image .about-card .owner-avatar { width:130px; height:130px; border-radius:50%; background:linear-gradient(135deg,var(--gold),#b8960f); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:4rem; color:var(--primary-dark); box-shadow:0 8px 50px rgba(212,175,55,0.15); }
-    .about-image .about-card h3 { font-size:1.4rem; font-weight:800; }
-    .about-image .about-card .owner-title { color:var(--gold); font-size:0.9rem; font-weight:500; }
-    .about-image .about-card .owner-detail { color:var(--text-muted); font-size:0.85rem; margin-top:4px; }
-    .about-text h2 { font-size:clamp(2rem,3vw,2.8rem); font-weight:900; margin-bottom:12px; }
-    .about-text h2 .highlight { background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .about-text p { color:var(--text-muted); font-size:1.05rem; margin-bottom:18px; line-height:1.9; }
-    .about-info-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; margin-top:22px; }
-    .about-info-grid .info-item { display:flex; align-items:center; gap:10px; color:var(--text-muted); font-size:0.9rem; }
-    .about-info-grid .info-item i { color:var(--gold); width:20px; }
-
-    /* ============================================================
-       WHY US
-       ============================================================ */
-    .why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:28px; }
-    .why-item { padding:32px 20px; border-radius:var(--radius); background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); text-align:center; transition:all var(--transition); }
-    .why-item:hover { transform:translateY(-6px); border-color:rgba(212,175,55,0.12); background:rgba(255,255,255,0.035); }
-    .why-item .icon { font-size:2.8rem; color:var(--gold); margin-bottom:12px; }
-    .why-item h4 { font-size:1.1rem; font-weight:700; }
-    .why-item p { color:var(--text-muted); font-size:0.85rem; }
-
-    /* ============================================================
-       CONTACT
-       ============================================================ */
-    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; }
-    .contact-info .info-card { padding:20px 24px; border-radius:var(--radius); background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); margin-bottom:14px; transition:all var(--transition); display:flex; align-items:center; gap:16px; }
-    .contact-info .info-card:hover { border-color:rgba(212,175,55,0.12); transform:translateX(-4px); background:rgba(255,255,255,0.035); }
-    .contact-info .info-card .icon-box { width:44px; height:44px; border-radius:14px; background:rgba(212,175,55,0.08); display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.2rem; flex-shrink:0; }
-    .contact-info .info-card .info-text .label { font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; }
-    .contact-info .info-card .info-text .value { font-size:1rem; font-weight:600; direction:ltr; text-align:right; }
-    .contact-form { padding:40px; border-radius:var(--radius); background:rgba(255,255,255,0.025); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.04); }
-    .contact-form h3 { font-size:1.6rem; font-weight:800; margin-bottom:4px; }
-    .contact-form .form-sub { color:var(--text-muted); margin-bottom:24px; font-size:0.95rem; }
-    .contact-form .form-group { margin-bottom:18px; }
-    .contact-form .form-group input, .contact-form .form-group textarea { width:100%; padding:14px 18px; border-radius:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); color:#fff; font-family:inherit; font-size:0.95rem; transition:all var(--transition); outline:none; }
-    .contact-form .form-group input::placeholder, .contact-form .form-group textarea::placeholder { color:rgba(255,255,255,0.25); }
-    .contact-form .form-group input:focus, .contact-form .form-group textarea:focus { border-color:var(--gold); background:rgba(255,255,255,0.06); box-shadow:0 0 0 4px rgba(212,175,55,0.05); }
-    .contact-form .form-group textarea { height:120px; resize:vertical; }
-    .contact-form .btn-submit { width:100%; padding:16px; border-radius:60px; background:var(--gold-gradient); color:var(--primary-dark); font-weight:700; font-size:1.05rem; border:none; cursor:pointer; transition:all var(--transition); font-family:inherit; }
-    .contact-form .btn-submit:hover { transform:translateY(-3px); box-shadow:0 12px 48px rgba(212,175,55,0.3); }
-    .contact-form .form-status { margin-top:12px; font-size:0.9rem; text-align:center; min-height:28px; }
-
-    /* ============================================================
-       FLOATING WHATSAPP
-       ============================================================ */
-    .whatsapp-float { position:fixed; bottom:28px; left:28px; z-index:9999; display:flex; flex-direction:column; align-items:center; gap:6px; }
-    .whatsapp-float .wa-btn { width:68px; height:68px; border-radius:50%; background:#25d366; color:#fff; font-size:2.4rem; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 48px rgba(37,211,102,0.3); transition:all var(--transition); border:none; cursor:pointer; animation:waPulse 2.8s ease-in-out infinite; }
-    .whatsapp-float .wa-btn:hover { transform:scale(1.1); box-shadow:0 12px 64px rgba(37,211,102,0.45); }
-    .whatsapp-float .wa-label { font-size:0.65rem; color:var(--text-muted); background:rgba(0,0,0,0.5); padding:3px 14px; border-radius:50px; backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.04); white-space:nowrap; }
-    @keyframes waPulse { 0%,100%{box-shadow:0 8px 48px rgba(37,211,102,0.3);} 50%{box-shadow:0 8px 64px rgba(37,211,102,0.55),0 0 0 14px rgba(37,211,102,0.06);} }
-
-    /* ============================================================
-       FOOTER
-       ============================================================ */
-    .footer { position:relative; z-index:1; padding:60px 24px 30px; border-top:1px solid rgba(255,255,255,0.03); background:rgba(6,29,58,0.5); backdrop-filter:blur(12px); }
+    /* ===== FOOTER ===== */
+    .footer { padding:60px 24px 30px; border-top:1px solid rgba(255,255,255,0.03); background:rgba(6,29,58,0.5); backdrop-filter:blur(12px); }
     .footer .container { max-width:1320px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; }
     .footer .brand p { color:var(--text-muted); font-size:0.9rem; max-width:340px; margin-top:8px; }
     .footer .brand .socials { display:flex; gap:10px; margin-top:16px; }
-    .footer .brand .socials a { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; transition:all var(--transition); color:var(--text-muted); }
+    .footer .brand .socials a { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; transition:0.3s; color:var(--text-muted); }
     .footer .brand .socials a:hover { background:rgba(212,175,55,0.1); border-color:var(--gold); color:var(--gold); transform:translateY(-3px); }
     .footer h5 { font-size:1.05rem; font-weight:700; margin-bottom:14px; color:#fff; }
     .footer ul li { margin-bottom:6px; }
-    .footer ul li a { color:var(--text-muted); font-size:0.9rem; transition:all var(--transition); }
+    .footer ul li a { color:var(--text-muted); font-size:0.9rem; transition:0.3s; }
     .footer ul li a:hover { color:var(--gold); padding-right:6px; }
     .footer-bottom { max-width:1320px; margin:40px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.03); text-align:center; color:var(--text-muted); font-size:0.8rem; }
     .footer-bottom span { color:var(--gold); }
 
-    /* ============================================================
-       REVEAL
-       ============================================================ */
-    .reveal { opacity:0; transform:translateY(50px); transition:all 1s cubic-bezier(0.23,1,0.32,1); }
+    /* ===== REVEAL ===== */
+    .reveal { opacity:0; transform:translateY(50px); transition:all 1s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
-    .reveal-left { opacity:0; transform:translateX(-50px); transition:all 1s cubic-bezier(0.23,1,0.32,1); }
+    .reveal-left { opacity:0; transform:translateX(-50px); transition:all 1s ease; }
     .reveal-left.visible { opacity:1; transform:translateX(0); }
-    .reveal-right { opacity:0; transform:translateX(50px); transition:all 1s cubic-bezier(0.23,1,0.32,1); }
+    .reveal-right { opacity:0; transform:translateX(50px); transition:all 1s ease; }
     .reveal-right.visible { opacity:1; transform:translateX(0); }
-    .reveal-scale { opacity:0; transform:scale(0.92); transition:all 1s cubic-bezier(0.23,1,0.32,1); }
-    .reveal-scale.visible { opacity:1; transform:scale(1); }
     .delay-1 { transition-delay:0.08s; }
     .delay-2 { transition-delay:0.16s; }
     .delay-3 { transition-delay:0.24s; }
@@ -350,9 +275,7 @@
     .delay-9 { transition-delay:0.72s; }
     .delay-10 { transition-delay:0.8s; }
 
-    /* ============================================================
-       RESPONSIVE
-       ============================================================ */
+    /* ===== RESPONSIVE ===== */
     @media (max-width:1024px) {
       .hero .container { grid-template-columns:1fr; text-align:center; }
       .hero-content .subtitle { margin:0 auto 32px; }
@@ -364,49 +287,29 @@
       .about-info-grid { justify-items:center; }
       .contact-grid { grid-template-columns:1fr; }
       .footer .container { grid-template-columns:1fr 1fr; }
-      .ai-chat-box { width:340px; right:16px; bottom:165px; }
-      .ai-chat-toggle { right:16px; bottom:92px; width:54px; height:54px; font-size:1.5rem; }
     }
     @media (max-width:768px) {
-      .nav-links { position:fixed; top:0; right:-100%; width:290px; height:100vh; background:rgba(6,29,58,0.97); backdrop-filter:blur(28px); flex-direction:column; padding:80px 28px 32px; gap:2px; transition:right 0.5s cubic-bezier(0.23,1,0.32,1); border-left:1px solid rgba(255,255,255,0.04); }
+      .nav-links { position:fixed; top:0; right:-100%; width:280px; height:100vh; background:rgba(6,29,58,0.97); flex-direction:column; padding:80px 28px 32px; transition:right 0.4s; border-left:1px solid rgba(255,255,255,0.04); }
       .nav-links.open { right:0; }
-      .nav-links a { width:100%; padding:14px 18px; border-radius:12px; font-size:1rem; }
+      .nav-links a { width:100%; padding:14px 18px; border-radius:12px; }
       .nav-links a.active::after { display:none; }
-      .nav-cta { margin-top:8px; }
       .hamburger { display:flex; }
-      .hero-card { max-width:100%; padding:28px; }
-      .hero-card .big-icon { font-size:3.8rem; }
-      .packages-grid { grid-template-columns:1fr 1fr; }
-      .cars-grid { grid-template-columns:1fr 1fr; }
-      .services-grid { grid-template-columns:1fr 1fr; }
-      .why-grid { grid-template-columns:1fr 1fr; }
+      .packages-grid, .cars-grid, .services-grid, .why-grid { grid-template-columns:1fr 1fr; }
       .footer .container { grid-template-columns:1fr; text-align:center; }
       .footer .brand .socials { justify-content:center; }
-      .about-info-grid { grid-template-columns:1fr; }
-      .contact-form { padding:24px; }
-      .contact-info .info-card { padding:16px 18px; }
-      .whatsapp-float { bottom:16px; left:16px; }
-      .whatsapp-float .wa-btn { width:58px; height:58px; font-size:2rem; }
-      .ai-chat-box { width:calc(100vw - 32px); right:16px; bottom:155px; max-height:420px; }
+      .ai-chat-box { width:calc(100vw - 32px); right:16px; bottom:155px; }
       .ai-chat-toggle { right:16px; bottom:85px; width:50px; height:50px; font-size:1.4rem; }
     }
     @media (max-width:480px) {
-      .packages-grid { grid-template-columns:1fr; }
-      .cars-grid { grid-template-columns:1fr; }
-      .services-grid { grid-template-columns:1fr; }
-      .why-grid { grid-template-columns:1fr; }
+      .packages-grid, .cars-grid, .services-grid, .why-grid { grid-template-columns:1fr; }
       .hero-stats { flex-direction:column; gap:10px; align-items:center; }
       .hero-buttons .btn { width:100%; justify-content:center; }
       .section { padding:56px 16px; }
-      .logo { font-size:1.15rem; }
-      .logo-icon { font-size:1.6rem; }
-      .hero-card .badge-row span { font-size:0.65rem; padding:4px 12px; }
-      .contact-form { padding:18px; }
     }
   </style>
 </head>
 <body>
-  <!-- ===== PARTICLES CANVAS ===== -->
+  <!-- ===== PARTICLES ===== -->
   <canvas id="particles-canvas"></canvas>
 
   <!-- ===== HEADER ===== -->
@@ -415,65 +318,55 @@
       <a href="#" class="logo">
         <span class="logo-icon">✈️</span>
         <span>
-          <span class="logo-text" data-i18n="logo">صعود الطائرة</span>
-          <span class="logo-sub" data-i18n="logoSub">للسفر والسياحة</span>
+          <span class="logo-text" id="logoText">صعود الطائرة</span>
+          <span class="logo-sub" id="logoSlogan">للسفر والسياحة</span>
         </span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="#home" class="active" data-i18n="navHome">الرئيسية</a>
-        <a href="#services" data-i18n="navServices">خدماتنا</a>
-        <a href="#packages" data-i18n="navPackages">باقات عالمية</a>
-        <a href="#cars" data-i18n="navCars">تأجير سيارات</a>
-        <a href="#about" data-i18n="navAbout">من نحن</a>
-        <a href="#contact" data-i18n="navContact">اتصل بنا</a>
-        <a href="#contact" class="nav-cta" data-i18n="navCta">📞 احجز الآن</a>
+        <a href="#home" class="active" id="navHome">الرئيسية</a>
+        <a href="#services" id="navServices">خدماتنا</a>
+        <a href="#packages" id="navPackages">باقات عالمية</a>
+        <a href="#cars" id="navCars">تأجير سيارات</a>
+        <a href="#about" id="navAbout">من نحن</a>
+        <a href="#contact" id="navContact">اتصل بنا</a>
+        <a href="#contact" class="nav-cta" id="navCta">📞 احجز الآن</a>
       </nav>
       <div style="display:flex; align-items:center; gap:12px;">
         <button class="lang-toggle" id="langToggle">🇬🇧 EN</button>
-        <div class="hamburger" id="hamburger" aria-label="القائمة"><span></span><span></span><span></span></div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
       </div>
     </div>
   </header>
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="home">
-    <div class="hero-bg-glow"></div>
-    <div class="hero-bg-glow-2"></div>
-    <div class="hero-bg-glow-3"></div>
     <div class="container">
       <div class="hero-content">
-        <h1>
-          <span data-i18n="heroTitle1">اكتشف العالم مع</span><br />
-          <span class="highlight" data-i18n="heroTitle2">صعود الطائرة</span>
-        </h1>
-        <p class="subtitle" data-i18n="heroSub">وجهتك الموثوقة للسفر والسياحة — نقدم لك أفضل باقات العمرة، التأشيرات، تذاكر الطيران، العطلات، والفنادق. رحلتك المثالية تبدأ من هنا.</p>
+        <h1 id="heroTitle">اكتشف العالم مع <br /><span class="highlight" id="heroHighlight">صعود الطائرة</span></h1>
+        <p class="subtitle" id="heroSub">وجهتك الموثوقة للسفر والسياحة — نقدم لك أفضل باقات العمرة، التأشيرات، تذاكر الطيران، العطلات، والفنادق. رحلتك المثالية تبدأ من هنا.</p>
         <div class="hero-buttons">
-          <a href="#packages" class="btn btn-primary" data-i18n="heroBtnPackages"><i class="fas fa-globe-asia"></i> باقات عالمية</a>
-          <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" data-i18n="heroBtnWhatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
-          <button class="btn btn-ai" onclick="toggleAIChat()" data-i18n="heroBtnAI"><i class="fas fa-robot"></i> مساعد AI</button>
+          <a href="#packages" class="btn btn-primary" id="heroBtn1"><i class="fas fa-globe-asia"></i> <span id="heroBtn1Text">باقات عالمية</span></a>
+          <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" id="heroBtn2"><i class="fab fa-whatsapp"></i> <span id="heroBtn2Text">واتساب</span></a>
+          <button class="btn btn-ai" onclick="toggleAIChat()" id="heroBtn3"><i class="fas fa-robot"></i> <span id="heroBtn3Text">مساعد AI</span></button>
         </div>
         <div class="hero-stats">
-          <div class="stat"><h3>+٨٥٠</h3><p data-i18n="stat1">عميل سعيد</p></div>
-          <div class="stat"><h3>+١٣٠</h3><p data-i18n="stat2">وجهة سفر</p></div>
-          <div class="stat"><h3>٩٨٪</h3><p data-i18n="stat3">رضا العملاء</p></div>
-          <div class="stat"><h3>+٥</h3><p data-i18n="stat4">سنوات خبرة</p></div>
+          <div class="stat"><h3>+٨٥٠</h3><p id="stat1">عميل سعيد</p></div>
+          <div class="stat"><h3>+١٣٠</h3><p id="stat2">وجهة سفر</p></div>
+          <div class="stat"><h3>٩٨٪</h3><p id="stat3">رضا العملاء</p></div>
+          <div class="stat"><h3>+٥</h3><p id="stat4">سنوات خبرة</p></div>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-card">
-          <div class="floating-icon"><i class="fas fa-plane-departure"></i></div>
-          <div class="floating-icon"><i class="fas fa-umrah"></i></div>
-          <div class="floating-icon"><i class="fas fa-passport"></i></div>
-          <div class="floating-icon"><i class="fas fa-hotel"></i></div>
           <div class="big-icon">🌍</div>
-          <h3 data-i18n="heroCardTitle">رحلتك تبدأ هنا</h3>
-          <p data-i18n="heroCardSub">خدمات سياحية متكاملة بأعلى معايير الجودة والاحترافية</p>
+          <h3 id="heroCardTitle">رحلتك تبدأ هنا</h3>
+          <p id="heroCardSub">خدمات سياحية متكاملة بأعلى معايير الجودة والاحترافية</p>
           <div class="badge-row">
-            <span>✈️ <span data-i18n="badge1">تذاكر</span></span>
-            <span>🕋 <span data-i18n="badge2">عمرة</span></span>
-            <span>🛂 <span data-i18n="badge3">تأشيرات</span></span>
-            <span>🏨 <span data-i18n="badge4">فنادق</span></span>
-            <span>🚗 <span data-i18n="badge5">تأجير</span></span>
+            <span>✈️ <span id="badge1">تذاكر</span></span>
+            <span>🕋 <span id="badge2">عمرة</span></span>
+            <span>🛂 <span id="badge3">تأشيرات</span></span>
+            <span>🏨 <span id="badge4">فنادق</span></span>
+            <span>🚗 <span id="badge5">تأجير</span></span>
           </div>
         </div>
       </div>
@@ -484,81 +377,12 @@
   <section class="section" id="services">
     <div class="container">
       <div class="section-title reveal">
-        <h2><span data-i18n="servicesTitle1">خدماتنا</span> <span class="highlight" data-i18n="servicesTitle2">المتميزة</span></h2>
-        <p data-i18n="servicesSub">نقدم لك مجموعة متكاملة من الخدمات السياحية لتجعل رحلتك لا تُنسى</p>
+        <h2><span id="servicesTitle1">خدماتنا</span> <span class="highlight" id="servicesTitle2">المتميزة</span></h2>
+        <p id="servicesSub">نقدم لك مجموعة متكاملة من الخدمات السياحية لتجعل رحلتك لا تُنسى</p>
         <div class="section-divider"></div>
       </div>
       <div class="services-grid">
-        <div class="service-card reveal delay-1" data-service="باقات العمرة" data-msg="أرغب في الاستفسار عن باقات العمرة">
-          <div class="icon">🕋</div>
-          <h4 data-i18n="srv1">باقات العمرة</h4>
-          <p data-i18n="srv1desc">أفضل باقات العمرة بأسعار تنافسية وخدمات فندقية مميزة</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-2" data-service="خدمات التأشيرات" data-msg="أرغب في الاستفسار عن خدمات التأشيرات">
-          <div class="icon">🛂</div>
-          <h4 data-i18n="srv2">خدمات التأشيرات</h4>
-          <p data-i18n="srv2desc">تأشيرات سياحية، عمل، زيارة، وعلاج لكافة الدول</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-3" data-service="تذاكر الطيران" data-msg="أرغب في الاستفسار عن تذاكر الطيران">
-          <div class="icon">✈️</div>
-          <h4 data-i18n="srv3">تذاكر الطيران</h4>
-          <p data-i18n="srv3desc">أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-4" data-service="الباقات السياحية" data-msg="أرغب في الاستفسار عن الباقات السياحية">
-          <div class="icon">🏝️</div>
-          <h4 data-i18n="srv4">باقات سياحية</h4>
-          <p data-i18n="srv4desc">عطلات مميزة في أجمل وجهات العالم بأسعار لا تُقاوم</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-5" data-service="حجز الفنادق" data-msg="أرغب في الاستفسار عن حجز الفنادق">
-          <div class="icon">🏨</div>
-          <h4 data-i18n="srv5">حجز الفنادق</h4>
-          <p data-i18n="srv5desc">أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-6" data-service="تأجير السيارات" data-msg="أرغب في الاستفسار عن تأجير السيارات">
-          <div class="icon">🚗</div>
-          <h4 data-i18n="srv6">تأجير السيارات</h4>
-          <p data-i18n="srv6desc">سيارات فاخرة واقتصادية بأسعار مميزة لتجربة قيادة لا تُنسى</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-7" data-service="تأمين السفر" data-msg="أرغب في الاستفسار عن تأمين السفر">
-          <div class="icon">🛡️</div>
-          <h4 data-i18n="srv7">تأمين السفر</h4>
-          <p data-i18n="srv7desc">تأمين شامل يغطي جميع مخاطر السفر لتطمئن أثناء رحلتك</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-8" data-service="الرحلات الجماعية" data-msg="أرغب في الاستفسار عن الرحلات الجماعية">
-          <div class="icon">👥</div>
-          <h4 data-i18n="srv8">رحلات جماعية</h4>
-          <p data-i18n="srv8desc">رحلات منظمة للمجموعات مع مرشدين سياحيين محترفين</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-9" data-service="رحلات بحرية" data-msg="أرغب في الاستفسار عن الرحلات البحرية">
-          <div class="icon">🚢</div>
-          <h4 data-i18n="srv9">رحلات بحرية</h4>
-          <p data-i18n="srv9desc">رحلات بحرية فاخرة على متن أفضل السفن السياحية العالمية</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
-        <div class="service-card reveal delay-10" data-service="سفر رجال أعمال" data-msg="أرغب في الاستفسار عن سفر رجال الأعمال">
-          <div class="icon">💼</div>
-          <h4 data-i18n="srv10">سفر رجال أعمال</h4>
-          <p data-i18n="srv10desc">خدمات سفر مخصصة لرجال الأعمال مع أفضل وسائل الراحة</p>
-          <span class="service-tag" data-i18n="srvTag">احجز الآن</span>
-          <div class="click-hint"><i class="fas fa-phone"></i> <span data-i18n="clickHint">اضغط للتواصل</span></div>
-        </div>
+        <!-- سيتم توليد البطاقات بواسطة JavaScript -->
       </div>
     </div>
   </section>
@@ -567,100 +391,11 @@
   <section class="section section-alt" id="packages">
     <div class="container">
       <div class="section-title reveal">
-        <h2><span data-i18n="pkgTitle1">باقات</span> <span class="highlight" data-i18n="pkgTitle2">عالمية</span></h2>
-        <p data-i18n="pkgSub">اكتشف أجمل وجهات العالم مع عروضنا الحصرية</p>
+        <h2><span id="pkgTitle1">باقات</span> <span class="highlight" id="pkgTitle2">عالمية</span></h2>
+        <p id="pkgSub">اكتشف أجمل وجهات العالم مع عروضنا الحصرية</p>
         <div class="section-divider"></div>
       </div>
-      <div class="packages-grid">
-        <!-- باكيج 1 -->
-        <div class="package-card reveal delay-1" data-package="باريس" data-msg="أرغب في الاستفسار عن باقة باريس">
-          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">🗼<div class="overlay"></div><span class="price-tag">$٩٩٩</span></div>
-          <div class="package-body">
-            <h4 data-i18n="pkg1name">باريس — مدينة النور</h4>
-            <div class="location"><i class="fas fa-map-pin"></i> <span data-i18n="pkg1loc">فرنسا</span></div>
-            <p data-i18n="pkg1desc">رحلة رومانسية لمدة 7 أيام تشمل برج إيفل، متحف اللوفر، وسين Seine</p>
-            <div class="package-features"><span><i class="fas fa-plane"></i> <span data-i18n="featureFlight">طيران</span></span><span><i class="fas fa-hotel"></i> <span data-i18n="featureHotel">فندق 5*</span></span><span><i class="fas fa-utensils"></i> <span data-i18n="featureMeals">وجبات</span></span></div>
-            <button class="btn-sm" onclick="bookPackage('باريس')"><i class="fab fa-whatsapp"></i> <span data-i18n="bookNow">احجز الآن</span></button>
-          </div>
-        </div>
-        <!-- باكيج 2 -->
-        <div class="package-card reveal delay-2" data-package="دبي" data-msg="أرغب في الاستفسار عن باقة دبي">
-          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#2d1b3d);">🌆<div class="overlay"></div><span class="price-tag">$٧٩٩</span></div>
-          <div class="package-body">
-            <h4 data-i18n="pkg2name">دبي — مدينة الأحلام</h4>
-            <div class="location"><i class="fas fa-map-pin"></i> <span data-i18n="pkg2loc">الإمارات العربية المتحدة</span></div>
-            <p data-i18n="pkg2desc">باقة 5 أيام تشمل برج خليفة، دبي مول، صحراء سفاري، وفندق فاخر</p>
-            <div class="package-features"><span><i class="fas fa-plane"></i> <span data-i18n="featureFlight">طيران</span></span><span><i class="fas fa-hotel"></i> <span data-i18n="featureHotel">فندق 5*</span></span><span><i class="fas fa-utensils"></i> <span data-i18n="featureMeals">وجبات</span></span></div>
-            <button class="btn-sm" onclick="bookPackage('دبي')"><i class="fab fa-whatsapp"></i> <span data-i18n="bookNow">احجز الآن</span></button>
-          </div>
-        </div>
-        <!-- باكيج 3 -->
-        <div class="package-card reveal delay-3" data-package="اسطنبول" data-msg="أرغب في الاستفسار عن باقة اسطنبول">
-          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#2d1b3d);">🕌<div class="overlay"></div><span class="price-tag">$٥٤٩</span></div>
-          <div class="package-body">
-            <h4 data-i18n="pkg3name">اسطنبول — عبق التاريخ</h4>
-            <div class="location"><i class="fas fa-map-pin"></i> <span data-i18n="pkg3loc">تركيا</span></div>
-            <p data-i18n="pkg3desc">رحلة 6 أيام تشمل آيا صوفيا، المسجد الأزرق، البازار الكبير، وبosporus</p>
-            <div class="package-features"><span><i class="fas fa-plane"></i> <span data-i18n="featureFlight">طيران</span></span><span><i class="fas fa-hotel"></i> <span data-i18n="featureHotel">فندق 4*</span></span><span><i class="fas fa-utensils"></i> <span data-i18n="featureMeals">وجبات</span></span></div>
-            <button class="btn-sm" onclick="bookPackage('اسطنبول')"><i class="fab fa-whatsapp"></i> <span data-i18n="bookNow">احجز الآن</span></button>
-          </div>
-        </div>
-        <!-- باكيج 4 -->
-        <div class="package-card reveal delay-4" data-package="لندن" data-msg="أرغب في الاستفسار عن باقة لندن">
-          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">🇬🇧<div class="overlay"></div><span class="price-tag">$٨٤٩</span></div>
-          <div class="package-body">
-            <h4 data-i18n="pkg4name">لندن — العاصمة الملكية</h4>
-            <div class="location"><i class="fas fa-map-pin"></i> <span data-i18n="pkg4loc">المملكة المتحدة</span></div>
-            <p data-i18n="pkg4desc">باقة 7 أيام تشمل بيغ بن، برج لندن، المتحف البريطاني، وعين لندن</p>
-            <div class="package-features"><span><i class="fas fa-plane"></i> <span data-i18n="featureFlight">طيران</span></span><span><i class="fas fa-hotel"></i> <span data-i18n="featureHotel">فندق 4*</span></span><span><i class="fas fa-utensils"></i> <span data-i18n="featureMeals">وجبات</span></span></div>
-            <button class="btn-sm" onclick="bookPackage('لندن')"><i class="fab fa-whatsapp"></i> <span data-i18n="bookNow">احجز الآن</span></button>
-          </div>
-        </div>
-        <!-- باكيج 5 -->
-        <div class="package-card reveal delay-5" data-package="كوالالمبور" data-msg="أرغب في الاستفسار عن باقة كوالالمبور">
-          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#2d1b3d);">🗼<div class="overlay"></div><span class="price-tag">$٦٩٩</span></div>
-          <div class="package-body">
-            <h4 data-i18n="pkg5name">كوالالمبور — آسيا الساحرة</h4>
-            <div class="location"><i class="fas fa-map-pin"></i> <span data-i18n="pkg5loc">ماليزيا</span></div>
-            <p data-i18n="pkg5desc">رحلة 6 أيام تشمل برجا بتروناس، كهوف باتو، وحدائق العاصمة</p>
-            <div class="package-features"><span><i class="fas fa-plane"></i> <span data-i18n="featureFlight">طيران</span></span><span><i class="fas fa-hotel"></i> <span data-i18n="featureHotel">فندق 5*</span></span><span><i class="fas fa-utensils"></i> <span data-i18n="featureMeals">وجبات</span></span></div>
-            <button class="btn-sm" onclick="bookPackage('كوالالمبور')"><i class="fab fa-whatsapp"></i> <span data-i18n="bookNow">احجز الآن</span></button>
-          </div>
-        </div>
-        <!-- باكيج 6 -->
-        <div class="package-card reveal delay-6" data-package="القاهرة" data-msg="أرغب في الاستفسار عن باقة القاهرة">
-          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">🏛️<div class="overlay"></div><span class="price-tag">$٤٩٩</span></div>
-          <div class="package-body">
-            <h4 data-i18n="pkg6name">القاهرة — أم الدنيا</h4>
-            <div class="location"><i class="fas fa-map-pin"></i> <span data-i18n="pkg6loc">مصر</span></div>
-            <p data-i18n="pkg6desc">باقة 5 أيام تشمل الأهرامات، المتحف المصري، وقلعة صلاح الدين</p>
-            <div class="package-features"><span><i class="fas fa-plane"></i> <span data-i18n="featureFlight">طيران</span></span><span><i class="fas fa-hotel"></i> <span data-i18n="featureHotel">فندق 4*</span></span><span><i class="fas fa-utensils"></i> <span data-i18n="featureMeals">وجبات</span></span></div>
-            <button class="btn-sm" onclick="bookPackage('القاهرة')"><i class="fab fa-whatsapp"></i> <span data-i18n="bookNow">احجز الآن</span></button>
-          </div>
-        </div>
-        <!-- باكيج 7 -->
-        <div class="package-card reveal delay-7" data-package="نيويورك" data-msg="أرغب في الاستفسار عن باقة نيويورك">
-          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#2d1b3d);">🗽<div class="overlay"></div><span class="price-tag">$٩٩٩</span></div>
-          <div class="package-body">
-            <h4 data-i18n="pkg7name">نيويورك — المدينة التي لا تنام</h4>
-            <div class="location"><i class="fas fa-map-pin"></i> <span data-i18n="pkg7loc">الولايات المتحدة</span></div>
-            <p data-i18n="pkg7desc">رحلة 8 أيام تشمل تمثال الحرية، تايمز سكوير، وسنترال بارك</p>
-            <div class="package-features"><span><i class="fas fa-plane"></i> <span data-i18n="featureFlight">طيران</span></span><span><i class="fas fa-hotel"></i> <span data-i18n="featureHotel">فندق 4*</span></span><span><i class="fas fa-utensils"></i> <span data-i18n="featureMeals">وجبات</span></span></div>
-            <button class="btn-sm" onclick="bookPackage('نيويورك')"><i class="fab fa-whatsapp"></i> <span data-i18n="bookNow">احجز الآن</span></button>
-          </div>
-        </div>
-        <!-- باكيج 8 -->
-        <div class="package-card reveal delay-8" data-package="طوكيو" data-msg="أرغب في الاستفسار عن باقة طوكيو">
-          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">🗾<div class="overlay"></div><span class="price-tag">$١٠٩٩</span></div>
-          <div class="package-body">
-            <h4 data-i18n="pkg8name">طوكيو — سحر الشرق</h4>
-            <div class="location"><i class="fas fa-map-pin"></i> <span data-i18n="pkg8loc">اليابان</span></div>
-            <p data-i18n="pkg8desc">باقة 7 أيام تشمل برج طوكيو، معبد سينسو جي، ومدينة الأكيهارا</p>
-            <div class="package-features"><span><i class="fas fa-plane"></i> <span data-i18n="featureFlight">طيران</span></span><span><i class="fas fa-hotel"></i> <span data-i18n="featureHotel">فندق 4*</span></span><span><i class="fas fa-utensils"></i> <span data-i18n="featureMeals">وجبات</span></span></div>
-            <button class="btn-sm" onclick="bookPackage('طوكيو')"><i class="fab fa-whatsapp"></i> <span data-i18n="bookNow">احجز الآن</span></button>
-          </div>
-        </div>
-      </div>
+      <div class="packages-grid" id="packagesGrid"></div>
     </div>
   </section>
 
@@ -668,92 +403,43 @@
   <section class="section" id="cars">
     <div class="container">
       <div class="section-title reveal">
-        <h2><span data-i18n="carsTitle1">تأجير</span> <span class="highlight" data-i18n="carsTitle2">السيارات</span></h2>
-        <p data-i18n="carsSub">أفضل العروض على تأجير السيارات الفاخرة والاقتصادية</p>
+        <h2><span id="carsTitle1">تأجير</span> <span class="highlight" id="carsTitle2">السيارات</span></h2>
+        <p id="carsSub">أفضل العروض على تأجير السيارات الفاخرة والاقتصادية</p>
         <div class="section-divider"></div>
       </div>
-      <div class="cars-grid">
-        <div class="car-card reveal delay-1" data-car="تويوتا كامري" data-msg="أرغب في الاستفسار عن تأجير تويوتا كامري">
-          <span class="car-icon">🚗</span>
-          <h4 data-i18n="car1">تويوتا كامري</h4>
-          <div class="car-type" data-i18n="car1type">سيارة سيدان فاخرة</div>
-          <div class="car-price">$١٢٠ <small>/ <span data-i18n="perDay">يوم</span></small></div>
-          <div class="car-features"><span>🚙 <span data-i18n="carFeat1">٥ مقاعد</span></span><span>⛽ <span data-i18n="carFeat2">اقتصادية</span></span><span>📱 Bluetooth</span></div>
-          <button class="btn-sm" onclick="rentCar('تويوتا كامري')"><i class="fab fa-whatsapp"></i> <span data-i18n="rentNow">استأجر الآن</span></button>
-        </div>
-        <div class="car-card reveal delay-2" data-car="مرسيدس E-Class" data-msg="أرغب في الاستفسار عن تأجير مرسيدس E-Class">
-          <span class="car-icon">🚙</span>
-          <h4 data-i18n="car2">مرسيدس E-Class</h4>
-          <div class="car-type" data-i18n="car2type">سيارة فاخرة تنفيذية</div>
-          <div class="car-price">$٢٥٠ <small>/ <span data-i18n="perDay">يوم</span></small></div>
-          <div class="car-features"><span>🚙 <span data-i18n="carFeat1">٥ مقاعد</span></span><span>⭐ <span data-i18n="carFeat3">فاخرة</span></span><span>📱 Apple CarPlay</span></div>
-          <button class="btn-sm" onclick="rentCar('مرسيدس E-Class')"><i class="fab fa-whatsapp"></i> <span data-i18n="rentNow">استأجر الآن</span></button>
-        </div>
-        <div class="car-card reveal delay-3" data-car="بي إم دبليو X5" data-msg="أرغب في الاستفسار عن تأجير بي إم دبليو X5">
-          <span class="car-icon">🚙</span>
-          <h4 data-i18n="car3">بي إم دبليو X5</h4>
-          <div class="car-type" data-i18n="car3type">SUV فاخر</div>
-          <div class="car-price">$٢٨٠ <small>/ <span data-i18n="perDay">يوم</span></small></div>
-          <div class="car-features"><span>🚙 <span data-i18n="carFeat4">٧ مقاعد</span></span><span>🛣️ <span data-i18n="carFeat5">دفع رباعي</span></span><span>📱 <span data-i18n="carFeat6">شاشة كبيرة</span></span></div>
-          <button class="btn-sm" onclick="rentCar('بي إم دبليو X5')"><i class="fab fa-whatsapp"></i> <span data-i18n="rentNow">استأجر الآن</span></button>
-        </div>
-        <div class="car-card reveal delay-4" data-car="هيونداي توسان" data-msg="أرغب في الاستفسار عن تأجير هيونداي توسان">
-          <span class="car-icon">🚙</span>
-          <h4 data-i18n="car4">هيونداي توسان</h4>
-          <div class="car-type" data-i18n="car4type">SUV اقتصادي</div>
-          <div class="car-price">$٩٠ <small>/ <span data-i18n="perDay">يوم</span></small></div>
-          <div class="car-features"><span>🚙 <span data-i18n="carFeat1">٥ مقاعد</span></span><span>⛽ <span data-i18n="carFeat2">اقتصادية</span></span><span>📱 <span data-i18n="carFeat7">كاميرا خلفية</span></span></div>
-          <button class="btn-sm" onclick="rentCar('هيونداي توسان')"><i class="fab fa-whatsapp"></i> <span data-i18n="rentNow">استأجر الآن</span></button>
-        </div>
-        <div class="car-card reveal delay-5" data-car="فورد موستانج" data-msg="أرغب في الاستفسار عن تأجير فورد موستانج">
-          <span class="car-icon">🚗</span>
-          <h4 data-i18n="car5">فورد موستانج</h4>
-          <div class="car-type" data-i18n="car5type">سيارة رياضية</div>
-          <div class="car-price">$٢٠٠ <small>/ <span data-i18n="perDay">يوم</span></small></div>
-          <div class="car-features"><span>🚙 <span data-i18n="carFeat8">٤ مقاعد</span></span><span>⚡ V8</span><span>🎵 <span data-i18n="carFeat9">صوت رياضي</span></span></div>
-          <button class="btn-sm" onclick="rentCar('فورد موستانج')"><i class="fab fa-whatsapp"></i> <span data-i18n="rentNow">استأجر الآن</span></button>
-        </div>
-        <div class="car-card reveal delay-6" data-car="لاند روفر فيلار" data-msg="أرغب في الاستفسار عن تأجير لاند روفر فيلار">
-          <span class="car-icon">🚙</span>
-          <h4 data-i18n="car6">لاند روفر فيلار</h4>
-          <div class="car-type" data-i18n="car6type">SUV فاخر فائق</div>
-          <div class="car-price">$٣٢٠ <small>/ <span data-i18n="perDay">يوم</span></small></div>
-          <div class="car-features"><span>🚙 <span data-i18n="carFeat1">٥ مقاعد</span></span><span>🛣️ <span data-i18n="carFeat5">دفع رباعي</span></span><span>⭐ <span data-i18n="carFeat3">فاخر</span></span></div>
-          <button class="btn-sm" onclick="rentCar('لاند روفر فيلار')"><i class="fab fa-whatsapp"></i> <span data-i18n="rentNow">استأجر الآن</span></button>
-        </div>
-      </div>
+      <div class="cars-grid" id="carsGrid"></div>
     </div>
   </section>
 
-  <!-- ===== TRIP PLANNER (مخطط ذكي) ===== -->
+  <!-- ===== TRIP PLANNER ===== -->
   <section class="section section-alt" id="planner">
     <div class="container">
       <div class="section-title reveal">
-        <h2><span data-i18n="plannerTitle1">مخطط رحلتك</span> <span class="highlight" data-i18n="plannerTitle2">الذكي</span></h2>
-        <p data-i18n="plannerSub">أجب عن بضعة أسئلة وسيوصي لك مساعدنا الذكي بأفضل وجهة وخط سير</p>
+        <h2><span id="plannerTitle1">مخطط رحلتك</span> <span class="highlight" id="plannerTitle2">الذكي</span></h2>
+        <p id="plannerSub">أجب عن بضعة أسئلة وسيوصي لك مساعدنا الذكي بأفضل وجهة وخط سير</p>
         <div class="section-divider"></div>
       </div>
       <div class="planner-box reveal">
-        <h3><i class="fas fa-robot" style="color:var(--gold);"></i> <span data-i18n="plannerBoxTitle">خطط لرحلتك المثالية</span></h3>
+        <h3><i class="fas fa-robot" style="color:var(--gold);"></i> <span id="plannerBoxTitle">خطط لرحلتك المثالية</span></h3>
         <div class="form-group">
-          <label data-i18n="plannerBudget">الميزانية (ريال)</label>
+          <label id="plannerBudget">الميزانية (ريال)</label>
           <input type="number" id="budget" placeholder="5000" />
         </div>
         <div class="form-group">
-          <label data-i18n="plannerInterest">الاهتمامات (اختر)</label>
+          <label id="plannerInterest">الاهتمامات (اختر)</label>
           <select id="interest">
-            <option value="culture" data-i18n="interest1">ثقافة وتاريخ</option>
-            <option value="beach" data-i18n="interest2">شواطئ وبحر</option>
-            <option value="nature" data-i18n="interest3">طبيعة ومغامرات</option>
-            <option value="luxury" data-i18n="interest4">فخامة وتسوق</option>
-            <option value="family" data-i18n="interest5">عائلي</option>
+            <option value="culture" id="interest1">ثقافة وتاريخ</option>
+            <option value="beach" id="interest2">شواطئ وبحر</option>
+            <option value="nature" id="interest3">طبيعة ومغامرات</option>
+            <option value="luxury" id="interest4">فخامة وتسوق</option>
+            <option value="family" id="interest5">عائلي</option>
           </select>
         </div>
         <div class="form-group">
-          <label data-i18n="plannerNights">مدة الرحلة (ليالي)</label>
+          <label id="plannerNights">مدة الرحلة (ليالي)</label>
           <input type="number" id="nights" placeholder="5" />
         </div>
-        <button class="btn-planner" onclick="planTrip()" data-i18n="plannerBtn"><i class="fas fa-magic"></i> احصل على توصية</button>
+        <button class="btn-planner" onclick="planTrip()" id="plannerBtn"><i class="fas fa-magic"></i> احصل على توصية</button>
         <div id="plannerResult"></div>
       </div>
     </div>
@@ -766,30 +452,30 @@
         <div class="about-image reveal-left">
           <div class="about-card">
             <div class="owner-avatar">👤</div>
-            <h3 data-i18n="ownerName">عطاالله بن مدخل بن صياح المضياني العنزي</h3>
-            <p class="owner-title" data-i18n="ownerTitle">🇸🇦 مالك ومؤسس صعود الطائرة</p>
+            <h3 id="ownerName">عطاالله بن مدخل بن صياح المضياني العنزي</h3>
+            <p class="owner-title" id="ownerTitle">🇸🇦 مالك ومؤسس صعود الطائرة</p>
             <p class="owner-detail"><i class="fas fa-phone" style="color:var(--gold);"></i> 0555382038</p>
             <p class="owner-detail"><i class="fas fa-envelope" style="color:var(--gold);"></i> atallahalanazi@sueudaltaayira.com</p>
             <div style="margin-top:16px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-              <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">✈️ <span data-i18n="badgeExpert">خبير سفر</span></span>
-              <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">🕋 <span data-i18n="badgeUmrah">عمرة</span></span>
-              <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">🌍 <span data-i18n="badgeTourism">سياحة</span></span>
+              <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">✈️ <span id="badgeExpert">خبير سفر</span></span>
+              <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">🕋 <span id="badgeUmrah">عمرة</span></span>
+              <span style="background:rgba(212,175,55,0.06); padding:4px 16px; border-radius:50px; font-size:0.75rem; color:var(--gold-light); border:1px solid rgba(212,175,55,0.06);">🌍 <span id="badgeTourism">سياحة</span></span>
             </div>
           </div>
         </div>
         <div class="about-text reveal-right">
-          <h2><span data-i18n="aboutTitle1">من نحن</span> <span class="highlight" data-i18n="aboutTitle2">في صعود الطائرة</span></h2>
-          <p data-i18n="aboutP1"><strong>صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر رائدة في المملكة العربية السعودية، نقدم خدمات سياحية متكاملة لعملائنا الكرام. نفخر بتقديم أفضل باقات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية بأعلى معايير الجودة والاحترافية.</p>
-          <p data-i18n="aboutP2">فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا، مع أسعار تنافسية وخدمات متميزة.</p>
+          <h2><span id="aboutTitle1">من نحن</span> <span class="highlight" id="aboutTitle2">في صعود الطائرة</span></h2>
+          <p id="aboutP1"><strong>صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر رائدة في المملكة العربية السعودية، نقدم خدمات سياحية متكاملة لعملائنا الكرام. نفخر بتقديم أفضل باقات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية بأعلى معايير الجودة والاحترافية.</p>
+          <p id="aboutP2">فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا، مع أسعار تنافسية وخدمات متميزة.</p>
           <div class="about-info-grid">
             <div class="info-item"><i class="fas fa-phone"></i> 0555382038</div>
             <div class="info-item"><i class="fas fa-phone"></i> 0554126832</div>
             <div class="info-item"><i class="fas fa-envelope"></i> hamdan@sueudaltaayira.com</div>
             <div class="info-item"><i class="fas fa-envelope"></i> atallahalanazi@sueudaltaayira.com</div>
-            <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span data-i18n="address1">طريق ملك عبدالعزيز، عرعر</span></div>
-            <div class="info-item"><i class="fas fa-flag"></i> <span data-i18n="address2">المملكة العربية السعودية</span></div>
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span id="address1">طريق ملك عبدالعزيز، عرعر</span></div>
+            <div class="info-item"><i class="fas fa-flag"></i> <span id="address2">المملكة العربية السعودية</span></div>
           </div>
-          <a href="#contact" class="btn btn-primary" style="margin-top:28px;"><i class="fas fa-paper-plane"></i> <span data-i18n="contactBtn">تواصل معنا</span></a>
+          <a href="#contact" class="btn btn-primary" style="margin-top:28px;" id="contactBtn"><i class="fas fa-paper-plane"></i> تواصل معنا</a>
         </div>
       </div>
     </div>
@@ -799,17 +485,17 @@
   <section class="section section-alt" id="why">
     <div class="container">
       <div class="section-title reveal">
-        <h2><span data-i18n="whyTitle1">لماذا</span> <span class="highlight" data-i18n="whyTitle2">صعود الطائرة</span></h2>
-        <p data-i18n="whySub">نحن نضع رضاك فوق كل اعتبار ونقدم لك تجربة سفر استثنائية</p>
+        <h2><span id="whyTitle1">لماذا</span> <span class="highlight" id="whyTitle2">صعود الطائرة</span></h2>
+        <p id="whySub">نحن نضع رضاك فوق كل اعتبار ونقدم لك تجربة سفر استثنائية</p>
         <div class="section-divider"></div>
       </div>
       <div class="why-grid">
-        <div class="why-item reveal delay-1"><div class="icon">🏆</div><h4 data-i18n="why1">خبرة متميزة</h4><p data-i18n="why1desc">أكثر من 5 سنوات من الخبرة في مجال السفر والسياحة</p></div>
-        <div class="why-item reveal delay-2"><div class="icon">💰</div><h4 data-i18n="why2">أسعار تنافسية</h4><p data-i18n="why2desc">أفضل الأسعار مع عروض حصرية لعملائنا الكرام</p></div>
-        <div class="why-item reveal delay-3"><div class="icon">🛡️</div><h4 data-i18n="why3">خدمة موثوقة</h4><p data-i18n="why3desc">خدمات معتمدة وموثوقة تضمن لك رحلة آمنة ومريحة</p></div>
-        <div class="why-item reveal delay-4"><div class="icon">⏰</div><h4 data-i18n="why4">دعم على مدار الساعة</h4><p data-i18n="why4desc">فريق دعم متخصص جاهز لمساعدتك في أي وقت</p></div>
-        <div class="why-item reveal delay-5"><div class="icon">🤖</div><h4 data-i18n="why5">ذكاء اصطناعي</h4><p data-i18n="why5desc">مساعد AI ذكي يقدم لك توصيات فورية ومخصصة</p></div>
-        <div class="why-item reveal delay-6"><div class="icon">🌍</div><h4 data-i18n="why6">وجهات عالمية</h4><p data-i18n="why6desc">أكثر من 130 وجهة سياحية حول العالم بأسعار مميزة</p></div>
+        <div class="why-item reveal delay-1"><div class="icon">🏆</div><h4 id="why1">خبرة متميزة</h4><p id="why1desc">أكثر من 5 سنوات من الخبرة في مجال السفر والسياحة</p></div>
+        <div class="why-item reveal delay-2"><div class="icon">💰</div><h4 id="why2">أسعار تنافسية</h4><p id="why2desc">أفضل الأسعار مع عروض حصرية لعملائنا الكرام</p></div>
+        <div class="why-item reveal delay-3"><div class="icon">🛡️</div><h4 id="why3">خدمة موثوقة</h4><p id="why3desc">خدمات معتمدة وموثوقة تضمن لك رحلة آمنة ومريحة</p></div>
+        <div class="why-item reveal delay-4"><div class="icon">⏰</div><h4 id="why4">دعم على مدار الساعة</h4><p id="why4desc">فريق دعم متخصص جاهز لمساعدتك في أي وقت</p></div>
+        <div class="why-item reveal delay-5"><div class="icon">🤖</div><h4 id="why5">ذكاء اصطناعي</h4><p id="why5desc">مساعد AI ذكي يقدم لك توصيات فورية ومخصصة</p></div>
+        <div class="why-item reveal delay-6"><div class="icon">🌍</div><h4 id="why6">وجهات عالمية</h4><p id="why6desc">أكثر من 130 وجهة سياحية حول العالم بأسعار مميزة</p></div>
       </div>
     </div>
   </section>
@@ -818,30 +504,30 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="section-title reveal">
-        <h2><span data-i18n="contactTitle1">اتصل</span> <span class="highlight" data-i18n="contactTitle2">بنا</span></h2>
-        <p data-i18n="contactSub">نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز</p>
+        <h2><span id="contactTitle1">اتصل</span> <span class="highlight" id="contactTitle2">بنا</span></h2>
+        <p id="contactSub">نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز</p>
         <div class="section-divider"></div>
       </div>
       <div class="contact-grid">
         <div class="contact-info reveal-left">
-          <div class="info-card"><div class="icon-box"><i class="fas fa-phone"></i></div><div class="info-text"><div class="label" data-i18n="workPhone">هاتف العمل</div><div class="value" dir="ltr">0554126832</div></div></div>
-          <div class="info-card"><div class="icon-box"><i class="fas fa-phone"></i></div><div class="info-text"><div class="label" data-i18n="ownerPhone">هاتف المالك</div><div class="value" dir="ltr">0555382038</div></div></div>
-          <div class="info-card"><div class="icon-box"><i class="fas fa-envelope"></i></div><div class="info-text"><div class="label" data-i18n="emailLabel">البريد الإلكتروني</div><div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div><div class="value" dir="ltr" style="font-size:0.8rem; font-weight:400;">atallahalanazi@sueudaltaayira.com</div></div></div>
-          <div class="info-card"><div class="icon-box"><i class="fas fa-map-marker-alt"></i></div><div class="info-text"><div class="label" data-i18n="addressLabel">العنوان</div><div class="value" style="font-weight:400; font-size:0.95rem;" data-i18n="fullAddress">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div></div></div>
+          <div class="info-card"><div class="icon-box"><i class="fas fa-phone"></i></div><div class="info-text"><div class="label" id="workPhone">هاتف العمل</div><div class="value" dir="ltr">0554126832</div></div></div>
+          <div class="info-card"><div class="icon-box"><i class="fas fa-phone"></i></div><div class="info-text"><div class="label" id="ownerPhone">هاتف المالك</div><div class="value" dir="ltr">0555382038</div></div></div>
+          <div class="info-card"><div class="icon-box"><i class="fas fa-envelope"></i></div><div class="info-text"><div class="label" id="emailLabel">البريد الإلكتروني</div><div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div><div class="value" dir="ltr" style="font-size:0.8rem; font-weight:400;">atallahalanazi@sueudaltaayira.com</div></div></div>
+          <div class="info-card"><div class="icon-box"><i class="fas fa-map-marker-alt"></i></div><div class="info-text"><div class="label" id="addressLabel">العنوان</div><div class="value" style="font-weight:400; font-size:0.95rem;" id="fullAddress">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div></div></div>
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
-            <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1; justify-content:center;"><i class="fab fa-whatsapp"></i> <span data-i18n="waOwner">واتساب المالك</span></a>
-            <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1; justify-content:center; background:#1ebe5c;"><i class="fab fa-whatsapp"></i> <span data-i18n="waWork">واتساب العمل</span></a>
+            <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1; justify-content:center;" id="waOwner"><i class="fab fa-whatsapp"></i> واتساب المالك</a>
+            <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1; justify-content:center; background:#1ebe5c;" id="waWork"><i class="fab fa-whatsapp"></i> واتساب العمل</a>
           </div>
         </div>
         <div class="contact-form reveal-right">
-          <h3 data-i18n="formTitle">📩 أرسل لنا رسالة</h3>
-          <p class="form-sub" data-i18n="formSub">سنرد عليك في أقرب وقت ممكن</p>
+          <h3 id="formTitle">📩 أرسل لنا رسالة</h3>
+          <p class="form-sub" id="formSub">سنرد عليك في أقرب وقت ممكن</p>
           <form id="contactForm">
-            <div class="form-group"><input type="text" id="contactName" placeholder="الاسم الكامل" required data-i18n-placeholder="formName" /></div>
-            <div class="form-group"><input type="tel" id="contactPhone" placeholder="رقم الجوال" required data-i18n-placeholder="formPhone" /></div>
-            <div class="form-group"><input type="email" id="contactEmail" placeholder="البريد الإلكتروني" data-i18n-placeholder="formEmail" /></div>
-            <div class="form-group"><textarea id="contactMessage" placeholder="اكتب رسالتك هنا..." required data-i18n-placeholder="formMsg"></textarea></div>
-            <button type="submit" class="btn-submit" data-i18n="formSubmit"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
+            <div class="form-group"><input type="text" id="contactName" placeholder="الاسم الكامل" required /></div>
+            <div class="form-group"><input type="tel" id="contactPhone" placeholder="رقم الجوال" required /></div>
+            <div class="form-group"><input type="email" id="contactEmail" placeholder="البريد الإلكتروني" /></div>
+            <div class="form-group"><textarea id="contactMessage" placeholder="اكتب رسالتك هنا..." required></textarea></div>
+            <button type="submit" class="btn-submit" id="formSubmit"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
           </form>
           <div class="form-status" id="formStatus"></div>
         </div>
@@ -855,70 +541,60 @@
       <div class="brand">
         <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
           <span style="font-size:2.2rem; color:var(--gold);">✈️</span>
-          <span style="font-size:1.4rem; font-weight:900; background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;" data-i18n="footerBrand">صعود الطائرة</span>
+          <span style="font-size:1.4rem; font-weight:900; background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;" id="footerBrand">صعود الطائرة</span>
         </div>
-        <p data-i18n="footerDesc">وجهتك الأولى للسفر والسياحة في المملكة العربية السعودية. نقدم خدمات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية.</p>
+        <p id="footerDesc">وجهتك الأولى للسفر والسياحة في المملكة العربية السعودية. نقدم خدمات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية.</p>
         <div class="socials">
-          <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
-          <a href="#" aria-label="لينكدإن"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-      <div><h5 data-i18n="footerLinks">روابط سريعة</h5><ul><li><a href="#home" data-i18n="navHome">الرئيسية</a></li><li><a href="#services" data-i18n="navServices">خدماتنا</a></li><li><a href="#packages" data-i18n="navPackages">باقات عالمية</a></li><li><a href="#cars" data-i18n="navCars">تأجير سيارات</a></li><li><a href="#about" data-i18n="navAbout">من نحن</a></li><li><a href="#contact" data-i18n="navContact">اتصل بنا</a></li></ul></div>
-      <div><h5 data-i18n="footerServices">خدماتنا</h5><ul><li><a href="#services" data-i18n="srv1">باقات العمرة</a></li><li><a href="#services" data-i18n="srv2">تأشيرات</a></li><li><a href="#services" data-i18n="srv3">تذاكر طيران</a></li><li><a href="#services" data-i18n="srv4">باقات سياحية</a></li><li><a href="#services" data-i18n="srv5">فنادق</a></li><li><a href="#cars" data-i18n="srv6">تأجير سيارات</a></li></ul></div>
-      <div><h5 data-i18n="footerInfo">معلومات</h5><ul><li><a href="#about" data-i18n="navAbout">عن الوكالة</a></li><li><a href="#contact" data-i18n="navContact">اتصل بنا</a></li><li><a href="privacy.html" data-i18n="privacyLink">سياسة الخصوصية</a></li><li><a href="#" data-i18n="termsLink">الشروط والأحكام</a></li></ul></div>
+      <div><h5 id="footerLinks">روابط سريعة</h5><ul><li><a href="#home" id="navHome2">الرئيسية</a></li><li><a href="#services" id="navServices2">خدماتنا</a></li><li><a href="#packages" id="navPackages2">باقات عالمية</a></li><li><a href="#cars" id="navCars2">تأجير سيارات</a></li><li><a href="#about" id="navAbout2">من نحن</a></li><li><a href="#contact" id="navContact2">اتصل بنا</a></li></ul></div>
+      <div><h5 id="footerServices">خدماتنا</h5><ul><li><a href="#services" id="srv1">باقات العمرة</a></li><li><a href="#services" id="srv2">تأشيرات</a></li><li><a href="#services" id="srv3">تذاكر طيران</a></li><li><a href="#services" id="srv4">باقات سياحية</a></li><li><a href="#services" id="srv5">فنادق</a></li><li><a href="#cars" id="srv6">تأجير سيارات</a></li></ul></div>
+      <div><h5 id="footerInfo">معلومات</h5><ul><li><a href="#about" id="navAbout3">عن الوكالة</a></li><li><a href="#contact" id="navContact3">اتصل بنا</a></li><li><a href="#" id="privacyLink">سياسة الخصوصية</a></li><li><a href="#" id="termsLink">الشروط والأحكام</a></li></ul></div>
     </div>
-    <div class="footer-bottom">&copy; 2026 <span data-i18n="footerBrand">صعود الطائرة للسفر والسياحة</span> — <span data-i18n="footerRights">جميع الحقوق محفوظة</span><br style="display:block; margin-top:4px;" /><span data-i18n="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span></div>
+    <div class="footer-bottom">&copy; 2026 <span id="footerBrand2">صعود الطائرة للسفر والسياحة</span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block; margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span></div>
   </footer>
 
-  <!-- ===== FLOATING WHATSAPP ===== -->
+  <!-- ===== WHATSAPP FLOAT ===== -->
   <div class="whatsapp-float">
-    <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمات%20السفر" target="_blank" class="wa-btn" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-    <span class="wa-label" data-i18n="waLabel">تواصل واتساب</span>
+    <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمات%20السفر" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+    <span class="wa-label" id="waLabel">تواصل واتساب</span>
   </div>
 
-  <!-- ===== AI CHAT TOGGLE & BOX ===== -->
-  <button class="ai-chat-toggle" id="aiChatToggle" onclick="toggleAIChat()" aria-label="مساعد AI"><i class="fas fa-robot"></i></button>
+  <!-- ===== AI CHAT ===== -->
+  <button class="ai-chat-toggle" id="aiChatToggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
   <div class="ai-chat-box" id="aiChatBox">
     <div class="ai-chat-header">
-      <div class="title"><i class="fas fa-robot"></i> <span data-i18n="aiTitle">مساعد صعود الطائرة AI</span></div>
+      <div class="title"><i class="fas fa-robot"></i> <span id="aiTitle">مساعد صعود الطائرة AI</span></div>
       <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
     </div>
     <div class="ai-chat-messages" id="aiChatMessages">
-      <div class="msg bot" data-i18n="aiWelcome">👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟<span class="time">الآن</span></div>
+      <div class="msg bot" id="aiWelcome">👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟<span class="time">الآن</span></div>
     </div>
     <div class="ai-chat-input">
-      <input type="text" id="aiChatInput" placeholder="اكتب سؤالك هنا..." data-i18n-placeholder="aiPlaceholder" onkeypress="if(event.key==='Enter') sendAIMessage()" />
+      <input type="text" id="aiChatInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
       <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
 
   <!-- ============================================================
-  JAVASCRIPT (جميع الوظائف)
+  JAVASCRIPT – كل الوظائف
   ============================================================ -->
   <script>
-    // ============================================================
-    // 1. PRELOADER
-    // ============================================================
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) preloader.classList.add('hide');
-      }, 1400);
-    });
-
-    // ============================================================
-    // 2. PARTICLES
-    // ============================================================
-    (function initParticles() {
+    // ====================
+    // 1. PARTICLES
+    // ====================
+    (function() {
       const canvas = document.getElementById('particles-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       let w, h;
       const particles = [];
-      const COUNT = 70;
+      const COUNT = 60;
       function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
       window.addEventListener('resize', resize);
       resize();
@@ -927,10 +603,10 @@
         reset() {
           this.x = Math.random() * w;
           this.y = Math.random() * h;
-          this.size = Math.random() * 2.8 + 0.5;
-          this.speedX = (Math.random() - 0.5) * 0.5;
-          this.speedY = (Math.random() - 0.5) * 0.5;
-          this.opacity = Math.random() * 0.35 + 0.08;
+          this.size = Math.random() * 2.5 + 0.5;
+          this.speedX = (Math.random() - 0.5) * 0.4;
+          this.speedY = (Math.random() - 0.5) * 0.4;
+          this.opacity = Math.random() * 0.3 + 0.05;
         }
         update() {
           this.x += this.speedX;
@@ -952,12 +628,12 @@
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 160) {
+            if (dist < 150) {
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(212, 175, 55, ${0.05 * (1 - dist / 160)})`;
-              ctx.lineWidth = 0.6;
+              ctx.strokeStyle = `rgba(212, 175, 55, ${0.04 * (1 - dist / 150)})`;
+              ctx.lineWidth = 0.5;
               ctx.stroke();
             }
           }
@@ -972,17 +648,17 @@
       animate();
     })();
 
-    // ============================================================
-    // 3. HEADER SCROLL
-    // ============================================================
+    // ====================
+    // 2. HEADER SCROLL
+    // ====================
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.pageYOffset > 60);
     });
 
-    // ============================================================
-    // 4. MOBILE HAMBURGER
-    // ============================================================
+    // ====================
+    // 3. MOBILE HAMBURGER
+    // ====================
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
@@ -998,21 +674,20 @@
       });
     });
 
-    // ============================================================
-    // 5. SCROLL REVEAL
-    // ============================================================
-    const revealObserver = new IntersectionObserver((entries) => {
+    // ====================
+    // 4. SCROLL REVEAL
+    // ====================
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .service-card, .package-card, .car-card, .why-item')
-      .forEach(el => revealObserver.observe(el));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .service-card, .package-card, .car-card, .why-item')
+      .forEach(el => observer.observe(el));
 
-    // ============================================================
-    // 6. WHATSAPP INTEGRATION
-    // ============================================================
+    // ====================
+    // 5. WHATSAPP INTEGRATION
+    // ====================
     const WA_OWNER = '966555382038';
-
-    // Services
+    // خدمات
     document.querySelectorAll('.service-card').forEach(card => {
       card.addEventListener('click', () => {
         const service = card.dataset.service || 'خدمة';
@@ -1020,33 +695,29 @@
         window.open(`https://wa.me/${WA_OWNER}?text=${encodeURIComponent(`مرحباً، ${msg} (من موقع صعود الطائرة)`)}`, '_blank');
       });
     });
-
-    // Packages
+    // باقات
     window.bookPackage = function(name) {
-      window.open(`https://wa.me/${WA_OWNER}?text=${encodeURIComponent(`مرحباً، أرغب في الاستفسار عن باقة ${name} (من موقع صعود الطائرة)`)}`, '_blank');
+      window.open(`https://wa.me/${WA_OWNER}?text=${encodeURIComponent(`مرحباً، أرغب في الاستفسار عن باقة ${name}`)}`, '_blank');
     };
-
-    // Cars
+    // سيارات
     window.rentCar = function(name) {
-      window.open(`https://wa.me/${WA_OWNER}?text=${encodeURIComponent(`مرحباً، أرغب في الاستفسار عن تأجير سيارة ${name} (من موقع صعود الطائرة)`)}`, '_blank');
+      window.open(`https://wa.me/${WA_OWNER}?text=${encodeURIComponent(`مرحباً، أرغب في الاستفسار عن تأجير سيارة ${name}`)}`, '_blank');
     };
 
-    // ============================================================
-    // 7. TRIP PLANNER (AI)
-    // ============================================================
+    // ====================
+    // 6. TRIP PLANNER (AI)
+    // ====================
     function planTrip() {
       const budget = parseInt(document.getElementById('budget').value) || 0;
       const interest = document.getElementById('interest').value;
       const nights = parseInt(document.getElementById('nights').value) || 0;
-      const resultDiv = document.getElementById('plannerResult');
-
+      const result = document.getElementById('plannerResult');
       if (budget < 1000 || nights < 1) {
-        resultDiv.innerHTML = '⚠️ يرجى إدخال ميزانية (أكثر من ١٠٠٠ ريال) وعدد ليالي صحيح.';
-        resultDiv.style.display = 'block';
+        result.innerHTML = '⚠️ يرجى إدخال ميزانية (أكثر من ١٠٠٠ ريال) وعدد ليالي صحيح.';
+        result.style.display = 'block';
         return;
       }
-
-      let recommendations = {
+      const recommendations = {
         culture: ['اسطنبول (تركيا)', 'القاهرة (مصر)', 'أصفهان (إيران)'],
         beach: ['جدة (السعودية)', 'شرم الشيخ (مصر)', 'باتايا (تايلاند)'],
         nature: ['نيوم (السعودية)', 'كيب تاون (جنوب أفريقيا)', 'سويسرا'],
@@ -1057,21 +728,20 @@
       let best = dests[0];
       if (budget > 15000 && nights > 5) best = dests[1] || best;
       if (budget > 25000 && nights > 7) best = dests[2] || best;
-
-      resultDiv.innerHTML = `
+      result.innerHTML = `
         <h4 style="color:var(--gold);">✈️ بناءً على اختياراتك، نوصي بـ <strong>${best}</strong></h4>
         <p style="color:var(--text-muted);">مدة الرحلة: ${nights} ليالي | الميزانية: ${budget} ريال</p>
-        <p style="color:var(--text-muted);">يمكنك التواصل معنا للحصول على عرض مفصل لهذه الوجهة.</p>
+        <p style="color:var(--text-muted);">يمكنك التواصل معنا للحصول على عرض مفصل.</p>
         <a href="https://wa.me/${WA_OWNER}?text=${encodeURIComponent('مرحباً، أرغب في تفاصيل عن ' + best)}" target="_blank" class="btn-whatsapp" style="display:inline-block;padding:10px 24px;border-radius:50px;background:#25d366;color:#fff;margin-top:12px;text-decoration:none;">
           <i class="fab fa-whatsapp"></i> احجز الآن
         </a>
       `;
-      resultDiv.style.display = 'block';
+      result.style.display = 'block';
     }
 
-    // ============================================================
-    // 8. AI CHAT BOT
-    // ============================================================
+    // ====================
+    // 7. AI CHAT BOT
+    // ====================
     const chatBox = document.getElementById('aiChatBox');
     const chatMessages = document.getElementById('aiChatMessages');
     const chatInput = document.getElementById('aiChatInput');
@@ -1079,26 +749,25 @@
     const aiResponses = {
       'مرحبا': '👋 أهلاً بك! كيف يمكنني مساعدتك اليوم؟ لدينا عروض رائعة للعمرة، تأشيرات، تذاكر، وباقات سياحية.',
       'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟ أخبرني ما الذي تبحث عنه.',
-      'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل: تأشيرة، سكن قريب من الحرم، ومواصلات. هل ترغب في معرفة التفاصيل؟',
-      'تأشيرة': '🛂 نقدم تأشيرات سياحية، عمل، زيارة، وعلاج لكافة الدول. يرجى إرسال رقم جوالك للتواصل مع فريقنا.',
-      'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع أفضل شركات الطيران. أخبرني وجهتك وسأبحث عن أفضل عروض لك.',
-      'فندق': '🏨 لدينا عروض حصرية على الفنادق الفاخرة والاقتصادية. أخبرني المدينة وتواريخ السفر.',
-      'سيارة': '🚗 نقدم تأجير سيارات فاخرة واقتصادية بأسعار مميزة. اختر سيارتك المفضلة من قائمتنا.',
-      'باقة': '🌍 لدينا باقات سياحية رائعة إلى باريس، دبي، اسطنبول، لندن، القاهرة، طوكيو والمزيد! شاهد قسم الباقات العالمية.',
-      'سعر': '💰 أسعارنا تنافسية جداً! يرجى تحديد الخدمة التي ترغب بها وسنقدم لك أفضل عرض.',
-      'شكرا': '🙏 العفو! سعداء بمساعدتك. هل هناك شيء آخر يمكنني فعله لك؟',
-      'الرقم': '📞 يمكنك التواصل معنا عبر واتساب: 0555382038 أو الاتصال على 0554126832.',
+      'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل: تأشيرة، سكن قريب من الحرم، ومواصلات.',
+      'تأشيرة': '🛂 نقدم تأشيرات سياحية، عمل، زيارة، وعلاج لكافة الدول.',
+      'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع أفضل شركات الطيران.',
+      'فندق': '🏨 لدينا عروض حصرية على الفنادق الفاخرة والاقتصادية.',
+      'سيارة': '🚗 نقدم تأجير سيارات فاخرة واقتصادية بأسعار مميزة.',
+      'باقة': '🌍 لدينا باقات سياحية رائعة إلى باريس، دبي، اسطنبول، لندن، القاهرة، طوكيو والمزيد!',
+      'سعر': '💰 أسعارنا تنافسية جداً! يرجى تحديد الخدمة التي ترغب بها.',
+      'شكرا': '🙏 العفو! سعداء بمساعدتك. هل هناك شيء آخر؟',
+      'الرقم': '📞 يمكنك التواصل معنا عبر واتساب: 0555382038 أو 0554126832.',
       'العنوان': '📍 عنواننا: طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية.',
       'باي': '💳 نقبل جميع وسائل الدفع: بطاقات الائتمان، تحويل بنكي، والدفع النقدي.',
       'تأمين': '🛡️ نوفر تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة.',
-      'جماعي': '👥 لدينا عروض خاصة للرحلات الجماعية والمجموعات. تواصل معنا للحصول على عرض مخصص.'
+      'جماعي': '👥 لدينا عروض خاصة للرحلات الجماعية والمجموعات.'
     };
-
-    const defaultResponses = [
-      '🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك قريباً. يمكنك أيضاً مراسلتنا على واتساب 0555382038.',
-      '📱 يرجى مراسلتنا على واتساب 0555382038 للحصول على تفاصيل أكثر. فريقنا جاهز لخدمتك ٢٤ ساعة.',
-      '🌍 اكتشف عروضنا المميزة في قسم الباقات العالمية! لدينا وجهات رائعة بأسعار لا تُقاوم.',
-      '✈️ صعود الطائرة وجهتك الأولى للسفر. تواصل معنا الآن واحجز رحلتك المثالية!'
+    const defaultReplies = [
+      '🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك قريباً. يمكنك أيضاً مراسلتنا على واتساب.',
+      '📱 يرجى مراسلتنا على واتساب 0555382038 للحصول على تفاصيل أكثر.',
+      '🌍 اكتشف عروضنا المميزة في قسم الباقات العالمية!',
+      '✈️ صعود الطائرة وجهتك الأولى للسفر. تواصل معنا الآن!'
     ];
 
     function getAIResponse(text) {
@@ -1106,17 +775,12 @@
       for (const [key, response] of Object.entries(aiResponses)) {
         if (lower.includes(key)) return response;
       }
-      return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+      return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
     }
 
     window.toggleAIChat = function() {
       chatBox.classList.toggle('open');
-      if (chatBox.classList.contains('open')) {
-        chatInput.focus();
-        if (chatMessages.children.length === 0) {
-          addMessage('bot', '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟');
-        }
-      }
+      if (chatBox.classList.contains('open')) chatInput.focus();
     };
 
     function addMessage(type, text) {
@@ -1143,14 +807,13 @@
 
       setTimeout(() => {
         document.getElementById('typingIndicator')?.remove();
-        const response = getAIResponse(text);
-        addMessage('bot', response);
-      }, 600 + Math.random() * 400);
+        addMessage('bot', getAIResponse(text));
+      }, 500 + Math.random() * 400);
     };
 
-    // ============================================================
-    // 9. CONTACT FORM
-    // ============================================================
+    // ====================
+    // 8. CONTACT FORM
+    // ====================
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('contactName').value.trim();
@@ -1158,7 +821,6 @@
       const email = document.getElementById('contactEmail').value.trim();
       const message = document.getElementById('contactMessage').value.trim();
       const status = document.getElementById('formStatus');
-
       if (!name || !phone || !message) {
         status.textContent = '⚠️ الرجاء ملء جميع الحقول المطلوبة';
         status.style.color = '#f87171';
@@ -1175,440 +837,201 @@
       }, 700);
     });
 
-    // ============================================================
-    // 10. LANGUAGE TOGGLE (EN/AR)
-    // ============================================================
+    // ====================
+    // 9. LANGUAGE TOGGLE
+    // ====================
     const langToggle = document.getElementById('langToggle');
-    let currentLang = 'ar'; // 'ar' or 'en'
+    let currentLang = 'ar';
 
-    // Translation dictionary (مفاتيح النصوص)
+    // قاموس الترجمات الكامل (مختصر لكن كافٍ)
     const translations = {
       ar: {
-        logo: 'صعود الطائرة',
-        logoSub: 'للسفر والسياحة',
-        navHome: 'الرئيسية',
-        navServices: 'خدماتنا',
-        navPackages: 'باقات عالمية',
-        navCars: 'تأجير سيارات',
-        navAbout: 'من نحن',
-        navContact: 'اتصل بنا',
-        navCta: '📞 احجز الآن',
-        heroTitle1: 'اكتشف العالم مع',
-        heroTitle2: 'صعود الطائرة',
+        logo: 'صعود الطائرة', logoSub: 'للسفر والسياحة',
+        navHome: 'الرئيسية', navServices: 'خدماتنا', navPackages: 'باقات عالمية', navCars: 'تأجير سيارات',
+        navAbout: 'من نحن', navContact: 'اتصل بنا', navCta: '📞 احجز الآن',
+        heroTitle: 'اكتشف العالم مع', heroHighlight: 'صعود الطائرة',
         heroSub: 'وجهتك الموثوقة للسفر والسياحة — نقدم لك أفضل باقات العمرة، التأشيرات، تذاكر الطيران، العطلات، والفنادق. رحلتك المثالية تبدأ من هنا.',
-        heroBtnPackages: 'باقات عالمية',
-        heroBtnWhatsapp: 'واتساب',
-        heroBtnAI: 'مساعد AI',
-        stat1: 'عميل سعيد',
-        stat2: 'وجهة سفر',
-        stat3: 'رضا العملاء',
-        stat4: 'سنوات خبرة',
-        heroCardTitle: 'رحلتك تبدأ هنا',
-        heroCardSub: 'خدمات سياحية متكاملة بأعلى معايير الجودة والاحترافية',
-        badge1: 'تذاكر',
-        badge2: 'عمرة',
-        badge3: 'تأشيرات',
-        badge4: 'فنادق',
-        badge5: 'تأجير',
-        servicesTitle1: 'خدماتنا',
-        servicesTitle2: 'المتميزة',
-        servicesSub: 'نقدم لك مجموعة متكاملة من الخدمات السياحية لتجعل رحلتك لا تُنسى',
-        srv1: 'باقات العمرة',
-        srv1desc: 'أفضل باقات العمرة بأسعار تنافسية وخدمات فندقية مميزة',
-        srv2: 'خدمات التأشيرات',
-        srv2desc: 'تأشيرات سياحية، عمل، زيارة، وعلاج لكافة الدول',
-        srv3: 'تذاكر الطيران',
-        srv3desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية',
-        srv4: 'باقات سياحية',
-        srv4desc: 'عطلات مميزة في أجمل وجهات العالم بأسعار لا تُقاوم',
-        srv5: 'حجز الفنادق',
-        srv5desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم',
-        srv6: 'تأجير السيارات',
-        srv6desc: 'سيارات فاخرة واقتصادية بأسعار مميزة لتجربة قيادة لا تُنسى',
-        srv7: 'تأمين السفر',
-        srv7desc: 'تأمين شامل يغطي جميع مخاطر السفر لتطمئن أثناء رحلتك',
-        srv8: 'رحلات جماعية',
-        srv8desc: 'رحلات منظمة للمجموعات مع مرشدين سياحيين محترفين',
-        srv9: 'رحلات بحرية',
-        srv9desc: 'رحلات بحرية فاخرة على متن أفضل السفن السياحية العالمية',
-        srv10: 'سفر رجال أعمال',
-        srv10desc: 'خدمات سفر مخصصة لرجال الأعمال مع أفضل وسائل الراحة',
-        srvTag: 'احجز الآن',
-        clickHint: 'اضغط للتواصل',
-        pkgTitle1: 'باقات',
-        pkgTitle2: 'عالمية',
-        pkgSub: 'اكتشف أجمل وجهات العالم مع عروضنا الحصرية',
-        pkg1name: 'باريس — مدينة النور',
-        pkg1loc: 'فرنسا',
-        pkg1desc: 'رحلة رومانسية لمدة 7 أيام تشمل برج إيفل، متحف اللوفر، وسين Seine',
-        pkg2name: 'دبي — مدينة الأحلام',
-        pkg2loc: 'الإمارات العربية المتحدة',
-        pkg2desc: 'باقة 5 أيام تشمل برج خليفة، دبي مول، صحراء سفاري، وفندق فاخر',
-        pkg3name: 'اسطنبول — عبق التاريخ',
-        pkg3loc: 'تركيا',
-        pkg3desc: 'رحلة 6 أيام تشمل آيا صوفيا، المسجد الأزرق، البازار الكبير، وبosporus',
-        pkg4name: 'لندن — العاصمة الملكية',
-        pkg4loc: 'المملكة المتحدة',
-        pkg4desc: 'باقة 7 أيام تشمل بيغ بن، برج لندن، المتحف البريطاني، وعين لندن',
-        pkg5name: 'كوالالمبور — آسيا الساحرة',
-        pkg5loc: 'ماليزيا',
-        pkg5desc: 'رحلة 6 أيام تشمل برجا بتروناس، كهوف باتو، وحدائق العاصمة',
-        pkg6name: 'القاهرة — أم الدنيا',
-        pkg6loc: 'مصر',
-        pkg6desc: 'باقة 5 أيام تشمل الأهرامات، المتحف المصري، وقلعة صلاح الدين',
-        pkg7name: 'نيويورك — المدينة التي لا تنام',
-        pkg7loc: 'الولايات المتحدة',
-        pkg7desc: 'رحلة 8 أيام تشمل تمثال الحرية، تايمز سكوير، وسنترال بارك',
-        pkg8name: 'طوكيو — سحر الشرق',
-        pkg8loc: 'اليابان',
-        pkg8desc: 'باقة 7 أيام تشمل برج طوكيو، معبد سينسو جي، ومدينة الأكيهارا',
-        featureFlight: 'طيران',
-        featureHotel: 'فندق 5*',
-        featureMeals: 'وجبات',
-        bookNow: 'احجز الآن',
-        carsTitle1: 'تأجير',
-        carsTitle2: 'السيارات',
-        carsSub: 'أفضل العروض على تأجير السيارات الفاخرة والاقتصادية',
-        car1: 'تويوتا كامري',
-        car1type: 'سيارة سيدان فاخرة',
-        car2: 'مرسيدس E-Class',
-        car2type: 'سيارة فاخرة تنفيذية',
-        car3: 'بي إم دبليو X5',
-        car3type: 'SUV فاخر',
-        car4: 'هيونداي توسان',
-        car4type: 'SUV اقتصادي',
-        car5: 'فورد موستانج',
-        car5type: 'سيارة رياضية',
-        car6: 'لاند روفر فيلار',
-        car6type: 'SUV فاخر فائق',
-        carFeat1: '٥ مقاعد',
-        carFeat2: 'اقتصادية',
-        carFeat3: 'فاخرة',
-        carFeat4: '٧ مقاعد',
-        carFeat5: 'دفع رباعي',
-        carFeat6: 'شاشة كبيرة',
-        carFeat7: 'كاميرا خلفية',
-        carFeat8: '٤ مقاعد',
-        carFeat9: 'صوت رياضي',
-        perDay: 'يوم',
-        rentNow: 'استأجر الآن',
-        plannerTitle1: 'مخطط رحلتك',
-        plannerTitle2: 'الذكي',
-        plannerSub: 'أجب عن بضعة أسئلة وسيوصي لك مساعدنا الذكي بأفضل وجهة وخط سير',
-        plannerBoxTitle: 'خطط لرحلتك المثالية',
-        plannerBudget: 'الميزانية (ريال)',
-        plannerInterest: 'الاهتمامات (اختر)',
-        interest1: 'ثقافة وتاريخ',
-        interest2: 'شواطئ وبحر',
-        interest3: 'طبيعة ومغامرات',
-        interest4: 'فخامة وتسوق',
-        interest5: 'عائلي',
-        plannerNights: 'مدة الرحلة (ليالي)',
-        plannerBtn: 'احصل على توصية',
-        ownerName: 'عطاالله بن مدخل بن صياح المضياني العنزي',
-        ownerTitle: '🇸🇦 مالك ومؤسس صعود الطائرة',
-        badgeExpert: 'خبير سفر',
-        badgeUmrah: 'عمرة',
-        badgeTourism: 'سياحة',
-        aboutTitle1: 'من نحن',
-        aboutTitle2: 'في صعود الطائرة',
+        heroBtn1: 'باقات عالمية', heroBtn2: 'واتساب', heroBtn3: 'مساعد AI',
+        stat1: 'عميل سعيد', stat2: 'وجهة سفر', stat3: 'رضا العملاء', stat4: 'سنوات خبرة',
+        heroCardTitle: 'رحلتك تبدأ هنا', heroCardSub: 'خدمات سياحية متكاملة بأعلى معايير الجودة والاحترافية',
+        badge1: 'تذاكر', badge2: 'عمرة', badge3: 'تأشيرات', badge4: 'فنادق', badge5: 'تأجير',
+        servicesTitle1: 'خدماتنا', servicesTitle2: 'المتميزة', servicesSub: 'نقدم لك مجموعة متكاملة من الخدمات السياحية لتجعل رحلتك لا تُنسى',
+        pkgTitle1: 'باقات', pkgTitle2: 'عالمية', pkgSub: 'اكتشف أجمل وجهات العالم مع عروضنا الحصرية',
+        carsTitle1: 'تأجير', carsTitle2: 'السيارات', carsSub: 'أفضل العروض على تأجير السيارات الفاخرة والاقتصادية',
+        plannerTitle1: 'مخطط رحلتك', plannerTitle2: 'الذكي', plannerSub: 'أجب عن بضعة أسئلة وسيوصي لك مساعدنا الذكي بأفضل وجهة وخط سير',
+        plannerBoxTitle: 'خطط لرحلتك المثالية', plannerBudget: 'الميزانية (ريال)', plannerInterest: 'الاهتمامات (اختر)',
+        interest1: 'ثقافة وتاريخ', interest2: 'شواطئ وبحر', interest3: 'طبيعة ومغامرات', interest4: 'فخامة وتسوق', interest5: 'عائلي',
+        plannerNights: 'مدة الرحلة (ليالي)', plannerBtn: 'احصل على توصية',
+        ownerName: 'عطاالله بن مدخل بن صياح المضياني العنزي', ownerTitle: '🇸🇦 مالك ومؤسس صعود الطائرة',
+        badgeExpert: 'خبير سفر', badgeUmrah: 'عمرة', badgeTourism: 'سياحة',
+        aboutTitle1: 'من نحن', aboutTitle2: 'في صعود الطائرة',
         aboutP1: '<strong>صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر رائدة في المملكة العربية السعودية، نقدم خدمات سياحية متكاملة لعملائنا الكرام. نفخر بتقديم أفضل باقات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية بأعلى معايير الجودة والاحترافية.',
         aboutP2: 'فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا، مع أسعار تنافسية وخدمات متميزة.',
-        address1: 'طريق ملك عبدالعزيز، عرعر',
-        address2: 'المملكة العربية السعودية',
-        contactBtn: 'تواصل معنا',
-        whyTitle1: 'لماذا',
-        whyTitle2: 'صعود الطائرة',
-        whySub: 'نحن نضع رضاك فوق كل اعتبار ونقدم لك تجربة سفر استثنائية',
-        why1: 'خبرة متميزة',
-        why1desc: 'أكثر من 5 سنوات من الخبرة في مجال السفر والسياحة',
-        why2: 'أسعار تنافسية',
-        why2desc: 'أفضل الأسعار مع عروض حصرية لعملائنا الكرام',
-        why3: 'خدمة موثوقة',
-        why3desc: 'خدمات معتمدة وموثوقة تضمن لك رحلة آمنة ومريحة',
-        why4: 'دعم على مدار الساعة',
-        why4desc: 'فريق دعم متخصص جاهز لمساعدتك في أي وقت',
-        why5: 'ذكاء اصطناعي',
-        why5desc: 'مساعد AI ذكي يقدم لك توصيات فورية ومخصصة',
-        why6: 'وجهات عالمية',
-        why6desc: 'أكثر من 130 وجهة سياحية حول العالم بأسعار مميزة',
-        contactTitle1: 'اتصل',
-        contactTitle2: 'بنا',
-        contactSub: 'نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز',
-        workPhone: 'هاتف العمل',
-        ownerPhone: 'هاتف المالك',
-        emailLabel: 'البريد الإلكتروني',
-        addressLabel: 'العنوان',
-        fullAddress: 'طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية',
-        waOwner: 'واتساب المالك',
-        waWork: 'واتساب العمل',
-        formTitle: '📩 أرسل لنا رسالة',
-        formSub: 'سنرد عليك في أقرب وقت ممكن',
-        formName: 'الاسم الكامل',
-        formPhone: 'رقم الجوال',
-        formEmail: 'البريد الإلكتروني',
-        formMsg: 'اكتب رسالتك هنا...',
+        address1: 'طريق ملك عبدالعزيز، عرعر', address2: 'المملكة العربية السعودية', contactBtn: 'تواصل معنا',
+        whyTitle1: 'لماذا', whyTitle2: 'صعود الطائرة', whySub: 'نحن نضع رضاك فوق كل اعتبار ونقدم لك تجربة سفر استثنائية',
+        why1: 'خبرة متميزة', why1desc: 'أكثر من 5 سنوات من الخبرة في مجال السفر والسياحة',
+        why2: 'أسعار تنافسية', why2desc: 'أفضل الأسعار مع عروض حصرية لعملائنا الكرام',
+        why3: 'خدمة موثوقة', why3desc: 'خدمات معتمدة وموثوقة تضمن لك رحلة آمنة ومريحة',
+        why4: 'دعم على مدار الساعة', why4desc: 'فريق دعم متخصص جاهز لمساعدتك في أي وقت',
+        why5: 'ذكاء اصطناعي', why5desc: 'مساعد AI ذكي يقدم لك توصيات فورية ومخصصة',
+        why6: 'وجهات عالمية', why6desc: 'أكثر من 130 وجهة سياحية حول العالم بأسعار مميزة',
+        contactTitle1: 'اتصل', contactTitle2: 'بنا', contactSub: 'نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز',
+        workPhone: 'هاتف العمل', ownerPhone: 'هاتف المالك', emailLabel: 'البريد الإلكتروني',
+        addressLabel: 'العنوان', fullAddress: 'طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية',
+        waOwner: 'واتساب المالك', waWork: 'واتساب العمل',
+        formTitle: '📩 أرسل لنا رسالة', formSub: 'سنرد عليك في أقرب وقت ممكن',
+        formName: 'الاسم الكامل', formPhone: 'رقم الجوال', formEmail: 'البريد الإلكتروني', formMsg: 'اكتب رسالتك هنا...',
         formSubmit: 'إرسال الرسالة',
-        footerBrand: 'صعود الطائرة',
-        footerDesc: 'وجهتك الأولى للسفر والسياحة في المملكة العربية السعودية. نقدم خدمات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية.',
-        footerLinks: 'روابط سريعة',
-        footerServices: 'خدماتنا',
-        footerInfo: 'معلومات',
-        privacyLink: 'سياسة الخصوصية',
-        termsLink: 'الشروط والأحكام',
-        footerRights: 'جميع الحقوق محفوظة',
-        footerCredit: 'تصميم وتطوير ✧ برؤية عصرية',
-        waLabel: 'تواصل واتساب',
-        aiTitle: 'مساعد صعود الطائرة AI',
-        aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟',
+        footerBrand: 'صعود الطائرة', footerDesc: 'وجهتك الأولى للسفر والسياحة في المملكة العربية السعودية. نقدم خدمات العمرة، التأشيرات، تذاكر الطيران، والباقات السياحية.',
+        footerLinks: 'روابط سريعة', footerServices: 'خدماتنا', footerInfo: 'معلومات',
+        privacyLink: 'سياسة الخصوصية', termsLink: 'الشروط والأحكام',
+        footerRights: 'جميع الحقوق محفوظة', footerCredit: 'تصميم وتطوير ✧ برؤية عصرية',
+        waLabel: 'تواصل واتساب', aiTitle: 'مساعد صعود الطائرة AI', aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟',
         aiPlaceholder: 'اكتب سؤالك هنا...'
       },
       en: {
-        logo: 'Saeed Al-Taayira',
-        logoSub: 'Travel & Tourism',
-        navHome: 'Home',
-        navServices: 'Services',
-        navPackages: 'Packages',
-        navCars: 'Car Rental',
-        navAbout: 'About',
-        navContact: 'Contact',
-        navCta: '📞 Book Now',
-        heroTitle1: 'Discover the World with',
-        heroTitle2: 'Saeed Al-Taayira',
+        logo: 'Saeed Al-Taayira', logoSub: 'Travel & Tourism',
+        navHome: 'Home', navServices: 'Services', navPackages: 'Packages', navCars: 'Car Rental',
+        navAbout: 'About', navContact: 'Contact', navCta: '📞 Book Now',
+        heroTitle: 'Discover the World with', heroHighlight: 'Saeed Al-Taayira',
         heroSub: 'Your trusted travel agency — offering Umrah packages, visas, flight tickets, holiday packages, and hotels. Your perfect journey starts here.',
-        heroBtnPackages: 'Global Packages',
-        heroBtnWhatsapp: 'WhatsApp',
-        heroBtnAI: 'AI Assistant',
-        stat1: 'Happy Clients',
-        stat2: 'Destinations',
-        stat3: 'Satisfaction',
-        stat4: 'Years Experience',
-        heroCardTitle: 'Your Journey Begins Here',
-        heroCardSub: 'Integrated travel services with the highest quality and professionalism.',
-        badge1: 'Tickets',
-        badge2: 'Umrah',
-        badge3: 'Visas',
-        badge4: 'Hotels',
-        badge5: 'Rental',
-        servicesTitle1: 'Our',
-        servicesTitle2: 'Services',
-        servicesSub: 'We offer a complete range of travel services to make your trip unforgettable.',
-        srv1: 'Umrah Packages',
-        srv1desc: 'Best Umrah packages with competitive prices and premium hotel services.',
-        srv2: 'Visa Services',
-        srv2desc: 'Tourist, work, visit, and medical visas for all countries.',
-        srv3: 'Flight Tickets',
-        srv3desc: 'Cheapest flight tickets with the world\'s top airlines.',
-        srv4: 'Holiday Packages',
-        srv4desc: 'Exclusive holidays to the most beautiful destinations at unbeatable prices.',
-        srv5: 'Hotel Booking',
-        srv5desc: 'Best deals on luxury and budget hotels worldwide.',
-        srv6: 'Car Rental',
-        srv6desc: 'Luxury and economy cars at great rates for an unforgettable driving experience.',
-        srv7: 'Travel Insurance',
-        srv7desc: 'Comprehensive insurance covering all travel risks for your peace of mind.',
-        srv8: 'Group Tours',
-        srv8desc: 'Organized group tours with professional tour guides.',
-        srv9: 'Cruises',
-        srv9desc: 'Luxury cruises on the world\'s finest cruise ships.',
-        srv10: 'Business Travel',
-        srv10desc: 'Tailored business travel services with maximum comfort.',
-        srvTag: 'Book Now',
-        clickHint: 'Click to contact',
-        pkgTitle1: 'Global',
-        pkgTitle2: 'Packages',
-        pkgSub: 'Discover the world\'s most beautiful destinations with our exclusive offers.',
-        pkg1name: 'Paris — City of Light',
-        pkg1loc: 'France',
-        pkg1desc: '7-day romantic trip including Eiffel Tower, Louvre Museum, and Seine River cruise.',
-        pkg2name: 'Dubai — City of Dreams',
-        pkg2loc: 'UAE',
-        pkg2desc: '5-day package including Burj Khalifa, Dubai Mall, Desert Safari, and luxury hotel.',
-        pkg3name: 'Istanbul — Cradle of History',
-        pkg3loc: 'Turkey',
-        pkg3desc: '6-day tour including Hagia Sophia, Blue Mosque, Grand Bazaar, and Bosphorus.',
-        pkg4name: 'London — Royal Capital',
-        pkg4loc: 'UK',
-        pkg4desc: '7-day package featuring Big Ben, Tower of London, British Museum, and London Eye.',
-        pkg5name: 'Kuala Lumpur — Enchanting Asia',
-        pkg5loc: 'Malaysia',
-        pkg5desc: '6-day trip including Petronas Towers, Batu Caves, and city gardens.',
-        pkg6name: 'Cairo — Mother of the World',
-        pkg6loc: 'Egypt',
-        pkg6desc: '5-day package including Pyramids, Egyptian Museum, and Saladin Citadel.',
-        pkg7name: 'New York — The City That Never Sleeps',
-        pkg7loc: 'USA',
-        pkg7desc: '8-day trip including Statue of Liberty, Times Square, and Central Park.',
-        pkg8name: 'Tokyo — Magic of the East',
-        pkg8loc: 'Japan',
-        pkg8desc: '7-day package including Tokyo Tower, Senso-ji Temple, and Akihabara.',
-        featureFlight: 'Flight',
-        featureHotel: 'Hotel 5*',
-        featureMeals: 'Meals',
-        bookNow: 'Book Now',
-        carsTitle1: 'Car',
-        carsTitle2: 'Rental',
-        carsSub: 'Best deals on luxury and economy car rentals.',
-        car1: 'Toyota Camry',
-        car1type: 'Luxury Sedan',
-        car2: 'Mercedes E-Class',
-        car2type: 'Executive Luxury',
-        car3: 'BMW X5',
-        car3type: 'Luxury SUV',
-        car4: 'Hyundai Tucson',
-        car4type: 'Economy SUV',
-        car5: 'Ford Mustang',
-        car5type: 'Sports Car',
-        car6: 'Land Rover Velar',
-        car6type: 'Ultra-Luxury SUV',
-        carFeat1: '5 Seats',
-        carFeat2: 'Economical',
-        carFeat3: 'Luxury',
-        carFeat4: '7 Seats',
-        carFeat5: '4WD',
-        carFeat6: 'Big Screen',
-        carFeat7: 'Rear Camera',
-        carFeat8: '4 Seats',
-        carFeat9: 'Sports Sound',
-        perDay: 'day',
-        rentNow: 'Rent Now',
-        plannerTitle1: 'Your Smart',
-        plannerTitle2: 'Trip Planner',
-        plannerSub: 'Answer a few questions and our AI will recommend the best destination and itinerary.',
-        plannerBoxTitle: 'Plan Your Perfect Trip',
-        plannerBudget: 'Budget (SAR)',
-        plannerInterest: 'Interests (choose)',
-        interest1: 'Culture & History',
-        interest2: 'Beaches & Sea',
-        interest3: 'Nature & Adventure',
-        interest4: 'Luxury & Shopping',
-        interest5: 'Family',
-        plannerNights: 'Trip Duration (Nights)',
-        plannerBtn: 'Get Recommendation',
-        ownerName: 'Ataallah bin Madkhal bin Sayah Al-Mudayani Al-Anzi',
-        ownerTitle: '🇸🇦 Owner & Founder of Saeed Al-Taayira',
-        badgeExpert: 'Travel Expert',
-        badgeUmrah: 'Umrah',
-        badgeTourism: 'Tourism',
-        aboutTitle1: 'About',
-        aboutTitle2: 'Saeed Al-Taayira',
+        heroBtn1: 'Global Packages', heroBtn2: 'WhatsApp', heroBtn3: 'AI Assistant',
+        stat1: 'Happy Clients', stat2: 'Destinations', stat3: 'Satisfaction', stat4: 'Years Experience',
+        heroCardTitle: 'Your Journey Begins Here', heroCardSub: 'Integrated travel services with the highest quality and professionalism.',
+        badge1: 'Tickets', badge2: 'Umrah', badge3: 'Visas', badge4: 'Hotels', badge5: 'Rental',
+        servicesTitle1: 'Our', servicesTitle2: 'Services', servicesSub: 'We offer a complete range of travel services to make your trip unforgettable.',
+        pkgTitle1: 'Global', pkgTitle2: 'Packages', pkgSub: 'Discover the world\'s most beautiful destinations with our exclusive offers.',
+        carsTitle1: 'Car', carsTitle2: 'Rental', carsSub: 'Best deals on luxury and economy car rentals.',
+        plannerTitle1: 'Smart', plannerTitle2: 'Trip Planner', plannerSub: 'Answer a few questions and our AI will recommend the best destination.',
+        plannerBoxTitle: 'Plan Your Perfect Trip', plannerBudget: 'Budget (SAR)', plannerInterest: 'Interests',
+        interest1: 'Culture & History', interest2: 'Beaches & Sea', interest3: 'Nature & Adventure', interest4: 'Luxury & Shopping', interest5: 'Family',
+        plannerNights: 'Duration (Nights)', plannerBtn: 'Get Recommendation',
+        ownerName: 'Ataallah bin Madkhal bin Sayah Al-Mudayani Al-Anzi', ownerTitle: '🇸🇦 Owner & Founder',
+        badgeExpert: 'Travel Expert', badgeUmrah: 'Umrah', badgeTourism: 'Tourism',
+        aboutTitle1: 'About', aboutTitle2: 'Saeed Al-Taayira',
         aboutP1: '<strong>Saeed Al-Taayira for Travel and Tourism</strong> is a leading travel agency in Saudi Arabia, offering integrated travel services. We pride ourselves on providing the best Umrah packages, visas, flight tickets, and holiday packages with the highest quality and professionalism.',
         aboutP2: 'Our specialized team works around the clock to ensure a smooth and enjoyable trip for our clients, with competitive prices and outstanding service.',
-        address1: 'King Abdulaziz Road, Arar',
-        address2: 'Saudi Arabia',
-        contactBtn: 'Contact Us',
-        whyTitle1: 'Why',
-        whyTitle2: 'Saeed Al-Taayira',
-        whySub: 'We put your satisfaction above all and offer you an exceptional travel experience.',
-        why1: 'Distinguished Experience',
-        why1desc: 'Over 5 years of experience in travel and tourism.',
-        why2: 'Competitive Prices',
-        why2desc: 'Best prices with exclusive offers for our valued clients.',
-        why3: 'Reliable Service',
-        why3desc: 'Approved and trustworthy services ensuring a safe and comfortable trip.',
-        why4: '24/7 Support',
-        why4desc: 'Dedicated support team ready to assist you anytime.',
-        why5: 'Artificial Intelligence',
-        why5desc: 'Smart AI assistant providing instant and personalized recommendations.',
-        why6: 'Global Destinations',
-        why6desc: 'Over 130 destinations worldwide at great prices.',
-        contactTitle1: 'Contact',
-        contactTitle2: 'Us',
-        contactSub: 'We are here to serve you — contact us for any inquiry or booking.',
-        workPhone: 'Work Phone',
-        ownerPhone: 'Owner Phone',
-        emailLabel: 'Email',
-        addressLabel: 'Address',
-        fullAddress: 'King Abdulaziz Road, Arar, Saudi Arabia',
-        waOwner: 'Owner WhatsApp',
-        waWork: 'Work WhatsApp',
-        formTitle: '📩 Send us a Message',
-        formSub: 'We will reply as soon as possible.',
-        formName: 'Full Name',
-        formPhone: 'Mobile Number',
-        formEmail: 'Email Address',
-        formMsg: 'Write your message here...',
+        address1: 'King Abdulaziz Road, Arar', address2: 'Saudi Arabia', contactBtn: 'Contact Us',
+        whyTitle1: 'Why', whyTitle2: 'Saeed Al-Taayira', whySub: 'We put your satisfaction above all and offer you an exceptional travel experience.',
+        why1: 'Distinguished Experience', why1desc: 'Over 5 years of experience in travel and tourism.',
+        why2: 'Competitive Prices', why2desc: 'Best prices with exclusive offers.',
+        why3: 'Reliable Service', why3desc: 'Approved and trustworthy services ensuring a safe trip.',
+        why4: '24/7 Support', why4desc: 'Dedicated support team ready to assist you anytime.',
+        why5: 'Artificial Intelligence', why5desc: 'Smart AI assistant providing instant recommendations.',
+        why6: 'Global Destinations', why6desc: 'Over 130 destinations worldwide at great prices.',
+        contactTitle1: 'Contact', contactTitle2: 'Us', contactSub: 'We are here to serve you — contact us for any inquiry or booking.',
+        workPhone: 'Work Phone', ownerPhone: 'Owner Phone', emailLabel: 'Email',
+        addressLabel: 'Address', fullAddress: 'King Abdulaziz Road, Arar, Saudi Arabia',
+        waOwner: 'Owner WhatsApp', waWork: 'Work WhatsApp',
+        formTitle: '📩 Send us a Message', formSub: 'We will reply as soon as possible.',
+        formName: 'Full Name', formPhone: 'Mobile Number', formEmail: 'Email Address', formMsg: 'Write your message here...',
         formSubmit: 'Send Message',
-        footerBrand: 'Saeed Al-Taayira',
-        footerDesc: 'Your first destination for travel and tourism in Saudi Arabia. We offer Umrah, visas, flight tickets, and holiday packages.',
-        footerLinks: 'Quick Links',
-        footerServices: 'Services',
-        footerInfo: 'Info',
-        privacyLink: 'Privacy Policy',
-        termsLink: 'Terms & Conditions',
-        footerRights: 'All Rights Reserved',
-        footerCredit: 'Designed & Developed ✧ with Vision',
-        waLabel: 'WhatsApp',
-        aiTitle: 'Saeed Al-Taayira AI Assistant',
-        aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s smart assistant. How can I help you today?',
+        footerBrand: 'Saeed Al-Taayira', footerDesc: 'Your first destination for travel and tourism in Saudi Arabia.',
+        footerLinks: 'Quick Links', footerServices: 'Services', footerInfo: 'Info',
+        privacyLink: 'Privacy Policy', termsLink: 'Terms & Conditions',
+        footerRights: 'All Rights Reserved', footerCredit: 'Designed & Developed ✧ with Vision',
+        waLabel: 'WhatsApp', aiTitle: 'Saeed Al-Taayira AI Assistant', aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s smart assistant. How can I help you today?',
         aiPlaceholder: 'Type your question here...'
       }
     };
 
-    function setLanguage(lang) {
+    function applyLanguage(lang) {
       currentLang = lang;
-      // تغيير اتجاه الصفحة
       document.body.className = (lang === 'ar') ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
       document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-      // تغيير نص الزر
       langToggle.textContent = (lang === 'ar') ? '🇬🇧 EN' : '🇸🇦 عربي';
-      // تطبيق الترجمات
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          el.textContent = translations[lang][key];
+      // ترجمة العناصر حسب المعرفات
+      const map = {
+        'logoText': 'logo', 'logoSlogan': 'logoSub',
+        'navHome': 'navHome', 'navServices': 'navServices', 'navPackages': 'navPackages', 'navCars': 'navCars',
+        'navAbout': 'navAbout', 'navContact': 'navContact', 'navCta': 'navCta',
+        'heroTitle': 'heroTitle', 'heroHighlight': 'heroHighlight', 'heroSub': 'heroSub',
+        'heroBtn1Text': 'heroBtn1', 'heroBtn2Text': 'heroBtn2', 'heroBtn3Text': 'heroBtn3',
+        'stat1': 'stat1', 'stat2': 'stat2', 'stat3': 'stat3', 'stat4': 'stat4',
+        'heroCardTitle': 'heroCardTitle', 'heroCardSub': 'heroCardSub',
+        'badge1': 'badge1', 'badge2': 'badge2', 'badge3': 'badge3', 'badge4': 'badge4', 'badge5': 'badge5',
+        'servicesTitle1': 'servicesTitle1', 'servicesTitle2': 'servicesTitle2', 'servicesSub': 'servicesSub',
+        'pkgTitle1': 'pkgTitle1', 'pkgTitle2': 'pkgTitle2', 'pkgSub': 'pkgSub',
+        'carsTitle1': 'carsTitle1', 'carsTitle2': 'carsTitle2', 'carsSub': 'carsSub',
+        'plannerTitle1': 'plannerTitle1', 'plannerTitle2': 'plannerTitle2', 'plannerSub': 'plannerSub',
+        'plannerBoxTitle': 'plannerBoxTitle', 'plannerBudget': 'plannerBudget', 'plannerInterest': 'plannerInterest',
+        'interest1': 'interest1', 'interest2': 'interest2', 'interest3': 'interest3', 'interest4': 'interest4', 'interest5': 'interest5',
+        'plannerNights': 'plannerNights', 'plannerBtn': 'plannerBtn',
+        'ownerName': 'ownerName', 'ownerTitle': 'ownerTitle',
+        'badgeExpert': 'badgeExpert', 'badgeUmrah': 'badgeUmrah', 'badgeTourism': 'badgeTourism',
+        'aboutTitle1': 'aboutTitle1', 'aboutTitle2': 'aboutTitle2',
+        'aboutP1': 'aboutP1', 'aboutP2': 'aboutP2',
+        'address1': 'address1', 'address2': 'address2', 'contactBtn': 'contactBtn',
+        'whyTitle1': 'whyTitle1', 'whyTitle2': 'whyTitle2', 'whySub': 'whySub',
+        'why1': 'why1', 'why1desc': 'why1desc', 'why2': 'why2', 'why2desc': 'why2desc',
+        'why3': 'why3', 'why3desc': 'why3desc', 'why4': 'why4', 'why4desc': 'why4desc',
+        'why5': 'why5', 'why5desc': 'why5desc', 'why6': 'why6', 'why6desc': 'why6desc',
+        'contactTitle1': 'contactTitle1', 'contactTitle2': 'contactTitle2', 'contactSub': 'contactSub',
+        'workPhone': 'workPhone', 'ownerPhone': 'ownerPhone', 'emailLabel': 'emailLabel',
+        'addressLabel': 'addressLabel', 'fullAddress': 'fullAddress',
+        'waOwner': 'waOwner', 'waWork': 'waWork',
+        'formTitle': 'formTitle', 'formSub': 'formSub', 'formSubmit': 'formSubmit',
+        'footerBrand': 'footerBrand', 'footerDesc': 'footerDesc',
+        'footerLinks': 'footerLinks', 'footerServices': 'footerServices', 'footerInfo': 'footerInfo',
+        'privacyLink': 'privacyLink', 'termsLink': 'termsLink',
+        'footerRights': 'footerRights', 'footerCredit': 'footerCredit',
+        'waLabel': 'waLabel', 'aiTitle': 'aiTitle', 'aiWelcome': 'aiWelcome'
+      };
+      for (const [id, key] of Object.entries(map)) {
+        const el = document.getElementById(id);
+        if (el && translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
         }
-      });
-      // الترجمات الخاصة بالـ placeholder (للإدخالات)
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (translations[lang] && translations[lang][key]) {
+      }
+      // ترجمة الـ placeholder
+      const placeholders = {
+        'contactName': 'formName',
+        'contactPhone': 'formPhone',
+        'contactEmail': 'formEmail',
+        'contactMessage': 'formMsg',
+        'aiChatInput': 'aiPlaceholder'
+      };
+      for (const [id, key] of Object.entries(placeholders)) {
+        const el = document.getElementById(id);
+        if (el && translations[lang] && translations[lang][key]) {
           el.placeholder = translations[lang][key];
         }
-      });
-      // تحديث العنوان
-      document.title = (lang === 'ar') ? 'صعود الطائرة للسفر والسياحة' : 'Saeed Al-Taayira Travel & Tourism';
-      // تحديث وصف الميتا
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.content = (lang === 'ar') ?
-          'وجهتك الأولى للسفر والسياحة في السعودية. حجز العمرة، التأشيرات، تذاكر الطيران، الباقات العالمية، وتأجير السيارات بأفضل الأسعار.' :
-          'Your first destination for travel in Saudi. Book Umrah, visas, flight tickets, global packages, and car rentals at best prices.';
       }
-      // حفظ اللغة في localStorage
+      // تحديث العنوان
+      document.title = (lang === 'ar') ? 'صعود الطائرة – وكالة سفر وسياحة' : 'Saeed Al-Taayira – Travel & Tourism';
+      // حفظ اللغة
       localStorage.setItem('lang', lang);
     }
 
-    // تبديل اللغة عند النقر على الزر
     langToggle.addEventListener('click', () => {
       const newLang = (currentLang === 'ar') ? 'en' : 'ar';
-      setLanguage(newLang);
+      applyLanguage(newLang);
     });
 
     // تحميل اللغة المحفوظة
     const savedLang = localStorage.getItem('lang') || 'ar';
-    setLanguage(savedLang);
+    applyLanguage(savedLang);
 
-    // ============================================================
-    // 11. SMOOTH SCROLL
-    // ============================================================
+    // ====================
+    // 10. SMOOTH SCROLL
+    // ====================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        const targetEl = document.querySelector(targetId);
-        if (targetEl) {
+        const target = document.querySelector(targetId);
+        if (target) {
           e.preventDefault();
           const offset = 80;
-          window.scrollTo({ top: targetEl.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
         }
       });
     });
 
-    // ============================================================
-    // 12. KEYBOARD SHORTCUTS
-    // ============================================================
+    // ====================
+    // 11. KEYBOARD SHORTCUTS
+    // ====================
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (chatBox.classList.contains('open')) chatBox.classList.remove('open');
@@ -1619,12 +1042,112 @@
       }
     });
 
-    // ============================================================
-    // 13. DYNAMIC YEAR IN FOOTER
-    // ============================================================
-    document.querySelector('.footer-bottom').innerHTML =
-      `&copy; ${new Date().getFullYear()} <span data-i18n="footerBrand">صعود الطائرة للسفر والسياحة</span> — <span data-i18n="footerRights">جميع الحقوق محفوظة</span><br style="display:block; margin-top:4px;" /><span data-i18n="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
+    // ====================
+    // 12. GENERATE SERVICES, PACKAGES, CARS (بيانات ثابتة)
+    // ====================
+    (function generateContent() {
+      // Services
+      const services = [
+        { icon: '🕋', name: 'باقات العمرة', desc: 'أفضل باقات العمرة بأسعار تنافسية وخدمات فندقية مميزة' },
+        { icon: '🛂', name: 'خدمات التأشيرات', desc: 'تأشيرات سياحية، عمل، زيارة، وعلاج لكافة الدول' },
+        { icon: '✈️', name: 'تذاكر الطيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية' },
+        { icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات مميزة في أجمل وجهات العالم بأسعار لا تُقاوم' },
+        { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم' },
+        { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة لتجربة قيادة لا تُنسى' },
+        { icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي جميع مخاطر السفر لتطمئن أثناء رحلتك' },
+        { icon: '👥', name: 'رحلات جماعية', desc: 'رحلات منظمة للمجموعات مع مرشدين سياحيين محترفين' },
+        { icon: '🚢', name: 'رحلات بحرية', desc: 'رحلات بحرية فاخرة على متن أفضل السفن السياحية العالمية' },
+        { icon: '💼', name: 'سفر رجال أعمال', desc: 'خدمات سفر مخصصة لرجال الأعمال مع أفضل وسائل الراحة' }
+      ];
+      const servicesGrid = document.querySelector('.services-grid');
+      servicesGrid.innerHTML = '';
+      services.forEach((s, i) => {
+        const card = document.createElement('div');
+        card.className = `service-card reveal delay-${(i % 10) + 1}`;
+        card.dataset.service = s.name;
+        card.dataset.msg = `أرغب في الاستفسار عن ${s.name}`;
+        card.innerHTML = `
+          <div class="icon">${s.icon}</div>
+          <h4>${s.name}</h4>
+          <p>${s.desc}</p>
+          <span class="service-tag">احجز الآن</span>
+          <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+        `;
+        servicesGrid.appendChild(card);
+      });
 
+      // Packages
+      const packages = [
+        { name: 'باريس — مدينة النور', loc: 'فرنسا', desc: 'رحلة رومانسية لمدة 7 أيام تشمل برج إيفل، متحف اللوفر، وسين Seine', price: '$٩٩٩', emoji: '🗼' },
+        { name: 'دبي — مدينة الأحلام', loc: 'الإمارات العربية المتحدة', desc: 'باقة 5 أيام تشمل برج خليفة، دبي مول، صحراء سفاري، وفندق فاخر', price: '$٧٩٩', emoji: '🌆' },
+        { name: 'اسطنبول — عبق التاريخ', loc: 'تركيا', desc: 'رحلة 6 أيام تشمل آيا صوفيا، المسجد الأزرق، البازار الكبير، وبosporus', price: '$٥٤٩', emoji: '🕌' },
+        { name: 'لندن — العاصمة الملكية', loc: 'المملكة المتحدة', desc: 'باقة 7 أيام تشمل بيغ بن، برج لندن، المتحف البريطاني، وعين لندن', price: '$٨٤٩', emoji: '🇬🇧' },
+        { name: 'كوالالمبور — آسيا الساحرة', loc: 'ماليزيا', desc: 'رحلة 6 أيام تشمل برجا بتروناس، كهوف باتو، وحدائق العاصمة', price: '$٦٩٩', emoji: '🗼' },
+        { name: 'القاهرة — أم الدنيا', loc: 'مصر', desc: 'باقة 5 أيام تشمل الأهرامات، المتحف المصري، وقلعة صلاح الدين', price: '$٤٩٩', emoji: '🏛️' },
+        { name: 'نيويورك — المدينة التي لا تنام', loc: 'الولايات المتحدة', desc: 'رحلة 8 أيام تشمل تمثال الحرية، تايمز سكوير، وسنترال بارك', price: '$٩٩٩', emoji: '🗽' },
+        { name: 'طوكيو — سحر الشرق', loc: 'اليابان', desc: 'باقة 7 أيام تشمل برج طوكيو، معبد سينسو جي، ومدينة الأكيهارا', price: '$١٠٩٩', emoji: '🗾' }
+      ];
+      const packagesGrid = document.getElementById('packagesGrid');
+      packagesGrid.innerHTML = '';
+      packages.forEach((p, i) => {
+        const card = document.createElement('div');
+        card.className = `package-card reveal delay-${(i % 8) + 1}`;
+        card.dataset.package = p.name;
+        card.dataset.msg = `أرغب في الاستفسار عن باقة ${p.name}`;
+        card.innerHTML = `
+          <div class="package-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
+            ${p.emoji}
+            <div class="overlay"></div>
+            <span class="price-tag">${p.price}</span>
+          </div>
+          <div class="package-body">
+            <h4>${p.name}</h4>
+            <div class="location"><i class="fas fa-map-pin"></i> ${p.loc}</div>
+            <p>${p.desc}</p>
+            <div class="package-features">
+              <span><i class="fas fa-plane"></i> طيران</span>
+              <span><i class="fas fa-hotel"></i> فندق 5*</span>
+              <span><i class="fas fa-utensils"></i> وجبات</span>
+            </div>
+            <button class="btn-sm" onclick="bookPackage('${p.name}')"><i class="fab fa-whatsapp"></i> احجز الآن</button>
+          </div>
+        `;
+        packagesGrid.appendChild(card);
+      });
+
+      // Cars
+      const cars = [
+        { name: 'تويوتا كامري', type: 'سيارة سيدان فاخرة', price: '$١٢٠', features: ['٥ مقاعد', 'اقتصادية', 'Bluetooth'], emoji: '🚗' },
+        { name: 'مرسيدس E-Class', type: 'سيارة فاخرة تنفيذية', price: '$٢٥٠', features: ['٥ مقاعد', 'فاخرة', 'Apple CarPlay'], emoji: '🚙' },
+        { name: 'بي إم دبليو X5', type: 'SUV فاخر', price: '$٢٨٠', features: ['٧ مقاعد', 'دفع رباعي', 'شاشة كبيرة'], emoji: '🚙' },
+        { name: 'هيونداي توسان', type: 'SUV اقتصادي', price: '$٩٠', features: ['٥ مقاعد', 'اقتصادية', 'كاميرا خلفية'], emoji: '🚙' },
+        { name: 'فورد موستانج', type: 'سيارة رياضية', price: '$٢٠٠', features: ['٤ مقاعد', 'V8', 'صوت رياضي'], emoji: '🚗' },
+        { name: 'لاند روفر فيلار', type: 'SUV فاخر فائق', price: '$٣٢٠', features: ['٥ مقاعد', 'دفع رباعي', 'فاخر'], emoji: '🚙' }
+      ];
+      const carsGrid = document.getElementById('carsGrid');
+      carsGrid.innerHTML = '';
+      cars.forEach((c, i) => {
+        const card = document.createElement('div');
+        card.className = `car-card reveal delay-${(i % 6) + 1}`;
+        card.dataset.car = c.name;
+        card.dataset.msg = `أرغب في الاستفسار عن تأجير ${c.name}`;
+        card.innerHTML = `
+          <span class="car-icon">${c.emoji}</span>
+          <h4>${c.name}</h4>
+          <div class="car-type">${c.type}</div>
+          <div class="car-price">${c.price} <small>/ يوم</small></div>
+          <div class="car-features">
+            ${c.features.map(f => `<span>${f}</span>`).join('')}
+          </div>
+          <button class="btn-sm" onclick="rentCar('${c.name}')"><i class="fab fa-whatsapp"></i> استأجر الآن</button>
+        `;
+        carsGrid.appendChild(card);
+      });
+    })();
+
+    // ====================
+    // 13. CONSOLE WELCOME
+    // ====================
     console.log('%c✈️ صعود الطائرة – وكالة سفر متقدمة', 'font-size:20px; font-weight:bold; color:#d4af37;');
     console.log('%c📞 0555382038 | 0554126832', 'font-size:14px; color:#aaa;');
     console.log('%c🌍 ثنائية اللغة (عربي/إنجليزي) – AI Trip Planner – Chatbot', 'font-size:13px; color:#888;');

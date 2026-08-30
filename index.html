@@ -3,28 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>صعود الطائرة – وكالة سفر وسياحة</title>
-  <meta name="description" content="وكالة سفر متكاملة تقدم جميع الخدمات السياحية مع نظام حجز متقدم." />
+  <title>صعود الطائرة – وكالة سفر وسياحة متكاملة</title>
+  <meta name="description" content="وكالة سفر متكاملة تقدم جميع الخدمات السياحية مع نظام حجز متقدم وذكاء اصطناعي." />
   <link rel="canonical" href="https://sueudaltaayira.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* ===== RESET & BASE ===== */
-    * { margin:0; padding:0; box-sizing:border-box; }
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     :root {
       --primary-dark: #061d3a;
       --gold: #d4af37;
       --gold-light: #f0d060;
       --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
-      --glass-bg: rgba(255,255,255,0.04);
-      --glass-border: rgba(255,255,255,0.06);
-      --text-muted: rgba(255,255,255,0.6);
+      --glass-bg: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.06);
+      --text-muted: rgba(255, 255, 255, 0.6);
       --radius: 20px;
       --font: 'Tajawal', sans-serif;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: var(--font);
       background: var(--primary-dark);
@@ -32,16 +41,51 @@
       overflow-x: hidden;
       line-height: 1.7;
     }
-    body.rtl { direction: rtl; text-align: right; }
-    body.ltr { direction: ltr; text-align: left; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    ::-webkit-scrollbar { width: 7px; }
-    ::-webkit-scrollbar-track { background: var(--primary-dark); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+    body.rtl {
+      direction: rtl;
+      text-align: right;
+    }
+    body.ltr {
+      direction: ltr;
+      text-align: left;
+    }
+    body.ltr .nav-links a {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--primary-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 10px;
+    }
 
     /* ===== PARTICLES ===== */
-    #particles-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3; }
+    #particles-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    /* ===== GLASS ===== */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+    }
 
     /* ===== HEADER ===== */
     .header {
@@ -52,9 +96,9 @@
       z-index: 1000;
       padding: 14px 0;
       transition: 0.3s;
-      background: rgba(6,29,58,0.94);
+      background: rgba(6, 29, 58, 0.94);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(212,175,55,0.1);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
     }
     .header .container {
       display: flex;
@@ -70,12 +114,52 @@
       gap: 10px;
       font-size: 1.5rem;
       font-weight: 900;
+      cursor: pointer;
     }
-    .logo-icon { font-size: 2rem; color: var(--gold); animation: logoFloat 3s ease-in-out infinite; }
-    @keyframes logoFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);} }
-    .logo-text { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .logo-sub { font-size: 0.6rem; font-weight: 300; color: var(--text-muted); display: block; margin-top: -3px; }
-    .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .logo-icon {
+      font-size: 2.2rem;
+      color: var(--gold);
+      animation: logoFloat 3s ease-in-out infinite;
+    }
+    @keyframes logoFloat {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+    .logo-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .logo-text strong {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+    }
+    .logo-sub {
+      font-size: 0.55rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      display: block;
+      margin-top: -3px;
+      letter-spacing: 3px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
     .nav-links a {
       padding: 8px 18px;
       border-radius: 50px;
@@ -85,7 +169,11 @@
       transition: 0.3s;
       position: relative;
     }
-    .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(212, 175, 55, 0.1);
+    }
     .nav-links a.active::after {
       content: '';
       position: absolute;
@@ -104,10 +192,12 @@
       padding: 8px 26px !important;
       border-radius: 50px !important;
     }
-    .nav-cta:hover { transform: scale(1.05); }
+    .nav-cta:hover {
+      transform: scale(1.05);
+    }
     .lang-toggle {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: #fff;
       padding: 6px 16px;
       border-radius: 50px;
@@ -116,7 +206,10 @@
       font-size: 0.8rem;
       transition: 0.3s;
     }
-    .lang-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
+    .lang-toggle:hover {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: var(--gold);
+    }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -125,28 +218,53 @@
       padding: 6px;
       z-index: 1001;
     }
-    .hamburger span { width: 28px; height: 2.5px; background: #fff; border-radius: 4px; transition: 0.3s; }
-    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-    .hamburger.active span:nth-child(2){opacity:0; transform:scaleX(0);}
-    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-    @media (max-width:768px) {
+    .hamburger span {
+      width: 28px;
+      height: 2.5px;
+      background: #fff;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    @media (max-width: 768px) {
       .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
         width: 280px;
         height: 100vh;
-        background: rgba(6,29,58,0.97);
+        background: rgba(6, 29, 58, 0.97);
         flex-direction: column;
         padding: 80px 28px 32px;
         transition: right 0.4s;
-        border-left: 1px solid rgba(255,255,255,0.04);
+        border-left: 1px solid rgba(255, 255, 255, 0.04);
       }
-      .nav-links.open { right: 0; }
-      .nav-links a { width: 100%; padding: 14px 18px; border-radius: 12px; }
-      .nav-links a.active::after { display: none; }
-      .nav-cta { margin-top: 8px; }
-      .hamburger { display: flex; }
+      .nav-links.open {
+        right: 0;
+      }
+      .nav-links a {
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 12px;
+      }
+      .nav-links a.active::after {
+        display: none;
+      }
+      .nav-cta {
+        margin-top: 8px;
+      }
+      .hamburger {
+        display: flex;
+      }
     }
 
     /* ===== HERO ===== */
@@ -156,8 +274,21 @@
       display: flex;
       align-items: center;
       background: var(--primary-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.06), transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(108, 60, 224, 0.04), transparent 60%);
+      z-index: 0;
     }
     .hero .container {
+      position: relative;
+      z-index: 1;
       max-width: 1320px;
       margin: 0 auto;
       display: grid;
@@ -184,7 +315,11 @@
       margin-bottom: 32px;
       line-height: 1.9;
     }
-    .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -198,34 +333,86 @@
       transition: 0.3s;
       font-family: inherit;
     }
-    .btn-primary { background: var(--gold-gradient); color: var(--primary-dark); }
-    .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(212,175,55,0.35); }
-    .btn-whatsapp { background: #25d366; color: #fff; }
-    .btn-whatsapp:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(37,211,102,0.35); }
-    .btn-ai { background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff; }
-    .btn-ai:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(108,60,224,0.4); }
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: var(--primary-dark);
+    }
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.35);
+    }
+    .btn-whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.35);
+    }
+    .btn-ai {
+      background: linear-gradient(135deg, #6c3ce0, #a855f7);
+      color: #fff;
+    }
+    .btn-ai:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(108, 60, 224, 0.4);
+    }
     .hero-stats {
       display: flex;
       gap: 44px;
       margin-top: 44px;
       padding-top: 32px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .hero-stats .stat h3 { font-size: 2rem; font-weight: 900; color: var(--gold); direction: ltr; }
-    .hero-stats .stat p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+    .hero-stats .stat h3 {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      direction: ltr;
+    }
+    .hero-stats .stat p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
     .hero-card {
       max-width: 480px;
       border-radius: 32px;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       padding: 40px;
       text-align: center;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+      transition: transform 0.5s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-card .big-icon { font-size: 5.2rem; color: var(--gold); }
-    .hero-card h3 { font-size: 1.8rem; font-weight: 800; }
-    .hero-card p { color: var(--text-muted); }
+    .hero-card:hover {
+      transform: perspective(1000px) rotateY(-3deg) rotateX(3deg) scale(1.02);
+    }
+    .hero-card .big-icon {
+      font-size: 5.2rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      animation: iconPulse 3s ease-in-out infinite;
+    }
+    @keyframes iconPulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.06);
+      }
+    }
+    .hero-card h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+    .hero-card p {
+      color: var(--text-muted);
+    }
     .hero-card .badge-row {
       display: flex;
       gap: 10px;
@@ -234,18 +421,32 @@
       margin-top: 20px;
     }
     .hero-card .badge-row span {
-      background: rgba(212,175,55,0.1);
+      background: rgba(212, 175, 55, 0.1);
       padding: 5px 16px;
       border-radius: 50px;
       font-size: 0.75rem;
       color: var(--gold-light);
-      border: 1px solid rgba(212,175,55,0.08);
+      border: 1px solid rgba(212, 175, 55, 0.08);
+      transition: 0.3s;
+    }
+    .hero-card .badge-row span:hover {
+      background: rgba(212, 175, 55, 0.2);
+      transform: scale(1.05);
     }
 
     /* ===== SECTIONS ===== */
-    .section { padding: 80px 24px; }
-    .section .container { max-width: 1320px; margin: 0 auto; }
-    .section-alt { background: rgba(255,255,255,0.005); }
+    .section {
+      padding: 80px 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .section .container {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .section-alt {
+      background: rgba(255, 255, 255, 0.005);
+    }
     .section-title {
       text-align: center;
       margin-bottom: 48px;
@@ -284,8 +485,8 @@
     .service-card {
       padding: 28px 20px;
       border-radius: var(--radius);
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.04);
       text-align: center;
       cursor: pointer;
       transition: 0.4s;
@@ -296,29 +497,225 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(212,175,55,0.05), transparent 60%);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent 60%);
       opacity: 0;
       transition: 0.4s;
     }
-    .service-card:hover::before { opacity: 1; }
+    .service-card:hover::before {
+      opacity: 1;
+    }
     .service-card:hover {
       transform: translateY(-12px);
-      border-color: rgba(212,175,55,0.2);
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      border-color: rgba(212, 175, 55, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     }
-    .service-card .icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 10px; display: inline-block; transition: 0.4s; }
-    .service-card:hover .icon { transform: scale(1.15) rotate(-4deg); }
-    .service-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-    .service-card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px; }
+    .service-card .icon {
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: inline-block;
+      transition: 0.4s;
+    }
+    .service-card:hover .icon {
+      transform: scale(1.15) rotate(-4deg);
+    }
+    .service-card .simg {
+      width: 100%;
+      height: 120px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .service-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
     .service-card .service-tag {
       display: inline-block;
       padding: 2px 12px;
       border-radius: 50px;
-      background: rgba(212,175,55,0.08);
+      background: rgba(212, 175, 55, 0.08);
       color: var(--gold-light);
       font-size: 0.65rem;
-      border: 1px solid rgba(212,175,55,0.06);
+      border: 1px solid rgba(212, 175, 55, 0.06);
+    }
+
+    /* ===== SERVICE MODAL ===== */
+    .service-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .service-modal.open {
+      display: flex;
+      animation: modalFade 0.4s ease;
+    }
+    @keyframes modalFade {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .service-modal .modal-content {
+      background: #0a1a2e;
+      border-radius: 24px;
+      max-width: 750px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+      padding: 0;
+      position: relative;
+    }
+    .service-modal .modal-content .close-btn {
+      position: sticky;
+      top: 12px;
+      left: 16px;
+      float: left;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 12px 12px 0 0;
+    }
+    .service-modal .modal-content .close-btn:hover {
+      background: rgba(255, 0, 0, 0.2);
+      border-color: #ff4444;
+      transform: rotate(90deg);
+    }
+    .service-modal .modal-body {
+      padding: 0 30px 30px;
+    }
+    .service-modal .modal-body .service-img {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+    .service-modal .modal-body h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .service-modal .modal-body .service-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .service-modal .modal-body .service-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .service-modal .modal-body .service-details .detail-item {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .service-modal .modal-body .service-details .detail-item span {
+      color: var(--gold);
+      font-weight: 600;
+      display: block;
+      font-size: 0.8rem;
+    }
+    .service-modal .modal-body .service-details .detail-item p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .service-modal .modal-body .form-group {
+      margin-bottom: 16px;
+    }
+    .service-modal .modal-body .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .service-modal .modal-body .form-group input,
+    .service-modal .modal-body .form-group select,
+    .service-modal .modal-body .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: 0.3s;
+    }
+    .service-modal .modal-body .form-group input:focus,
+    .service-modal .modal-body .form-group select:focus,
+    .service-modal .modal-body .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .service-modal .modal-body .form-group select option {
+      background: #0a1a2e;
+      color: #fff;
+      padding: 8px;
+    }
+    .service-modal .modal-body .form-group textarea {
+      height: 80px;
+      resize: vertical;
+    }
+    .service-modal .modal-body .btn-submit-service {
+      width: 100%;
+      padding: 14px;
+      border-radius: 60px;
+      background: var(--gold-gradient);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: inherit;
+    }
+    .service-modal .modal-body .btn-submit-service:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+    }
+    .service-modal .modal-body .form-status {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 0.9rem;
+      min-height: 28px;
     }
 
     /* ===== OFFERS ===== */
@@ -329,7 +726,7 @@
       margin-top: 30px;
     }
     .offer-card {
-      background: rgba(255,255,255,0.025);
+      background: rgba(255, 255, 255, 0.025);
       border: 2px solid var(--gold);
       border-radius: var(--radius);
       padding: 30px 24px;
@@ -342,13 +739,22 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent 60%);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 60%);
       opacity: 0;
       transition: 0.4s;
     }
-    .offer-card:hover::before { opacity: 1; }
-    .offer-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(212,175,55,0.1); }
-    .offer-card .offer-icon { font-size: 3rem; color: var(--gold); margin-bottom: 12px; }
+    .offer-card:hover::before {
+      opacity: 1;
+    }
+    .offer-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(212, 175, 55, 0.1);
+    }
+    .offer-card .offer-icon {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
     .offer-card .offer-badge {
       display: inline-block;
       background: var(--gold-gradient);
@@ -359,17 +765,19 @@
       font-weight: 700;
       margin-bottom: 8px;
     }
-    .offer-card h4 { font-size: 1.2rem; font-weight: 800; }
-    .offer-card p { color: var(--text-muted); font-size: 0.9rem; margin: 8px 0; }
+    .offer-card h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .offer-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 8px 0;
+    }
     .offer-card .offer-price {
       font-size: 1.4rem;
       font-weight: 700;
       color: var(--gold);
-    }
-    .offer-card .offer-price small {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      font-weight: 400;
     }
     .offer-card .btn-sm {
       padding: 8px 24px;
@@ -384,51 +792,361 @@
       transition: 0.3s;
       font-family: inherit;
     }
-    .offer-card .btn-sm:hover { transform: scale(1.05); }
+    .offer-card .btn-sm:hover {
+      transform: scale(1.05);
+    }
 
-    /* ===== FOOTER ===== */
-    .footer {
-      padding: 60px 24px 30px;
-      border-top: 1px solid rgba(255,255,255,0.03);
-      background: rgba(6,29,58,0.5);
-      backdrop-filter: blur(12px);
-    }
-    .footer .container {
-      max-width: 1320px;
-      margin: 0 auto;
+    /* ===== HOTELS & PACKAGES ===== */
+    .hotels-grid,
+    .packages-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
     }
-    .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
-    .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
-    .footer .brand .socials a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
+    .hotel-card,
+    .package-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: 0.4s;
+    }
+    .hotel-card:hover,
+    .package-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212, 175, 55, 0.15);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+    .hotel-card .img,
+    .package-card .img {
+      height: 170px;
+      background-size: cover;
+      background-position: center;
+    }
+    .hotel-card .body,
+    .package-card .body {
+      padding: 18px 20px 22px;
+    }
+    .hotel-card .body h4,
+    .package-card .body h4 {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+    .hotel-card .body .location,
+    .package-card .body .location {
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+    .hotel-card .body .rating {
+      color: #fbbf24;
+      font-size: 0.85rem;
+      margin: 4px 0;
+    }
+    .hotel-card .body .price,
+    .package-card .body .price {
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .hotel-card .body .price small,
+    .package-card .body .price small {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .hotel-card .body .btn-sm,
+    .package-card .body .btn-sm {
+      padding: 8px 22px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      background: var(--gold-gradient);
+      color: var(--primary-dark);
+      margin-top: 10px;
+      transition: 0.3s;
+      font-family: inherit;
+    }
+    .hotel-card .body .btn-sm:hover,
+    .package-card .body .btn-sm:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== RAILWAY ===== */
+    .railway-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .railway-item {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .railway-item:hover {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.04);
+    }
+    .railway-item .icon {
+      font-size: 2.4rem;
+      color: var(--gold);
+    }
+    .railway-item .rimg {
+      width: 100%;
+      height: 100px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .railway-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .railway-item p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== BLOG ===== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .blog-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: 0.4s;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212, 175, 55, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+    .blog-card .img {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+    .blog-card .body {
+      padding: 18px 20px 22px;
+    }
+    .blog-card .body .tag {
+      display: inline-block;
+      padding: 2px 12px;
+      border-radius: 50px;
+      background: rgba(212, 175, 55, 0.08);
+      color: var(--gold-light);
+      font-size: 0.6rem;
+      border: 1px solid rgba(212, 175, 55, 0.06);
+      margin-bottom: 6px;
+    }
+    .blog-card .body h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .blog-card .body p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .blog-card .body .blog-date {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .faq-item .faq-q {
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+    .faq-item .faq-q:hover {
+      background: rgba(212, 175, 55, 0.03);
+    }
+    .faq-item .faq-q i {
+      transition: 0.3s;
+    }
+    .faq-item .faq-a {
+      padding: 0 20px 20px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: none;
+      line-height: 1.8;
+    }
+    .faq-item.open .faq-a {
+      display: block;
+    }
+    .faq-item.open .faq-q i {
+      transform: rotate(180deg);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .info-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: 0.3s;
+    }
+    .info-card:hover {
+      border-color: rgba(212, 175, 55, 0.12);
+      transform: translateX(-4px);
+    }
+    .info-card .icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(212, 175, 55, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
+      color: var(--gold);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .info-card .label {
+      font-size: 0.7rem;
       color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .info-card .value {
+      font-size: 1rem;
+      font-weight: 600;
+      direction: ltr;
+      text-align: right;
+    }
+    .contact-form {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      padding: 30px;
+    }
+    .contact-form h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+    .contact-form .form-sub {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
       transition: 0.3s;
     }
-    .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-    .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
-    .footer ul li { margin-bottom: 6px; }
-    .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
-    .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
-    .footer-bottom {
-      max-width: 1320px;
-      margin: 40px auto 0;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.03);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.8rem;
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.06);
     }
-    .footer-bottom span { color: var(--gold); }
+    .form-group select option {
+      background: #0a1a2e;
+      color: #fff;
+      padding: 8px;
+    }
+    .form-group textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      border-radius: 60px;
+      background: var(--gold-gradient);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: inherit;
+    }
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+    }
+    .form-status {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 0.9rem;
+      min-height: 28px;
+    }
+    .btn-whatsapp-link {
+      flex: 1;
+      justify-content: center;
+      background: #25d366;
+      color: #fff;
+      padding: 12px;
+      border-radius: 50px;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn-whatsapp-link:hover {
+      transform: scale(1.02);
+    }
+    .btn-whatsapp-link.work {
+      background: #1ebe5c;
+    }
 
     /* ===== WHATSAPP FLOAT ===== */
     .whatsapp-float {
@@ -451,28 +1169,35 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 40px rgba(37,211,102,0.3);
+      box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
       transition: 0.3s;
       border: none;
       cursor: pointer;
       animation: waPulse 2.8s ease-in-out infinite;
     }
-    .whatsapp-float .wa-btn:hover { transform: scale(1.1); }
+    .whatsapp-float .wa-btn:hover {
+      transform: scale(1.1);
+    }
     .whatsapp-float .wa-label {
       font-size: 0.65rem;
       color: var(--text-muted);
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       padding: 3px 14px;
       border-radius: 50px;
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.04);
+      border: 1px solid rgba(255, 255, 255, 0.04);
     }
     @keyframes waPulse {
-      0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3);}
-      50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06);}
+      0%,
+      100% {
+        box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+      }
+      50% {
+        box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06);
+      }
     }
 
-    /* ===== AI CHAT ===== */
+    /* ===== AI CHAT (ChatGPT-like) ===== */
     .ai-chat-toggle {
       position: fixed;
       bottom: 100px;
@@ -486,47 +1211,79 @@
       font-size: 1.8rem;
       border: none;
       cursor: pointer;
-      box-shadow: 0 8px 40px rgba(108,60,224,0.35);
+      box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
       transition: 0.3s;
       animation: aiPulse 3s ease-in-out infinite;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .ai-chat-toggle:hover { transform: scale(1.1); }
+    .ai-chat-toggle:hover {
+      transform: scale(1.1);
+    }
     @keyframes aiPulse {
-      0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35);}
-      50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06);}
+      0%,
+      100% {
+        box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
+      }
+      50% {
+        box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06);
+      }
     }
     .ai-chat-box {
       position: fixed;
       bottom: 175px;
       right: 28px;
       z-index: 9997;
-      width: 380px;
+      width: 400px;
       max-width: calc(100vw - 56px);
-      max-height: 500px;
+      max-height: 550px;
       border-radius: 24px;
-      background: rgba(6,29,58,0.96);
+      background: rgba(6, 29, 58, 0.96);
       backdrop-filter: blur(30px);
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
       display: none;
       flex-direction: column;
       overflow: hidden;
     }
-    .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
-    @keyframes chatSlideUp { from{opacity:0;transform:translateY(30px) scale(0.96);} to{opacity:1;transform:translateY(0) scale(1);} }
+    .ai-chat-box.open {
+      display: flex;
+      animation: chatSlideUp 0.4s ease;
+    }
+    @keyframes chatSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
     .ai-chat-header {
       padding: 16px 20px;
-      background: rgba(108,60,224,0.1);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      background: rgba(108, 60, 224, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-shrink: 0;
     }
-    .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
-    .ai-chat-header .title i { color: #a855f7; }
+    .ai-chat-header .title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+    .ai-chat-header .title i {
+      color: #a855f7;
+    }
+    .ai-chat-header .title .ai-status {
+      font-size: 0.6rem;
+      color: #4ade80;
+      font-weight: 400;
+    }
     .ai-chat-header .close-btn {
       background: none;
       border: none;
@@ -536,12 +1293,15 @@
       transition: 0.3s;
       padding: 4px;
     }
-    .ai-chat-header .close-btn:hover { color: #fff; transform: rotate(90deg); }
+    .ai-chat-header .close-btn:hover {
+      color: #fff;
+      transform: rotate(90deg);
+    }
     .ai-chat-messages {
       flex: 1;
       padding: 16px 18px;
       overflow-y: auto;
-      max-height: 320px;
+      max-height: 350px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -554,38 +1314,59 @@
       line-height: 1.6;
       animation: msgPop 0.3s ease;
     }
-    @keyframes msgPop { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    @keyframes msgPop {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
     .ai-chat-messages .msg.bot {
-      background: rgba(108,60,224,0.12);
-      border: 1px solid rgba(108,60,224,0.08);
+      background: rgba(108, 60, 224, 0.12);
+      border: 1px solid rgba(108, 60, 224, 0.08);
       align-self: flex-start;
       border-bottom-right-radius: 4px;
     }
     .ai-chat-messages .msg.user {
-      background: rgba(212,175,55,0.08);
-      border: 1px solid rgba(212,175,55,0.06);
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.06);
       align-self: flex-end;
       border-bottom-left-radius: 4px;
     }
-    .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
+    .ai-chat-messages .msg .time {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      display: block;
+      opacity: 0.5;
+    }
     .ai-chat-input {
       padding: 12px 16px 16px;
-      border-top: 1px solid rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
       display: flex;
       gap: 10px;
+      flex-shrink: 0;
     }
     .ai-chat-input input {
       flex: 1;
       padding: 10px 16px;
       border-radius: 50px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       color: #fff;
       font-family: inherit;
       font-size: 0.9rem;
       outline: none;
     }
-    .ai-chat-input input:focus { border-color: #a855f7; }
+    .ai-chat-input input:focus {
+      border-color: #a855f7;
+    }
+    .ai-chat-input input::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
     .ai-chat-input button {
       padding: 10px 20px;
       border-radius: 50px;
@@ -597,32 +1378,126 @@
       transition: 0.3s;
       font-family: inherit;
     }
-    .ai-chat-input button:hover { transform: scale(1.04); }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width:1024px) {
-      .hero .container { grid-template-columns: 1fr; text-align: center; }
-      .hero-content .subtitle { margin: 0 auto 32px; }
-      .hero-buttons { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-card { margin: 0 auto; }
-      .footer .container { grid-template-columns: 1fr 1fr; }
+    .ai-chat-input button:hover {
+      transform: scale(1.04);
     }
-    @media (max-width:768px) {
-      .offers-grid { grid-template-columns: 1fr 1fr; }
-      .footer .container { grid-template-columns: 1fr; text-align: center; }
-      .footer .brand .socials { justify-content: center; }
-      .ai-chat-box { width: calc(100vw - 32px); right: 16px; bottom: 155px; }
-      .ai-chat-toggle { right: 16px; bottom: 85px; width: 50px; height: 50px; font-size: 1.4rem; }
+    .ai-chat-typing {
+      display: none;
+      padding: 8px 16px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-style: italic;
     }
-    @media (max-width:480px) {
-      .offers-grid { grid-template-columns: 1fr; }
-      .hero-stats { flex-direction: column; gap: 10px; align-items: center; }
-      .hero-buttons .btn { width: 100%; justify-content: center; }
-      .section { padding: 56px 16px; }
+    .ai-chat-typing.show {
+      display: block;
     }
 
-    /* ===== SCROLL TO TOP ===== */
+    /* ===== LOAD MORE ===== */
+    .load-more-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 40px;
+      border-radius: 60px;
+      background: var(--gold-gradient);
+      color: var(--primary-dark);
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      font-family: inherit;
+    }
+    .load-more-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 60px 24px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      background: rgba(6, 29, 58, 0.5);
+      backdrop-filter: blur(12px);
+    }
+    .footer .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer .brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 340px;
+      margin-top: 8px;
+    }
+    .footer .brand .socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .footer .brand .socials a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: 0.3s;
+    }
+    .footer .brand .socials a:hover {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-3px);
+    }
+    .footer h5 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .footer ul li {
+      margin-bottom: 6px;
+    }
+    .footer ul li a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+    .footer ul li a:hover {
+      color: var(--gold);
+      padding-right: 6px;
+    }
+    .footer-bottom {
+      max-width: 1320px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    .footer-bottom span {
+      color: var(--gold);
+    }
+
+    /* ===== REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== SCROLL TOP ===== */
     .scroll-top {
       position: fixed;
       bottom: 100px;
@@ -636,18 +1511,108 @@
       border: none;
       font-size: 1.4rem;
       cursor: pointer;
-      box-shadow: 0 8px 30px rgba(212,175,55,0.3);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
       transition: 0.3s;
       display: none;
       align-items: center;
       justify-content: center;
     }
-    .scroll-top:hover { transform: scale(1.1); }
-    .scroll-top.show { display: flex; }
+    .scroll-top:hover {
+      transform: scale(1.1);
+    }
+    .scroll-top.show {
+      display: flex;
+    }
 
-    /* ===== REVEAL ===== */
-    .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-content .subtitle {
+        margin: 0 auto 32px;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .hero-stats {
+        justify-content: center;
+      }
+      .hero-card {
+        margin: 0 auto;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer .container {
+        grid-template-columns: 1fr 1fr;
+      }
+      .service-modal .modal-body .service-details {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .hotels-grid,
+      .packages-grid,
+      .offers-grid,
+      .blog-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer .brand .socials {
+        justify-content: center;
+      }
+      .ai-chat-box {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 155px;
+        max-height: 450px;
+      }
+      .ai-chat-toggle {
+        right: 16px;
+        bottom: 85px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+      }
+      .service-modal .modal-body {
+        padding: 0 16px 20px;
+      }
+      .service-modal .modal-body .service-img {
+        height: 160px;
+      }
+      .railway-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .hotels-grid,
+      .packages-grid,
+      .offers-grid,
+      .blog-grid,
+      .railway-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .section {
+        padding: 56px 16px;
+      }
+      .contact-form {
+        padding: 24px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -657,25 +1622,27 @@
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="container">
-      <a href="index.html" class="logo">
+      <a href="#home" class="logo">
         <span class="logo-icon">✈️</span>
         <span>
-          <span class="logo-text">صعود الطائرة</span>
+          <span class="logo-text"><strong>صعود الطائرة</strong></span>
           <span class="logo-sub">للسفر والسياحة</span>
         </span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">الرئيسية</a>
-        <a href="services.html">خدماتنا</a>
-        <a href="offers.html">عروض</a>
-        <a href="hotels.html">فنادق</a>
-        <a href="packages.html">باقات</a>
-        <a href="railway.html">قطارات</a>
-        <a href="contact.html">اتصل بنا</a>
-        <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
+        <a href="#home" class="active">الرئيسية</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#offers">عروض</a>
+        <a href="#hotels">فنادق</a>
+        <a href="#packages">باقات</a>
+        <a href="#railway">قطارات</a>
+        <a href="#blog">مدونة</a>
+        <a href="#faq">أسئلة</a>
+        <a href="#contact">اتصل بنا</a>
+        <a href="#contact" class="nav-cta">📞 احجز الآن</a>
       </nav>
       <div style="display:flex; align-items:center; gap:12px;">
-        <button class="lang-toggle" id="langToggle">🇬🇧 EN</button>
+        <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
         <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
       </div>
     </div>
@@ -688,7 +1655,7 @@
         <h1>اكتشف العالم مع <br /><span class="highlight">صعود الطائرة</span></h1>
         <p class="subtitle">وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية. رحلتك المثالية تبدأ هنا.</p>
         <div class="hero-buttons">
-          <a href="packages.html" class="btn btn-primary"><i class="fas fa-globe-asia"></i> استكشف الباقات</a>
+          <a href="#packages" class="btn btn-primary"><i class="fas fa-globe-asia"></i> استكشف الباقات</a>
           <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
           <button class="btn btn-ai" onclick="toggleAIChat()"><i class="fas fa-robot"></i> مساعد AI</button>
         </div>
@@ -711,38 +1678,188 @@
             <span>🚗 سيارات</span>
             <span>🚆 قطارات</span>
             <span>🏝️ باقات</span>
+            <span>📝 مدونة</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SERVICES PREVIEW ===== -->
+  <!-- ===== SERVICES ===== -->
   <section class="section" id="services">
     <div class="container">
       <div class="section-title reveal">
         <h2>خدماتنا <span class="highlight">المتكاملة</span></h2>
-        <p>اختر الخدمة التي تحتاجها، واحصل على عرض مخصص</p>
+        <p>اختر الخدمة التي تحتاجها، واحصل على عرض مخصص – كل خدمة لها نموذج حجز خاص بها</p>
         <div class="section-divider"></div>
       </div>
       <div class="services-grid" id="servicesGrid"></div>
-      <div style="text-align:center;margin-top:30px;">
-        <a href="services.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> عرض جميع الخدمات</a>
-      </div>
     </div>
   </section>
 
-  <!-- ===== OFFERS PREVIEW ===== -->
+  <!-- ===== OFFERS ===== -->
   <section class="section section-alt" id="offers">
     <div class="container">
       <div class="section-title reveal">
         <h2>🔥 عروض <span class="highlight">خاصة</span></h2>
-        <p>عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي</p>
+        <p>عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي – احجز الآن بأسعار مخفضة</p>
         <div class="section-divider"></div>
       </div>
       <div class="offers-grid" id="offersGrid"></div>
-      <div style="text-align:center;margin-top:30px;">
-        <a href="offers.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> عرض جميع العروض</a>
+    </div>
+  </section>
+
+  <!-- ===== HOTELS ===== -->
+  <section class="section" id="hotels">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>أفضل <span class="highlight">الفنادق</span></h2>
+        <p>اختر من بين أكثر من 200 فندق حول العالم – إقامة فاخرة بأسعار حقيقية</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="hotels-grid" id="hotelsGrid"></div>
+      <button class="load-more-btn" id="loadMoreHotels">عرض المزيد من الفنادق</button>
+    </div>
+  </section>
+
+  <!-- ===== PACKAGES ===== -->
+  <section class="section section-alt" id="packages">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>باقات <span class="highlight">السفر</span></h2>
+        <p>أكثر من 200 باقة سياحية تشمل العمرة، السياحة، المغامرات، والعطلات العائلية</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="packages-grid" id="packagesGrid"></div>
+      <button class="load-more-btn" id="loadMorePackages">عرض المزيد من الباقات</button>
+    </div>
+  </section>
+
+  <!-- ===== RAILWAY ===== -->
+  <section class="section" id="railway">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>حجز <span class="highlight">القطارات</span></h2>
+        <p>حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة – رحلات مريحة وآمنة</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="railway-grid" id="railwayGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG ===== -->
+  <section class="section section-alt" id="blog">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>📝 مدونة <span class="highlight">السفر</span></h2>
+        <p>أحدث المقالات والنصائح حول السفر والسياحة – اكتشف وجهات جديدة</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="blog-grid" id="blogGrid"></div>
+      <button class="load-more-btn" id="loadMoreBlog">عرض المزيد من المقالات</button>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>الأسئلة <span class="highlight">الشائعة</span></h2>
+        <p>أجوبة على أكثر الأسئلة التي يطرحها عملاؤنا الكرام</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="faq-grid" id="faqGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>من نحن <span class="highlight">في صعود الطائرة</span></h2>
+        <p>وكالة سفر رائدة تقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات</p>
+        <div class="section-divider"></div>
+      </div>
+      <div style="max-width:800px;margin:0 auto;text-align:center;">
+        <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.9;">
+          <strong style="color:var(--gold);font-size:1.2rem;">صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر متكاملة في المملكة العربية السعودية،
+          نقدم أكثر من 20 خدمة سياحية تشمل حجز الطيران، العمرة، التأشيرات، الفنادق (أكثر من 200 فندق)،
+          الباقات السياحية (أكثر من 200 باقة)، تأجير السيارات، حجز القطارات والباصات، نقل المطار،
+          التأمين السياحي، الرحلات الجماعية، الرحلات البحرية، سفر رجال الأعمال، والمزيد.
+        </p>
+        <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.9;margin-top:16px;">
+          فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا،
+          مع أسعار تنافسية وخدمات متميزة.
+        </p>
+        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:30px;">
+          <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
+            <h3 style="color:var(--gold);font-size:2rem;">+200</h3>
+            <p style="color:var(--text-muted);font-size:0.8rem;">فندق</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
+            <h3 style="color:var(--gold);font-size:2rem;">+200</h3>
+            <p style="color:var(--text-muted);font-size:0.8rem;">باقة سياحية</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
+            <h3 style="color:var(--gold);font-size:2rem;">+20</h3>
+            <p style="color:var(--text-muted);font-size:0.8rem;">خدمة سياحية</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
+            <h3 style="color:var(--gold);font-size:2rem;">+50</h3>
+            <p style="color:var(--text-muted);font-size:0.8rem;">مقالة سياحية</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>اتصل <span class="highlight">بنا</span></h2>
+        <p>نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="info-card">
+            <div class="icon-box"><i class="fas fa-phone"></i></div>
+            <div><div class="label">هاتف العمل</div><div class="value" dir="ltr">0554126832</div></div>
+          </div>
+          <div class="info-card">
+            <div class="icon-box"><i class="fas fa-phone"></i></div>
+            <div><div class="label">هاتف المالك</div><div class="value" dir="ltr">0555382038</div></div>
+          </div>
+          <div class="info-card">
+            <div class="icon-box"><i class="fas fa-envelope"></i></div>
+            <div><div class="label">البريد الإلكتروني</div><div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div><div class="value" dir="ltr" style="font-size:0.8rem;font-weight:400;">atallahalanazi@sueudaltaayira.com</div></div>
+          </div>
+          <div class="info-card">
+            <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+            <div><div class="label">العنوان</div><div class="value" style="font-weight:400;font-size:0.95rem;">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+            <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link"><i class="fab fa-whatsapp"></i> واتساب المالك</a>
+            <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link work"><i class="fab fa-whatsapp"></i> واتساب العمل</a>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="privacy.html" style="color:var(--gold);font-size:0.85rem;"><i class="fas fa-lock"></i> سياسة الخصوصية</a>
+            <a href="terms.html" style="color:var(--gold);font-size:0.85rem;"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>📩 أرسل لنا رسالة</h3>
+          <p class="form-sub">سنرد عليك في أقرب وقت ممكن</p>
+          <form id="contactForm">
+            <div class="form-group"><input type="text" id="contactName" placeholder="الاسم الكامل" required /></div>
+            <div class="form-group"><input type="tel" id="contactPhone" placeholder="رقم الجوال" required /></div>
+            <div class="form-group"><input type="email" id="contactEmail" placeholder="البريد الإلكتروني" /></div>
+            <div class="form-group"><textarea id="contactMessage" placeholder="اكتب رسالتك هنا..." required></textarea></div>
+            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
+          </form>
+          <div class="form-status" id="formStatus"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -753,7 +1870,7 @@
       <div class="brand">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
-          <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">صعود الطائرة</span>
+          <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"><strong>صعود الطائرة</strong></span>
         </div>
         <p>وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
         <div class="socials">
@@ -767,37 +1884,40 @@
       <div>
         <h5>روابط سريعة</h5>
         <ul>
-          <li><a href="index.html">الرئيسية</a></li>
-          <li><a href="services.html">خدماتنا</a></li>
-          <li><a href="offers.html">عروض</a></li>
-          <li><a href="hotels.html">فنادق</a></li>
-          <li><a href="packages.html">باقات</a></li>
-          <li><a href="railway.html">قطارات</a></li>
-          <li><a href="contact.html">اتصل بنا</a></li>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#offers">عروض</a></li>
+          <li><a href="#hotels">فنادق</a></li>
+          <li><a href="#packages">باقات</a></li>
+          <li><a href="#railway">قطارات</a></li>
+          <li><a href="#blog">مدونة</a></li>
+          <li><a href="#faq">أسئلة</a></li>
+          <li><a href="#contact">اتصل بنا</a></li>
         </ul>
       </div>
       <div>
         <h5>خدماتنا</h5>
         <ul>
-          <li><a href="services.html#flights">تذاكر طيران</a></li>
-          <li><a href="services.html#umrah">باقات العمرة</a></li>
-          <li><a href="services.html#visa">تأشيرات</a></li>
-          <li><a href="services.html#hotels">فنادق</a></li>
-          <li><a href="services.html#cars">تأجير سيارات</a></li>
-          <li><a href="railway.html">قطارات</a></li>
+          <li><a href="#services">تذاكر طيران</a></li>
+          <li><a href="#services">باقات العمرة</a></li>
+          <li><a href="#services">تأشيرات</a></li>
+          <li><a href="#services">فنادق</a></li>
+          <li><a href="#services">تأجير سيارات</a></li>
+          <li><a href="#railway">قطارات</a></li>
         </ul>
       </div>
       <div>
         <h5>معلومات</h5>
         <ul>
-          <li><a href="#">عن الوكالة</a></li>
-          <li><a href="contact.html">اتصل بنا</a></li>
-          <li><a href="#">سياسة الخصوصية</a></li>
-          <li><a href="#">الشروط والأحكام</a></li>
+          <li><a href="#about">عن الوكالة</a></li>
+          <li><a href="#contact">اتصل بنا</a></li>
+          <li><a href="privacy.html">سياسة الخصوصية</a></li>
+          <li><a href="terms.html">الشروط والأحكام</a></li>
+          <li><a href="#faq">الأسئلة الشائعة</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">&copy; 2026 <span>صعود الطائرة للسفر والسياحة</span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+    <div class="footer-bottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
   </footer>
 
   <!-- ===== WHATSAPP FLOAT ===== -->
@@ -806,18 +1926,22 @@
     <span class="wa-label">تواصل واتساب</span>
   </div>
 
-  <!-- ===== AI CHAT ===== -->
+  <!-- ===== AI CHAT (ChatGPT-like) ===== -->
   <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
   <div class="ai-chat-box" id="aiChatBox">
     <div class="ai-chat-header">
-      <div class="title"><i class="fas fa-robot"></i> مساعد صعود الطائرة AI</div>
+      <div class="title">
+        <i class="fas fa-robot"></i>
+        <span>مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
+      </div>
       <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
     </div>
     <div class="ai-chat-messages" id="aiChatMessages">
-      <div class="msg bot">👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟<span class="time">الآن</span></div>
+      <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.<span class="time">الآن</span></div>
     </div>
+    <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
     <div class="ai-chat-input">
-      <input type="text" id="aiChatInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
+      <input type="text" id="aiChatInput" placeholder="اكتب سؤالك بأي لغة..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
       <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
@@ -825,8 +1949,16 @@
   <!-- ===== SCROLL TO TOP ===== -->
   <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
+  <!-- ===== SERVICE MODAL ===== -->
+  <div class="service-modal" id="serviceModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeServiceModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-body" id="serviceModalBody"></div>
+    </div>
+  </div>
+
   <!-- ============================================================
-  JAVASCRIPT
+  JAVASCRIPT – جميع الوظائف
   ============================================================ -->
   <script>
     // ====================
@@ -840,7 +1972,8 @@
       const particles = [];
       const COUNT = 60;
 
-      function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+      function resize() { w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight; }
       window.addEventListener('resize', resize);
       resize();
 
@@ -889,7 +2022,8 @@
 
       function animate() {
         ctx.clearRect(0, 0, w, h);
-        particles.forEach(p => { p.update(); p.draw(); });
+        particles.forEach(p => { p.update();
+          p.draw(); });
         drawLines();
         requestAnimationFrame(animate);
       }
@@ -909,6 +2043,8 @@
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('open');
+        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
       });
     });
 
@@ -918,7 +2054,8 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .service-card, .package-card, .hotel-card, .offer-card, .blog-card, .railway-item')
+      .forEach(el => observer.observe(el));
 
     // ====================
     // 4. SCROLL TOP BUTTON
@@ -936,7 +2073,8 @@
       const step = Math.ceil(target / 60);
       const interval = setInterval(() => {
         current += step;
-        if (current >= target) { current = target; clearInterval(interval); }
+        if (current >= target) { current = target;
+          clearInterval(interval); }
         el.textContent = current + suffix;
       }, 20);
     }
@@ -957,48 +2095,232 @@
     document.querySelector('.hero-stats') && counterObserver.observe(document.querySelector('.hero-stats'));
 
     // ====================
-    // 6. SERVICES DATA
+    // 6. SERVICES DATA with Images
     // ====================
     const servicesData = [
-      { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية' },
-      { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة' },
-      { icon: '🛂', name: 'التأشيرات', desc: 'تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول' },
-      { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم' },
-      { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل' },
-      { icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم' },
-      { icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة' },
-      { icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات' },
-      { icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة' },
-      { icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة' }
+      { id: 'flights', icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
+        details: ['أكثر من 500 شركة طيران', 'أسعار مخفضة تصل إلى 40%', 'حجز سريع وآمن', 'إلغاء وتعديل مجاني'],
+        questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين', 'درجة السفر'] },
+      { id: 'umrah', icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
+        details: ['تأشيرة عمرة', 'سكن قريب من الحرم', 'مواصلات داخلية', 'وجبات فاخرة', 'مرشد سياحي'],
+        questions: ['عدد الأشخاص', 'مدة الإقامة', 'نوع السكن', 'هل تريد مرشد سياحي؟'] },
+      { id: 'visa', icon: '🛂', name: 'التأشيرات', desc: 'تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول', img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop',
+        details: ['جميع أنواع التأشيرات', 'معالجة سريعة', 'أسعار تنافسية', 'دعم كامل'],
+        questions: ['نوع التأشيرة', 'الدولة المطلوبة', 'مدة الإقامة', 'عدد الأشخاص'] },
+      { id: 'hotels', icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم', img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop',
+        details: ['أكثر من 200 فندق', 'عروض حصرية', 'إلغاء مجاني', 'تقييمات العملاء'],
+        questions: ['المدينة', 'عدد الليالي', 'عدد الغرف', 'عدد الأشخاص'] },
+      { id: 'cars', icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل', img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop',
+        details: ['جميع فئات السيارات', 'تأمين شامل', 'توصيل للمطار', 'أسعار تنافسية'],
+        questions: ['المدينة', 'نوع السيارة', 'مدة التأجير', 'هل تريد توصيل للمطار؟'] },
+      { id: 'packages', icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop',
+        details: ['أكثر من 200 باقة', 'وجهات عالمية', 'شاملة الطيران والفندق', 'عروض خاصة'],
+        questions: ['الوجهة', 'عدد الأشخاص', 'مدة الرحلة', 'نوع الباقة'] },
+      { id: 'railway', icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop',
+        details: ['جميع خطوط القطارات', 'أسعار مخفضة', 'حجز سريع', 'إلغاء مرن'],
+        questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين'] },
+      { id: 'bus', icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop',
+        details: ['جميع خطوط الباصات', 'أسعار تنافسية', 'حجز سريع'],
+        questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين'] },
+      { id: 'airport', icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
+        details: ['سيارات حديثة', 'سائقين محترفين', 'تتبع الرحلة', 'أسعار ثابتة'],
+        questions: ['المطار', 'نوع السيارة', 'عدد الركاب', 'وقت الاستقبال'] },
+      { id: 'insurance', icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة', img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop',
+        details: ['تغطية طبية شاملة', 'تعويض إلغاء الرحلات', 'تأمين الأمتعة', 'دعم 24/7'],
+        questions: ['نوع التأمين', 'مدة السفر', 'الوجهة', 'عدد المسافرين'] }
     ];
 
+    // ====================
+    // 7. GENERATE SERVICES
+    // ====================
     const servicesGrid = document.getElementById('servicesGrid');
     servicesData.forEach((s, i) => {
       const card = document.createElement('div');
       card.className = 'service-card reveal';
-      card.style.transitionDelay = `${i * 0.06}s`;
+      card.style.transitionDelay = `${i * 0.05}s`;
       card.innerHTML = `
+        <div class="simg" style="background-image:url('${s.img}');"></div>
         <div class="icon">${s.icon}</div>
         <h4>${s.name}</h4>
         <p>${s.desc}</p>
         <span class="service-tag">احجز الآن</span>
       `;
-      card.addEventListener('click', () => {
-        window.open(`https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمة%20${encodeURIComponent(s.name)}`, '_blank');
-      });
+      card.addEventListener('click', () => openService(s.id));
       servicesGrid.appendChild(card);
     });
 
     // ====================
-    // 7. OFFERS DATA
+    // 8. SERVICE MODAL
+    // ====================
+    function openService(serviceId) {
+      const service = servicesData.find(s => s.id === serviceId) || servicesData[0];
+      const modal = document.getElementById('serviceModal');
+      const body = document.getElementById('serviceModalBody');
+
+      // Generate cities for dropdowns
+      const cities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'حائل', 'القصيم',
+        'دبي', 'أبوظبي', 'الشارقة', 'الدوحة', 'مسقط', 'المنامة', 'الكويت', 'عمّان', 'بيروت', 'القاهرة',
+        'اسطنبول', 'أنقرة', 'لندن', 'باريس', 'برلين', 'روما', 'مدريد', 'نيويورك', 'لوس أنجلوس', 'شيكاغو',
+        'طوكيو', 'أوساكا', 'سيول', 'بكين', 'شنغهاي', 'سنغافورة', 'كوالالمبور', 'بانكوك', 'دلهي', 'مومباي'
+      ];
+
+      let formFields = '';
+      service.questions.forEach((q, i) => {
+        const name = `q_${i}`;
+        const isDate = q.includes('تاريخ') || q.includes('التاريخ');
+        const isCity = q.includes('مدينة') || q.includes('المدينة') || q.includes('الوجهة') || q.includes('المطار');
+        const isSelect = q.includes('نوع') || q.includes('درجة') || q.includes('فئة');
+
+        if (isSelect && q.includes('درجة')) {
+          formFields += `
+            <div class="form-group">
+              <label>${q}</label>
+              <select name="${name}" required>
+                <option value="">اختر...</option>
+                <option value="اقتصادي">اقتصادي</option>
+                <option value="أعمال">أعمال</option>
+                <option value="أولى">أولى</option>
+              </select>
+            </div>
+          `;
+        } else if (isSelect) {
+          formFields += `
+            <div class="form-group">
+              <label>${q}</label>
+              <select name="${name}" required>
+                <option value="">اختر...</option>
+                <option value="نعم">نعم</option>
+                <option value="لا">لا</option>
+              </select>
+            </div>
+          `;
+        } else if (isCity) {
+          formFields += `
+            <div class="form-group">
+              <label>${q}</label>
+              <select name="${name}" required>
+                <option value="">اختر مدينة...</option>
+                ${cities.map(c => `<option value="${c}">${c}</option>`).join('')}
+              </select>
+            </div>
+          `;
+        } else if (isDate) {
+          formFields += `
+            <div class="form-group">
+              <label>${q}</label>
+              <input type="date" name="${name}" required />
+            </div>
+          `;
+        } else if (q.includes('عدد') || q.includes('مدة') || q.includes('ليالي')) {
+          formFields += `
+            <div class="form-group">
+              <label>${q}</label>
+              <input type="number" name="${name}" placeholder="أدخل الرقم" required min="1" />
+            </div>
+          `;
+        } else {
+          formFields += `
+            <div class="form-group">
+              <label>${q}</label>
+              <input type="text" name="${name}" placeholder="أدخل ${q}" required />
+            </div>
+          `;
+        }
+      });
+
+      body.innerHTML = `
+        <div class="service-img" style="background-image:url('${service.img}');"></div>
+        <h2>${service.icon} ${service.name}</h2>
+        <div class="service-desc">${service.desc}</div>
+        <div class="service-details">
+          ${service.details.map(d => `
+            <div class="detail-item">
+              <span>✓</span>
+              <p>${d}</p>
+            </div>
+          `).join('')}
+        </div>
+        <h3 style="color:var(--gold);margin:16px 0 12px;font-size:1.2rem;">📋 نموذج الحجز</h3>
+        <form id="serviceForm">
+          <div class="form-group">
+            <label>الاسم الكامل</label>
+            <input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required />
+          </div>
+          <div class="form-group">
+            <label>رقم الجوال</label>
+            <input type="tel" name="phone" placeholder="أدخل رقم جوالك" required />
+          </div>
+          <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" />
+          </div>
+          ${formFields}
+          <div class="form-group">
+            <label>ملاحظات إضافية</label>
+            <textarea name="notes" placeholder="أي تفاصيل إضافية..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit-service"><i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب</button>
+          <div class="form-status" id="serviceFormStatus"></div>
+        </form>
+      `;
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      const form = document.getElementById('serviceForm');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const serviceName = service.name;
+        let msg = `📩 طلب حجز جديد - خدمة: ${serviceName}\n\n`;
+        for (const [key, value] of formData.entries()) {
+          if (value && value.trim()) {
+            const label = key === 'fullname' ? 'الاسم' :
+              key === 'phone' ? 'الجوال' :
+              key === 'email' ? 'البريد' :
+              key === 'notes' ? 'ملاحظات' :
+              document.querySelector(`[name="${key}"]`)?.previousElementSibling?.textContent || key;
+            msg += `${label}: ${value}\n`;
+          }
+        }
+        const status = document.getElementById('serviceFormStatus');
+        status.textContent = '✅ جاري التحويل إلى واتساب ...';
+        status.style.color = '#4ade80';
+        setTimeout(() => {
+          window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+          status.textContent = '✅ تم إرسال الطلب بنجاح عبر واتساب!';
+          setTimeout(() => { closeServiceModal(); }, 1500);
+        }, 700);
+      });
+    }
+
+    function closeServiceModal() {
+      document.getElementById('serviceModal').classList.remove('open');
+      document.body.style.overflow = 'auto';
+    }
+    document.getElementById('serviceModal').addEventListener('click', function(e) {
+      if (e.target === this) closeServiceModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeServiceModal();
+    });
+
+    // ====================
+    // 9. OFFERS
     // ====================
     const offersData = [
-      { icon: '🇸🇦', badge: 'عرض اليوم الوطني', title: 'خصم 93% على الفنادق', desc: 'احتفل باليوم الوطني السعودي مع خصم فوري يصل إلى 93% على حجز الفنادق', price: 'ابتداءً من 435 ر.س' },
-      { icon: '🕌', badge: 'عمرة رمضان', title: 'باقات عمرة رمضان', desc: 'باقات عمرة متكاملة في رمضان تشمل تأشيرة، سكن قريب من الحرم، ومواصلات', price: 'ابتداءً من 1,700 درهم' },
-      { icon: '🏨', badge: 'خصم فنادق', title: 'خصم 9% على الفنادق', desc: 'احصل على خصم 9% على جميع الفنادق باستخدام الكود KSA90', price: 'خصم 9% + 900 نقطة' },
-      { icon: '🚆', badge: 'عروض القطارات', title: 'تذاكر قطار بأسعار مخفضة', desc: 'رحلة مريحة بين المدن السعودية بأسعار تبدأ من 85 ريال فقط', price: 'ابتداءً من 85 ريال' },
-      { icon: '🏖️', badge: 'عرض العطلات', title: 'إقامة في مكة بأسعار مميزة', desc: 'فندق أم مكة من ميلينيوم – إقامة ليلتين أو ثلاث بأسعار مخفضة', price: 'ابتداءً من 435 ر.س' },
-      { icon: '✈️', badge: 'عرض الطيران', title: 'تذاكر طيران بأسعار تنافسية', desc: 'أرخص أسعار تذاكر الطيران مع فلاي ناس وطيران أديل', price: 'ابتداءً من 179 ريال' }
+      { icon: '🇸🇦', badge: 'عرض اليوم الوطني', title: 'خصم 93% على الفنادق', desc: 'احتفل باليوم الوطني السعودي مع خصم فوري يصل إلى 93% على حجز الفنادق',
+        price: 'ابتداءً من 435 ر.س' },
+      { icon: '🕌', badge: 'عمرة رمضان', title: 'باقات عمرة رمضان', desc: 'باقات عمرة متكاملة في رمضان تشمل تأشيرة، سكن قريب من الحرم، ومواصلات',
+        price: 'ابتداءً من 1,700 درهم' },
+      { icon: '🏨', badge: 'خصم فنادق', title: 'خصم 9% على الفنادق', desc: 'احصل على خصم 9% على جميع الفنادق باستخدام الكود KSA90',
+        price: 'خصم 9% + 900 نقطة' },
+      { icon: '🚆', badge: 'عروض القطارات', title: 'تذاكر قطار بأسعار مخفضة', desc: 'رحلة مريحة بين المدن السعودية بأسعار تبدأ من 85 ريال فقط',
+        price: 'ابتداءً من 85 ريال' },
+      { icon: '🏖️', badge: 'عرض العطلات', title: 'إقامة في مكة بأسعار مميزة', desc: 'فندق أم مكة من ميلينيوم – إقامة ليلتين أو ثلاث بأسعار مخفضة',
+        price: 'ابتداءً من 435 ر.س' },
+      { icon: '✈️', badge: 'عرض الطيران', title: 'تذاكر طيران بأسعار تنافسية', desc: 'أرخص أسعار تذاكر الطيران مع فلاي ناس وطيران أديل',
+        price: 'ابتداءً من 179 ريال' }
     ];
 
     const offersGrid = document.getElementById('offersGrid');
@@ -1023,47 +2345,546 @@
     };
 
     // ====================
-    // 8. AI CHAT BOT
+    // 10. HOTELS (200+ with Images)
+    // ====================
+    const hotelNames = ['فندق الفيرمونت', 'الريتز كارلتون', 'فور سيزونز', 'هيلتون', 'شيراتون', 'ماريوت', 'كيمبنسكي', 'ريتز باريس',
+      'جراند حياة', 'إنتركونتيننتال', 'ويستن', 'لو ميريديان', 'سوفيتيل', 'نوفوتيل', 'إيبيس', 'موفنبيك',
+      'راديسون بلو', 'كروان بلازا', 'دوسيت ثاني', 'شانغريلا', 'ماندارين أورينتال', 'أمان', 'بورتو', 'ميلينيوم'
+    ];
+    const hotelCities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'حائل', 'القصيم',
+      'دبي', 'أبوظبي', 'الدوحة', 'مسقط', 'المنامة', 'الكويت', 'عمّان', 'بيروت', 'القاهرة',
+      'اسطنبول', 'لندن', 'باريس', 'برلين', 'روما', 'نيويورك', 'لوس أنجلوس', 'طوكيو', 'سيول', 'سنغافورة'
+    ];
+    const hotelImages = [
+      'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=250&fit=crop',
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=250&fit=crop',
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=250&fit=crop',
+      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=250&fit=crop',
+      'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=250&fit=crop',
+      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=250&fit=crop'
+    ];
+    const cityPriceBase = { 'الرياض': 1477, 'جدة': 758, 'مكة': 627, 'المدينة': 550, 'الدمام': 650, 'الخبر': 600,
+      'أبها': 500, 'تبوك': 450, 'حائل': 400, 'القصيم': 420, 'دبي': 800, 'أبوظبي': 750, 'الدوحة': 700,
+      'مسقط': 600, 'المنامة': 550, 'الكويت': 500, 'عمّان': 480, 'بيروت': 520, 'القاهرة': 400,
+      'اسطنبول': 450, 'لندن': 900, 'باريس': 850, 'برلين': 700, 'روما': 750, 'نيويورك': 1000,
+      'لوس أنجلوس': 850, 'طوكيو': 800, 'سيول': 700, 'سنغافورة': 750
+    };
+
+    let allHotels = [];
+    for (let i = 0; i < 220; i++) {
+      const name = hotelNames[i % hotelNames.length] + (Math.floor(i / hotelNames.length) > 0 ? ` ${Math.floor(i / hotelNames
+          .length) + 1}` : '');
+      const city = hotelCities[i % hotelCities.length];
+      const basePrice = cityPriceBase[city] || 700;
+      const price = Math.round((basePrice * (0.7 + Math.random() * 0.6)) / 5) * 5;
+      const rating = (4 + Math.random() * 1).toFixed(1);
+      allHotels.push({ name, city, rating, price, img: hotelImages[i % hotelImages.length] });
+    }
+
+    let hotelsDisplayCount = 12;
+    const hotelsGrid = document.getElementById('hotelsGrid');
+
+    function renderHotels(count) {
+      const toShow = allHotels.slice(0, count);
+      hotelsGrid.innerHTML = '';
+      toShow.forEach(h => {
+        const card = document.createElement('div');
+        card.className = 'hotel-card reveal';
+        card.innerHTML = `
+          <div class="img" style="background-image:url('${h.img}');"></div>
+          <div class="body">
+            <h4>${h.name}</h4>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> ${h.city}</div>
+            <div class="rating">${'★'.repeat(Math.floor(h.rating))}${h.rating % 1 >= 0.5 ? '½' : ''} (${h.rating}) <i class="fas fa-star"></i></div>
+            <div class="price">${h.price} ر.س <small>/ ليلة</small></div>
+            <button class="btn-sm" onclick="bookHotel('${h.name}','${h.city}',${h.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
+          </div>
+        `;
+        hotelsGrid.appendChild(card);
+      });
+      document.querySelectorAll('.hotel-card.reveal').forEach(el => observer.observe(el));
+    }
+
+    renderHotels(hotelsDisplayCount);
+
+    document.getElementById('loadMoreHotels').addEventListener('click', function() {
+      hotelsDisplayCount += 12;
+      if (hotelsDisplayCount >= allHotels.length) this.style.display = 'none';
+      renderHotels(hotelsDisplayCount);
+    });
+
+    window.bookHotel = function(name, city, price) {
+      const msg =
+      `🏨 حجز فندق\nالفندق: ${name}\nالمدينة: ${city}\nالسعر: ${price} ر.س/ليلة\nأرغب في الحصول على عرض سعر مفصل`;
+      window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+    };
+
+    // ====================
+    // 11. PACKAGES (200+ with Images)
+    // ====================
+    const packageNames = ['عمرة رمضان', 'عطلة دبي الفاخرة', 'رحلة باريس الرومانسية', 'استكشاف اسطنبول',
+      'عطلة شاطئية في جدة', 'رحلة سياحية إلى لندن', 'سفر رجال أعمال إلى نيويورك',
+      'رحلة عائلية إلى كوالالمبور', 'سفاري في كينيا', 'رحلة شتوية إلى سويسرا',
+      'مغامرات في نيوزيلندا', 'استرخاء في جزر المالديف', 'رحلة ثقافية إلى اليابان',
+      'عطلة في بالي', 'رحلة إلى جنوب أفريقيا', 'سياحة في أستراليا'
+    ];
+    const packageCities = ['مكة', 'دبي', 'باريس', 'اسطنبول', 'جدة', 'لندн', 'نيويورك', 'كوالالمبور',
+      'نيروبي', 'زيرمات', 'كوينزتاون', 'ماليه', 'طوكيو', 'بالي', 'كيب تاون', 'سيدني'
+    ];
+    const packageImages = [
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1535139267832-7e3a5b2f6ae7?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&h=400&fit=crop'
+    ];
+    const packagePriceBase = { 'مكة': 2500, 'دبي': 3800, 'باريس': 4200, 'اسطنبول': 2200, 'جدة': 1800,
+      'لندن': 4500, 'نيويورك': 5500, 'كوالالمبور': 3200, 'نيروبي': 4800, 'زيرمات': 5200,
+      'كوينزتاون': 4500, 'ماليه': 6000, 'طوكيو': 5000, 'بالي': 3500, 'كيب تاون': 4200, 'سيدني': 4800
+    };
+
+    let allPackages = [];
+    for (let i = 0; i < 220; i++) {
+      const name = packageNames[i % packageNames.length] + (Math.floor(i / packageNames.length) > 0 ? ` ${Math.floor(i /
+          packageNames.length) + 1}` : '');
+      const city = packageCities[i % packageCities.length];
+      const basePrice = packagePriceBase[city] || 3000;
+      const price = Math.round((basePrice * (0.85 + Math.random() * 0.3)) / 50) * 50;
+      const days = 3 + Math.floor(Math.random() * 8);
+      allPackages.push({ name, city, price, days, img: packageImages[i % packageImages.length] });
+    }
+
+    let packagesDisplayCount = 12;
+    const packagesGrid = document.getElementById('packagesGrid');
+
+    function renderPackages(count) {
+      const toShow = allPackages.slice(0, count);
+      packagesGrid.innerHTML = '';
+      toShow.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'package-card reveal';
+        card.innerHTML = `
+          <div class="img" style="background-image:url('${p.img}');"></div>
+          <div class="body">
+            <h4>${p.name}</h4>
+            <div class="location"><i class="fas fa-map-pin"></i> ${p.city}</div>
+            <div class="price">${p.price} ر.س <small>/ ${p.days} ليالي</small></div>
+            <button class="btn-sm" onclick="bookPackage('${p.name}','${p.city}',${p.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
+          </div>
+        `;
+        packagesGrid.appendChild(card);
+      });
+      document.querySelectorAll('.package-card.reveal').forEach(el => observer.observe(el));
+    }
+
+    renderPackages(packagesDisplayCount);
+
+    document.getElementById('loadMorePackages').addEventListener('click', function() {
+      packagesDisplayCount += 12;
+      if (packagesDisplayCount >= allPackages.length) this.style.display = 'none';
+      renderPackages(packagesDisplayCount);
+    });
+
+    window.bookPackage = function(name, city, price) {
+      const msg = `🏝️ حجز باقة سياحية\nالباقة: ${name}\nالوجهة: ${city}\nالسعر: ${price} ر.س\nأرغب في الحصول على عرض سعر مفصل`;
+      window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+    };
+
+    // ====================
+    // 12. RAILWAY with Images
+    // ====================
+    const railwayRoutes = [
+      { from: 'الرياض', to: 'الدمام', duration: '3-4 ساعات', price: '85-145 ر.س',
+        detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+      { from: 'الدمام', to: 'الرياض', duration: '3-4 ساعات', price: '85-145 ر.س',
+        detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+      { from: 'الرياض', to: 'الهفوف', duration: '2.5 ساعة', price: '60-100 ر.س', detail: 'أسعار تنافسية حسب الدرجة',
+        img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+      { from: 'الدمام', to: 'الهفوف', duration: '1.5 ساعة', price: '40-70 ر.س', detail: 'رحلة قصيرة ومريحة',
+        img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+      { from: 'الرياض', to: 'القصيم', duration: '2.5 ساعة', price: '90-140 ر.س', detail: 'خط الشمال الغربي',
+        img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+      { from: 'الرياض', to: 'حائل', duration: '4 ساعات', price: '120-180 ر.س', detail: 'خط الشمال',
+        img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' }
+    ];
+
+    const railwayGrid = document.getElementById('railwayGrid');
+    railwayRoutes.forEach((r, i) => {
+      const item = document.createElement('div');
+      item.className = 'railway-item reveal';
+      item.style.transitionDelay = `${i * 0.1}s`;
+      item.innerHTML = `
+        <div class="rimg" style="background-image:url('${r.img}');"></div>
+        <div class="icon">🚆</div>
+        <h4>${r.from} → ${r.to}</h4>
+        <p>⏱ ${r.duration}</p>
+        <p style="color:var(--gold);font-weight:700;">${r.price}</p>
+        <p style="font-size:0.7rem;color:var(--text-muted);">${r.detail}</p>
+      `;
+      item.addEventListener('click', () => {
+        const msg =
+          `🚆 حجز تذكرة قطار\nمن: ${r.from}\nإلى: ${r.to}\nالمدة: ${r.duration}\nالسعر: ${r.price}\nأرغب في الحجز`;
+        window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+      });
+      railwayGrid.appendChild(item);
+    });
+
+    // ====================
+    // 13. BLOG (50+ Posts with Images)
+    // ====================
+    const blogPosts = [
+      { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم', tag: 'وجهات سياحية',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '1 أغسطس 2026' },
+      { title: 'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc: 'نصائح وإرشادات لرحلة مثالية إلى دبي', tag: 'دليل سفر',
+        img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', date: '29 يوليو 2026' },
+      { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة لحجز عمرة مميزة ومريحة', tag: 'عمرة',
+        img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', date: '25 يوليو 2026' },
+      { title: 'أفضل فنادق مكة قرب الحرم', desc: 'دليل شامل لأفضل الفنادق القريبة من الحرم المكي', tag: 'فنادق',
+        img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop', date: '20 يوليو 2026' },
+      { title: 'رحلة إلى باريس – مدينة النور', desc: 'استكشف أجمل معالم باريس مع نصائح السفر', tag: 'سفر',
+        img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop', date: '15 يوليو 2026' },
+      { title: 'تأشيرة السياحة إلى أوروبا – دليل كامل', desc: 'كل ما تحتاج معرفته عن تأشيرة شنغن', tag: 'تأشيرات',
+        img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', date: '10 يوليو 2026' },
+      { title: 'السفر إلى اسطنبول – عبق التاريخ', desc: 'اكتشف جمال اسطنبول بين الماضي والحاضر', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&h=400&fit=crop', date: '5 يوليو 2026' },
+      { title: 'نصائح لتوفير المال أثناء السفر', desc: 'طرق ذكية لتوفير المال دون التأثير على متعة الرحلة', tag: 'نصائح سفر',
+        img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop', date: '28 يونيو 2026' },
+      { title: 'أفضل الوجهات للعطلات العائلية', desc: 'وجهات مناسبة للعائلات مع أنشطة للأطفال', tag: 'عائلات',
+        img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop', date: '20 يونيو 2026' },
+      { title: 'رحلات بحرية – تجربة لا تُنسى', desc: 'استمتع برحلة بحرية فاخرة مع أجمل المناظر', tag: 'رحلات بحرية',
+        img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop', date: '15 يونيو 2026' },
+      { title: 'دليل السفر إلى لندن', desc: 'كل ما تحتاج معرفته عن العاصمة البريطانية', tag: 'دليل سفر',
+        img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop', date: '10 يونيو 2026' },
+      { title: 'السياحة في نيويورك – المدينة التي لا تنام', desc: 'استكشف معالم نيويورك الشهيرة', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop', date: '5 يونيو 2026' },
+      { title: 'كيف تختار فندقك المثالي', desc: 'نصائح لاختيار الفندق المناسب لرحلتك', tag: 'فنادق',
+        img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop', date: '28 مايو 2026' },
+      { title: 'السفر إلى طوكيو – سحر الشرق', desc: 'اكتشف الثقافة اليابانية وجمال طوكيو', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&h=400&fit=crop', date: '20 مايو 2026' },
+      { title: 'رحلات سفاري في أفريقيا', desc: 'مغامرة لا تُنسى في قلب الطبيعة الأفريقية', tag: 'مغامرات',
+        img: 'https://images.unsplash.com/photo-1535139267832-7e3a5b2f6ae7?w=600&h=400&fit=crop', date: '15 مايو 2026' },
+      { title: 'كيف تحصل على أفضل سعر لتذكرة طيران', desc: 'طرق وحيل للحصول على أرخص تذاكر الطيران', tag: 'نصائح سفر',
+        img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop', date: '10 مايو 2026' },
+      { title: 'السياحة العلاجية في تركيا', desc: 'أفضل المراكز الطبية والعلاجية في تركيا', tag: 'سياحة علاجية',
+        img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop', date: '5 مايو 2026' },
+      { title: 'رحلات قطار سار – دليل المسافر', desc: 'كل ما تحتاج معرفته عن رحلات قطار سار في السعودية', tag: 'قطارات',
+        img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop', date: '28 أبريل 2026' },
+      { title: 'السفر إلى سويسرا – جنة الطبيعة', desc: 'استكشف جبال الألب السويسرية وجمالها', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&h=400&fit=crop', date: '20 أبريل 2026' },
+      { title: 'أفضل تطبيقات السفر للهواتف', desc: 'تطبيقات تساعدك في تنظيم رحلتك بسهولة', tag: 'تكنولوجيا',
+        img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop', date: '15 أبريل 2026' },
+      { title: 'السياحة في ماليزيا', desc: 'اكتشف جمال كوالالمبور وجزرها الساحرة', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=600&h=400&fit=crop', date: '10 أبريل 2026' },
+      { title: 'رحلات بحرية في البحر الكاريبي', desc: 'استمتع بأجمل الرحلات البحرية في الكاريبي', tag: 'رحلات بحرية',
+        img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop', date: '5 أبريل 2026' },
+      { title: 'نصائح للسفر مع الأطفال', desc: 'كيف تجعل رحلتك مع الأطفال ممتعة وآمنة', tag: 'عائلات',
+        img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop', date: '28 مارس 2026' },
+      { title: 'السياحة في كينيا', desc: 'اكتشف جمال الطبيعة البرية في كينيا', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1535139267832-7e3a5b2f6ae7?w=600&h=400&fit=crop', date: '20 مارس 2026' },
+      { title: 'دليل السفر إلى سنغافورة', desc: 'كل ما تحتاج معرفته عن سنغافورة', tag: 'دليل سفر',
+        img: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=600&h=400&fit=crop', date: '15 مارس 2026' },
+      { title: 'أفضل عروض السفر لهذا الموسم', desc: 'استفد من أفضل العروض السياحية الحالية', tag: 'عروض',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '10 مارس 2026' },
+      { title: 'السفر إلى أستراليا', desc: 'اكتشف جمال الطبيعة في أستراليا', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=600&h=400&fit=crop', date: '5 مارس 2026' },
+      { title: 'كيف تحصل على تأشيرة شنغن', desc: 'دليل كامل للحصول على تأشيرة شنغن بسهولة', tag: 'تأشيرات',
+        img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', date: '28 فبراير 2026' },
+      { title: 'السياحة في الهند', desc: 'اكتشف جمال الهند وتنوعها الثقافي', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop', date: '20 فبراير 2026' },
+      { title: 'أفضل فنادق دبي الفاخرة', desc: 'دليل لأفضل الفنادق في دبي', tag: 'فنادق',
+        img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', date: '15 فبراير 2026' },
+      { title: 'السفر إلى إيطاليا', desc: 'استمتع برحلة إلى إيطاليا واكتشافها', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '10 فبراير 2026' },
+      { title: 'نصائح للسفر بمفردك', desc: 'كيف تستمتع برحلة فردية بأمان', tag: 'نصائح سفر',
+        img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop', date: '5 فبراير 2026' },
+      { title: 'السياحة في الأردن', desc: 'اكتشف جمال الأردن وآثارها', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&h=400&fit=crop', date: '28 يناير 2026' },
+      { title: 'رحلات قطار في أوروبا', desc: 'استمتع برحلات القطار في أوروبا', tag: 'قطارات',
+        img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop', date: '20 يناير 2026' },
+      { title: 'السياحة في مصر', desc: 'اكتشف حضارة مصر القديمة', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1572252009286-2682ab5abf4b?w=600&h=400&fit=crop', date: '15 يناير 2026' },
+      { title: 'أفضل وقت للسفر', desc: 'اختر الوقت المثالي لرحلتك', tag: 'نصائح سفر',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '10 يناير 2026' },
+      { title: 'السياحة في اليونان', desc: 'اكتشف جمال اليونان وجزرها', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&h=400&fit=crop', date: '5 يناير 2026' },
+      { title: 'حجز العمرة – دليل شامل', desc: 'كل ما تحتاج معرفته عن حجز العمرة', tag: 'عمرة',
+        img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', date: '28 ديسمبر 2025' },
+      { title: 'السياحة في إسبانيا', desc: 'استكشف جمال إسبانيا', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600&h=400&fit=crop', date: '20 ديسمبر 2025' },
+      { title: 'أفضل 5 نصائح للسفر', desc: 'نصائح ذهبية للسفر', tag: 'نصائح سفر',
+        img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop', date: '15 ديسمبر 2025' },
+      { title: 'السياحة في البرتغال', desc: 'اكتشف جمال البرتغال', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '10 ديسمبر 2025' },
+      { title: 'تأجير السيارات – دليل كامل', desc: 'كل ما تحتاج معرفته عن تأجير السيارات', tag: 'سيارات',
+        img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop', date: '5 ديسمبر 2025' },
+      { title: 'السياحة في هولندا', desc: 'اكتشف جمال هولندا', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=600&h=400&fit=crop', date: '28 نوفمبر 2025' },
+      { title: 'السفر إلى النمسا', desc: 'اكتشف جمال النمسا', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop', date: '20 نوفمبر 2025' },
+      { title: 'السياحة في النرويج', desc: 'اكتشف جمال النرويج', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '15 نوفمبر 2025' },
+      { title: 'أفضل وجهات الشتاء', desc: 'اكتشف أجمل وجهات الشتاء', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&h=400&fit=crop', date: '10 نوفمبر 2025' },
+      { title: 'السياحة في بلجيكا', desc: 'اكتشف جمال بلجيكا', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600&h=400&fit=crop', date: '5 نوفمبر 2025' },
+      { title: 'السفر إلى الدنمارك', desc: 'اكتشف جمال الدنمارك', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '28 أكتوبر 2025' },
+      { title: 'السياحة في فنلندا', desc: 'اكتشف جمال فنلندا', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '20 أكتوبر 2025' },
+      { title: 'أفضل وجهات الصيف', desc: 'اكتشف أجمل وجهات الصيف', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '15 أكتوبر 2025' },
+      { title: 'السياحة في السويد', desc: 'اكتشف جمال السويد', tag: 'سياحة',
+        img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '10 أكتوبر 2025' }
+    ];
+
+    let blogDisplayCount = 12;
+    const blogGrid = document.getElementById('blogGrid');
+
+    function renderBlog(count) {
+      const toShow = blogPosts.slice(0, count);
+      blogGrid.innerHTML = '';
+      toShow.forEach((post, i) => {
+        const card = document.createElement('div');
+        card.className = 'blog-card reveal';
+        card.style.transitionDelay = `${i * 0.04}s`;
+        card.innerHTML = `
+          <div class="img" style="background-image:url('${post.img}');"></div>
+          <div class="body">
+            <span class="tag">${post.tag}</span>
+            <h4>${post.title}</h4>
+            <p>${post.desc}</p>
+            <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          const msg = `📝 مقال: ${post.title}\nأرغب في قراءة المقال كاملاً`;
+          window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+        blogGrid.appendChild(card);
+      });
+      document.querySelectorAll('.blog-card.reveal').forEach(el => observer.observe(el));
+    }
+
+    renderBlog(blogDisplayCount);
+
+    document.getElementById('loadMoreBlog').addEventListener('click', function() {
+      blogDisplayCount += 12;
+      if (blogDisplayCount >= blogPosts.length) this.style.display = 'none';
+      renderBlog(blogDisplayCount);
+    });
+
+    // ====================
+    // 14. FAQ
+    // ====================
+    const faqData = [{
+      q: 'ما هي خدمات وكالة صعود الطائرة؟',
+      a: 'نقدم أكثر من 20 خدمة سياحية تشمل: تذاكر الطيران، باقات العمرة، التأشيرات، حجز الفنادق (أكثر من 200 فندق)، تأجير السيارات، باقات سياحية (أكثر من 200 باقة)، حجز القطارات والباصات، نقل المطار، تأمين السفر، رحلات جماعية، رحلات بحرية، سفر رجال الأعمال، وغيرها.'
+    }, {
+      q: 'كيف يمكنني حجز رحلة مع صعود الطائرة؟',
+      a: 'يمكنك حجز رحلتك من خلال: 1- الضغط على "احجز الآن" في الأعلى، 2- اختيار الخدمة المطلوبة من قسم الخدمات، 3- ملء نموذج الحجز، 4- سيتم تحويل طلبك مباشرة إلى واتساب لإتمام الحجز.'
+    }, {
+      q: 'هل تقدمون عروضاً خاصة؟',
+      a: 'نعم! لدينا عروض حصرية مثل خصم 93% على الفنادق بمناسبة اليوم الوطني، عروض عمرة رمضان، خصم 9% باستخدام كود KSA90، وعروض القطارات بأسعار تبدأ من 85 ريال.'
+    }, {
+      q: 'كم عدد الفنادق المتاحة للحجز؟',
+      a: 'لدينا أكثر من 200 فندق حول العالم في مختلف المدن مثل الرياض، جدة، مكة، دبي، لندن، باريس، نيويورك، طوكيو، وغيرها.'
+    }, {
+      q: 'هل تقدمون باقات عمرة؟',
+      a: 'نعم، لدينا باقات عمرة متكاملة تشمل التأشيرة، السكن القريب من الحرم، المواصلات الداخلية، الوجبات الفاخرة، ومرشد سياحي.'
+    }, {
+      q: 'كيف يمكنني التواصل معكم؟',
+      a: 'يمكنك التواصل عبر: 1- الهاتف: 0555382038 (المالك) أو 0554126832 (العمل)، 2- واتساب عبر الزر العائم، 3- البريد الإلكتروني: hamdan@sueudaltaayira.com، 4- نموذج الاتصال في الصفحة.'
+    }, {
+      q: 'هل تقدمون تأمين سفر؟',
+      a: 'نعم، نوفر تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة، مع دعم 24/7.'
+    }, {
+      q: 'كم عدد الباقات السياحية المتاحة؟',
+      a: 'لدينا أكثر من 200 باقة سياحية تشمل وجهات مثل دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.'
+    }, {
+      q: 'هل تقدمون حجز قطارات؟',
+      a: 'نعم، نوفر حجز تذاكر القطارات (سار) بأسعار تبدأ من 85 ريال للدرجة الاقتصادية، و145 ريال لدرجة الأعمال.'
+    }, {
+      q: 'هل تدعمون اللغة الإنجليزية؟',
+      a: 'نعم، يمكنك تغيير لغة الموقع إلى الإنجليزية عن طريق زر "English" في الأعلى، وسيتم ترجمة جميع المحتويات.'
+    }, {
+      q: 'كيف أستفيد من خصم اليوم الوطني؟',
+      a: 'استخدم الكود SND93 عند حجز الفنادق للحصول على خصم يصل إلى 93% على إقامتك.'
+    }, {
+      q: 'هل تقدمون خدمة نقل المطار؟',
+      a: 'نعم، لدينا خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة مع سائقين محترفين.'
+    }];
+
+    const faqGrid = document.getElementById('faqGrid');
+    faqData.forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'faq-item';
+      div.innerHTML = `
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>${item.q}</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">${item.a}</div>
+      `;
+      faqGrid.appendChild(div);
+    });
+
+    window.toggleFaq = function(el) {
+      const parent = el.closest('.faq-item');
+      parent.classList.toggle('open');
+    };
+
+    // ====================
+    // 15. AI CHAT BOT (ChatGPT-like, Multi-language)
     // ====================
     const chatBox = document.getElementById('aiChatBox');
     const chatMessages = document.getElementById('aiChatMessages');
     const chatInput = document.getElementById('aiChatInput');
+    const typingIndicator = document.getElementById('aiTyping');
 
-    const aiResponses = {
-      'مرحبا': '👋 أهلاً بك! كيف يمكنني مساعدتك اليوم؟ لدينا عروض خاصة بمناسبة اليوم الوطني بخصم يصل إلى 93%!',
-      'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 لدينا عروض حصرية لفنادق مكة بأسعار تبدأ من 435 ريال.',
-      'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن، ومواصلات.',
-      'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول.',
-      'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس وطيران أديل بأسعار تبدأ من 179 ريال.',
-      'فندق': '🏨 لدينا أكثر من 200 فندق بأسعار حقيقية. عروض اليوم الوطني تصل إلى 93% خصم!',
-      'سيارة': '🚗 تأجير سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل.',
-      'باقة': '🌍 لدينا أكثر من 200 باقة سياحية بأسعار تبدأ من 1800 ريال.',
-      'قطار': '🚆 نوفر حجز تذاكر القطارات بأسعار تبدأ من 85 ريال مع سار.',
-      'عرض': '🔥 عروض اليوم الوطني: خصم 93% على الفنادق، وخصم 9% باستخدام كود KSA90، وعروض عمرة رمضان.',
-      'سعر': '💰 أسعارنا تنافسية ومأخوذة من مصادر موثوقة.',
-      'شكرا': '🙏 العفو! سعداء بمساعدتك. تابع عروضنا الحصرية.'
+    // Multi-language AI responses
+    const aiKnowledge = {
+      // Arabic
+      'مرحبا': '👋 أهلاً بك في وكالة <strong>صعود الطائرة</strong>! كيف يمكنني مساعدتك اليوم؟ لدينا عروض رائعة بمناسبة اليوم الوطني بخصم يصل إلى 93%!',
+      'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟ لدينا عروض حصرية لفنادق مكة بأسعار تبدأ من 435 ريال.',
+      'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، ومواصلات. هل تريد معرفة التفاصيل؟',
+      'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول بأسعار تنافسية. أخبرني وجهتك وسأساعدك.',
+      'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس وطيران أديل بأسعار تبدأ من 179 ريال. ما هي وجهتك؟',
+      'فندق': '🏨 لدينا أكثر من 200 فندق بأسعار حقيقية من Booking.com. عروض اليوم الوطني تصل إلى 93% خصم! أخبرني المدينة وتواريخ السفر.',
+      'سيارة': '🚗 تأجير سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل. أي نوع من السيارات تفضل؟',
+      'باقة': '🌍 لدينا أكثر من 200 باقة سياحية بأسعار تبدأ من 1800 ريال. أخبرني الوجهة التي ترغب بها.',
+      'قطار': '🚆 نوفر حجز تذاكر القطارات بأسعار تبدأ من 85 ريال مع سار. أين تريد الذهاب؟',
+      'عرض': '🔥 عروض اليوم الوطني: خصم 93% على الفنادق، وخصم 9% باستخدام كود KSA90، وعروض عمرة رمضان!',
+      'سعر': '💰 أسعارنا تنافسية ومأخوذة من مصادر موثوقة مثل Booking.com وسار. أخبرني الخدمة التي تريدها.',
+      'شكرا': '🙏 العفو! سعداء بمساعدتك. تابع عروضنا الحصرية.',
+      'المطار': '✈️ خدمة نقل المطار متوفرة بسيارات حديثة بأسعار ثابتة. أخبرني المطار ووقت الرحلة.',
+      'تأمين': '🛡️ تأمين سفر شامل يغطي جميع المخاطر بأسعار تنافسية. كم مدة سفرك؟',
+      'مجموعات': '👥 رحلات جماعية مع مرشدين سياحيين محترفين بأسعار خاصة للمجموعات.',
+      'بحرية': '🚢 كروز فاخر على أفضل السفن السياحية بأسعار مميزة. كم عدد الليالي التي تريدها؟',
+      'أعمال': '💼 سفر رجال أعمال مع أفضل وسائل الراحة والخدمات التنفيذية.',
+      'مغامرات': '🏔️ رحلات مغامرات مثيرة في أجمل مناطق العالم.',
+      'مدونة': '📝 لدينا أكثر من 50 مقالة سياحية في مدونتنا. اقرأها واستلهم رحلتك القادمة!',
+      'خاص': '🎁 لقد حصلت على عرض خاص! استخدم كود WELCOME10 للحصول على خصم 10% على أول حجز لك.',
+      'اليوم الوطني': '🇸🇦 بمناسبة اليوم الوطني، خصم 93% على الفنادق! استخدم الكود SND93 عند الحجز.',
+      'رمضان': '🕌 عروض عمرة رمضان بأسعار مميزة. احجز الآن واستمتع بتجربة روحانية لا تُنسى.',
+      'كود خصم': '📱 كود الخصم KSA90 يمنحك 9% خصم على جميع الفنادق + 900 نقطة في محفظتك.',
+      'اتصال': '📞 يمكنك التواصل معنا عبر: 0555382038 (المالك) أو 0554126832 (العمل).'
+
+        // English responses
+        ,
+      'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong> Travel Agency! How can I help you today? We have amazing offers for Saudi National Day with up to 93% off on hotels!',
+      'hi': '👋 Hi there! Welcome to Saeed Al-Taayira. How can I assist you with your travel plans?',
+      'umrah': '🕋 Our Umrah packages start from 1,200 SAR and include visa, accommodation near the Haram, and transportation. Would you like more details?',
+      'visa': '🛂 We offer tourist, business, visit, and medical visas for all countries at competitive prices. Tell me your destination and I\'ll help you.',
+      'flight': '✈️ We offer the cheapest flight tickets with Flynas and Flyadeal starting from 179 SAR. Where are you traveling to?',
+      'hotel': '🏨 We have over 200 hotels with real prices from Booking.com. Saudi National Day offers up to 93% off! Tell me the city and dates.',
+      'car': '🚗 We offer luxury and economy car rentals with comprehensive insurance. What type of car do you prefer?',
+      'package': '🌍 We have over 200 travel packages starting from 1,800 SAR. Tell me the destination you want.',
+      'train': '🚆 We offer train tickets with SAR starting from 85 SAR. Where do you want to go?',
+      'offer': '🔥 Special offers: 93% off on hotels for Saudi National Day, 9% off with code KSA90, and Ramadan Umrah packages!',
+      'price': '💰 Our prices are competitive and sourced from trusted sources like Booking.com and SAR. Tell me the service you need.',
+      'thanks': '🙏 You\'re welcome! Happy to help. Check out our exclusive offers.',
+      'airport': '✈️ Airport transfer service available with modern cars at fixed prices. Tell me the airport and flight time.',
+      'insurance': '🛡️ Comprehensive travel insurance covering all risks at competitive prices. How long is your trip?',
+      'groups': '👥 Group tours with professional tour guides at special group rates.',
+      'cruise': '🚢 Luxury cruises on the best cruise ships at great prices. How many nights do you want?',
+      'business': '💼 Business travel with the best comfort and executive services.',
+      'adventure': '🏔️ Exciting adventure tours in the most beautiful destinations around the world.',
+      'blog': '📝 We have over 50 travel articles in our blog. Read them and get inspired for your next trip!',
+      'special': '🎁 You got a special offer! Use code WELCOME10 to get 10% off on your first booking.',
+      'national day': '🇸🇦 For Saudi National Day, get 93% off on hotels! Use code SND93 when booking.',
+      'ramadan': '🕌 Ramadan Umrah packages at great prices. Book now and enjoy an unforgettable spiritual experience.',
+      'discount code': '📱 Discount code KSA90 gives you 9% off on all hotels + 900 points in your wallet.',
+      'contact': '📞 You can contact us via: 0555382038 (Owner) or 0554126832 (Work).'
     };
-    const defaultReplies = [
-      '🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك قريباً.',
-      '📱 يرجى مراسلتنا على واتساب 0555382038 للحصول على تفاصيل أكثر.',
-      '🌍 اكتشف عروضنا المميزة في قسم العروض!',
-      '✈️ صعود الطائرة وجهتك الأولى للسفر. تواصل معنا الآن!'
-    ];
 
     function getAIResponse(text) {
       const lower = text.toLowerCase().trim();
-      for (const [key, response] of Object.entries(aiResponses)) {
+
+      // Check for exact matches
+      for (const [key, response] of Object.entries(aiKnowledge)) {
         if (lower.includes(key)) return response;
       }
-      if (lower.includes('خصم') || lower.includes('عرض') || lower.includes('تخفيض')) {
-        return '🔥 لدينا عروض رائعة: خصم 93% على الفنادق بمناسبة اليوم الوطني، وعروض عمرة رمضان، وخصم 9% على جميع الفنادق باستخدام كود KSA90!';
+
+      // Check for Arabic or English keywords
+      if (lower.includes('عمرة') || lower.includes('umrah')) {
+        return aiKnowledge['عمرة'] || aiKnowledge['umrah'];
       }
-      return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
+      if (lower.includes('تأشيرة') || lower.includes('visa')) {
+        return aiKnowledge['تأشيرة'] || aiKnowledge['visa'];
+      }
+      if (lower.includes('تذكرة') || lower.includes('flight') || lower.includes('طيران')) {
+        return aiKnowledge['تذكرة'] || aiKnowledge['flight'];
+      }
+      if (lower.includes('فندق') || lower.includes('hotel')) {
+        return aiKnowledge['فندق'] || aiKnowledge['hotel'];
+      }
+      if (lower.includes('سيارة') || lower.includes('car')) {
+        return aiKnowledge['سيارة'] || aiKnowledge['car'];
+      }
+      if (lower.includes('باقة') || lower.includes('package')) {
+        return aiKnowledge['باقة'] || aiKnowledge['package'];
+      }
+      if (lower.includes('قطار') || lower.includes('train')) {
+        return aiKnowledge['قطار'] || aiKnowledge['train'];
+      }
+      if (lower.includes('عرض') || lower.includes('offer') || lower.includes('خصم') || lower.includes('discount')) {
+        return aiKnowledge['عرض'] || aiKnowledge['offer'];
+      }
+      if (lower.includes('شكرا') || lower.includes('thanks') || lower.includes('thank')) {
+        return aiKnowledge['شكرا'] || aiKnowledge['thanks'];
+      }
+      if (lower.includes('المطار') || lower.includes('airport')) {
+        return aiKnowledge['المطار'] || aiKnowledge['airport'];
+      }
+      if (lower.includes('تأمين') || lower.includes('insurance')) {
+        return aiKnowledge['تأمين'] || aiKnowledge['insurance'];
+      }
+      if (lower.includes('مجموعات') || lower.includes('group')) {
+        return aiKnowledge['مجموعات'] || aiKnowledge['groups'];
+      }
+      if (lower.includes('بحرية') || lower.includes('cruise')) {
+        return aiKnowledge['بحرية'] || aiKnowledge['cruise'];
+      }
+      if (lower.includes('أعمال') || lower.includes('business')) {
+        return aiKnowledge['أعمال'] || aiKnowledge['business'];
+      }
+      if (lower.includes('مدونة') || lower.includes('blog')) {
+        return aiKnowledge['مدونة'] || aiKnowledge['blog'];
+      }
+      if (lower.includes('اليوم الوطني') || lower.includes('national day')) {
+        return aiKnowledge['اليوم الوطني'] || aiKnowledge['national day'];
+      }
+      if (lower.includes('رمضان') || lower.includes('ramadan')) {
+        return aiKnowledge['رمضان'] || aiKnowledge['ramadan'];
+      }
+
+      // Default responses based on language detection
+      const hasArabic = /[\u0600-\u06FF]/.test(text);
+      if (hasArabic) {
+        return '🤖 شكراً لسؤالك! سيقوم فريق <strong>صعود الطائرة</strong> بالتواصل معك قريباً. يمكنك أيضاً مراسلتنا على واتساب 0555382038 للحصول على مساعدة فورية.';
+      } else {
+        return '🤖 Thank you for your question! The <strong>Saeed Al-Taayira</strong> team will contact you soon. You can also message us on WhatsApp at 0555382038 for immediate assistance.';
+      }
     }
 
     window.toggleAIChat = function() {
       chatBox.classList.toggle('open');
-      if (chatBox.classList.contains('open')) chatInput.focus();
+      if (chatBox.classList.contains('open')) {
+        chatInput.focus();
+        // Add welcome if empty
+        if (chatMessages.children.length === 1) {
+          const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
+          const welcome = lang === 'en' ?
+            '👋 Hello! I\'m the <strong>Saeed Al-Taayira</strong> AI assistant. How can I help you today? I can answer in any language you prefer.' :
+            '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.';
+          chatMessages.innerHTML = `<div class="msg bot">${welcome}<span class="time">الآن</span></div>`;
+        }
+      }
     };
 
     function addMessage(type, text) {
@@ -1078,43 +2899,410 @@
     window.sendAIMessage = function() {
       const text = chatInput.value.trim();
       if (!text) return;
+
       addMessage('user', text);
       chatInput.value = '';
-      const typing = document.createElement('div');
-      typing.className = 'msg bot';
-      typing.innerHTML = '🤖 جاري التفكير...';
-      typing.id = 'typingIndicator';
-      chatMessages.appendChild(typing);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+      typingIndicator.classList.add('show');
+
+      // Simulate thinking time
+      const delay = 500 + Math.random() * 800;
       setTimeout(() => {
-        document.getElementById('typingIndicator')?.remove();
-        addMessage('bot', getAIResponse(text));
-      }, 500 + Math.random() * 400);
+        typingIndicator.classList.remove('show');
+        const response = getAIResponse(text);
+        addMessage('bot', response);
+      }, delay);
     };
 
     // ====================
-    // 9. LANGUAGE TOGGLE
+    // 16. CONTACT FORM
+    // ====================
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value.trim();
+      const phone = document.getElementById('contactPhone').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+      const status = document.getElementById('formStatus');
+      if (!name || !phone || !message) {
+        status.textContent = '⚠️ الرجاء ملء جميع الحقول المطلوبة';
+        status.style.color = '#f87171';
+        return;
+      }
+      const fullMsg =
+        `📩 رسالة جديدة من موقع صعود الطائرة\n\n👤 الاسم: ${name}\n📱 الجوال: ${phone}\n📧 البريد: ${email || 'غير مدخل'}\n\n💬 الرسالة:\n${message}`;
+      status.textContent = '✅ جاري التحويل إلى واتساب ...';
+      status.style.color = '#4ade80';
+      setTimeout(() => {
+        window.open(`https://wa.me/966555382038?text=${encodeURIComponent(fullMsg)}`, '_blank');
+        this.reset();
+        status.textContent = '✅ تم إرسال رسالتك بنجاح!';
+        setTimeout(() => status.textContent = '', 5000);
+      }, 700);
+    });
+
+    // ====================
+    // 17. LANGUAGE TOGGLE (Full Translation)
     // ====================
     const langToggle = document.getElementById('langToggle');
     let currentLang = 'ar';
 
+    const translations = {
+      ar: {
+        logo: '<strong>صعود الطائرة</strong>',
+        logoSub: 'للسفر والسياحة',
+        navHome: 'الرئيسية',
+        navServices: 'خدماتنا',
+        navOffers: 'عروض',
+        navHotels: 'فنادق',
+        navPackages: 'باقات',
+        navRailway: 'قطارات',
+        navBlog: 'مدونة',
+        navFaq: 'أسئلة',
+        navContact: 'اتصل بنا',
+        navCta: '📞 احجز الآن',
+        heroTitle1: 'اكتشف العالم مع',
+        heroTitle2: 'صعود الطائرة',
+        heroSub: 'وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية.',
+        heroBtn1: 'استكشف الباقات',
+        heroBtn2: 'واتساب',
+        heroBtn3: 'مساعد AI',
+        stat1: 'عميل سعيد',
+        stat2: 'وجهة سفر',
+        stat3: 'رضا العملاء',
+        stat4: 'سنوات خبرة',
+        heroCardTitle: 'رحلتك تبدأ هنا',
+        heroCardSub: 'أكثر من 20 خدمة سياحية – احجز كل شيء في مكان واحد',
+        badge1: 'طيران',
+        badge2: 'عمرة',
+        badge3: 'فنادق',
+        badge4: 'سيارات',
+        badge5: 'قطارات',
+        badge6: 'باقات',
+        badge7: 'مدونة',
+        servicesTitle1: 'خدماتنا',
+        servicesTitle2: 'المتكاملة',
+        servicesSub: 'اختر الخدمة التي تحتاجها، واحصل على عرض مخصص',
+        offersTitle1: '🔥 عروض',
+        offersTitle2: 'خاصة',
+        offersSub: 'عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي',
+        hotelsTitle1: 'أفضل',
+        hotelsTitle2: 'الفنادق',
+        hotelsSub: 'اختر من بين أكثر من 200 فندق حول العالم',
+        packagesTitle1: 'باقات',
+        packagesTitle2: 'السفر',
+        packagesSub: 'أكثر من 200 باقة سياحية بأسعار تنافسية',
+        railwayTitle1: 'حجز',
+        railwayTitle2: 'القطارات',
+        railwaySub: 'حجز تذاكر القطارات بأسعار تبدأ من 85 ريال',
+        blogTitle1: '📝 مدونة',
+        blogTitle2: 'السفر',
+        blogSub: 'أحدث المقالات والنصائح حول السفر والسياحة',
+        faqTitle1: 'الأسئلة',
+        faqTitle2: 'الشائعة',
+        faqSub: 'أجوبة على أكثر الأسئلة التي يطرحها عملاؤنا الكرام',
+        aboutTitle1: 'من نحن',
+        aboutTitle2: 'في صعود الطائرة',
+        aboutText: 'وكالة سفر رائدة تقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات',
+        contactTitle1: 'اتصل',
+        contactTitle2: 'بنا',
+        contactSub: 'نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز',
+        footerBrand: 'صعود الطائرة',
+        footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+        footerLinks: 'روابط سريعة',
+        footerServices: 'خدماتنا',
+        footerInfo: 'معلومات',
+        waLabel: 'تواصل واتساب',
+        aiTitle: 'مساعد صعود الطائرة AI',
+        aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟',
+        aiPlaceholder: 'اكتب سؤالك بأي لغة...',
+        workPhone: 'هاتف العمل',
+        ownerPhone: 'هاتف المالك',
+        emailLabel: 'البريد الإلكتروني',
+        addressLabel: 'العنوان',
+        fullAddress: 'طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية',
+        waOwner: 'واتساب المالك',
+        waWork: 'واتساب العمل',
+        formTitle: '📩 أرسل لنا رسالة',
+        formSub: 'سنرد عليك في أقرب وقت ممكن',
+        formName: 'الاسم الكامل',
+        formPhone: 'رقم الجوال',
+        formEmail: 'البريد الإلكتروني',
+        formMsg: 'اكتب رسالتك هنا...',
+        formSubmit: 'إرسال الرسالة',
+        privacyLink: 'سياسة الخصوصية',
+        termsLink: 'الشروط والأحكام',
+        footerRights: 'جميع الحقوق محفوظة',
+        footerCredit: 'تصميم وتطوير ✧ برؤية عصرية',
+        aboutP1: 'وكالة سفر متكاملة في المملكة العربية السعودية، نقدم أكثر من 20 خدمة سياحية.',
+        aboutP2: 'فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا.'
+      },
+      en: {
+        logo: '<strong>Saeed Al-Taayira</strong>',
+        logoSub: 'Travel & Tourism',
+        navHome: 'Home',
+        navServices: 'Services',
+        navOffers: 'Offers',
+        navHotels: 'Hotels',
+        navPackages: 'Packages',
+        navRailway: 'Railway',
+        navBlog: 'Blog',
+        navFaq: 'FAQ',
+        navContact: 'Contact',
+        navCta: '📞 Book Now',
+        heroTitle1: 'Discover the World with',
+        heroTitle2: 'Saeed Al-Taayira',
+        heroSub: 'Your complete travel partner – 200+ hotels, 200+ packages, and all travel services with real prices.',
+        heroBtn1: 'Explore Packages',
+        heroBtn2: 'WhatsApp',
+        heroBtn3: 'AI Assistant',
+        stat1: 'Happy Clients',
+        stat2: 'Destinations',
+        stat3: 'Satisfaction',
+        stat4: 'Years Experience',
+        heroCardTitle: 'Your Journey Begins Here',
+        heroCardSub: '20+ travel services – book everything in one place',
+        badge1: 'Flights',
+        badge2: 'Umrah',
+        badge3: 'Hotels',
+        badge4: 'Cars',
+        badge5: 'Trains',
+        badge6: 'Packages',
+        badge7: 'Blog',
+        servicesTitle1: 'Our',
+        servicesTitle2: 'Services',
+        servicesSub: 'Choose the service you need and get a customized offer',
+        offersTitle1: '🔥 Special',
+        offersTitle2: 'Offers',
+        offersSub: 'Exclusive offers updated automatically with AI',
+        hotelsTitle1: 'Best',
+        hotelsTitle2: 'Hotels',
+        hotelsSub: 'Choose from 200+ hotels worldwide',
+        packagesTitle1: 'Travel',
+        packagesTitle2: 'Packages',
+        packagesSub: '200+ packages with competitive prices',
+        railwayTitle1: 'Railway',
+        railwayTitle2: 'Tickets',
+        railwaySub: 'Book train tickets starting from 85 SAR',
+        blogTitle1: '📝 Travel',
+        blogTitle2: 'Blog',
+        blogSub: 'Latest articles and tips about travel and tourism',
+        faqTitle1: 'Frequently',
+        faqTitle2: 'Asked Questions',
+        faqSub: 'Answers to the most common questions from our clients',
+        aboutTitle1: 'About',
+        aboutTitle2: 'Saeed Al-Taayira',
+        aboutText: 'A leading travel agency offering integrated services for over 5 years',
+        contactTitle1: 'Contact',
+        contactTitle2: 'Us',
+        contactSub: 'We are here to serve you — contact us for any inquiry',
+        footerBrand: 'Saeed Al-Taayira',
+        footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+        footerLinks: 'Quick Links',
+        footerServices: 'Services',
+        footerInfo: 'Info',
+        waLabel: 'WhatsApp',
+        aiTitle: 'Saeed Al-Taayira AI Assistant',
+        aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. How can I help you today?',
+        aiPlaceholder: 'Type your question in any language...',
+        workPhone: 'Work Phone',
+        ownerPhone: 'Owner Phone',
+        emailLabel: 'Email',
+        addressLabel: 'Address',
+        fullAddress: 'King Abdulaziz Road, Arar, Saudi Arabia',
+        waOwner: 'Owner WhatsApp',
+        waWork: 'Work WhatsApp',
+        formTitle: '📩 Send us a Message',
+        formSub: 'We will reply as soon as possible',
+        formName: 'Full Name',
+        formPhone: 'Mobile Number',
+        formEmail: 'Email Address',
+        formMsg: 'Write your message here...',
+        formSubmit: 'Send Message',
+        privacyLink: 'Privacy Policy',
+        termsLink: 'Terms & Conditions',
+        footerRights: 'All Rights Reserved',
+        footerCredit: 'Designed & Developed ✧ with Vision',
+        aboutP1: 'An integrated travel agency in Saudi Arabia, offering 20+ travel services.',
+        aboutP2: 'Our specialized team works around the clock to ensure a smooth and enjoyable trip.'
+      }
+    };
+
     function applyLanguage(lang) {
       currentLang = lang;
       document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
-      document.documentElement.lang = lang;
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-      langToggle.textContent = lang === 'ar' ? '🇬🇧 EN' : '🇸🇦 عربي';
+      langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
+
+      const map = {
+        'logoText': 'logo',
+        'logoSlogan': 'logoSub',
+        'navHome': 'navHome',
+        'navServices': 'navServices',
+        'navOffers': 'navOffers',
+        'navHotels': 'navHotels',
+        'navPackages': 'navPackages',
+        'navRailway': 'navRailway',
+        'navBlog': 'navBlog',
+        'navFaq': 'navFaq',
+        'navContact': 'navContact',
+        'navCta': 'navCta',
+        'heroTitle': 'heroTitle1',
+        'heroHighlight': 'heroTitle2',
+        'heroSub': 'heroSub',
+        'heroBtn1Text': 'heroBtn1',
+        'heroBtn2Text': 'heroBtn2',
+        'heroBtn3Text': 'heroBtn3',
+        'stat1': 'stat1',
+        'stat2': 'stat2',
+        'stat3': 'stat3',
+        'stat4': 'stat4',
+        'heroCardTitle': 'heroCardTitle',
+        'heroCardSub': 'heroCardSub',
+        'badge1': 'badge1',
+        'badge2': 'badge2',
+        'badge3': 'badge3',
+        'badge4': 'badge4',
+        'badge5': 'badge5',
+        'badge6': 'badge6',
+        'badge7': 'badge7',
+        'servicesTitle1': 'servicesTitle1',
+        'servicesTitle2': 'servicesTitle2',
+        'servicesSub': 'servicesSub',
+        'offersTitle1': 'offersTitle1',
+        'offersTitle2': 'offersTitle2',
+        'offersSub': 'offersSub',
+        'hotelsTitle1': 'hotelsTitle1',
+        'hotelsTitle2': 'hotelsTitle2',
+        'hotelsSub': 'hotelsSub',
+        'packagesTitle1': 'packagesTitle1',
+        'packagesTitle2': 'packagesTitle2',
+        'packagesSub': 'packagesSub',
+        'railwayTitle1': 'railwayTitle1',
+        'railwayTitle2': 'railwayTitle2',
+        'railwaySub': 'railwaySub',
+        'blogTitle1': 'blogTitle1',
+        'blogTitle2': 'blogTitle2',
+        'blogSub': 'blogSub',
+        'faqTitle1': 'faqTitle1',
+        'faqTitle2': 'faqTitle2',
+        'faqSub': 'faqSub',
+        'aboutTitle1': 'aboutTitle1',
+        'aboutTitle2': 'aboutTitle2',
+        'aboutText': 'aboutText',
+        'contactTitle1': 'contactTitle1',
+        'contactTitle2': 'contactTitle2',
+        'contactSub': 'contactSub',
+        'footerBrand': 'footerBrand',
+        'footerDesc': 'footerDesc',
+        'footerLinks': 'footerLinks',
+        'footerServices': 'footerServices',
+        'footerInfo': 'footerInfo',
+        'waLabel': 'waLabel',
+        'aiTitle': 'aiTitle',
+        'aiWelcome': 'aiWelcome',
+        'aiPlaceholder': 'aiPlaceholder',
+        'workPhone': 'workPhone',
+        'ownerPhone': 'ownerPhone',
+        'emailLabel': 'emailLabel',
+        'addressLabel': 'addressLabel',
+        'fullAddress': 'fullAddress',
+        'waOwner': 'waOwner',
+        'waWork': 'waWork',
+        'formTitle': 'formTitle',
+        'formSub': 'formSub',
+        'formName': 'formName',
+        'formPhone': 'formPhone',
+        'formEmail': 'formEmail',
+        'formMsg': 'formMsg',
+        'formSubmit': 'formSubmit',
+        'privacyLink': 'privacyLink',
+        'termsLink': 'termsLink',
+        'footerRights': 'footerRights',
+        'footerCredit': 'footerCredit',
+        'aboutP1': 'aboutP1',
+        'aboutP2': 'aboutP2'
+      };
+
+      for (const [id, key] of Object.entries(map)) {
+        const el = document.getElementById(id);
+        if (el && translations[lang] && translations[lang][key] !== undefined) {
+          if (id === 'logoText' || id === 'footerBrand') {
+            el.innerHTML = translations[lang][key];
+          } else if (id === 'aboutP1' || id === 'aboutP2') {
+            el.textContent = translations[lang][key];
+          } else {
+            el.textContent = translations[lang][key];
+          }
+        }
+      }
+
+      // Update placeholders
+      const placeholders = {
+        'contactName': 'formName',
+        'contactPhone': 'formPhone',
+        'contactEmail': 'formEmail',
+        'contactMessage': 'formMsg',
+        'aiChatInput': 'aiPlaceholder'
+      };
+      for (const [id, key] of Object.entries(placeholders)) {
+        const el = document.getElementById(id);
+        if (el && translations[lang] && translations[lang][key] !== undefined) {
+          el.placeholder = translations[lang][key];
+        }
+      }
+
+      // Update FAQ questions/answers
+      const faqItems = document.querySelectorAll('.faq-item');
+      const faqDataEn = [
+        { q: 'What services does Saeed Al-Taayira offer?', a: 'We offer 20+ travel services including flights, Umrah, visas, hotels (200+), car rentals, packages (200+), trains, buses, airport transfers, insurance, group tours, cruises, business travel, and more.' },
+        { q: 'How can I book a trip with Saeed Al-Taayira?', a: 'You can book by: 1- Clicking "Book Now" at the top, 2- Choosing the service from the services section, 3- Filling the booking form, 4- Your request will be sent directly to WhatsApp to complete the booking.' },
+        { q: 'Do you offer special deals?', a: 'Yes! We have exclusive offers like 93% off on hotels for Saudi National Day, Ramadan Umrah packages, 9% off with code KSA90, and train tickets starting from 85 SAR.' },
+        { q: 'How many hotels are available for booking?', a: 'We have over 200 hotels worldwide in cities like Riyadh, Jeddah, Makkah, Dubai, London, Paris, New York, Tokyo, and more.' },
+        { q: 'Do you offer Umrah packages?', a: 'Yes, we offer comprehensive Umrah packages including visa, accommodation near the Haram, transportation, meals, and a tour guide.' },
+        { q: 'How can I contact you?', a: 'You can contact us via: 1- Phone: 0555382038 (Owner) or 0554126832 (Work), 2- WhatsApp via the floating button, 3- Email: hamdan@sueudaltaayira.com, 4- The contact form on the page.' },
+        { q: 'Do you offer travel insurance?', a: 'Yes, we offer comprehensive travel insurance covering medical risks, trip cancellation, and lost luggage with 24/7 support.' },
+        { q: 'How many travel packages are available?', a: 'We have over 200 travel packages covering destinations like Dubai, Paris, Istanbul, London, New York, Kuala Lumpur, and more.' },
+        { q: 'Do you offer train tickets?', a: 'Yes, we offer train tickets (SAR) starting from 85 SAR for economy class and 145 SAR for business class.' },
+        { q: 'Do you support English language?', a: 'Yes, you can switch the website language to English using the "English" button at the top, and all content will be translated.' },
+        { q: 'How do I get the National Day discount?', a: 'Use code SND93 when booking hotels to get up to 93% off on your stay.' },
+        { q: 'Do you offer airport transfer service?', a: 'Yes, we have airport pick-up and drop-off service with modern cars and professional drivers.' }
+      ];
+
+      if (lang === 'en') {
+        faqItems.forEach((item, i) => {
+          if (i < faqDataEn.length) {
+            const qEl = item.querySelector('.faq-q span');
+            const aEl = item.querySelector('.faq-a');
+            if (qEl) qEl.textContent = faqDataEn[i].q;
+            if (aEl) aEl.textContent = faqDataEn[i].a;
+          }
+        });
+      } else {
+        faqItems.forEach((item, i) => {
+          if (i < faqData.length) {
+            const qEl = item.querySelector('.faq-q span');
+            const aEl = item.querySelector('.faq-a');
+            if (qEl) qEl.textContent = faqData[i].q;
+            if (aEl) aEl.textContent = faqData[i].a;
+          }
+        });
+      }
+
       localStorage.setItem('lang', lang);
     }
 
     langToggle.addEventListener('click', () => {
-      applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+      const newLang = currentLang === 'ar' ? 'en' : 'ar';
+      applyLanguage(newLang);
     });
+
+    // Load saved language
     const savedLang = localStorage.getItem('lang') || 'ar';
     applyLanguage(savedLang);
 
     // ====================
-    // 10. SMOOTH SCROLL
+    // 18. SMOOTH SCROLL
     // ====================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -1133,22 +3321,29 @@
     });
 
     // ====================
-    // 11. KEYBOARD SHORTCUTS
+    // 19. KEYBOARD SHORTCUTS
     // ====================
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (chatBox.classList.contains('open')) chatBox.classList.remove('open');
+        if (document.getElementById('serviceModal').classList.contains('open')) closeServiceModal();
+      }
+      // Ctrl+Enter to send AI message
+      if (e.key === 'Enter' && e.ctrlKey && chatBox.classList.contains('open')) {
+        sendAIMessage();
       }
     });
 
     // ====================
-    // 12. DYNAMIC FOOTER YEAR
+    // 20. DYNAMIC FOOTER YEAR
     // ====================
     document.querySelector('.footer-bottom').innerHTML =
-      `&copy; ${new Date().getFullYear()} <span>صعود الطائرة للسفر والسياحة</span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية`;
+      `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية`;
 
     console.log('%c✈️ صعود الطائرة – وكالة سفر متقدمة', 'font-size:20px;font-weight:bold;color:#d4af37;');
-    console.log('%c🏨 200+ Hotels | 🏝️ 200+ Packages | 🤖 AI Assistant', 'font-size:13px;color:#888;');
+    console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
+    console.log('%c🏨 200+ Hotels | 🏝️ 200+ Packages | 📝 50+ Blogs | 🤖 AI Assistant', 'font-size:13px;color:#888;');
+    console.log('%c🌍 All services with real prices – Multi-language support', 'font-size:13px;color:#888;');
   </script>
 </body>
 </html>

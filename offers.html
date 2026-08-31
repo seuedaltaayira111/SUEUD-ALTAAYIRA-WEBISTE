@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>عروض خاصة – صعود الطائرة</title>
+    <title>عروض خاصة – صعود الطائرة للسفر والسياحة</title>
     <meta name="description" content="عروض حصرية من صعود الطائرة – خصومات تصل إلى 93% على الفنادق، باقات عمرة رمضان، عروض القطارات، والمزيد." />
-    <link rel="canonical" href="https://sueudaltaayira.com/offers.html" />
+    <link rel="canonical" href="https://sueud-altayira-website.vercel.app/offers.html" />
+    <meta name="google-site-verification" content="NUXJFyGqpEREN03eh19P0DeJ5hVYHo8qtaXTvsfuAI4" />
+    <meta property="og:title" content="عروض خاصة – صعود الطائرة" />
+    <meta property="og:description" content="استفد من أفضل العروض الحصرية في السفر والسياحة." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sueud-altayira-website.vercel.app/offers.html" />
+    <meta name="keywords" content="عروض السفر, خصومات فنادق, عمرة رمضان, تذاكر مخفضة, كود خصم, صعود الطائرة" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "عروض خاصة – صعود الطائرة",
+            "description": "عروض حصرية وخصومات على خدمات السفر",
+            "url": "https://sueud-altayira-website.vercel.app/offers.html",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "صعود الطائرة للسفر والسياحة",
+                "url": "https://sueud-altayira-website.vercel.app"
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -26,7 +46,6 @@
             --text-muted: rgba(255, 255, 255, 0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
         html {
             scroll-behavior: smooth;
@@ -99,7 +118,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 1.5rem;
             font-weight: 900;
             cursor: pointer;
@@ -108,6 +127,9 @@
             font-size: 2.2rem;
             color: var(--gold);
             animation: logoFloat 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         @keyframes logoFloat {
             0%,
@@ -119,6 +141,11 @@
             }
         }
         .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .logo-text .main {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -127,20 +154,12 @@
             font-size: 1.5rem;
             letter-spacing: 1px;
         }
-        .logo-text strong {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-        }
-        .logo-sub {
+        .logo-text .sub {
             font-size: 0.55rem;
             font-weight: 300;
             color: var(--text-muted);
-            display: block;
-            margin-top: -3px;
-            letter-spacing: 3px;
+            -webkit-text-fill-color: var(--text-muted);
+            letter-spacing: 2px;
         }
         .nav-links {
             display: flex;
@@ -193,6 +212,7 @@
             cursor: pointer;
             font-size: 0.8rem;
             transition: 0.3s;
+            font-family: inherit;
         }
         .lang-toggle:hover {
             background: rgba(212, 175, 55, 0.15);
@@ -255,18 +275,56 @@
             }
         }
 
+        /* ===== HERO ===== */
+        .offers-hero {
+            padding: 150px 24px 60px;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary-dark);
+            text-align: center;
+        }
+        .offers-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.06), transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(108, 60, 224, 0.04), transparent 60%);
+            z-index: 0;
+        }
+        .offers-hero .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+        .offers-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .offers-hero h1 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .offers-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
         /* ===== SECTION ===== */
         .section {
-            padding: 130px 24px 80px;
+            padding: 60px 24px 80px;
             position: relative;
             z-index: 1;
         }
         .section .container {
             max-width: 1320px;
             margin: 0 auto;
-        }
-        .section-alt {
-            background: rgba(255, 255, 255, 0.005);
         }
         .section-title {
             text-align: center;
@@ -297,38 +355,56 @@
             margin: 14px auto 0;
         }
 
-        /* ===== SEARCH/FILTER ===== */
-        .offers-filter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
+        /* ===== FILTERS ===== */
+        .filters-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
             margin-bottom: 40px;
         }
-        .offers-filter input,
-        .offers-filter select {
-            padding: 12px 20px;
-            border-radius: 50px;
+        .filters-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+        .filters-row .filter-group {
+            flex: 1;
+            min-width: 160px;
+        }
+        .filters-row .filter-group label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .filters-row .filter-group input,
+        .filters-row .filter-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 12px;
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             color: #fff;
             font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             outline: none;
             transition: 0.3s;
-            min-width: 200px;
         }
-        .offers-filter input:focus,
-        .offers-filter select:focus {
+        .filters-row .filter-group input:focus,
+        .filters-row .filter-group select:focus {
             border-color: var(--gold);
             background: rgba(255, 255, 255, 0.06);
         }
-        .offers-filter select option {
+        .filters-row .filter-group select option {
             background: #0a1a2e;
             color: #fff;
         }
-        .offers-filter input::placeholder {
-            color: rgba(255, 255, 255, 0.3);
+        .filters-row .filter-group input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
         }
 
         /* ===== OFFERS GRID ===== */
@@ -336,7 +412,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 28px;
-            margin-top: 20px;
         }
         .offer-card {
             background: rgba(255, 255, 255, 0.025);
@@ -461,9 +536,10 @@
             color: var(--primary-dark);
             transition: 0.3s;
             font-family: inherit;
+            width: 100%;
         }
         .offer-card .offer-body .btn-sm:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
         }
         .offer-card .offer-body .btn-sm i {
@@ -851,6 +927,10 @@
             .offers-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .filters-row .filter-group {
+                min-width: 120px;
+                flex: 1 1 45%;
+            }
             .ai-chat-box {
                 width: calc(100vw - 32px);
                 right: 16px;
@@ -864,33 +944,41 @@
                 height: 50px;
                 font-size: 1.4rem;
             }
-            .offers-filter input,
-            .offers-filter select {
-                min-width: 140px;
-                padding: 10px 16px;
-                font-size: 0.85rem;
+            .offers-hero {
+                padding: 120px 16px 40px;
+            }
+            .footer .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer .brand .socials {
+                justify-content: center;
+            }
+            .offer-card .offer-img {
+                height: 150px;
             }
         }
         @media (max-width: 480px) {
             .offers-grid {
                 grid-template-columns: 1fr;
             }
-            .section {
-                padding: 56px 16px;
-            }
-            .offers-filter {
+            .filters-row {
                 flex-direction: column;
-                align-items: center;
             }
-            .offers-filter input,
-            .offers-filter select {
-                width: 100%;
-                max-width: 300px;
+            .filters-row .filter-group {
+                min-width: 100%;
+            }
+            .section {
+                padding: 40px 16px 60px;
+            }
+            .offers-hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- ===== HEADER ===== -->
@@ -898,9 +986,9 @@
         <div class="container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">✈️</span>
-                <span>
-                    <span class="logo-text"><strong>صعود الطائرة</strong></span>
-                    <span class="logo-sub">للسفر والسياحة</span>
+                <span class="logo-text">
+                    <span class="main">صعود الطائرة</span>
+                    <span class="sub">للسفر والسياحة</span>
                 </span>
             </a>
             <nav class="nav-links" id="navLinks">
@@ -913,6 +1001,7 @@
                 <a href="cars.html">سيارات</a>
                 <a href="about.html">من نحن</a>
                 <a href="contact.html">اتصل بنا</a>
+                <a href="chatbot.html" class="nav-cta">🤖 مساعد</a>
                 <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
@@ -922,33 +1011,52 @@
         </div>
     </header>
 
+    <!-- ===== HERO ===== -->
+    <section class="offers-hero">
+        <div class="container">
+            <h1>🔥 عروض <span class="highlight">خاصة</span></h1>
+            <p>عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي – احجز الآن بأسعار مخفضة ووفر أكثر</p>
+        </div>
+    </section>
+
     <!-- ===== OFFERS SECTION ===== -->
     <section class="section">
         <div class="container">
-            <div class="section-title reveal">
-                <h2>🔥 عروض <span class="highlight">خاصة</span></h2>
-                <p>عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي – احجز الآن بأسعار مخفضة ووفر أكثر</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <!-- ===== FILTER ===== -->
-            <div class="offers-filter reveal">
-                <input type="text" id="offerSearch" placeholder="🔍 ابحث عن عرض..." onkeyup="filterOffers()" />
-                <select id="offerCategory" onchange="filterOffers()">
-                    <option value="all">جميع الفئات</option>
-                    <option value="hotels">فنادق</option>
-                    <option value="umrah">عمرة</option>
-                    <option value="flights">طيران</option>
-                    <option value="trains">قطارات</option>
-                    <option value="packages">باقات سياحية</option>
-                </select>
+            <!-- ===== FILTERS ===== -->
+            <div class="filters-section reveal">
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label><i class="fas fa-search"></i> <span id="searchLabel">بحث</span></label>
+                        <input type="text" id="offerSearch" placeholder="ابحث عن عرض..." onkeyup="filterOffers()" />
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-tag"></i> <span id="categoryLabel">التصنيف</span></label>
+                        <select id="offerCategory" onchange="filterOffers()">
+                            <option value="all" id="catAll">جميع العروض</option>
+                            <option value="hotels" id="catHotels">فنادق</option>
+                            <option value="umrah" id="catUmrah">عمرة</option>
+                            <option value="flights" id="catFlights">طيران</option>
+                            <option value="trains" id="catTrains">قطارات</option>
+                            <option value="packages" id="catPackages">باقات سياحية</option>
+                            <option value="car" id="catCar">سيارات</option>
+                            <option value="insurance" id="catInsurance">تأمين</option>
+                        </select>
+                    </div>
+                    <div class="filter-group" style="flex:0.5;display:flex;align-items:flex-end;">
+                        <button onclick="resetOfferFilters()" style="padding:10px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
+                            <i class="fas fa-undo"></i> <span id="resetBtn">إعادة تعيين</span>
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <!-- ===== OFFERS GRID ===== -->
             <div class="offers-grid" id="offersGrid"></div>
 
             <!-- ===== LOAD MORE ===== -->
-            <button class="load-more-btn" id="loadMoreOffers">عرض المزيد من العروض</button>
+            <button class="load-more-btn" id="loadMoreOffers" style="display:block;margin:30px auto 0;padding:12px 40px;border-radius:60px;background:var(--gold-gradient);color:var(--primary-dark);font-weight:700;border:none;cursor:pointer;font-size:1rem;transition:0.3s;font-family:inherit;">
+                <span id="loadMoreText">عرض المزيد من العروض</span>
+            </button>
         </div>
     </section>
 
@@ -973,7 +1081,7 @@
         </div>
         <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
         <div class="ai-chat-input">
-            <input type="text" id="aiChatInput" placeholder="اكتب سؤالك عن العروض..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
+            <input type="text" id="aiChatInput" placeholder="اسأل عن العروض..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
             <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
@@ -981,6 +1089,9 @@
     <!-- ===== SCROLL TOP ===== -->
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
     <script>
         // ===== PARTICLES =====
         (function() {
@@ -1101,7 +1212,7 @@
             category: 'umrah',
             img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
             features: ['تأشيرة عمرة', 'سكن قريب من الحرم', 'مرشد سياحي'],
-            timer: 'شهرين متبقين'
+            timer: 'شهرين متبقيين'
         }, {
             id: 3,
             icon: '🏨',
@@ -1206,7 +1317,7 @@
             price: 'ابتداءً من 90 ريال',
             discount: 'خصم 25%',
             badge: '🚗 عرض السيارات',
-            category: 'packages',
+            category: 'car',
             img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop',
             features: ['جميع الفئات', 'تأمين شامل', 'توصيل للمطار'],
             timer: 'شهر متبقي'
@@ -1218,38 +1329,28 @@
             price: 'ابتداءً من 75 ريال',
             discount: 'خصم 50%',
             badge: '🛡️ عرض التأمين',
-            category: 'packages',
+            category: 'insurance',
             img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop',
             features: ['تغطية طبية', 'إلغاء الرحلات', 'فقدان الأمتعة'],
             timer: 'شهرين متبقيين'
         }];
 
-        // ===== RENDER OFFERS =====
+        // ===== STATE =====
         let offersDisplayCount = 6;
-        const offersGrid = document.getElementById('offersGrid');
+        let filteredOffers = [...offersData];
 
-        function renderOffers(count, filter = 'all', search = '') {
-            let filtered = offersData;
-            if (filter !== 'all') {
-                filtered = filtered.filter(o => o.category === filter);
-            }
-            if (search.trim()) {
-                const term = search.toLowerCase().trim();
-                filtered = filtered.filter(o =>
-                    o.title.toLowerCase().includes(term) ||
-                    o.desc.toLowerCase().includes(term) ||
-                    o.badge.toLowerCase().includes(term) ||
-                    o.category.includes(term)
-                );
-            }
-            const toShow = filtered.slice(0, count);
-            offersGrid.innerHTML = '';
+        // ===== RENDER OFFERS =====
+        function renderOffers(count) {
+            const toShow = filteredOffers.slice(0, count);
+            const grid = document.getElementById('offersGrid');
+            grid.innerHTML = '';
             if (toShow.length === 0) {
-                offersGrid.innerHTML =
+                grid.innerHTML =
                     `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:1.2rem;">
                         <i class="fas fa-search" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
-                        لا توجد عروض مطابقة لبحثك
+                        <span id="noOffers">لا توجد عروض مطابقة لبحثك</span>
                     </div>`;
+                document.getElementById('loadMoreOffers').style.display = 'none';
                 return;
             }
             toShow.forEach((offer, i) => {
@@ -1275,37 +1376,48 @@
                         </button>
                     </div>
                 `;
-                offersGrid.appendChild(card);
+                grid.appendChild(card);
             });
-            // Re-observe for reveal
             document.querySelectorAll('.offer-card.reveal').forEach(el => observer.observe(el));
 
-            // Show/hide load more button
             const loadBtn = document.getElementById('loadMoreOffers');
-            if (count >= filtered.length) {
+            if (count >= filteredOffers.length) {
                 loadBtn.style.display = 'none';
             } else {
                 loadBtn.style.display = 'block';
             }
-            // Store current filter state for load more
-            window._currentFilter = filter;
-            window._currentSearch = search;
         }
 
         // ===== FILTER OFFERS =====
         function filterOffers() {
-            const search = document.getElementById('offerSearch').value;
+            const search = document.getElementById('offerSearch').value.toLowerCase().trim();
             const category = document.getElementById('offerCategory').value;
+
+            filteredOffers = offersData.filter(o => {
+                if (search && !o.title.toLowerCase().includes(search) && !o.desc.toLowerCase().includes(search)) {
+                    return false;
+                }
+                if (category !== 'all' && o.category !== category) {
+                    return false;
+                }
+                return true;
+            });
+
             offersDisplayCount = 6;
-            renderOffers(offersDisplayCount, category, search);
+            renderOffers(offersDisplayCount);
+        }
+
+        // ===== RESET FILTERS =====
+        function resetOfferFilters() {
+            document.getElementById('offerSearch').value = '';
+            document.getElementById('offerCategory').value = 'all';
+            filterOffers();
         }
 
         // ===== LOAD MORE =====
         document.getElementById('loadMoreOffers').addEventListener('click', function() {
-            const search = document.getElementById('offerSearch').value;
-            const category = document.getElementById('offerCategory').value;
             offersDisplayCount += 6;
-            renderOffers(offersDisplayCount, category, search);
+            renderOffers(offersDisplayCount);
         });
 
         // ===== BOOK OFFER =====
@@ -1324,7 +1436,7 @@
         const typingIndicator = document.getElementById('aiTyping');
 
         const aiKnowledge = {
-            'مرحبا': '👋 أهلاً بك في <strong>صعود الطائرة</strong>! لدينا عروض رائعة مثل خصم 93% على الفنادق وباقات عمرة رمضان. ماذا تريد أن تعرف؟',
+            'مرحبا': '👋 أهلاً بك! كيف يمكنني مساعدتك في العروض؟ لدينا خصم 93% على الفنادق وباقات عمرة رمضان!',
             'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 لدينا عروض حصرية بمناسبة اليوم الوطني.',
             'عرض': '🔥 لدينا عروض مميزة: خصم 93% على الفنادق، باقات عمرة رمضان، خصم 9% باستخدام كود KSA90، وتذاكر قطار بأسعار تبدأ من 85 ريال.',
             'خصم': '💸 الخصومات المتوفرة: 93% على الفنادق (اليوم الوطني)، 20% على عمرة رمضان، 9% باستخدام كود KSA90، 30% على القطارات، وغيرها.',
@@ -1335,43 +1447,35 @@
             'باقة': '🏝️ لدينا باقات سياحية مخفضة: دبي (خصم 40%)، كينيا (خصم 35%)، سويسرا (خصم 30%)، القاهرة (خصم 45%).',
             'كود': '📱 كود الخصم KSA90 يمنحك 9% على جميع الفنادق + 900 نقطة في محفظتك.',
             'شكرا': '🙏 العفو! سعداء بمساعدتك. تابع عروضنا الحصرية.',
-            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong>! We have amazing offers like 93% off on hotels and Ramadan Umrah packages.',
-            'offer': '🔥 Special offers: 93% off on hotels (National Day), Ramadan Umrah packages, 9% off with code KSA90, train tickets from 85 SAR.',
-            'discount': '💸 Available discounts: 93% on hotels, 20% on Umrah, 9% with code KSA90, 30% on trains, and more.',
-            'hotel': '🏨 Hotel offers: 93% off on all hotels for National Day, 9% off with code KSA90.',
-            'umrah': '🕋 Ramadan Umrah packages at 20% off – includes visa, accommodation near Haram.',
-            'train': '🚆 Train tickets at 30% off – starting from 85 SAR on all routes.',
-            'flight': '✈️ Flight tickets at 25% off – starting from 179 SAR with Flynas and Flyadeal.',
+            'hello': '👋 Welcome! We have amazing offers: 93% off on hotels, Ramadan Umrah packages, and more.',
+            'offer': '🔥 Special offers: 93% off on hotels, 9% off with code KSA90, train tickets from 85 SAR.',
+            'discount': '💸 Available discounts: 93% on hotels, 20% on Umrah, 9% with code KSA90, 30% on trains.',
+            'hotel': '🏨 Hotel offers: 93% off for National Day, 9% off with code KSA90.',
+            'umrah': '🕋 Ramadan Umrah packages at 20% off.',
+            'train': '🚆 Train tickets at 30% off starting from 85 SAR.',
+            'flight': '✈️ Flight tickets at 25% off starting from 179 SAR.',
             'package': '🏝️ Discounted packages: Dubai (40% off), Kenya (35% off), Switzerland (30% off), Cairo (45% off).',
             'code': '📱 Discount code KSA90 gives you 9% off on all hotels + 900 points.',
-            'thanks': '🙏 You\'re welcome! Happy to help. Check out our exclusive offers.'
+            'thanks': '🙏 You\'re welcome!'
         };
+        const defaultReplies = [
+            '🤖 شكراً لسؤالك! لدينا عروض رائعة حالياً: خصم 93% على الفنادق، باقات عمرة رمضان، وتذاكر قطار بأسعار مخفضة.',
+            '📱 يمكنك تصفح جميع العروض في الأعلى أو مراسلتنا على واتساب 0555382038.',
+            '🔥 لا تفوت العروض الحصرية – خصم 93% على الفنادق بمناسبة اليوم الوطني!',
+            '🏝️ اكتشف باقاتنا المخفضة إلى دبي، كينيا، سويسرا، والقاهرة.'
+        ];
 
         function getAIResponse(text) {
             const lower = text.toLowerCase().trim();
             for (const [key, response] of Object.entries(aiKnowledge)) {
                 if (lower.includes(key)) return response;
             }
-            const hasArabic = /[\u0600-\u06FF]/.test(text);
-            if (hasArabic) {
-                return '🤖 شكراً لسؤالك عن العروض! لدينا عروض رائعة حالياً: خصم 93% على الفنادق، باقات عمرة رمضان، وتذاكر قطار بأسعار مخفضة. يمكنك تصفح جميع العروض في الأعلى.';
-            } else {
-                return '🤖 Thank you for asking about our offers! We currently have great offers: 93% off on hotels, Ramadan Umrah packages, and discounted train tickets. Browse all offers above.';
-            }
+            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
         }
 
         window.toggleAIChat = function() {
             chatBox.classList.toggle('open');
-            if (chatBox.classList.contains('open')) {
-                chatInput.focus();
-                if (chatMessages.children.length === 1) {
-                    const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-                    const welcome = lang === 'en' ?
-                        '👋 Hello! I\'m the <strong>Saeed Al-Taayira</strong> AI assistant. Ask me about any of our exclusive offers!' :
-                        '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. اسألني عن أي من عروضنا الحصرية!';
-                    chatMessages.innerHTML = `<div class="msg bot">${welcome}<span class="time">الآن</span></div>`;
-                }
-            }
+            if (chatBox.classList.contains('open')) chatInput.focus();
         };
 
         function addMessage(type, text) {
@@ -1413,21 +1517,22 @@
                 navAbout: 'من نحن',
                 navContact: 'اتصل بنا',
                 navCta: '📞 احجز الآن',
-                sectionTitle: '🔥 عروض',
-                sectionHighlight: 'خاصة',
-                sectionDesc: 'عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي – احجز الآن بأسعار مخفضة ووفر أكثر',
-                searchPlaceholder: '🔍 ابحث عن عرض...',
-                allCategories: 'جميع الفئات',
+                searchLabel: 'بحث',
+                categoryLabel: 'التصنيف',
+                catAll: 'جميع العروض',
                 catHotels: 'فنادق',
                 catUmrah: 'عمرة',
                 catFlights: 'طيران',
                 catTrains: 'قطارات',
                 catPackages: 'باقات سياحية',
-                loadMore: 'عرض المزيد من العروض',
+                catCar: 'سيارات',
+                catInsurance: 'تأمين',
+                resetBtn: 'إعادة تعيين',
+                loadMoreText: 'عرض المزيد من العروض',
                 noOffers: 'لا توجد عروض مطابقة لبحثك',
                 aiTitle: 'مساعد صعود الطائرة AI',
                 aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. لدي معلومات عن جميع عروضنا الحصرية – اسألني عن أي عرض!',
-                aiPlaceholder: 'اكتب سؤالك عن العروض...',
+                aiPlaceholder: 'اسأل عن العروض...',
                 waLabel: 'تواصل واتساب',
                 footerBrand: 'صعود الطائرة',
                 footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
@@ -1435,8 +1540,7 @@
                 footerServices: 'خدماتنا',
                 footerInfo: 'معلومات',
                 footerRights: 'جميع الحقوق محفوظة',
-                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية',
-                bookNow: 'استفد من العرض'
+                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية'
             },
             en: {
                 logo: '<strong>Saeed Al-Taayira</strong>',
@@ -1451,17 +1555,18 @@
                 navAbout: 'About',
                 navContact: 'Contact',
                 navCta: '📞 Book Now',
-                sectionTitle: '🔥 Special',
-                sectionHighlight: 'Offers',
-                sectionDesc: 'Exclusive offers updated automatically with AI – Book now at discounted prices and save more',
-                searchPlaceholder: '🔍 Search for an offer...',
-                allCategories: 'All Categories',
+                searchLabel: 'Search',
+                categoryLabel: 'Category',
+                catAll: 'All Offers',
                 catHotels: 'Hotels',
                 catUmrah: 'Umrah',
                 catFlights: 'Flights',
                 catTrains: 'Trains',
                 catPackages: 'Packages',
-                loadMore: 'Show More Offers',
+                catCar: 'Cars',
+                catInsurance: 'Insurance',
+                resetBtn: 'Reset',
+                loadMoreText: 'Show More Offers',
                 noOffers: 'No offers match your search',
                 aiTitle: 'Saeed Al-Taayira AI Assistant',
                 aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. I have information about all our exclusive offers – ask me about any offer!',
@@ -1473,8 +1578,7 @@
                 footerServices: 'Services',
                 footerInfo: 'Info',
                 footerRights: 'All Rights Reserved',
-                footerCredit: 'Designed & Developed ✧ with Vision',
-                bookNow: 'Get Offer'
+                footerCredit: 'Designed & Developed ✧ with Vision'
             }
         };
 
@@ -1498,17 +1602,18 @@
                 'navAbout': 'navAbout',
                 'navContact': 'navContact',
                 'navCta': 'navCta',
-                'sectionTitle': 'sectionTitle',
-                'sectionHighlight': 'sectionHighlight',
-                'sectionDesc': 'sectionDesc',
-                'searchPlaceholder': 'searchPlaceholder',
-                'allCategories': 'allCategories',
+                'searchLabel': 'searchLabel',
+                'categoryLabel': 'categoryLabel',
+                'catAll': 'catAll',
                 'catHotels': 'catHotels',
                 'catUmrah': 'catUmrah',
                 'catFlights': 'catFlights',
                 'catTrains': 'catTrains',
                 'catPackages': 'catPackages',
-                'loadMore': 'loadMore',
+                'catCar': 'catCar',
+                'catInsurance': 'catInsurance',
+                'resetBtn': 'resetBtn',
+                'loadMoreText': 'loadMoreText',
                 'noOffers': 'noOffers',
                 'aiTitle': 'aiTitle',
                 'aiWelcome': 'aiWelcome',
@@ -1520,8 +1625,7 @@
                 'footerServices': 'footerServices',
                 'footerInfo': 'footerInfo',
                 'footerRights': 'footerRights',
-                'footerCredit': 'footerCredit',
-                'bookNow': 'bookNow'
+                'footerCredit': 'footerCredit'
             };
 
             for (const [id, key] of Object.entries(map)) {
@@ -1535,28 +1639,29 @@
                 }
             }
 
-            // Update placeholder for search
+            // Update search placeholder
             const searchInput = document.getElementById('offerSearch');
-            if (searchInput) {
-                searchInput.placeholder = translations[lang]['searchPlaceholder'];
-            }
+            if (searchInput) searchInput.placeholder = lang === 'ar' ? 'ابحث عن عرض...' : 'Search for an offer...';
 
-            // Update category options
+            // Update select options
             const categorySelect = document.getElementById('offerCategory');
             if (categorySelect) {
-                const options = categorySelect.options;
-                if (options[0]) options[0].textContent = translations[lang]['allCategories'];
-                if (options[1]) options[1].textContent = translations[lang]['catHotels'];
-                if (options[2]) options[2].textContent = translations[lang]['catUmrah'];
-                if (options[3]) options[3].textContent = translations[lang]['catFlights'];
-                if (options[4]) options[4].textContent = translations[lang]['catTrains'];
-                if (options[5]) options[5].textContent = translations[lang]['catPackages'];
+                const opts = categorySelect.options;
+                const keys = ['catAll', 'catHotels', 'catUmrah', 'catFlights', 'catTrains', 'catPackages', 'catCar',
+                    'catInsurance'
+                ];
+                opts.forEach((opt, i) => {
+                    if (i < keys.length && translations[lang] && translations[lang][keys[i]]) {
+                        opt.textContent = translations[lang][keys[i]];
+                    }
+                });
             }
 
             // Update load more button
             const loadBtn = document.getElementById('loadMoreOffers');
             if (loadBtn) {
-                loadBtn.textContent = translations[lang]['loadMore'];
+                const span = loadBtn.querySelector('span');
+                if (span) span.textContent = translations[lang]['loadMoreText'];
             }
 
             // Update AI chat
@@ -1571,47 +1676,11 @@
                 welcomeMsg.innerHTML = translations[lang]['aiWelcome'] + '<span class="time">الآن</span>';
             }
             const placeholder = document.getElementById('aiChatInput');
-            if (placeholder) {
-                placeholder.placeholder = translations[lang]['aiPlaceholder'];
-            }
+            if (placeholder) placeholder.placeholder = translations[lang]['aiPlaceholder'];
 
-            // Update section title
-            const titleEl = document.querySelector('.section-title h2');
-            if (titleEl) {
-                const highlight = titleEl.querySelector('.highlight');
-                if (highlight) {
-                    const h1 = document.createElement('span');
-                    h1.textContent = translations[lang]['sectionTitle'];
-                    titleEl.innerHTML = '';
-                    titleEl.appendChild(h1);
-                    const h2 = document.createElement('span');
-                    h2.className = 'highlight';
-                    h2.textContent = translations[lang]['sectionHighlight'];
-                    titleEl.appendChild(document.createTextNode(' '));
-                    titleEl.appendChild(h2);
-                }
-            }
-            const descEl = document.querySelector('.section-title p');
-            if (descEl) {
-                descEl.textContent = translations[lang]['sectionDesc'];
-            }
-
-            // Update book buttons
-            document.querySelectorAll('.offer-card .btn-sm').forEach(btn => {
-                const icon = btn.querySelector('i');
-                btn.innerHTML = '';
-                if (icon) btn.appendChild(icon.cloneNode(true));
-                btn.appendChild(document.createTextNode(' ' + translations[lang]['bookNow']));
-            });
-
-            // Update no offers message if visible
-            const noOffersMsg = offersGrid.querySelector('div[style*="grid-column:1/-1"]');
-            if (noOffersMsg) {
-                noOffersMsg.innerHTML = `
-                    <i class="fas fa-search" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
-                    ${translations[lang]['noOffers']}
-                `;
-            }
+            // Update no offers message
+            const noOffers = document.getElementById('noOffers');
+            if (noOffers) noOffers.textContent = translations[lang]['noOffers'];
 
             localStorage.setItem('lang', lang);
         }
@@ -1619,10 +1688,7 @@
         langToggle.addEventListener('click', () => {
             const newLang = currentLang === 'ar' ? 'en' : 'ar';
             applyLanguage(newLang);
-            // Re-render offers to update button texts
-            const search = document.getElementById('offerSearch').value;
-            const category = document.getElementById('offerCategory').value;
-            renderOffers(offersDisplayCount, category, search);
+            renderOffers(offersDisplayCount);
         });
 
         const savedLang = localStorage.getItem('lang') || 'ar';
@@ -1659,6 +1725,7 @@
         console.log('%c🔥 صعود الطائرة – عروض خاصة', 'font-size:20px;font-weight:bold;color:#d4af37;');
         console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
         console.log('%c🏷️ 12 عرض حصري – فلتر بحث – AI Chatbot', 'font-size:13px;color:#888;');
+        console.log('%c✅ Google Search Console Verified', 'font-size:13px;color:#4ade80;');
     </script>
 </body>
 </html>

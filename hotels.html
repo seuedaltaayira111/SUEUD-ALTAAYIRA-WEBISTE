@@ -3,34 +3,47 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>فنادق – صعود الطائرة</title>
+    <title>فنادق – صعود الطائرة للسفر والسياحة</title>
     <meta name="description" content="أكثر من 200 فندق حول العالم – حجز فنادق فاخرة واقتصادية بأفضل الأسعار من Booking.com." />
-    <link rel="canonical" href="https://sueudaltaayira.com/hotels.html" />
+    <link rel="canonical" href="https://sueud-altayira-website.vercel.app/hotels.html" />
+    <meta name="google-site-verification" content="NUXJFyGqpEREN03eh19P0DeJ5hVYHo8qtaXTvsfuAI4" />
+    <meta property="og:title" content="فنادق – صعود الطائرة" />
+    <meta property="og:description" content="أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sueud-altayira-website.vercel.app/hotels.html" />
+    <meta name="keywords" content="فنادق, حجز فنادق, عروض فنادق, فنادق الرياض, فنادق دبي, Booking.com" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "فنادق – صعود الطائرة",
+            "description": "أكثر من 200 فندق حول العالم بأفضل الأسعار",
+            "url": "https://sueud-altayira-website.vercel.app/hotels.html",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "صعود الطائرة للسفر والسياحة",
+                "url": "https://sueud-altayira-website.vercel.app"
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-dark: #061d3a;
             --gold: #d4af37;
             --gold-light: #f0d060;
             --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.06);
-            --text-muted: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.06);
+            --text-muted: rgba(255,255,255,0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
             background: var(--primary-dark);
@@ -38,240 +51,127 @@
             overflow-x: hidden;
             line-height: 1.7;
         }
-        body.rtl {
-            direction: rtl;
-            text-align: right;
-        }
-        body.ltr {
-            direction: ltr;
-            text-align: left;
-        }
-        body.ltr .nav-links a {
-            font-family: 'Segoe UI', sans-serif;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        ul {
-            list-style: none;
-        }
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--primary-dark);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
+        body.rtl { direction: rtl; text-align: right; }
+        body.ltr { direction: ltr; text-align: left; }
+        body.ltr .nav-links a { font-family: 'Segoe UI', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         #particles-canvas {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.3;
+            position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
         /* ===== HEADER ===== */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 14px 0;
-            transition: 0.3s;
-            background: rgba(6, 29, 58, 0.94);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 14px 0; transition: 0.3s;
+            background: rgba(6,29,58,0.94);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212,175,55,0.1);
         }
         .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1320px; margin: 0 auto; padding: 0 24px;
         }
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 900;
-            cursor: pointer;
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.5rem; font-weight: 900; cursor: pointer;
         }
         .logo-icon {
-            font-size: 2.2rem;
-            color: var(--gold);
+            font-size: 2.2rem; color: var(--gold);
             animation: logoFloat 3s ease-in-out infinite;
+            display: flex; align-items: center; justify-content: center;
         }
-        @keyframes logoFloat {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-4px);
-            }
+        @keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .logo-text .main {
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;
         }
-        .logo-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
+        .logo-text .sub {
+            font-size: 0.55rem; font-weight: 300; color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted); letter-spacing: 2px;
         }
-        .logo-text strong {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-        }
-        .logo-sub {
-            font-size: 0.55rem;
-            font-weight: 300;
-            color: var(--text-muted);
-            display: block;
-            margin-top: -3px;
-            letter-spacing: 3px;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            flex-wrap: wrap;
-        }
+        .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
         .nav-links a {
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: 0.3s;
-            position: relative;
+            padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-muted); transition: 0.3s; position: relative;
         }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #fff;
-            background: rgba(212, 175, 55, 0.1);
-        }
+        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
         .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 18px;
-            height: 2.5px;
-            background: var(--gold);
-            border-radius: 4px;
+            content: ''; position: absolute; bottom: 4px; left: 50%;
+            transform: translateX(-50%); width: 18px; height: 2.5px;
+            background: var(--gold); border-radius: 4px;
         }
         .nav-cta {
-            background: var(--gold-gradient) !important;
-            color: var(--primary-dark) !important;
-            font-weight: 700 !important;
-            padding: 8px 26px !important;
-            border-radius: 50px !important;
+            background: var(--gold-gradient) !important; color: var(--primary-dark) !important;
+            font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
         }
-        .nav-cta:hover {
-            transform: scale(1.05);
-        }
+        .nav-cta:hover { transform: scale(1.05); }
         .lang-toggle {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: 0.3s;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 0.8rem; transition: 0.3s; font-family: inherit;
         }
-        .lang-toggle:hover {
-            background: rgba(212, 175, 55, 0.15);
-            border-color: var(--gold);
-        }
+        .lang-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 6px;
-            z-index: 1001;
+            display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1001;
         }
-        .hamburger span {
-            width: 28px;
-            height: 2.5px;
-            background: #fff;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        @media (max-width: 768px) {
+        .hamburger span { width: 28px; height: 2.5px; background: #fff; border-radius: 4px; transition: 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        @media (max-width:768px) {
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: rgba(6, 29, 58, 0.97);
-                flex-direction: column;
-                padding: 80px 28px 32px;
-                transition: right 0.4s;
-                border-left: 1px solid rgba(255, 255, 255, 0.04);
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: rgba(6,29,58,0.97); flex-direction: column;
+                padding: 80px 28px 32px; transition: right 0.4s;
+                border-left: 1px solid rgba(255,255,255,0.04);
             }
-            .nav-links.open {
-                right: 0;
-            }
-            .nav-links a {
-                width: 100%;
-                padding: 14px 18px;
-                border-radius: 12px;
-            }
-            .nav-links a.active::after {
-                display: none;
-            }
-            .nav-cta {
-                margin-top: 8px;
-            }
-            .hamburger {
-                display: flex;
-            }
+            .nav-links.open { right: 0; }
+            .nav-links a { width: 100%; padding: 14px 18px; border-radius: 12px; }
+            .nav-links a.active::after { display: none; }
+            .nav-cta { margin-top: 8px; }
+            .hamburger { display: flex; }
+        }
+
+        /* ===== HERO ===== */
+        .hotels-hero {
+            padding: 150px 24px 60px;
+            position: relative; overflow: hidden; background: var(--primary-dark); text-align: center;
+        }
+        .hotels-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06), transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(108,60,224,0.04), transparent 60%);
+            z-index: 0;
+        }
+        .hotels-hero .container { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; }
+        .hotels-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .hotels-hero h1 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hotels-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
         }
 
         /* ===== SECTION ===== */
-        .section {
-            padding: 130px 24px 80px;
-            position: relative;
-            z-index: 1;
-        }
-        .section .container {
-            max-width: 1320px;
-            margin: 0 auto;
-        }
-        .section-alt {
-            background: rgba(255, 255, 255, 0.005);
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 48px;
-        }
+        .section { padding: 60px 24px 80px; position: relative; z-index: 1; }
+        .section .container { max-width: 1320px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 48px; }
         .section-title h2 {
             font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 900;
@@ -281,28 +181,16 @@
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 620px;
-            margin: 0 auto;
-        }
-        .section-divider {
-            width: 60px;
-            height: 3.5px;
-            background: var(--gold-gradient);
-            border-radius: 4px;
-            margin: 14px auto 0;
-        }
+        .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+        .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
 
         /* ===== FILTERS ===== */
         .filters-section {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255,255,255,0.02);
             border-radius: var(--radius);
             padding: 24px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255,255,255,0.04);
             margin-bottom: 40px;
         }
         .filters-row {
@@ -328,8 +216,8 @@
             width: 100%;
             padding: 10px 14px;
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
             color: #fff;
             font-family: inherit;
             font-size: 0.9rem;
@@ -339,17 +227,12 @@
         .filters-row .filter-group input:focus,
         .filters-row .filter-group select:focus {
             border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.06);
         }
-        .filters-row .filter-group select option {
-            background: #0a1a2e;
-            color: #fff;
-        }
-        .filters-row .filter-group input::placeholder {
-            color: rgba(255, 255, 255, 0.25);
-        }
+        .filters-row .filter-group select option { background: #0a1a2e; color: #fff; }
+        .filters-row .filter-group input::placeholder { color: rgba(255,255,255,0.25); }
 
-        /* ===== PRICE RANGE SLIDER ===== */
+        /* ===== PRICE SLIDER ===== */
         .price-slider {
             display: flex;
             align-items: center;
@@ -357,46 +240,24 @@
             flex-wrap: wrap;
         }
         .price-slider input[type="range"] {
-            width: 180px;
-            height: 4px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 4px;
-            outline: none;
-            transition: 0.3s;
+            width: 180px; height: 4px; -webkit-appearance: none; appearance: none;
+            background: rgba(212,175,55,0.2); border-radius: 4px; outline: none; transition: 0.3s;
         }
         .price-slider input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--gold-gradient);
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            -webkit-appearance: none; appearance: none;
+            width: 16px; height: 16px; border-radius: 50%; background: var(--gold-gradient);
+            cursor: pointer; box-shadow: 0 0 20px rgba(212,175,55,0.3);
         }
         .price-slider input[type="range"]::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--gold);
-            cursor: pointer;
-            border: none;
+            width: 16px; height: 16px; border-radius: 50%; background: var(--gold); cursor: pointer; border: none;
         }
         .price-slider .price-range-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            min-width: 100px;
+            display: flex; justify-content: space-between; font-size: 0.8rem;
+            color: var(--text-muted); min-width: 100px;
         }
         .price-slider .price-range-labels span {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 2px 12px;
-            border-radius: 50px;
-            font-weight: 600;
-            color: var(--gold);
+            background: rgba(255,255,255,0.04); padding: 2px 12px; border-radius: 50px;
+            font-weight: 600; color: var(--gold);
         }
 
         /* ===== HOTELS GRID ===== */
@@ -406,8 +267,8 @@
             gap: 28px;
         }
         .hotel-card {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.04);
             border-radius: var(--radius);
             overflow: hidden;
             transition: 0.4s;
@@ -415,8 +276,8 @@
         }
         .hotel-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(212, 175, 55, 0.15);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212,175,55,0.15);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
         }
         .hotel-card .img {
             height: 180px;
@@ -425,683 +286,284 @@
             position: relative;
         }
         .hotel-card .img .hotel-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            padding: 2px 14px;
-            border-radius: 50px;
-            font-size: 0.65rem;
-            font-weight: 700;
+            position: absolute; top: 12px; right: 12px;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            padding: 2px 14px; border-radius: 50px; font-size: 0.65rem; font-weight: 700;
         }
         .hotel-card .img .hotel-rating-badge {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
-            padding: 4px 14px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            color: #fbbf24;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            position: absolute; bottom: 12px; left: 12px;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+            padding: 4px 14px; border-radius: 50px; font-size: 0.75rem;
+            color: #fbbf24; display: flex; align-items: center; gap: 4px;
         }
-        .hotel-card .body {
-            padding: 18px 20px 22px;
-        }
-        .hotel-card .body h4 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 2px;
-        }
-        .hotel-card .body .location {
-            color: var(--gold);
-            font-size: 0.8rem;
-            margin-bottom: 4px;
-        }
-        .hotel-card .body .location i {
-            margin-left: 4px;
-        }
-        .hotel-card .body .rating {
-            color: #fbbf24;
-            font-size: 0.85rem;
-            margin: 4px 0;
-        }
-        .hotel-card .body .price {
-            color: var(--gold);
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 4px 0;
-        }
-        .hotel-card .body .price small {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
+        .hotel-card .body { padding: 18px 20px 22px; }
+        .hotel-card .body h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 2px; }
+        .hotel-card .body .location { color: var(--gold); font-size: 0.8rem; margin-bottom: 4px; }
+        .hotel-card .body .location i { margin-left: 4px; }
+        .hotel-card .body .rating { color: #fbbf24; font-size: 0.85rem; margin: 4px 0; }
+        .hotel-card .body .price { color: var(--gold); font-size: 1.2rem; font-weight: 700; margin: 4px 0; }
+        .hotel-card .body .price small { font-size: 0.65rem; color: var(--text-muted); font-weight: 400; }
         .hotel-card .body .hotel-features {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin: 10px 0 14px;
+            display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 14px;
         }
         .hotel-card .body .hotel-features span {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.04);
-            padding: 3px 12px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.65rem; color: var(--text-muted);
+            background: rgba(255,255,255,0.04); padding: 3px 12px; border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.04);
         }
         .hotel-card .body .btn-sm {
-            padding: 10px 28px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            transition: 0.3s;
-            font-family: inherit;
-            width: 100%;
+            padding: 10px 28px; border-radius: 50px; font-size: 0.85rem;
+            font-weight: 700; border: none; cursor: pointer;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            transition: 0.3s; font-family: inherit; width: 100%;
         }
-        .hotel-card .body .btn-sm:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
-        }
+        .hotel-card .body .btn-sm:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(212,175,55,0.3); }
 
         /* ===== LOAD MORE ===== */
         .load-more-btn {
-            display: block;
-            margin: 40px auto 0;
-            padding: 14px 50px;
-            border-radius: 60px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
-            font-family: inherit;
+            display: block; margin: 40px auto 0; padding: 14px 50px;
+            border-radius: 60px; background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; border: none; cursor: pointer; font-size: 1rem;
+            transition: 0.3s; font-family: inherit;
         }
-        .load-more-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
-        }
+        .load-more-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
 
         /* ===== HOTEL BOOKING MODAL ===== */
         .hotel-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(12px);
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(12px); z-index: 9999;
+            display: none; align-items: center; justify-content: center; padding: 24px;
         }
-        .hotel-modal.open {
-            display: flex;
-            animation: modalFade 0.4s ease;
-        }
-        @keyframes modalFade {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+        .hotel-modal.open { display: flex; animation: modalFade 0.4s ease; }
+        @keyframes modalFade { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
         .hotel-modal .modal-content {
-            background: #0a1a2e;
-            border-radius: 24px;
-            max-width: 550px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            position: relative;
+            background: #0a1a2e; border-radius: 24px; max-width: 550px; width: 100%;
+            max-height: 90vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6); padding: 30px; position: relative;
         }
         .hotel-modal .modal-content .close-btn {
-            position: absolute;
-            top: 12px;
-            left: 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute; top: 12px; left: 16px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+            color: #fff; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem;
+            cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center;
         }
-        .hotel-modal .modal-content .close-btn:hover {
-            background: rgba(255, 0, 0, 0.2);
-            border-color: #ff4444;
-            transform: rotate(90deg);
-        }
-        .hotel-modal .modal-content h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 4px;
-        }
-        .hotel-modal .modal-content .hotel-detail-location {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-        .hotel-modal .modal-content .form-group {
-            margin-bottom: 16px;
-        }
+        .hotel-modal .modal-content .close-btn:hover { background: rgba(255,0,0,0.2); border-color: #ff4444; transform: rotate(90deg); }
+        .hotel-modal .modal-content h3 { font-size: 1.5rem; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+        .hotel-modal .modal-content .hotel-detail-location { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+        .hotel-modal .modal-content .form-group { margin-bottom: 16px; }
         .hotel-modal .modal-content .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 4px;
+            display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;
         }
         .hotel-modal .modal-content .form-group input,
         .hotel-modal .modal-content .form-group select,
         .hotel-modal .modal-content .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-family: inherit;
-            font-size: 0.95rem;
-            outline: none;
-            transition: 0.3s;
+            width: 100%; padding: 12px; border-radius: 12px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            color: #fff; font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
         }
         .hotel-modal .modal-content .form-group input:focus,
         .hotel-modal .modal-content .form-group select:focus,
         .hotel-modal .modal-content .form-group textarea:focus {
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--gold); background: rgba(255,255,255,0.06);
         }
-        .hotel-modal .modal-content .form-group select option {
-            background: #0a1a2e;
-            color: #fff;
-        }
-        .hotel-modal .modal-content .form-group textarea {
-            height: 70px;
-            resize: vertical;
-        }
+        .hotel-modal .modal-content .form-group select option { background: #0a1a2e; color: #fff; }
+        .hotel-modal .modal-content .form-group textarea { height: 70px; resize: vertical; }
         .hotel-modal .modal-content .btn-submit-hotel {
-            width: 100%;
-            padding: 14px;
-            border-radius: 60px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: inherit;
+            width: 100%; padding: 14px; border-radius: 60px;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
+            transition: 0.3s; font-family: inherit;
         }
         .hotel-modal .modal-content .btn-submit-hotel:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+            transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3);
         }
-        .hotel-modal .modal-content .form-status {
-            margin-top: 12px;
-            text-align: center;
-            font-size: 0.9rem;
-            min-height: 28px;
-        }
+        .hotel-modal .modal-content .form-status { margin-top: 12px; text-align: center; font-size: 0.9rem; min-height: 28px; }
 
         /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
-            position: fixed;
-            bottom: 28px;
-            left: 28px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
+            position: fixed; bottom: 28px; left: 28px; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
         }
         .whatsapp-float .wa-btn {
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            background: #25d366;
-            color: #fff;
-            font-size: 2.4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
+            width: 68px; height: 68px; border-radius: 50%; background: #25d366; color: #fff;
+            font-size: 2.4rem; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 40px rgba(37,211,102,0.3); transition: 0.3s; border: none; cursor: pointer;
             animation: waPulse 2.8s ease-in-out infinite;
         }
-        .whatsapp-float .wa-btn:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float .wa-btn:hover { transform: scale(1.1); }
         .whatsapp-float .wa-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 3px 14px;
-            border-radius: 50px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
+            padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.04);
         }
-        @keyframes waPulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            }
-            50% {
-                box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06);
-            }
-        }
+        @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
 
         /* ===== AI CHAT ===== */
         .ai-chat-toggle {
-            position: fixed;
-            bottom: 100px;
-            right: 28px;
-            z-index: 9998;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7);
-            color: #fff;
-            font-size: 1.8rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
-            transition: 0.3s;
+            position: fixed; bottom: 100px; right: 28px; z-index: 9998;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
+            font-size: 1.8rem; border: none; cursor: pointer;
+            box-shadow: 0 8px 40px rgba(108,60,224,0.35); transition: 0.3s;
             animation: aiPulse 3s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-        .ai-chat-toggle:hover {
-            transform: scale(1.1);
-        }
-        @keyframes aiPulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
-            }
-            50% {
-                box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06);
-            }
-        }
+        .ai-chat-toggle:hover { transform: scale(1.1); }
+        @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35)} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06)} }
         .ai-chat-box {
-            position: fixed;
-            bottom: 175px;
-            right: 28px;
-            z-index: 9997;
-            width: 400px;
-            max-width: calc(100vw - 56px);
-            max-height: 550px;
-            border-radius: 24px;
-            background: rgba(6, 29, 58, 0.96);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
+            position: fixed; bottom: 175px; right: 28px; z-index: 9997;
+            width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
+            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            display: none; flex-direction: column; overflow: hidden;
         }
-        .ai-chat-box.open {
-            display: flex;
-            animation: chatSlideUp 0.4s ease;
-        }
-        @keyframes chatSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
+        .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
+        @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
         .ai-chat-header {
-            padding: 16px 20px;
-            background: rgba(108, 60, 224, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-shrink: 0;
+            padding: 16px 20px; background: rgba(108,60,224,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
         }
-        .ai-chat-header .title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-        }
-        .ai-chat-header .title i {
-            color: #a855f7;
-        }
-        .ai-chat-header .title .ai-status {
-            font-size: 0.6rem;
-            color: #4ade80;
-            font-weight: 400;
-        }
+        .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .ai-chat-header .title i { color: #a855f7; }
+        .ai-chat-header .title .ai-status { font-size: 0.6rem; color: #4ade80; font-weight: 400; }
         .ai-chat-header .close-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.3s;
-            padding: 4px;
+            background: none; border: none; color: var(--text-muted); font-size: 1.2rem;
+            cursor: pointer; transition: 0.3s; padding: 4px;
         }
-        .ai-chat-header .close-btn:hover {
-            color: #fff;
-            transform: rotate(90deg);
-        }
+        .ai-chat-header .close-btn:hover { color: #fff; transform: rotate(90deg); }
         .ai-chat-messages {
-            flex: 1;
-            padding: 16px 18px;
-            overflow-y: auto;
-            max-height: 350px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex: 1; padding: 16px 18px; overflow-y: auto; max-height: 350px;
+            display: flex; flex-direction: column; gap: 10px;
         }
         .ai-chat-messages .msg {
-            padding: 10px 16px;
-            border-radius: 16px;
-            max-width: 85%;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            animation: msgPop 0.3s ease;
+            padding: 10px 16px; border-radius: 16px; max-width: 85%; font-size: 0.9rem;
+            line-height: 1.6; animation: msgPop 0.3s ease;
         }
-        @keyframes msgPop {
-            from {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+        @keyframes msgPop { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
         .ai-chat-messages .msg.bot {
-            background: rgba(108, 60, 224, 0.12);
-            border: 1px solid rgba(108, 60, 224, 0.08);
-            align-self: flex-start;
-            border-bottom-right-radius: 4px;
+            background: rgba(108,60,224,0.12); border: 1px solid rgba(108,60,224,0.08);
+            align-self: flex-start; border-bottom-right-radius: 4px;
         }
         .ai-chat-messages .msg.user {
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.06);
-            align-self: flex-end;
-            border-bottom-left-radius: 4px;
+            background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.06);
+            align-self: flex-end; border-bottom-left-radius: 4px;
         }
-        .ai-chat-messages .msg .time {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            display: block;
-            opacity: 0.5;
-        }
+        .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
         .ai-chat-input {
-            padding: 12px 16px 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            gap: 10px;
-            flex-shrink: 0;
+            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
+            display: flex; gap: 10px; flex-shrink: 0;
         }
         .ai-chat-input input {
-            flex: 1;
-            padding: 10px 16px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-family: inherit;
-            font-size: 0.9rem;
-            outline: none;
+            flex: 1; padding: 10px 16px; border-radius: 50px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
         }
-        .ai-chat-input input:focus {
-            border-color: #a855f7;
-        }
-        .ai-chat-input input::placeholder {
-            color: rgba(255, 255, 255, 0.25);
-        }
+        .ai-chat-input input:focus { border-color: #a855f7; }
+        .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
         .ai-chat-input button {
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: none;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7);
-            color: #fff;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: inherit;
+            padding: 10px 20px; border-radius: 50px; border: none;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
+            font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit;
         }
-        .ai-chat-input button:hover {
-            transform: scale(1.04);
-        }
-        .ai-chat-typing {
-            display: none;
-            padding: 8px 16px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-style: italic;
-        }
-        .ai-chat-typing.show {
-            display: block;
-        }
+        .ai-chat-input button:hover { transform: scale(1.04); }
+        .ai-chat-typing { display: none; padding: 8px 16px; color: var(--text-muted); font-size: 0.8rem; font-style: italic; }
+        .ai-chat-typing.show { display: block; }
 
         /* ===== FOOTER ===== */
         .footer {
             padding: 60px 24px 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            background: rgba(6, 29, 58, 0.5);
+            border-top: 1px solid rgba(255,255,255,0.03);
+            background: rgba(6,29,58,0.5);
             backdrop-filter: blur(12px);
         }
         .footer .container {
-            max-width: 1320px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+            max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
         }
-        .footer .brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            max-width: 340px;
-            margin-top: 8px;
-        }
-        .footer .brand .socials {
-            display: flex;
-            gap: 10px;
-            margin-top: 16px;
-        }
+        .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
+        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
         .footer .brand .socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            transition: 0.3s;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted); transition: 0.3s;
         }
-        .footer .brand .socials a:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: var(--gold);
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-        .footer h5 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 14px;
-            color: #fff;
-        }
-        .footer ul li {
-            margin-bottom: 6px;
-        }
-        .footer ul li a {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .footer ul li a:hover {
-            color: var(--gold);
-            padding-right: 6px;
-        }
+        .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+        .footer ul li { margin-bottom: 6px; }
+        .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
+        .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
         .footer-bottom {
-            max-width: 1320px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
+            max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            text-align: center; color: var(--text-muted); font-size: 0.8rem;
         }
-        .footer-bottom span {
-            color: var(--gold);
-        }
+        .footer-bottom span { color: var(--gold); }
 
         /* ===== REVEAL ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ===== SCROLL TOP ===== */
         .scroll-top {
-            position: fixed;
-            bottom: 100px;
-            left: 28px;
-            z-index: 9998;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            border: none;
-            font-size: 1.4rem;
-            cursor: pointer;
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
-            transition: 0.3s;
-            display: none;
-            align-items: center;
-            justify-content: center;
+            position: fixed; bottom: 100px; left: 28px; z-index: 9998;
+            width: 50px; height: 50px; border-radius: 50%; background: var(--gold-gradient);
+            color: var(--primary-dark); border: none; font-size: 1.4rem; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212,175,55,0.3); transition: 0.3s;
+            display: none; align-items: center; justify-content: center;
         }
-        .scroll-top:hover {
-            transform: scale(1.1);
-        }
-        .scroll-top.show {
-            display: flex;
-        }
+        .scroll-top:hover { transform: scale(1.1); }
+        .scroll-top.show { display: flex; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .hotels-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        @media (max-width:1024px) { .hotels-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width:768px) {
+            .hotels-grid { grid-template-columns: 1fr 1fr; }
+            .filters-row .filter-group { min-width: 120px; flex: 1 1 45%; }
+            .price-slider input[type="range"] { width: 120px; }
+            .ai-chat-box { width: calc(100vw - 32px); right: 16px; bottom: 155px; max-height: 450px; }
+            .ai-chat-toggle { right: 16px; bottom: 85px; width: 50px; height: 50px; font-size: 1.4rem; }
+            .hotel-modal .modal-content { padding: 20px; max-width: 100%; }
+            .hotels-hero { padding: 120px 16px 40px; }
+            .footer .container { grid-template-columns: 1fr; text-align: center; }
+            .footer .brand .socials { justify-content: center; }
         }
-        @media (max-width: 768px) {
-            .hotels-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .filters-row .filter-group {
-                min-width: 120px;
-                flex: 1 1 45%;
-            }
-            .price-slider input[type="range"] {
-                width: 120px;
-            }
-            .ai-chat-box {
-                width: calc(100vw - 32px);
-                right: 16px;
-                bottom: 155px;
-                max-height: 450px;
-            }
-            .ai-chat-toggle {
-                right: 16px;
-                bottom: 85px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-            }
-            .hotel-modal .modal-content {
-                padding: 20px;
-                max-width: 100%;
-            }
-        }
-        @media (max-width: 480px) {
-            .hotels-grid {
-                grid-template-columns: 1fr;
-            }
-            .filters-row {
-                flex-direction: column;
-            }
-            .filters-row .filter-group {
-                min-width: 100%;
-            }
-            .section {
-                padding: 56px 16px;
-            }
-            .filters-section {
-                padding: 16px;
-            }
-            .price-slider input[type="range"] {
-                width: 100%;
-            }
+        @media (max-width:480px) {
+            .hotels-grid { grid-template-columns: 1fr; }
+            .filters-row { flex-direction: column; }
+            .filters-row .filter-group { min-width: 100%; }
+            .section { padding: 40px 16px 60px; }
+            .price-slider input[type="range"] { width: 100%; }
+            .hotels-hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
+    <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- ===== HEADER ===== -->
     <header class="header">
         <div class="container">
-            <a href="index.html" class="logo">
+            <a href="index.html" class="logo" id="logoLink">
                 <span class="logo-icon">✈️</span>
-                <span>
-                    <span class="logo-text"><strong>صعود الطائرة</strong></span>
-                    <span class="logo-sub">للسفر والسياحة</span>
+                <span class="logo-text">
+                    <span class="main" id="logoMain">صعود الطائرة</span>
+                    <span class="sub" id="logoSub">للسفر والسياحة</span>
                 </span>
             </a>
             <nav class="nav-links" id="navLinks">
-                <a href="index.html">الرئيسية</a>
-                <a href="services.html">خدماتنا</a>
-                <a href="offers.html">عروض</a>
-                <a href="hotels.html" class="active">فنادق</a>
-                <a href="packages.html">باقات</a>
-                <a href="railway.html">قطارات</a>
-                <a href="cars.html">سيارات</a>
-                <a href="about.html">من نحن</a>
-                <a href="contact.html">اتصل بنا</a>
-                <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
+                <a href="index.html" id="navHome">الرئيسية</a>
+                <a href="services.html" id="navServices">خدماتنا</a>
+                <a href="offers.html" id="navOffers">عروض</a>
+                <a href="hotels.html" class="active" id="navHotels">فنادق</a>
+                <a href="packages.html" id="navPackages">باقات</a>
+                <a href="railway.html" id="navRailway">قطارات</a>
+                <a href="cars.html" id="navCars">سيارات</a>
+                <a href="about.html" id="navAbout">من نحن</a>
+                <a href="contact.html" id="navContact">اتصل بنا</a>
+                <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
@@ -1110,54 +572,56 @@
         </div>
     </header>
 
+    <!-- ===== HERO ===== -->
+    <section class="hotels-hero">
+        <div class="container">
+            <h1><span id="heroTitle1">أفضل</span> <span class="highlight" id="heroTitle2">الفنادق</span></h1>
+            <p id="heroDesc">اختر من بين أكثر من 200 فندق حول العالم – إقامة فاخرة بأسعار حقيقية من Booking.com</p>
+        </div>
+    </section>
+
     <!-- ===== HOTELS SECTION ===== -->
     <section class="section">
         <div class="container">
-            <div class="section-title reveal">
-                <h2>أفضل <span class="highlight">الفنادق</span></h2>
-                <p>اختر من بين أكثر من 200 فندق حول العالم – إقامة فاخرة بأسعار حقيقية من Booking.com</p>
-                <div class="section-divider"></div>
-            </div>
-
             <!-- ===== FILTERS ===== -->
             <div class="filters-section reveal">
                 <div class="filters-row">
                     <div class="filter-group">
-                        <label><i class="fas fa-search"></i> بحث</label>
+                        <label><i class="fas fa-search"></i> <span id="searchLabel">بحث</span></label>
                         <input type="text" id="hotelSearch" placeholder="ابحث عن فندق..." onkeyup="filterHotels()" />
                     </div>
                     <div class="filter-group">
-                        <label><i class="fas fa-map-marker-alt"></i> المدينة</label>
+                        <label><i class="fas fa-map-marker-alt"></i> <span id="cityLabel">المدينة</span></label>
                         <select id="hotelCity" onchange="filterHotels()">
-                            <option value="all">جميع المدن</option>
+                            <option value="all" id="cityAll">جميع المدن</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label><i class="fas fa-star"></i> التقييم</label>
+                        <label><i class="fas fa-star"></i> <span id="ratingLabel">التقييم</span></label>
                         <select id="hotelRating" onchange="filterHotels()">
-                            <option value="all">جميع التقييمات</option>
-                            <option value="5">★★★★★ (5+)</option>
-                            <option value="4">★★★★ (4+)</option>
-                            <option value="3">★★★ (3+)</option>
+                            <option value="all" id="ratingAll">جميع التقييمات</option>
+                            <option value="5" id="rating5">★★★★★ (5+)</option>
+                            <option value="4" id="rating4">★★★★ (4+)</option>
+                            <option value="3" id="rating3">★★★ (3+)</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label><i class="fas fa-sort"></i> ترتيب حسب</label>
+                        <label><i class="fas fa-sort"></i> <span id="sortLabel">ترتيب حسب</span></label>
                         <select id="hotelSort" onchange="filterHotels()">
-                            <option value="price">السعر (الأقل أولاً)</option>
-                            <option value="price-desc">السعر (الأعلى أولاً)</option>
-                            <option value="rating">التقييم (الأعلى أولاً)</option>
-                            <option value="name">الاسم</option>
+                            <option value="price" id="sortPrice">السعر (الأقل أولاً)</option>
+                            <option value="price-desc" id="sortPriceDesc">السعر (الأعلى أولاً)</option>
+                            <option value="rating" id="sortRating">التقييم (الأعلى أولاً)</option>
+                            <option value="name" id="sortName">الاسم</option>
                         </select>
                     </div>
                 </div>
                 <div class="filters-row" style="margin-top:14px;">
                     <div class="filter-group" style="flex:2;">
-                        <label><i class="fas fa-sliders-h"></i> نطاق السعر</label>
+                        <label><i class="fas fa-sliders-h"></i> <span id="priceLabel">نطاق السعر</span></label>
                         <div class="price-slider">
-                            <span style="color:var(--text-muted);font-size:0.8rem;">من</span>
+                            <span style="color:var(--text-muted);font-size:0.8rem;" id="fromLabel">من</span>
                             <input type="range" id="priceMin" min="50" max="3000" value="50" oninput="updatePriceLabels(); filterHotels();" />
-                            <span style="color:var(--text-muted);font-size:0.8rem;">إلى</span>
+                            <span style="color:var(--text-muted);font-size:0.8rem;" id="toLabel">إلى</span>
                             <input type="range" id="priceMax" min="50" max="3000" value="3000" oninput="updatePriceLabels(); filterHotels();" />
                             <div class="price-range-labels">
                                 <span id="priceMinLabel">50 ر.س</span>
@@ -1167,7 +631,7 @@
                     </div>
                     <div class="filter-group" style="flex:1;display:flex;align-items:flex-end;">
                         <button onclick="resetFilters()" style="padding:10px 24px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
-                            <i class="fas fa-undo"></i> إعادة تعيين
+                            <i class="fas fa-undo"></i> <span id="resetBtn">إعادة تعيين</span>
                         </button>
                     </div>
                 </div>
@@ -1177,7 +641,14 @@
             <div class="hotels-grid" id="hotelsGrid"></div>
 
             <!-- ===== LOAD MORE ===== -->
-            <button class="load-more-btn" id="loadMoreHotels">عرض المزيد من الفنادق</button>
+            <button class="load-more-btn" id="loadMoreHotels"><span id="loadMoreText">عرض المزيد من الفنادق</span></button>
+
+            <!-- ===== BACK TO HOME ===== -->
+            <div style="text-align:center;margin-top:20px;">
+                <a href="index.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
+                    <i class="fas fa-arrow-right"></i> <span id="backHomeBtn">العودة إلى الرئيسية</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1185,76 +656,95 @@
     <div class="hotel-modal" id="hotelModal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeHotelModal()"><i class="fas fa-times"></i></button>
-            <h3 id="modalHotelName">حجز الفندق</h3>
+            <h3 id="modalHotelName">🏨 حجز الفندق</h3>
             <div class="hotel-detail-location" id="modalHotelLocation"><i class="fas fa-map-marker-alt"></i> المدينة</div>
             <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:16px;" id="modalHotelPrice">السعر: 0 ر.س / ليلة</p>
             <form id="hotelBookingForm">
-                <div class="form-group">
-                    <label>الاسم الكامل</label>
-                    <input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required />
-                </div>
-                <div class="form-group">
-                    <label>رقم الجوال</label>
-                    <input type="tel" name="phone" placeholder="أدخل رقم جوالك" required />
-                </div>
-                <div class="form-group">
-                    <label>البريد الإلكتروني</label>
-                    <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" />
-                </div>
-                <div class="form-group">
-                    <label>تاريخ الوصول</label>
-                    <input type="date" name="checkin" required />
-                </div>
-                <div class="form-group">
-                    <label>تاريخ المغادرة</label>
-                    <input type="date" name="checkout" required />
-                </div>
-                <div class="form-group">
-                    <label>عدد الغرف</label>
-                    <select name="rooms" required>
-                        <option value="1">غرفة واحدة</option>
-                        <option value="2">غرفتين</option>
-                        <option value="3">3 غرف</option>
-                        <option value="4">4 غرف</option>
-                        <option value="5">5 غرف</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>عدد البالغين</label>
-                    <input type="number" name="adults" placeholder="عدد البالغين" min="1" value="2" required />
-                </div>
-                <div class="form-group">
-                    <label>عدد الأطفال</label>
-                    <input type="number" name="children" placeholder="عدد الأطفال" min="0" value="0" />
-                </div>
-                <div class="form-group">
-                    <label>ملاحظات إضافية</label>
-                    <textarea name="notes" placeholder="أي تفاصيل إضافية..."></textarea>
-                </div>
+                <div class="form-group"><label>الاسم الكامل</label><input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required /></div>
+                <div class="form-group"><label>رقم الجوال</label><input type="tel" name="phone" placeholder="أدخل رقم جوالك" required /></div>
+                <div class="form-group"><label>البريد الإلكتروني</label><input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" /></div>
+                <div class="form-group"><label>تاريخ الوصول</label><input type="date" name="checkin" required /></div>
+                <div class="form-group"><label>تاريخ المغادرة</label><input type="date" name="checkout" required /></div>
+                <div class="form-group"><label>عدد الغرف</label><select name="rooms" required><option value="1">غرفة واحدة</option><option value="2">غرفتين</option><option value="3">3 غرف</option><option value="4">4 غرف</option><option value="5">5 غرف</option></select></div>
+                <div class="form-group"><label>عدد البالغين</label><input type="number" name="adults" placeholder="عدد البالغين" min="1" value="2" required /></div>
+                <div class="form-group"><label>عدد الأطفال</label><input type="number" name="children" placeholder="عدد الأطفال" min="0" value="0" /></div>
+                <div class="form-group"><label>ملاحظات إضافية</label><textarea name="notes" placeholder="أي تفاصيل إضافية..."></textarea></div>
                 <button type="submit" class="btn-submit-hotel"><i class="fab fa-whatsapp"></i> تأكيد الحجز عبر واتساب</button>
                 <div class="form-status" id="hotelFormStatus"></div>
             </form>
         </div>
     </div>
 
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                    <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="footerBrand"><strong>صعود الطائرة</strong></span>
+                </div>
+                <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 id="footerLinksTitle">روابط سريعة</h5>
+                <ul>
+                    <li><a href="index.html" id="fNavHome">الرئيسية</a></li>
+                    <li><a href="services.html" id="fNavServices">خدماتنا</a></li>
+                    <li><a href="offers.html" id="fNavOffers">عروض</a></li>
+                    <li><a href="hotels.html" id="fNavHotels">فنادق</a></li>
+                    <li><a href="packages.html" id="fNavPackages">باقات</a></li>
+                    <li><a href="railway.html" id="fNavRailway">قطارات</a></li>
+                    <li><a href="cars.html" id="fNavCars">سيارات</a></li>
+                    <li><a href="about.html" id="fNavAbout">من نحن</a></li>
+                    <li><a href="contact.html" id="fNavContact">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 id="footerServicesTitle">خدماتنا</h5>
+                <ul>
+                    <li><a href="services.html" id="fServFlights">تذاكر طيران</a></li>
+                    <li><a href="services.html" id="fServUmrah">باقات العمرة</a></li>
+                    <li><a href="services.html" id="fServVisa">تأشيرات</a></li>
+                    <li><a href="hotels.html" id="fServHotels">فنادق</a></li>
+                    <li><a href="cars.html" id="fServCars">تأجير سيارات</a></li>
+                    <li><a href="railway.html" id="fServRailway">قطارات</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 id="footerInfoTitle">معلومات</h5>
+                <ul>
+                    <li><a href="about.html" id="fInfoAbout">عن الوكالة</a></li>
+                    <li><a href="contact.html" id="fInfoContact">اتصل بنا</a></li>
+                    <li><a href="privacy.html" id="fInfoPrivacy">سياسة الخصوصية</a></li>
+                    <li><a href="terms.html" id="fInfoTerms">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+    </footer>
+
     <!-- ===== WHATSAPP FLOAT ===== -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20الفنادق" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
-        <span class="wa-label">تواصل واتساب</span>
+        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+        <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
     </div>
 
     <!-- ===== AI CHAT ===== -->
     <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-chat-header">
-            <div class="title">
-                <i class="fas fa-robot"></i>
-                <span>مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
-            </div>
+            <div class="title"><i class="fas fa-robot"></i> <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span></div>
             <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-chat-messages" id="aiChatMessages">
-            <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل الفنادق حسب رغبتك!<span class="time">الآن</span></div>
+            <div class="msg bot" id="aiWelcomeMsg">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل الفنادق حسب رغبتك!<span class="time">الآن</span></div>
         </div>
         <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
         <div class="ai-chat-input">
@@ -1266,6 +756,9 @@
     <!-- ===== SCROLL TOP ===== -->
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
     <script>
         // ===== PARTICLES =====
         (function() {
@@ -1276,8 +769,7 @@
             const particles = [];
             const COUNT = 60;
 
-            function resize() { w = canvas.width = window.innerWidth;
-                h = canvas.height = window.innerHeight; }
+            function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
             window.addEventListener('resize', resize);
             resize();
 
@@ -1326,8 +818,7 @@
 
             function animate() {
                 ctx.clearRect(0, 0, w, h);
-                particles.forEach(p => { p.update();
-                    p.draw(); });
+                particles.forEach(p => { p.update(); p.draw(); });
                 drawLines();
                 requestAnimationFrame(animate);
             }
@@ -1362,21 +853,9 @@
             scrollBtn.classList.toggle('show', window.pageYOffset > 300);
         });
 
-        // ===== HOTELS DATA (200+) =====
-        const hotelNames = [
-            'فندق الفيرمونت', 'الريتز كارلتون', 'فور سيزونز', 'هيلتون', 'شيراتون', 'ماريوت',
-            'كيمبنسكي', 'ريتز باريس', 'جراند حياة', 'إنتركونتيننتال', 'ويستن', 'لو ميريديان',
-            'سوفيتيل', 'نوفوتيل', 'إيبيس', 'موفنبيك', 'راديسون بلو', 'كروان بلازا',
-            'دوسيت ثاني', 'شانغريلا', 'ماندارين أورينتال', 'أمان', 'بورتو', 'ميلينيوم',
-            'فوكو', 'شيرفان', 'نارسيسس', 'جريد', 'رويال', 'إمبريال', 'ريجنسي', 'بلازا'
-        ];
-        const hotelCities = [
-            'الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'حائل', 'القصيم',
-            'دبي', 'أبوظبي', 'الدوحة', 'مسقط', 'المنامة', 'الكويت', 'عمّان', 'بيروت', 'القاهرة',
-            'اسطنبول', 'أنقرة', 'لندن', 'باريس', 'برلين', 'روما', 'مدريد', 'نيويورك', 'لوس أنجلوس',
-            'طوكيو', 'أوساكا', 'سيول', 'سنغافورة', 'كوالالمبور', 'بانكوك', 'دلهي', 'مومباي',
-            'سيدني', 'ملبورن', 'أوكلاند', 'كيب تاون', 'جوهانسبرغ', 'نيروبي', 'الدار البيضاء'
-        ];
+        // ===== HOTELS DATA (220+) =====
+        const hotelNames = ['فندق الفيرمونت','الريتز كارلتون','فور سيزونز','هيلتون','شيراتون','ماريوت','كيمبنسكي','ريتز باريس','جراند حياة','إنتركونتيننتال','ويستن','لو ميريديان','سوفيتيل','نوفوتيل','إيبيس','موفنبيك','راديسون بلو','كروان بلازا','دوسيت ثاني','شانغريلا','ماندارين أورينتال','أمان','بورتو','ميلينيوم','فوكو','شيرفان','نارسيسس','جريد','رويال','إمبريال','ريجنسي','بلازا'];
+        const hotelCities = ['الرياض','جدة','مكة','المدينة','الدمام','الخبر','أبها','تبوك','حائل','القصيم','دبي','أبوظبي','الدوحة','مسقط','المنامة','الكويت','عمّان','بيروت','القاهرة','اسطنبول','أنقرة','لندن','باريس','برلين','روما','مدريد','نيويورك','لوس أنجلوس','طوكيو','أوساكا','سيول','سنغافورة','كوالالمبور','بانكوك','دلهي','مومباي','سيدني','ملبورن','أوكلاند','كيب تاون','جوهانسبرغ','نيروبي','الدار البيضاء'];
         const hotelImages = [
             'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=250&fit=crop',
             'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=250&fit=crop',
@@ -1386,78 +865,32 @@
             'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=250&fit=crop'
         ];
         const hotelFeatures = [
-            ['واي فاي مجاني', 'مسبح', 'مواقف سيارات'],
-            ['واي فاي مجاني', 'سبا', 'مطعم'],
-            ['واي فاي مجاني', 'مسبح', 'مركز لياقة'],
-            ['واي فاي مجاني', 'مواقف سيارات', 'مطعم'],
-            ['واي فاي مجاني', 'سبا', 'مواقف سيارات'],
-            ['واي فاي مجاني', 'مسبح', 'خدمة الغرف']
+            ['واي فاي مجاني','مسبح','مواقف سيارات'],
+            ['واي فاي مجاني','سبا','مطعم'],
+            ['واي فاي مجاني','مسبح','مركز لياقة'],
+            ['واي فاي مجاني','مواقف سيارات','مطعم'],
+            ['واي فاي مجاني','سبا','مواقف سيارات'],
+            ['واي فاي مجاني','مسبح','خدمة الغرف']
         ];
-
-        // Real prices from Booking.com
         const cityPriceBase = {
-            'الرياض': 1477,
-            'جدة': 758,
-            'مكة': 627,
-            'المدينة': 550,
-            'الدمام': 650,
-            'الخبر': 600,
-            'أبها': 500,
-            'تبوك': 450,
-            'حائل': 400,
-            'القصيم': 420,
-            'دبي': 850,
-            'أبوظبي': 780,
-            'الدوحة': 720,
-            'مسقط': 620,
-            'المنامة': 560,
-            'الكويت': 520,
-            'عمّان': 490,
-            'بيروت': 540,
-            'القاهرة': 420,
-            'اسطنبول': 470,
-            'أنقرة': 400,
-            'لندن': 920,
-            'باريس': 880,
-            'برلين': 720,
-            'روما': 760,
-            'مدريد': 680,
-            'نيويورك': 1050,
-            'لوس أنجلوس': 880,
-            'طوكيو': 820,
-            'أوساكا': 700,
-            'سيول': 720,
-            'سنغافورة': 780,
-            'كوالالمبور': 550,
-            'بانكوك': 480,
-            'دلهي': 350,
-            'مومباي': 400,
-            'سيدني': 850,
-            'ملبورن': 780,
-            'أوكلاند': 700,
-            'كيب تاون': 650,
-            'جوهانسبرغ': 580,
-            'نيروبي': 520,
-            'الدار البيضاء': 450
+            'الرياض':1477,'جدة':758,'مكة':627,'المدينة':550,'الدمام':650,'الخبر':600,
+            'أبها':500,'تبوك':450,'حائل':400,'القصيم':420,'دبي':850,'أبوظبي':780,
+            'الدوحة':720,'مسقط':620,'المنامة':560,'الكويت':520,'عمّان':490,'بيروت':540,
+            'القاهرة':420,'اسطنبول':470,'أنقرة':400,'لندن':920,'باريس':880,'برلين':720,
+            'روما':760,'مدريد':680,'نيويورك':1050,'لوس أنجلوس':880,'طوكيو':820,'أوساكا':700,
+            'سيول':720,'سنغافورة':780,'كوالالمبور':550,'بانكوك':480,'دلهي':350,'مومباي':400,
+            'سيدني':850,'ملبورن':780,'أوكلاند':700,'كيب تاون':650,'جوهانسبرغ':580,'نيروبي':520,'الدار البيضاء':450
         };
 
         let allHotels = [];
         for (let i = 0; i < 220; i++) {
-            const name = hotelNames[i % hotelNames.length] + (Math.floor(i / hotelNames.length) > 0 ? ` ${Math.floor(i /
-                    hotelNames.length) + 1}` : '');
+            const name = hotelNames[i % hotelNames.length] + (Math.floor(i / hotelNames.length) > 0 ? ` ${Math.floor(i / hotelNames.length) + 1}` : '');
             const city = hotelCities[i % hotelCities.length];
             const basePrice = cityPriceBase[city] || 700;
             const price = Math.round((basePrice * (0.65 + Math.random() * 0.7)) / 5) * 5;
             const rating = (3.5 + Math.random() * 1.5).toFixed(1);
             const features = hotelFeatures[i % hotelFeatures.length];
-            allHotels.push({
-                name,
-                city,
-                price,
-                rating: parseFloat(rating),
-                features,
-                img: hotelImages[i % hotelImages.length]
-            });
+            allHotels.push({ name, city, price, rating: parseFloat(rating), features, img: hotelImages[i % hotelImages.length] });
         }
 
         // ===== POPULATE CITY FILTER =====
@@ -1478,9 +911,7 @@
         function updatePriceLabels() {
             const min = parseInt(document.getElementById('priceMin').value);
             const max = parseInt(document.getElementById('priceMax').value);
-            if (min > max) {
-                document.getElementById('priceMax').value = min;
-            }
+            if (min > max) { document.getElementById('priceMax').value = min; }
             document.getElementById('priceMinLabel').textContent = min + ' ر.س';
             document.getElementById('priceMaxLabel').textContent = max + ' ر.س';
         }
@@ -1495,35 +926,17 @@
             const priceMax = parseInt(document.getElementById('priceMax').value);
 
             filteredHotels = allHotels.filter(h => {
-                // Search
-                if (search && !h.name.toLowerCase().includes(search) && !h.city.toLowerCase().includes(search)) {
-                    return false;
-                }
-                // City
-                if (city !== 'all' && h.city !== city) {
-                    return false;
-                }
-                // Rating
-                if (ratingFilter !== 'all' && h.rating < parseFloat(ratingFilter)) {
-                    return false;
-                }
-                // Price
-                if (h.price < priceMin || h.price > priceMax) {
-                    return false;
-                }
+                if (search && !h.name.toLowerCase().includes(search) && !h.city.toLowerCase().includes(search)) return false;
+                if (city !== 'all' && h.city !== city) return false;
+                if (ratingFilter !== 'all' && h.rating < parseFloat(ratingFilter)) return false;
+                if (h.price < priceMin || h.price > priceMax) return false;
                 return true;
             });
 
-            // Sort
-            if (sort === 'price') {
-                filteredHotels.sort((a, b) => a.price - b.price);
-            } else if (sort === 'price-desc') {
-                filteredHotels.sort((a, b) => b.price - a.price);
-            } else if (sort === 'rating') {
-                filteredHotels.sort((a, b) => b.rating - a.rating);
-            } else if (sort === 'name') {
-                filteredHotels.sort((a, b) => a.name.localeCompare(b.name));
-            }
+            if (sort === 'price') filteredHotels.sort((a,b) => a.price - b.price);
+            else if (sort === 'price-desc') filteredHotels.sort((a,b) => b.price - a.price);
+            else if (sort === 'rating') filteredHotels.sort((a,b) => b.rating - a.rating);
+            else if (sort === 'name') filteredHotels.sort((a,b) => a.name.localeCompare(b.name));
 
             displayCount = 12;
             renderHotels();
@@ -1546,17 +959,15 @@
             const grid = document.getElementById('hotelsGrid');
             const toShow = filteredHotels.slice(0, displayCount);
             grid.innerHTML = '';
-
             if (toShow.length === 0) {
                 grid.innerHTML =
                     `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:1.2rem;">
                         <i class="fas fa-hotel" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
-                        لا توجد فنادق مطابقة لبحثك
+                        <span id="noHotels">لا توجد فنادق مطابقة لبحثك</span>
                     </div>`;
                 document.getElementById('loadMoreHotels').style.display = 'none';
                 return;
             }
-
             toShow.forEach((h, i) => {
                 const card = document.createElement('div');
                 card.className = 'hotel-card reveal';
@@ -1564,7 +975,6 @@
                 const stars = Math.floor(h.rating);
                 const halfStar = h.rating % 1 >= 0.5 ? '½' : '';
                 const starStr = '★'.repeat(stars) + halfStar;
-
                 card.innerHTML = `
                     <div class="img" style="background-image:url('${h.img}');">
                         <span class="hotel-badge">${h.city}</span>
@@ -1575,27 +985,18 @@
                         <div class="location"><i class="fas fa-map-marker-alt"></i> ${h.city}</div>
                         <div class="rating">${starStr} (${h.rating}) <i class="fas fa-star" style="color:#fbbf24;"></i></div>
                         <div class="price">${h.price} ر.س <small>/ ليلة</small></div>
-                        <div class="hotel-features">
-                            ${h.features.map(f => `<span><i class="fas fa-check" style="color:var(--gold);"></i> ${f}</span>`).join('')}
-                        </div>
+                        <div class="hotel-features">${h.features.map(f => `<span><i class="fas fa-check" style="color:var(--gold);"></i> ${f}</span>`).join('')}</div>
                         <button class="btn-sm" onclick="openHotelBooking('${h.name.replace(/'/g, "\\'")}', '${h.city}', ${h.price})">
-                            <i class="fas fa-calendar-check"></i> احجز الآن
+                            <i class="fas fa-calendar-check"></i> <span class="bookNowText">احجز الآن</span>
                         </button>
                     </div>
                 `;
                 grid.appendChild(card);
             });
-
-            // Re-observe for reveal
             document.querySelectorAll('.hotel-card.reveal').forEach(el => observer.observe(el));
-
-            // Show/hide load more
             const loadBtn = document.getElementById('loadMoreHotels');
-            if (displayCount >= filteredHotels.length) {
-                loadBtn.style.display = 'none';
-            } else {
-                loadBtn.style.display = 'block';
-            }
+            if (displayCount >= filteredHotels.length) loadBtn.style.display = 'none';
+            else loadBtn.style.display = 'block';
         }
 
         // ===== LOAD MORE =====
@@ -1618,10 +1019,8 @@
             document.getElementById('hotelModal').classList.add('open');
             document.body.style.overflow = 'hidden';
             document.getElementById('hotelFormStatus').textContent = '';
-            // Set default dates
             const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
+            const tomorrow = new Date(today); tomorrow.setDate(tomorrow.getDate() + 1);
             const checkin = document.querySelector('input[name="checkin"]');
             const checkout = document.querySelector('input[name="checkout"]');
             if (checkin) checkin.value = today.toISOString().split('T')[0];
@@ -1639,24 +1038,17 @@
             if (e.key === 'Escape') closeHotelModal();
         });
 
-        // ===== HOTEL BOOKING FORM =====
+        // ===== HOTEL BOOKING FORM (SEND TO WORK NUMBER) =====
         document.getElementById('hotelBookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
             const hotel = currentHotel;
-            let msg =
-                `🏨 حجز فندق\n\nالفندق: ${hotel.name}\nالمدينة: ${hotel.city}\nالسعر: ${hotel.price} ر.س/ليلة\n\n`;
+            let msg = `🏨 حجز فندق\n\nالفندق: ${hotel.name}\nالمدينة: ${hotel.city}\nالسعر: ${hotel.price} ر.س/ليلة\n\n`;
             for (const [key, value] of formData.entries()) {
                 if (value && value.trim()) {
-                    const label = key === 'fullname' ? 'الاسم' :
-                        key === 'phone' ? 'الجوال' :
-                        key === 'email' ? 'البريد' :
-                        key === 'checkin' ? 'تاريخ الوصول' :
-                        key === 'checkout' ? 'تاريخ المغادرة' :
-                        key === 'rooms' ? 'عدد الغرف' :
-                        key === 'adults' ? 'عدد البالغين' :
-                        key === 'children' ? 'عدد الأطفال' :
-                        key === 'notes' ? 'ملاحظات' : key;
+                    const label = key === 'fullname' ? 'الاسم' : key === 'phone' ? 'الجوال' : key === 'email' ? 'البريد' :
+                        key === 'checkin' ? 'تاريخ الوصول' : key === 'checkout' ? 'تاريخ المغادرة' : key === 'rooms' ? 'عدد الغرف' :
+                        key === 'adults' ? 'عدد البالغين' : key === 'children' ? 'عدد الأطفال' : key === 'notes' ? 'ملاحظات' : key;
                     msg += `${label}: ${value}\n`;
                 }
             }
@@ -1664,7 +1056,8 @@
             status.textContent = '✅ جاري التحويل إلى واتساب ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
-                window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+                // WORK NUMBER 0554126832
+                window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
                 status.textContent = '✅ تم إرسال طلب الحجز بنجاح!';
                 setTimeout(() => { closeHotelModal(); }, 1500);
             }, 700);
@@ -1677,65 +1070,48 @@
         const typingIndicator = document.getElementById('aiTyping');
 
         const aiKnowledge = {
-            'مرحبا': '👋 أهلاً بك في <strong>صعود الطائرة</strong>! لدينا أكثر من 200 فندق حول العالم. أخبرني المدينة التي تبحث عنها.',
-            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني مساعدتك في العثور على فندق مناسب؟',
-            'فندق': '🏨 لدينا أكثر من 200 فندق في مدن مثل الرياض، جدة، مكة، دبي، لندن، باريس، نيويورك، وغيرها. أخبرني المدينة وتواريخ السفر.',
-            'فنادق': '🏨 لدينا فنادق فاخرة واقتصادية في جميع المدن الرئيسية. اختر مدينتك المفضلة.',
-            'رياض': '🏨 في الرياض لدينا فنادق تبدأ من ٤٥٠ ريال لليلة مثل هيلتون، شيراتون، وريتز كارلتون.',
-            'جدة': '🏨 في جدة لدينا فنادق تبدأ من ٤٠٠ ريال مثل الفيرمونت، الريتز، وفور سيزونز.',
-            'مكة': '🕋 في مكة لدينا فنادق قريبة من الحرم بأسعار تبدأ من ٦٢٧ ريال مثل فور سيزونز وأبراج البيت.',
-            'دبي': '🇦🇪 في دبي لدينا فنادق فاخرة مثل برج العرب، أتلانتس، وبورصة دبي بأسعار تنافسية.',
-            'لندن': '🇬🇧 في لندن لدينا فنادق بأسعار تبدأ من ٥٠٠ ريال مثل هيلتون وماريوت.',
-            'باريس': '🇫🇷 في باريس لدينا فنادق مثل ريتز باريس وفور سيزونز بأسعار مميزة.',
-            'نيويورك': '🗽 في نيويورك لدينا فنادق في مانهاتن وبروكلين بأسعار تنافسية.',
-            'سعر': '💰 أسعار الفنادق تختلف حسب المدينة والموسم. لدينا خصومات تصل إلى 93% بمناسبة اليوم الوطني!',
-            'خصم': '💸 خصم 93% على الفنادق بمناسبة اليوم الوطني باستخدام كود SND93!',
-            'عرض': '🔥 عروض الفنادق: خصم 93% على جميع الفنادق بمناسبة اليوم الوطني، وخصم 9% باستخدام كود KSA90.',
-            'كود': '📱 كود الخصم KSA90 يمنحك 9% على جميع الفنادق + 900 نقطة في محفظتك.',
-            'شكرا': '🙏 العفو! سعداء بمساعدتك.',
-            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong>! We have over 200 hotels worldwide. Tell me the city you\'re looking for.',
-            'hotel': '🏨 We have over 200 hotels in cities like Riyadh, Jeddah, Makkah, Dubai, London, Paris, New York, and more.',
-            'price': '💰 Hotel prices vary by city and season. We have discounts up to 93% for National Day!',
-            'discount': '💸 93% off on hotels for National Day using code SND93!',
-            'offer': '🔥 Hotel offers: 93% off on all hotels for National Day, 9% off with code KSA90.',
-            'code': '📱 Discount code KSA90 gives you 9% off on all hotels + 900 points.',
-            'thanks': '🙏 You\'re welcome! Happy to help.'
+            'مرحبا':'👋 أهلاً بك! لدينا أكثر من 200 فندق حول العالم. أخبرني المدينة التي تبحث عنها.',
+            'السلام عليكم':'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني مساعدتك في العثور على فندق مناسب؟',
+            'فندق':'🏨 لدينا أكثر من 200 فندق في مدن مثل الرياض، جدة، مكة، دبي، لندن، باريس، نيويورك، وغيرها.',
+            'فنادق':'🏨 لدينا فنادق فاخرة واقتصادية في جميع المدن الرئيسية.',
+            'رياض':'🏨 في الرياض لدينا فنادق تبدأ من ٤٥٠ ريال لليلة مثل هيلتون، شيراتون، وريتز كارلتون.',
+            'جدة':'🏨 في جدة لدينا فنادق تبدأ من ٤٠٠ ريال مثل الفيرمونت، الريتز، وفور سيزونز.',
+            'مكة':'🕋 في مكة لدينا فنادق قريبة من الحرم بأسعار تبدأ من ٦٢٧ ريال مثل فور سيزونز وأبراج البيت.',
+            'دبي':'🇦🇪 في دبي لدينا فنادق فاخرة مثل برج العرب، أتلانتس، وبورصة دبي بأسعار تنافسية.',
+            'لندن':'🇬🇧 في لندن لدينا فنادق بأسعار تبدأ من ٥٠٠ ريال مثل هيلتون وماريوت.',
+            'باريس':'🇫🇷 في باريس لدينا فنادق مثل ريتز باريس وفور سيزونز بأسعار مميزة.',
+            'نيويورك':'🗽 في نيويورك لدينا فنادق في مانهاتن وبروكلين بأسعار تنافسية.',
+            'سعر':'💰 أسعار الفنادق تختلف حسب المدينة والموسم. لدينا خصومات تصل إلى 93% بمناسبة اليوم الوطني!',
+            'خصم':'💸 خصم 93% على الفنادق بمناسبة اليوم الوطني باستخدام كود SND93!',
+            'عرض':'🔥 عروض الفنادق: خصم 93% على جميع الفنادق بمناسبة اليوم الوطني، وخصم 9% باستخدام كود KSA90.',
+            'كود':'📱 كود الخصم KSA90 يمنحك 9% على جميع الفنادق + 900 نقطة في محفظتك.',
+            'شكرا':'🙏 العفو! سعداء بمساعدتك.',
+            'hello':'👋 Welcome! We have over 200 hotels worldwide. Tell me the city you\'re looking for.',
+            'hotel':'🏨 We have over 200 hotels in cities like Riyadh, Jeddah, Makkah, Dubai, London, Paris, New York.',
+            'price':'💰 Hotel prices vary by city and season. We have discounts up to 93% for National Day!',
+            'discount':'💸 93% off on hotels for National Day using code SND93!',
+            'offer':'🔥 Hotel offers: 93% off on all hotels for National Day, 9% off with code KSA90.',
+            'code':'📱 Discount code KSA90 gives you 9% off on all hotels + 900 points.',
+            'thanks':'🙏 You\'re welcome!'
         };
+        const defaultReplies = [
+            '🤖 شكراً لسؤالك عن الفنادق! لدينا أكثر من 200 فندق في جميع أنحاء العالم. أخبرني المدينة التي تبحث عنها.',
+            '🏨 يمكنك تصفح جميع الفنادق في الأعلى أو مراسلتنا على واتساب 0555382038.',
+            '🔥 لا تفوت عروض الفنادق – خصم 93% بمناسبة اليوم الوطني!',
+            '📱 كود الخصم KSA90 يمنحك 9% على جميع الفنادق.'
+        ];
 
         function getAIResponse(text) {
             const lower = text.toLowerCase().trim();
             for (const [key, response] of Object.entries(aiKnowledge)) {
                 if (lower.includes(key)) return response;
             }
-            // Check for city names
-            const cities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'دبي', 'لندن', 'باريس', 'نيويورك', 'طوكيو', 'اسطنبول', 'القاهرة', 'عمّان',
-                'بيروت', 'الدوحة', 'مسقط', 'الكويت', 'المنامة', 'سنغافورة', 'كوالالمبور', 'بانكوك'
-            ];
-            for (const city of cities) {
-                if (lower.includes(city)) {
-                    return `🏨 لدينا فنادق ممتازة في ${city} بأسعار تنافسية. هل ترغب في معرفة أفضل العروض؟`;
-                }
-            }
-            const hasArabic = /[\u0600-\u06FF]/.test(text);
-            if (hasArabic) {
-                return '🤖 شكراً لسؤالك عن الفنادق! لدينا أكثر من 200 فندق في جميع أنحاء العالم. أخبرني المدينة التي تبحث عنها وسأجد لك أفضل العروض.';
-            } else {
-                return '🤖 Thank you for asking about hotels! We have over 200 hotels worldwide. Tell me the city you\'re looking for and I\'ll find the best deals.';
-            }
+            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
         }
 
         window.toggleAIChat = function() {
             chatBox.classList.toggle('open');
-            if (chatBox.classList.contains('open')) {
-                chatInput.focus();
-                if (chatMessages.children.length === 1) {
-                    const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-                    const welcome = lang === 'en' ?
-                        '👋 Hello! I\'m the <strong>Saeed Al-Taayira</strong> AI assistant. I can help you find the best hotels based on your preferences!' :
-                        '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل الفنادق حسب رغبتك!';
-                    chatMessages.innerHTML = `<div class="msg bot">${welcome}<span class="time">الآن</span></div>`;
-                }
-            }
+            if (chatBox.classList.contains('open')) chatInput.focus();
         };
 
         function addMessage(type, text) {
@@ -1765,92 +1141,50 @@
 
         const translations = {
             ar: {
-                logo: '<strong>صعود الطائرة</strong>',
-                logoSub: 'للسفر والسياحة',
-                navHome: 'الرئيسية',
-                navServices: 'خدماتنا',
-                navOffers: 'عروض',
-                navHotels: 'فنادق',
-                navPackages: 'باقات',
-                navRailway: 'قطارات',
-                navCars: 'سيارات',
-                navAbout: 'من نحن',
-                navContact: 'اتصل بنا',
-                navCta: '📞 احجز الآن',
-                sectionTitle: 'أفضل',
-                sectionHighlight: 'الفنادق',
-                sectionDesc: 'اختر من بين أكثر من 200 فندق حول العالم – إقامة فاخرة بأسعار حقيقية من Booking.com',
-                searchPlaceholder: 'ابحث عن فندق...',
-                allCities: 'جميع المدن',
-                allRatings: 'جميع التقييمات',
-                rating5: '★★★★★ (5+)',
-                rating4: '★★★★ (4+)',
-                rating3: '★★★ (3+)',
-                sortPrice: 'السعر (الأقل أولاً)',
-                sortPriceDesc: 'السعر (الأعلى أولاً)',
-                sortRating: 'التقييم (الأعلى أولاً)',
-                sortName: 'الاسم',
-                priceRange: 'نطاق السعر',
-                reset: 'إعادة تعيين',
-                loadMore: 'عرض المزيد من الفنادق',
-                noHotels: 'لا توجد فنادق مطابقة لبحثك',
-                bookNow: 'احجز الآن',
-                aiTitle: 'مساعد صعود الطائرة AI',
-                aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. يمكنني مساعدتك في العثور على أفضل الفنادق حسب رغبتك!',
-                aiPlaceholder: 'اسأل عن الفنادق...',
-                waLabel: 'تواصل واتساب',
-                footerBrand: 'صعود الطائرة',
-                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
-                footerLinks: 'روابط سريعة',
-                footerServices: 'خدماتنا',
-                footerInfo: 'معلومات',
-                footerRights: 'جميع الحقوق محفوظة',
-                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية',
-                confirmBooking: 'تأكيد الحجز عبر واتساب'
+                logoMain:'صعود الطائرة', logoSub:'للسفر والسياحة',
+                navHome:'الرئيسية', navServices:'خدماتنا', navOffers:'عروض', navHotels:'فنادق',
+                navPackages:'باقات', navRailway:'قطارات', navCars:'سيارات', navAbout:'من نحن',
+                navContact:'اتصل بنا', navCta:'📞 احجز الآن',
+                heroTitle1:'أفضل', heroTitle2:'الفنادق', heroDesc:'اختر من بين أكثر من 200 فندق حول العالم – إقامة فاخرة بأسعار حقيقية من Booking.com',
+                searchLabel:'بحث', cityLabel:'المدينة', ratingLabel:'التقييم', sortLabel:'ترتيب حسب',
+                cityAll:'جميع المدن', ratingAll:'جميع التقييمات', rating5:'★★★★★ (5+)', rating4:'★★★★ (4+)', rating3:'★★★ (3+)',
+                sortPrice:'السعر (الأقل أولاً)', sortPriceDesc:'السعر (الأعلى أولاً)', sortRating:'التقييم (الأعلى أولاً)', sortName:'الاسم',
+                priceLabel:'نطاق السعر', fromLabel:'من', toLabel:'إلى', resetBtn:'إعادة تعيين',
+                loadMoreText:'عرض المزيد من الفنادق', noHotels:'لا توجد فنادق مطابقة لبحثك', backHomeBtn:'العودة إلى الرئيسية',
+                bookNowText:'احجز الآن',
+                aiChatTitle:'مساعد صعود الطائرة AI', aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل الفنادق حسب رغبتك!',
+                aiPlaceholder:'اسأل عن الفنادق...', waFloatLabel:'تواصل واتساب',
+                footerBrand:'صعود الطائرة', footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle:'روابط سريعة', footerServicesTitle:'خدماتنا', footerInfoTitle:'معلومات',
+                fNavHome:'الرئيسية', fNavServices:'خدماتنا', fNavOffers:'عروض', fNavHotels:'فنادق',
+                fNavPackages:'باقات', fNavRailway:'قطارات', fNavCars:'سيارات', fNavAbout:'من نحن', fNavContact:'اتصل بنا',
+                fServFlights:'تذاكر طيران', fServUmrah:'باقات العمرة', fServVisa:'تأشيرات', fServHotels:'فنادق',
+                fServCars:'تأجير سيارات', fServRailway:'قطارات',
+                fInfoAbout:'عن الوكالة', fInfoContact:'اتصل بنا', fInfoPrivacy:'سياسة الخصوصية', fInfoTerms:'الشروط والأحكام',
+                footerRights:'جميع الحقوق محفوظة', footerCredit:'تصميم وتطوير ✧ برؤية عصرية'
             },
             en: {
-                logo: '<strong>Saeed Al-Taayira</strong>',
-                logoSub: 'Travel & Tourism',
-                navHome: 'Home',
-                navServices: 'Services',
-                navOffers: 'Offers',
-                navHotels: 'Hotels',
-                navPackages: 'Packages',
-                navRailway: 'Railway',
-                navCars: 'Cars',
-                navAbout: 'About',
-                navContact: 'Contact',
-                navCta: '📞 Book Now',
-                sectionTitle: 'Best',
-                sectionHighlight: 'Hotels',
-                sectionDesc: 'Choose from over 200 hotels worldwide – luxury stays with real prices from Booking.com',
-                searchPlaceholder: 'Search for hotel...',
-                allCities: 'All Cities',
-                allRatings: 'All Ratings',
-                rating5: '★★★★★ (5+)',
-                rating4: '★★★★ (4+)',
-                rating3: '★★★ (3+)',
-                sortPrice: 'Price (Lowest first)',
-                sortPriceDesc: 'Price (Highest first)',
-                sortRating: 'Rating (Highest first)',
-                sortName: 'Name',
-                priceRange: 'Price Range',
-                reset: 'Reset',
-                loadMore: 'Show More Hotels',
-                noHotels: 'No hotels match your search',
-                bookNow: 'Book Now',
-                aiTitle: 'Saeed Al-Taayira AI Assistant',
-                aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. I can help you find the best hotels based on your preferences!',
-                aiPlaceholder: 'Ask about hotels...',
-                waLabel: 'WhatsApp',
-                footerBrand: 'Saeed Al-Taayira',
-                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
-                footerLinks: 'Quick Links',
-                footerServices: 'Services',
-                footerInfo: 'Info',
-                footerRights: 'All Rights Reserved',
-                footerCredit: 'Designed & Developed ✧ with Vision',
-                confirmBooking: 'Confirm Booking via WhatsApp'
+                logoMain:'Saeed Al-Taayira', logoSub:'Travel & Tourism',
+                navHome:'Home', navServices:'Services', navOffers:'Offers', navHotels:'Hotels',
+                navPackages:'Packages', navRailway:'Railway', navCars:'Cars', navAbout:'About',
+                navContact:'Contact', navCta:'📞 Book Now',
+                heroTitle1:'Best', heroTitle2:'Hotels', heroDesc:'Choose from over 200 hotels worldwide – luxury stays with real prices from Booking.com',
+                searchLabel:'Search', cityLabel:'City', ratingLabel:'Rating', sortLabel:'Sort By',
+                cityAll:'All Cities', ratingAll:'All Ratings', rating5:'★★★★★ (5+)', rating4:'★★★★ (4+)', rating3:'★★★ (3+)',
+                sortPrice:'Price (Lowest first)', sortPriceDesc:'Price (Highest first)', sortRating:'Rating (Highest first)', sortName:'Name',
+                priceLabel:'Price Range', fromLabel:'From', toLabel:'To', resetBtn:'Reset',
+                loadMoreText:'Show More Hotels', noHotels:'No hotels match your search', backHomeBtn:'Back to Home',
+                bookNowText:'Book Now',
+                aiChatTitle:'Saeed Al-Taayira AI Assistant', aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I can help you find the best hotels based on your preferences!',
+                aiPlaceholder:'Ask about hotels...', waFloatLabel:'WhatsApp',
+                footerBrand:'Saeed Al-Taayira', footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle:'Quick Links', footerServicesTitle:'Services', footerInfoTitle:'Info',
+                fNavHome:'Home', fNavServices:'Services', fNavOffers:'Offers', fNavHotels:'Hotels',
+                fNavPackages:'Packages', fNavRailway:'Railway', fNavCars:'Cars', fNavAbout:'About', fNavContact:'Contact',
+                fServFlights:'Flights', fServUmrah:'Umrah', fServVisa:'Visas', fServHotels:'Hotels',
+                fServCars:'Car Rentals', fServRailway:'Trains',
+                fInfoAbout:'About Us', fInfoContact:'Contact', fInfoPrivacy:'Privacy Policy', fInfoTerms:'Terms & Conditions',
+                footerRights:'All Rights Reserved', footerCredit:'Designed & Developed ✧ with Vision'
             }
         };
 
@@ -1862,191 +1196,107 @@
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
             const map = {
-                'logoText': 'logo',
-                'logoSlogan': 'logoSub',
-                'navHome': 'navHome',
-                'navServices': 'navServices',
-                'navOffers': 'navOffers',
-                'navHotels': 'navHotels',
-                'navPackages': 'navPackages',
-                'navRailway': 'navRailway',
-                'navCars': 'navCars',
-                'navAbout': 'navAbout',
-                'navContact': 'navContact',
-                'navCta': 'navCta',
-                'sectionTitle': 'sectionTitle',
-                'sectionHighlight': 'sectionHighlight',
-                'sectionDesc': 'sectionDesc',
-                'searchPlaceholder': 'searchPlaceholder',
-                'allCities': 'allCities',
-                'allRatings': 'allRatings',
-                'rating5': 'rating5',
-                'rating4': 'rating4',
-                'rating3': 'rating3',
-                'sortPrice': 'sortPrice',
-                'sortPriceDesc': 'sortPriceDesc',
-                'sortRating': 'sortRating',
-                'sortName': 'sortName',
-                'priceRange': 'priceRange',
-                'reset': 'reset',
-                'loadMore': 'loadMore',
-                'noHotels': 'noHotels',
-                'bookNow': 'bookNow',
-                'aiTitle': 'aiTitle',
-                'aiWelcome': 'aiWelcome',
-                'aiPlaceholder': 'aiPlaceholder',
-                'waLabel': 'waLabel',
-                'footerBrand': 'footerBrand',
-                'footerDesc': 'footerDesc',
-                'footerLinks': 'footerLinks',
-                'footerServices': 'footerServices',
-                'footerInfo': 'footerInfo',
-                'footerRights': 'footerRights',
-                'footerCredit': 'footerCredit',
-                'confirmBooking': 'confirmBooking'
+                'logoMain':'logoMain','logoSub':'logoSub',
+                'navHome':'navHome','navServices':'navServices','navOffers':'navOffers','navHotels':'navHotels',
+                'navPackages':'navPackages','navRailway':'navRailway','navCars':'navCars','navAbout':'navAbout',
+                'navContact':'navContact','navCta':'navCta',
+                'searchLabel':'searchLabel','cityLabel':'cityLabel','ratingLabel':'ratingLabel','sortLabel':'sortLabel',
+                'cityAll':'cityAll','ratingAll':'ratingAll','rating5':'rating5','rating4':'rating4','rating3':'rating3',
+                'sortPrice':'sortPrice','sortPriceDesc':'sortPriceDesc','sortRating':'sortRating','sortName':'sortName',
+                'priceLabel':'priceLabel','fromLabel':'fromLabel','toLabel':'toLabel','resetBtn':'resetBtn',
+                'loadMoreText':'loadMoreText','noHotels':'noHotels','backHomeBtn':'backHomeBtn',
+                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
+                'waFloatLabel':'waFloatLabel',
+                'footerBrand':'footerBrand','footerDesc':'footerDesc',
+                'footerLinksTitle':'footerLinksTitle','footerServicesTitle':'footerServicesTitle','footerInfoTitle':'footerInfoTitle',
+                'fNavHome':'fNavHome','fNavServices':'fNavServices','fNavOffers':'fNavOffers','fNavHotels':'fNavHotels',
+                'fNavPackages':'fNavPackages','fNavRailway':'fNavRailway','fNavCars':'fNavCars','fNavAbout':'fNavAbout',
+                'fNavContact':'fNavContact',
+                'fServFlights':'fServFlights','fServUmrah':'fServUmrah','fServVisa':'fServVisa','fServHotels':'fServHotels',
+                'fServCars':'fServCars','fServRailway':'fServRailway',
+                'fInfoAbout':'fInfoAbout','fInfoContact':'fInfoContact','fInfoPrivacy':'fInfoPrivacy','fInfoTerms':'fInfoTerms',
+                'footerRights':'footerRights','footerCredit':'footerCredit'
             };
 
             for (const [id, key] of Object.entries(map)) {
                 const el = document.getElementById(id);
                 if (el && translations[lang] && translations[lang][key] !== undefined) {
-                    if (id === 'logoText' || id === 'footerBrand') {
-                        el.innerHTML = translations[lang][key];
+                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand') {
+                        if (id === 'logoMain') el.textContent = translations[lang][key];
+                        else if (id === 'logoSub') el.textContent = translations[lang][key];
+                        else if (id === 'footerBrand') el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
                     } else {
                         el.textContent = translations[lang][key];
                     }
                 }
             }
 
-            // Update search placeholder
+            // Hero title
+            const heroH1 = document.querySelector('.hotels-hero h1');
+            if (heroH1) {
+                const highlight = heroH1.querySelector('.highlight');
+                if (highlight) {
+                    const s1 = document.createElement('span');
+                    s1.textContent = translations[lang]['heroTitle1'];
+                    heroH1.innerHTML = '';
+                    heroH1.appendChild(s1);
+                    const s2 = document.createElement('span');
+                    s2.className = 'highlight';
+                    s2.textContent = translations[lang]['heroTitle2'];
+                    heroH1.appendChild(document.createTextNode(' '));
+                    heroH1.appendChild(s2);
+                }
+            }
+            const heroDesc = document.querySelector('.hotels-hero p');
+            if (heroDesc) heroDesc.textContent = translations[lang]['heroDesc'];
+
+            // Search placeholder
             const searchInput = document.getElementById('hotelSearch');
-            if (searchInput) {
-                searchInput.placeholder = translations[lang]['searchPlaceholder'];
+            if (searchInput) searchInput.placeholder = lang === 'ar' ? 'ابحث عن فندق...' : 'Search for hotel...';
+
+            // Select options
+            const citySel = document.getElementById('hotelCity');
+            if (citySel) { const o = citySel.options[0]; if (o) o.textContent = translations[lang]['cityAll']; }
+            const ratingSel = document.getElementById('hotelRating');
+            if (ratingSel) {
+                const opts = ratingSel.options;
+                const keys = ['ratingAll','rating5','rating4','rating3'];
+                opts.forEach((opt, i) => { if (i < keys.length && translations[lang][keys[i]]) opt.textContent = translations[lang][keys[i]]; });
+            }
+            const sortSel = document.getElementById('hotelSort');
+            if (sortSel) {
+                const opts = sortSel.options;
+                const keys = ['sortPrice','sortPriceDesc','sortRating','sortName'];
+                opts.forEach((opt, i) => { if (i < keys.length && translations[lang][keys[i]]) opt.textContent = translations[lang][keys[i]]; });
             }
 
-            // Update select options
-            const citySelect = document.getElementById('hotelCity');
-            if (citySelect) {
-                const firstOpt = citySelect.options[0];
-                if (firstOpt) firstOpt.textContent = translations[lang]['allCities'];
-            }
-            const ratingSelect = document.getElementById('hotelRating');
-            if (ratingSelect) {
-                const opts = ratingSelect.options;
-                if (opts[0]) opts[0].textContent = translations[lang]['allRatings'];
-                if (opts[1]) opts[1].textContent = translations[lang]['rating5'];
-                if (opts[2]) opts[2].textContent = translations[lang]['rating4'];
-                if (opts[3]) opts[3].textContent = translations[lang]['rating3'];
-            }
-            const sortSelect = document.getElementById('hotelSort');
-            if (sortSelect) {
-                const opts = sortSelect.options;
-                if (opts[0]) opts[0].textContent = translations[lang]['sortPrice'];
-                if (opts[1]) opts[1].textContent = translations[lang]['sortPriceDesc'];
-                if (opts[2]) opts[2].textContent = translations[lang]['sortRating'];
-                if (opts[3]) opts[3].textContent = translations[lang]['sortName'];
-            }
-
-            // Update load more button
+            // Load more button
             const loadBtn = document.getElementById('loadMoreHotels');
-            if (loadBtn) {
-                loadBtn.textContent = translations[lang]['loadMore'];
-            }
+            if (loadBtn) { const span = loadBtn.querySelector('span'); if (span) span.textContent = translations[lang]['loadMoreText']; }
 
-            // Update reset button
-            const resetBtn = document.querySelector('.filters-section button');
-            if (resetBtn) {
-                resetBtn.innerHTML = `<i class="fas fa-undo"></i> ${translations[lang]['reset']}`;
-            }
+            // No hotels
+            const noHotels = document.getElementById('noHotels');
+            if (noHotels) noHotels.textContent = translations[lang]['noHotels'];
 
-            // Update price range label
-            const priceLabel = document.querySelector('.filter-group label');
-            if (priceLabel && priceLabel.textContent.includes('نطاق السعر')) {
-                const labelText = priceLabel.textContent;
-                const icon = labelText.includes('نطاق السعر') ? 'السعر' : 'Price';
-                // Skip, will be handled by map
-            }
-            // Update price range label via DOM
-            const priceLabels = document.querySelectorAll('.filters-row .filter-group label');
-            priceLabels.forEach(label => {
-                if (label.textContent.includes('نطاق السعر') || label.textContent.includes('Price Range')) {
-                    label.textContent = translations[lang]['priceRange'];
-                }
-                if (label.textContent.includes('بحث') || label.textContent.includes('Search')) {
-                    label.innerHTML = `<i class="fas fa-search"></i> ${translations[lang]['searchPlaceholder']}`;
-                }
-                if (label.textContent.includes('المدينة') || label.textContent.includes('City')) {
-                    label.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${translations[lang]['allCities']}`;
-                }
-                if (label.textContent.includes('التقييم') || label.textContent.includes('Rating')) {
-                    label.innerHTML = `<i class="fas fa-star"></i> ${translations[lang]['allRatings']}`;
-                }
-                if (label.textContent.includes('ترتيب') || label.textContent.includes('Sort')) {
-                    label.innerHTML = `<i class="fas fa-sort"></i> ${translations[lang]['sortPrice']}`;
-                }
+            // Back home button
+            const backBtn = document.getElementById('backHomeBtn');
+            if (backBtn) backBtn.textContent = translations[lang]['backHomeBtn'];
+
+            // Book now text on existing cards
+            document.querySelectorAll('.hotel-card .btn-sm .bookNowText').forEach(el => {
+                el.textContent = translations[lang]['bookNowText'];
             });
 
-            // Update AI chat
+            // AI chat
             const aiTitle = document.querySelector('.ai-chat-header .title span');
             if (aiTitle) {
                 const status = aiTitle.querySelector('.ai-status');
-                aiTitle.innerHTML = translations[lang]['aiTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` :
-                    '');
+                aiTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
             }
             const welcomeMsg = chatMessages.querySelector('.msg.bot');
-            if (welcomeMsg) {
-                welcomeMsg.innerHTML = translations[lang]['aiWelcome'] + '<span class="time">الآن</span>';
-            }
-            const placeholder = document.getElementById('aiChatInput');
-            if (placeholder) {
-                placeholder.placeholder = translations[lang]['aiPlaceholder'];
-            }
-
-            // Update section title
-            const titleEl = document.querySelector('.section-title h2');
-            if (titleEl) {
-                const highlight = titleEl.querySelector('.highlight');
-                if (highlight) {
-                    const h1 = document.createElement('span');
-                    h1.textContent = translations[lang]['sectionTitle'];
-                    titleEl.innerHTML = '';
-                    titleEl.appendChild(h1);
-                    const h2 = document.createElement('span');
-                    h2.className = 'highlight';
-                    h2.textContent = translations[lang]['sectionHighlight'];
-                    titleEl.appendChild(document.createTextNode(' '));
-                    titleEl.appendChild(h2);
-                }
-            }
-            const descEl = document.querySelector('.section-title p');
-            if (descEl) {
-                descEl.textContent = translations[lang]['sectionDesc'];
-            }
-
-            // Update modal button
-            const modalBtn = document.querySelector('.hotel-modal .btn-submit-hotel');
-            if (modalBtn) {
-                const icon = modalBtn.querySelector('i');
-                modalBtn.innerHTML = '';
-                if (icon) modalBtn.appendChild(icon.cloneNode(true));
-                modalBtn.appendChild(document.createTextNode(' ' + translations[lang]['confirmBooking']));
-            }
-
-            // Update book now buttons on existing cards
-            document.querySelectorAll('.hotel-card .btn-sm').forEach(btn => {
-                const icon = btn.querySelector('i');
-                btn.innerHTML = '';
-                if (icon) btn.appendChild(icon.cloneNode(true));
-                btn.appendChild(document.createTextNode(' ' + translations[lang]['bookNow']));
-            });
-
-            // Update no hotels message
-            const noMsg = document.querySelector('.hotels-grid > div[style*="grid-column:1/-1"]');
-            if (noMsg) {
-                noMsg.innerHTML = `
-                    <i class="fas fa-hotel" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
-                    ${translations[lang]['noHotels']}
-                `;
-            }
+            if (welcomeMsg) welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
+            const aiInput = document.getElementById('aiChatInput');
+            if (aiInput) aiInput.placeholder = translations[lang]['aiPlaceholder'];
 
             localStorage.setItem('lang', lang);
         }
@@ -2054,7 +1304,6 @@
         langToggle.addEventListener('click', () => {
             const newLang = currentLang === 'ar' ? 'en' : 'ar';
             applyLanguage(newLang);
-            // Re-render hotels to update button texts
             renderHotels();
         });
 
@@ -2070,8 +1319,7 @@
                 if (target) {
                     e.preventDefault();
                     const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset,
-                        behavior: 'smooth' });
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('open');
                 }
@@ -2088,11 +1336,11 @@
 
         // ===== DYNAMIC FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
 
         console.log('%c🏨 صعود الطائرة – فنادق 200+', 'font-size:20px;font-weight:bold;color:#d4af37;');
         console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
-        console.log('%c🏨 220 فندق – فلتر متقدم – AI Chatbot – نظام حجز', 'font-size:13px;color:#888;');
+        console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
     </script>
 </body>
 </html>

@@ -1,66 +1,1576 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>سياسة الخصوصية – صعود الطائرة</title>
-  <style>
-    body {
-      background: #061d3a;
-      color: #f0f4ff;
-      font-family: 'Tajawal', sans-serif;
-      padding: 120px 24px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.8;
-    }
-    h1 {
-      color: #d4af37;
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-    }
-    a {
-      color: #d4af37;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    p,
-    li {
-      color: rgba(255, 255, 255, 0.7);
-    }
-    ul {
-      padding-right: 20px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سياسة الخصوصية – صعود الطائرة</title>
+    <meta name="description" content="سياسة الخصوصية لوكالة صعود الطائرة للسفر والسياحة – كيف نحمي بياناتك ومعلوماتك الشخصية." />
+    <link rel="canonical" href="https://sueudaltaayira.com/privacy.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-dark: #061d3a;
+            --gold: #d4af37;
+            --gold-light: #f0d060;
+            --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --radius: 20px;
+            --font: 'Tajawal', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font);
+            background: var(--primary-dark);
+            color: #f0f4ff;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        body.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        body.ltr {
+            direction: ltr;
+            text-align: left;
+        }
+        body.ltr .nav-links a {
+            font-family: 'Segoe UI', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        #particles-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 14px 0;
+            transition: 0.3s;
+            background: rgba(6, 29, 58, 0.94);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--gold);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        @keyframes logoFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+        .logo-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .logo-text strong {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+        .logo-sub {
+            font-size: 0.55rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            display: block;
+            margin-top: -3px;
+            letter-spacing: 3px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: rgba(212, 175, 55, 0.1);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 2.5px;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+        .nav-cta {
+            background: var(--gold-gradient) !important;
+            color: var(--primary-dark) !important;
+            font-weight: 700 !important;
+            padding: 8px 26px !important;
+            border-radius: 50px !important;
+        }
+        .nav-cta:hover {
+            transform: scale(1.05);
+        }
+        .lang-toggle {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+        .lang-toggle:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(6, 29, 58, 0.97);
+                flex-direction: column;
+                padding: 80px 28px 32px;
+                transition: right 0.4s;
+                border-left: 1px solid rgba(255, 255, 255, 0.04);
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a {
+                width: 100%;
+                padding: 14px 18px;
+                border-radius: 12px;
+            }
+            .nav-links a.active::after {
+                display: none;
+            }
+            .nav-cta {
+                margin-top: 8px;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .privacy-hero {
+            padding: 150px 24px 60px;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary-dark);
+            text-align: center;
+        }
+        .privacy-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.06), transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(108, 60, 224, 0.04), transparent 60%);
+            z-index: 0;
+        }
+        .privacy-hero .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+        .privacy-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .privacy-hero h1 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .privacy-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+        .privacy-hero .last-updated {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 4px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .privacy-hero .last-updated i {
+            color: var(--gold);
+            margin-left: 6px;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 60px 24px 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .section .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .section-alt {
+            background: rgba(255, 255, 255, 0.005);
+        }
+
+        /* ===== PRIVACY CONTENT ===== */
+        .privacy-content {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius);
+            padding: 40px 48px;
+            transition: 0.3s;
+        }
+        .privacy-content:hover {
+            border-color: rgba(212, 175, 55, 0.08);
+        }
+        .privacy-content h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-top: 32px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .privacy-content h2:first-of-type {
+            margin-top: 0;
+        }
+        .privacy-content h2 i {
+            font-size: 1.2rem;
+            color: var(--gold);
+            width: 30px;
+        }
+        .privacy-content p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+        .privacy-content ul {
+            padding-right: 24px;
+            margin-bottom: 16px;
+        }
+        .privacy-content ul li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 6px;
+            position: relative;
+            padding-right: 20px;
+        }
+        .privacy-content ul li::before {
+            content: '▸';
+            position: absolute;
+            right: 0;
+            color: var(--gold);
+        }
+        .privacy-content .highlight-box {
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .privacy-content .highlight-box p {
+            margin-bottom: 0;
+            color: #f0f4ff;
+        }
+        .privacy-content .highlight-box i {
+            color: var(--gold);
+            margin-left: 8px;
+        }
+
+        /* ===== BACK BUTTON ===== */
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 60px;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+            text-decoration: none;
+            margin-top: 30px;
+        }
+        .back-home:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.35);
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .whatsapp-float .wa-btn {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: #25d366;
+            color: #fff;
+            font-size: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            animation: waPulse 2.8s ease-in-out infinite;
+        }
+        .whatsapp-float .wa-btn:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-float .wa-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3px 14px;
+            border-radius: 50px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        @keyframes waPulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06);
+            }
+        }
+
+        /* ===== AI CHAT ===== */
+        .ai-chat-toggle {
+            position: fixed;
+            bottom: 100px;
+            right: 28px;
+            z-index: 9998;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7);
+            color: #fff;
+            font-size: 1.8rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
+            transition: 0.3s;
+            animation: aiPulse 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ai-chat-toggle:hover {
+            transform: scale(1.1);
+        }
+        @keyframes aiPulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
+            }
+            50% {
+                box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06);
+            }
+        }
+        .ai-chat-box {
+            position: fixed;
+            bottom: 175px;
+            right: 28px;
+            z-index: 9997;
+            width: 400px;
+            max-width: calc(100vw - 56px);
+            max-height: 550px;
+            border-radius: 24px;
+            background: rgba(6, 29, 58, 0.96);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .ai-chat-box.open {
+            display: flex;
+            animation: chatSlideUp 0.4s ease;
+        }
+        @keyframes chatSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .ai-chat-header {
+            padding: 16px 20px;
+            background: rgba(108, 60, 224, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+        .ai-chat-header .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+        .ai-chat-header .title i {
+            color: #a855f7;
+        }
+        .ai-chat-header .title .ai-status {
+            font-size: 0.6rem;
+            color: #4ade80;
+            font-weight: 400;
+        }
+        .ai-chat-header .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 4px;
+        }
+        .ai-chat-header .close-btn:hover {
+            color: #fff;
+            transform: rotate(90deg);
+        }
+        .ai-chat-messages {
+            flex: 1;
+            padding: 16px 18px;
+            overflow-y: auto;
+            max-height: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .ai-chat-messages .msg {
+            padding: 10px 16px;
+            border-radius: 16px;
+            max-width: 85%;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            animation: msgPop 0.3s ease;
+        }
+        @keyframes msgPop {
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .ai-chat-messages .msg.bot {
+            background: rgba(108, 60, 224, 0.12);
+            border: 1px solid rgba(108, 60, 224, 0.08);
+            align-self: flex-start;
+            border-bottom-right-radius: 4px;
+        }
+        .ai-chat-messages .msg.user {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            align-self: flex-end;
+            border-bottom-left-radius: 4px;
+        }
+        .ai-chat-messages .msg .time {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: block;
+            opacity: 0.5;
+        }
+        .ai-chat-input {
+            padding: 12px 16px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .ai-chat-input input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .ai-chat-input input:focus {
+            border-color: #a855f7;
+        }
+        .ai-chat-input input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+        .ai-chat-input button {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .ai-chat-input button:hover {
+            transform: scale(1.04);
+        }
+        .ai-chat-typing {
+            display: none;
+            padding: 8px 16px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        .ai-chat-typing.show {
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 60px 24px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(6, 29, 58, 0.5);
+            backdrop-filter: blur(12px);
+        }
+        .footer .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer .brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 340px;
+            margin-top: 8px;
+        }
+        .footer .brand .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .footer .brand .socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+        .footer .brand .socials a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .footer h5 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #fff;
+        }
+        .footer ul li {
+            margin-bottom: 6px;
+        }
+        .footer ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .footer ul li a:hover {
+            color: var(--gold);
+            padding-right: 6px;
+        }
+        .footer-bottom {
+            max-width: 1320px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .footer-bottom span {
+            color: var(--gold);
+        }
+
+        /* ===== SCROLL TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 100px;
+            left: 28px;
+            z-index: 9998;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            transition: 0.3s;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+        .scroll-top.show {
+            display: flex;
+        }
+
+        /* ===== REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .privacy-content {
+                padding: 24px 20px;
+            }
+            .privacy-hero {
+                padding: 120px 16px 40px;
+            }
+            .privacy-hero h1 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 40px 16px 60px;
+            }
+            .privacy-content h2 {
+                font-size: 1.2rem;
+            }
+            .privacy-content h2 i {
+                width: 24px;
+                font-size: 1rem;
+            }
+            .ai-chat-box {
+                width: calc(100vw - 32px);
+                right: 16px;
+                bottom: 155px;
+                max-height: 450px;
+            }
+            .ai-chat-toggle {
+                right: 16px;
+                bottom: 85px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            .footer .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer .brand .socials {
+                justify-content: center;
+            }
+            .back-home {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .privacy-content {
+                padding: 18px 14px;
+            }
+            .privacy-content ul {
+                padding-right: 16px;
+            }
+            .privacy-content .highlight-box {
+                padding: 14px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>🔒 سياسة الخصوصية</h1>
-  <p>نحن في <strong style="color:#d4af37;">صعود الطائرة للسفر والسياحة</strong> نلتزم بحماية خصوصية بياناتك. يتم جمع المعلومات فقط لتقديم الخدمات وتحسين تجربتك. لا نشارك بياناتك مع أطراف ثالثة دون موافقتك.</p>
+    <canvas id="particles-canvas"></canvas>
 
-  <h2 style="color:#d4af37;font-size:1.4rem;margin-top:24px;">المعلومات التي نجمعها</h2>
-  <ul>
-    <li>الاسم الكامل</li>
-    <li>رقم الجوال</li>
-    <li>البريد الإلكتروني</li>
-    <li>تفاصيل الحجوزات والسفر</li>
-  </ul>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">✈️</span>
+                <span>
+                    <span class="logo-text"><strong>صعود الطائرة</strong></span>
+                    <span class="logo-sub">للسفر والسياحة</span>
+                </span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="offers.html">عروض</a>
+                <a href="hotels.html">فنادق</a>
+                <a href="packages.html">باقات</a>
+                <a href="railway.html">قطارات</a>
+                <a href="cars.html">سيارات</a>
+                <a href="about.html">من نحن</a>
+                <a href="contact.html">اتصل بنا</a>
+                <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
+            </nav>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
+                <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
 
-  <h2 style="color:#d4af37;font-size:1.4rem;margin-top:24px;">كيف نستخدمها</h2>
-  <ul>
-    <li>لتأكيد الحجوزات</li>
-    <li>التواصل معك بشأن رحلتك</li>
-    <li>تحسين خدماتنا</li>
-    <li>إرسال عروض خاصة (بموافقتك)</li>
-  </ul>
+    <!-- ===== HERO ===== -->
+    <section class="privacy-hero">
+        <div class="container">
+            <h1>سياسة <span class="highlight">الخصوصية</span></h1>
+            <p>نحن في <strong>صعود الطائرة للسفر والسياحة</strong> نلتزم بحماية خصوصية بياناتك ومعلوماتك الشخصية. هذه السياسة توضح كيف نجمع، نستخدم، ونحمي معلوماتك.</p>
+            <div class="last-updated" id="lastUpdated">
+                <i class="fas fa-clock"></i>
+                <span id="updateText">آخر تحديث: 31 أغسطس 2026</span>
+            </div>
+        </div>
+    </section>
 
-  <h2 style="color:#d4af37;font-size:1.4rem;margin-top:24px;">الأمان</h2>
-  <p>نستخدم إجراءات أمنية متقدمة لحماية بياناتك من الوصول غير المصرح به.</p>
+    <!-- ===== PRIVACY CONTENT ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="privacy-content reveal">
+                <!-- ===== Section 1 ===== -->
+                <h2><i class="fas fa-database"></i> <span id="h1">المعلومات التي نجمعها</span></h2>
+                <p id="p1">نحن في <strong>صعود الطائرة للسفر والسياحة</strong> نجمع المعلومات التالية من أجل تقديم خدماتنا بأفضل جودة:</p>
+                <ul id="list1">
+                    <li><strong>المعلومات الشخصية الأساسية:</strong> الاسم الكامل، رقم الجوال، البريد الإلكتروني، وتفاصيل التواصل.</li>
+                    <li><strong>معلومات الحجوزات:</strong> تفاصيل الرحلات، حجوزات الفنادق، تذاكر الطيران، باقات العمرة، وتأجير السيارات.</li>
+                    <li><strong>معلومات الدفع:</strong> بيانات الدفع الآمنة عبر بوابات الدفع المعتمدة (لا نقوم بتخزين تفاصيل بطاقات الائتمان).</li>
+                    <li><strong>بيانات التصفح:</strong> معلومات عن جهازك وطريقة استخدامك لموقعنا لتحسين تجربتك.</li>
+                </ul>
 
-  <h2 style="color:#d4af37;font-size:1.4rem;margin-top:24px;">حقوقك</h2>
-  <p>يمكنك طلب تعديل أو حذف بياناتك في أي وقت عن طريق التواصل معنا.</p>
+                <!-- ===== Section 2 ===== -->
+                <h2><i class="fas fa-shield-alt"></i> <span id="h2">كيف نستخدم معلوماتك</span></h2>
+                <p id="p2">نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
+                <ul id="list2">
+                    <li>تأكيد ومعالجة حجوزات السفر والفنادق والرحلات.</li>
+                    <li>التواصل معك بشأن تأكيدات الحجز والتحديثات المهمة.</li>
+                    <li>تحسين خدماتنا وتخصيص العروض وفقاً لاهتماماتك.</li>
+                    <li>إرسال عروض خاصة وخصومات حصرية (بموافقتك).</li>
+                    <li>تحليل استخدام الموقع لتطوير تجربة المستخدم.</li>
+                </ul>
 
-  <p style="margin-top:30px;"><a href="index.html">← العودة للرئيسية</a></p>
+                <div class="highlight-box">
+                    <p><i class="fas fa-check-circle"></i> <span id="highlight1">نحن لا نبيع أو نشارك بياناتك الشخصية مع أي طرف ثالث لأغراض تسويقية دون موافقتك الصريحة.</span></p>
+                </div>
+
+                <!-- ===== Section 3 ===== -->
+                <h2><i class="fas fa-lock"></i> <span id="h3">أمان البيانات</span></h2>
+                <p id="p3">نحن نولي أمان بياناتك أهمية قصوى ونستخدم أحدث التقنيات لحمايتها:</p>
+                <ul id="list3">
+                    <li><strong>التشفير المتقدم:</strong> جميع البيانات المنقولة عبر موقعنا مشفرة باستخدام بروتوكول SSL/TLS.</li>
+                    <li><strong>جدران الحماية:</strong> نستخدم أنظمة أمان متقدمة لحماية خوادمنا من الاختراقات.</li>
+                    <li><strong>الوصول المحدود:</strong> فقط الموظفون المصرح لهم يمكنهم الوصول إلى بياناتك لأغراض خدمية.</li>
+                    <li><strong>المراجعة الدورية:</strong> نقوم بمراجعة إجراءات الأمان بشكل دوري لضمان أعلى مستويات الحماية.</li>
+                </ul>
+
+                <!-- ===== Section 4 ===== -->
+                <h2><i class="fas fa-cookie"></i> <span id="h4">ملفات تعريف الارتباط (Cookies)</span></h2>
+                <p id="p4">نستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربتك على موقعنا:</p>
+                <ul id="list4">
+                    <li><strong>جلسات العمل:</strong> للحفاظ على حالة تسجيل الدخول وتفضيلاتك.</li>
+                    <li><strong>التحليلات:</strong> لفهم كيفية استخدام الزوار لموقعنا وتحسين المحتوى.</li>
+                    <li><strong>التخصيص:</strong> لتقديم عروض ومحتوى مخصص حسب اهتماماتك.</li>
+                    <li>يمكنك التحكم في إعدادات Cookies من خلال متصفحك في أي وقت.</li>
+                </ul>
+
+                <!-- ===== Section 5 ===== -->
+                <h2><i class="fas fa-user-check"></i> <span id="h5">حقوقك</span></h2>
+                <p id="p5">لك الحق في التحكم ببياناتك الشخصية. يمكنك:</p>
+                <ul id="list5">
+                    <li><strong>الوصول:</strong> طلب نسخة من البيانات التي نحتفظ بها عنك.</li>
+                    <li><strong>التصحيح:</strong> طلب تصحيح أي معلومات غير دقيقة.</li>
+                    <li><strong>الحذف:</strong> طلب حذف بياناتك الشخصية (مع مراعاة المتطلبات القانونية).</li>
+                    <li><strong>إلغاء الاشتراك:</strong> إلغاء الاشتراك من رسائلنا التسويقية في أي وقت.</li>
+                    <li>للقيام بأي من هذه الإجراءات، يرجى التواصل معنا عبر وسائل الاتصال المتاحة.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><i class="fas fa-phone"></i> <span id="highlight2">للتواصل بشأن خصوصية بياناتك، يرجى الاتصال بنا على 0555382038 أو عبر البريد الإلكتروني hamdan@sueudaltaayira.com</span></p>
+                </div>
+
+                <!-- ===== Section 6 ===== -->
+                <h2><i class="fas fa-children"></i> <span id="h6">خصوصية الأطفال</span></h2>
+                <p id="p6">موقعنا لا يستهدف الأطفال دون سن 13 عاماً. نحن لا نجمع معلومات شخصية من الأطفال عن علم. إذا اكتشفنا أننا جمعنا معلومات من طفل دون السن القانونية، سنتخذ خطوات لحذف هذه المعلومات فوراً.</p>
+
+                <!-- ===== Section 7 ===== -->
+                <h2><i class="fas fa-sync-alt"></i> <span id="h7">تحديثات سياسة الخصوصية</span></h2>
+                <p id="p7">قد نقوم بتحديث هذه السياسة من وقت لآخر. سيتم إعلامك بأي تغييرات جوهرية عبر موقعنا أو عبر البريد الإلكتروني. ننصحك بمراجعة هذه الصفحة بشكل دوري للاطلاع على أحدث التحديثات.</p>
+
+                <!-- ===== Section 8 ===== -->
+                <h2><i class="fas fa-question-circle"></i> <span id="h8">اتصل بنا</span></h2>
+                <p id="p8">إذا كان لديك أي أسئلة أو استفسارات حول سياسة الخصوصية، لا تتردد في التواصل معنا:</p>
+                <ul id="list6">
+                    <li><strong>الهاتف:</strong> 0555382038 (المالك) أو 0554126832 (العمل)</li>
+                    <li><strong>البريد الإلكتروني:</strong> hamdan@sueudaltaayira.com</li>
+                    <li><strong>العنوان:</strong> طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</li>
+                </ul>
+
+                <!-- ===== BACK BUTTON ===== -->
+                <a href="index.html" class="back-home" id="backBtn">
+                    <i class="fas fa-arrow-right"></i>
+                    <span id="backText">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                    <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"><strong>صعود الطائرة</strong></span>
+                </div>
+                <p>وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5>روابط سريعة</h5>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="offers.html">عروض</a></li>
+                    <li><a href="hotels.html">فنادق</a></li>
+                    <li><a href="packages.html">باقات</a></li>
+                    <li><a href="railway.html">قطارات</a></li>
+                    <li><a href="cars.html">سيارات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>خدماتنا</h5>
+                <ul>
+                    <li><a href="services.html">تذاكر طيران</a></li>
+                    <li><a href="services.html">باقات العمرة</a></li>
+                    <li><a href="services.html">تأشيرات</a></li>
+                    <li><a href="hotels.html">فنادق</a></li>
+                    <li><a href="cars.html">تأجير سيارات</a></li>
+                    <li><a href="railway.html">قطارات</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>معلومات</h5>
+                <ul>
+                    <li><a href="about.html">عن الوكالة</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                    <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                    <li><a href="terms.html">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+    </footer>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+        <span class="wa-label">تواصل واتساب</span>
+    </div>
+
+    <!-- ===== AI CHAT ===== -->
+    <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
+    <div class="ai-chat-box" id="aiChatBox">
+        <div class="ai-chat-header">
+            <div class="title">
+                <i class="fas fa-robot"></i>
+                <span>مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
+            </div>
+            <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+            <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في فهم سياسة الخصوصية والإجابة عن استفساراتك.<span class="time">الآن</span></div>
+        </div>
+        <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="اسأل عن سياسة الخصوصية..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
+            <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- ===== SCROLL TOP ===== -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // ===== PARTICLES =====
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            const particles = [];
+            const COUNT = 60;
+
+            function resize() { w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight; }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.size = Math.random() * 2.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.4;
+                    this.speedY = (Math.random() - 0.5) * 0.4;
+                    this.opacity = Math.random() * 0.3 + 0.05;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > w) this.speedX *= -1;
+                    if (this.y < 0 || this.y > h) this.speedY *= -1;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+            for (let i = 0; i < COUNT; i++) particles.push(new Particle());
+
+            function drawLines() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 150) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(212, 175, 55, ${0.04 * (1 - dist / 150)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                particles.forEach(p => { p.update();
+                    p.draw(); });
+                drawLines();
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // ===== HAMBURGER =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // ===== SCROLL REVEAL =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal, .privacy-content').forEach(el => observer.observe(el));
+
+        // ===== SCROLL TOP =====
+        const scrollBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollBtn.classList.toggle('show', window.pageYOffset > 300);
+        });
+
+        // ===== UPDATE DATE =====
+        const updateDate = document.getElementById('updateText');
+        const today = new Date();
+        const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر',
+            'ديسمبر'
+        ];
+        updateDate.textContent = `آخر تحديث: ${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`;
+
+        // ===== AI CHAT =====
+        const chatBox = document.getElementById('aiChatBox');
+        const chatMessages = document.getElementById('aiChatMessages');
+        const chatInput = document.getElementById('aiChatInput');
+        const typingIndicator = document.getElementById('aiTyping');
+
+        const aiKnowledge = {
+            'مرحبا': '👋 أهلاً بك! كيف يمكنني مساعدتك في فهم سياسة الخصوصية لوكالة صعود الطائرة؟',
+            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟ أخبرني ما الذي تريد معرفته عن سياسة الخصوصية.',
+            'خصوصية': '🔒 نحن في صعود الطائرة نلتزم بحماية خصوصية بياناتك. نجمع معلوماتك فقط لتقديم الخدمات وتحسين تجربتك.',
+            'بيانات': '📊 نجمع المعلومات الأساسية: الاسم، الجوال، البريد الإلكتروني، وتفاصيل الحجوزات. لا نشارك بياناتك مع أطراف ثالثة.',
+            'أمان': '🛡️ نستخدم تشفير SSL/TLS لحماية بياناتك، وجدران حماية متقدمة، وصول محدود للموظفين، ومراجعات أمنية دورية.',
+            'حقوق': '✅ لك الحق في الوصول إلى بياناتك، تصحيحها، حذفها، أو إلغاء الاشتراك من رسائلنا التسويقية.',
+            'كوكيز': '🍪 نستخدم ملفات تعريف الارتباط لتحسين تجربتك، تذكر تفضيلاتك، وتحليل استخدام الموقع.',
+            'اتصال': '📞 للتواصل بشأن الخصوصية: 0555382038 أو hamdan@sueudaltaayira.com',
+            'شكرا': '🙏 العفو! سعداء بمساعدتك. هل هناك شيء آخر تريد معرفته؟',
+            'hello': '👋 Hello! How can I help you understand our privacy policy?',
+            'privacy': '🔒 We are committed to protecting your privacy. We collect information only to provide services.',
+            'data': '📊 We collect name, phone, email, and booking details. We do not share your data with third parties.',
+            'security': '🛡️ We use SSL/TLS encryption, firewalls, limited access, and regular security reviews.',
+            'rights': '✅ You have the right to access, correct, delete, or unsubscribe from marketing emails.',
+            'cookies': '🍪 We use cookies to improve your experience and remember your preferences.',
+            'contact': '📞 For privacy inquiries: 0555382038 or hamdan@sueudaltaayira.com',
+            'thanks': '🙏 You\'re welcome! Happy to help.'
+        };
+        const defaultReplies = [
+            '🤖 شكراً لسؤالك! سياسة الخصوصية لدينا مصممة لحماية بياناتك. يمكنك قراءة التفاصيل الكاملة في الصفحة أعلاه.',
+            '📱 للاستفسار عن الخصوصية، يرجى الاتصال بنا على 0555382038 أو مراسلتنا عبر واتساب.',
+            '🔒 نحن نأخذ خصوصيتك على محمل الجد. جميع بياناتك مشفرة وآمنة.',
+            '📧 يمكنك أيضاً مراسلتنا عبر البريد الإلكتروني: hamdan@sueudaltaayira.com'
+        ];
+
+        function getAIResponse(text) {
+            const lower = text.toLowerCase().trim();
+            for (const [key, response] of Object.entries(aiKnowledge)) {
+                if (lower.includes(key)) return response;
+            }
+            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
+        }
+
+        window.toggleAIChat = function() {
+            chatBox.classList.toggle('open');
+            if (chatBox.classList.contains('open')) chatInput.focus();
+        };
+
+        function addMessage(type, text) {
+            const msg = document.createElement('div');
+            msg.className = `msg ${type}`;
+            const time = new Date().toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' });
+            msg.innerHTML = `${text}<span class="time">${time}</span>`;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        window.sendAIMessage = function() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            addMessage('user', text);
+            chatInput.value = '';
+            typingIndicator.classList.add('show');
+            setTimeout(() => {
+                typingIndicator.classList.remove('show');
+                addMessage('bot', getAIResponse(text));
+            }, 500 + Math.random() * 800);
+        };
+
+        // ===== LANGUAGE TOGGLE =====
+        const langToggle = document.getElementById('langToggle');
+        let currentLang = 'ar';
+
+        const translations = {
+            ar: {
+                logo: '<strong>صعود الطائرة</strong>',
+                logoSub: 'للسفر والسياحة',
+                navHome: 'الرئيسية',
+                navServices: 'خدماتنا',
+                navOffers: 'عروض',
+                navHotels: 'فنادق',
+                navPackages: 'باقات',
+                navRailway: 'قطارات',
+                navCars: 'سيارات',
+                navAbout: 'من نحن',
+                navContact: 'اتصل بنا',
+                navCta: '📞 احجز الآن',
+                heroTitle: 'سياسة',
+                heroHighlight: 'الخصوصية',
+                heroDesc: 'نحن في <strong>صعود الطائرة للسفر والسياحة</strong> نلتزم بحماية خصوصية بياناتك ومعلوماتك الشخصية. هذه السياسة توضح كيف نجمع، نستخدم، ونحمي معلوماتك.',
+                updateText: 'آخر تحديث: ',
+                h1: 'المعلومات التي نجمعها',
+                p1: 'نحن في <strong>صعود الطائرة للسفر والسياحة</strong> نجمع المعلومات التالية من أجل تقديم خدماتنا بأفضل جودة:',
+                list1_1: 'المعلومات الشخصية الأساسية: الاسم الكامل، رقم الجوال، البريد الإلكتروني، وتفاصيل التواصل.',
+                list1_2: 'معلومات الحجوزات: تفاصيل الرحلات، حجوزات الفنادق، تذاكر الطيران، باقات العمرة، وتأجير السيارات.',
+                list1_3: 'معلومات الدفع: بيانات الدفع الآمنة عبر بوابات الدفع المعتمدة (لا نقوم بتخزين تفاصيل بطاقات الائتمان).',
+                list1_4: 'بيانات التصفح: معلومات عن جهازك وطريقة استخدامك لموقعنا لتحسين تجربتك.',
+                h2: 'كيف نستخدم معلوماتك',
+                p2: 'نستخدم المعلومات التي نجمعها للأغراض التالية:',
+                list2_1: 'تأكيد ومعالجة حجوزات السفر والفنادق والرحلات.',
+                list2_2: 'التواصل معك بشأن تأكيدات الحجز والتحديثات المهمة.',
+                list2_3: 'تحسين خدماتنا وتخصيص العروض وفقاً لاهتماماتك.',
+                list2_4: 'إرسال عروض خاصة وخصومات حصرية (بموافقتك).',
+                list2_5: 'تحليل استخدام الموقع لتطوير تجربة المستخدم.',
+                highlight1: 'نحن لا نبيع أو نشارك بياناتك الشخصية مع أي طرف ثالث لأغراض تسويقية دون موافقتك الصريحة.',
+                h3: 'أمان البيانات',
+                p3: 'نحن نولي أمان بياناتك أهمية قصوى ونستخدم أحدث التقنيات لحمايتها:',
+                list3_1: 'التشفير المتقدم: جميع البيانات المنقولة عبر موقعنا مشفرة باستخدام بروتوكول SSL/TLS.',
+                list3_2: 'جدران الحماية: نستخدم أنظمة أمان متقدمة لحماية خوادمنا من الاختراقات.',
+                list3_3: 'الوصول المحدود: فقط الموظفون المصرح لهم يمكنهم الوصول إلى بياناتك لأغراض خدمية.',
+                list3_4: 'المراجعة الدورية: نقوم بمراجعة إجراءات الأمان بشكل دوري لضمان أعلى مستويات الحماية.',
+                h4: 'ملفات تعريف الارتباط (Cookies)',
+                p4: 'نستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربتك على موقعنا:',
+                list4_1: 'جلسات العمل: للحفاظ على حالة تسجيل الدخول وتفضيلاتك.',
+                list4_2: 'التحليلات: لفهم كيفية استخدام الزوار لموقعنا وتحسين المحتوى.',
+                list4_3: 'التخصيص: لتقديم عروض ومحتوى مخصص حسب اهتماماتك.',
+                list4_4: 'يمكنك التحكم في إعدادات Cookies من خلال متصفحك في أي وقت.',
+                h5: 'حقوقك',
+                p5: 'لك الحق في التحكم ببياناتك الشخصية. يمكنك:',
+                list5_1: 'الوصول: طلب نسخة من البيانات التي نحتفظ بها عنك.',
+                list5_2: 'التصحيح: طلب تصحيح أي معلومات غير دقيقة.',
+                list5_3: 'الحذف: طلب حذف بياناتك الشخصية (مع مراعاة المتطلبات القانونية).',
+                list5_4: 'إلغاء الاشتراك: إلغاء الاشتراك من رسائلنا التسويقية في أي وقت.',
+                highlight2: 'للتواصل بشأن خصوصية بياناتك، يرجى الاتصال بنا على 0555382038 أو عبر البريد الإلكتروني hamdan@sueudaltaayira.com',
+                h6: 'خصوصية الأطفال',
+                p6: 'موقعنا لا يستهدف الأطفال دون سن 13 عاماً. نحن لا نجمع معلومات شخصية من الأطفال عن علم. إذا اكتشفنا أننا جمعنا معلومات من طفل دون السن القانونية، سنتخذ خطوات لحذف هذه المعلومات فوراً.',
+                h7: 'تحديثات سياسة الخصوصية',
+                p7: 'قد نقوم بتحديث هذه السياسة من وقت لآخر. سيتم إعلامك بأي تغييرات جوهرية عبر موقعنا أو عبر البريد الإلكتروني. ننصحك بمراجعة هذه الصفحة بشكل دوري للاطلاع على أحدث التحديثات.',
+                h8: 'اتصل بنا',
+                p8: 'إذا كان لديك أي أسئلة أو استفسارات حول سياسة الخصوصية، لا تتردد في التواصل معنا:',
+                list6_1: 'الهاتف: 0555382038 (المالك) أو 0554126832 (العمل)',
+                list6_2: 'البريد الإلكتروني: hamdan@sueudaltaayira.com',
+                list6_3: 'العنوان: طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية',
+                backText: 'العودة إلى الرئيسية',
+                footerBrand: 'صعود الطائرة',
+                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinks: 'روابط سريعة',
+                footerServices: 'خدماتنا',
+                footerInfo: 'معلومات',
+                waLabel: 'تواصل واتساب',
+                aiTitle: 'مساعد صعود الطائرة AI',
+                aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. يمكنني مساعدتك في فهم سياسة الخصوصية والإجابة عن استفساراتك.',
+                aiPlaceholder: 'اسأل عن سياسة الخصوصية...',
+                footerRights: 'جميع الحقوق محفوظة',
+                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية'
+            },
+            en: {
+                logo: '<strong>Saeed Al-Taayira</strong>',
+                logoSub: 'Travel & Tourism',
+                navHome: 'Home',
+                navServices: 'Services',
+                navOffers: 'Offers',
+                navHotels: 'Hotels',
+                navPackages: 'Packages',
+                navRailway: 'Railway',
+                navCars: 'Cars',
+                navAbout: 'About',
+                navContact: 'Contact',
+                navCta: '📞 Book Now',
+                heroTitle: 'Privacy',
+                heroHighlight: 'Policy',
+                heroDesc: 'We at <strong>Saeed Al-Taayira Travel & Tourism</strong> are committed to protecting your privacy and personal information. This policy explains how we collect, use, and protect your information.',
+                updateText: 'Last Updated: ',
+                h1: 'Information We Collect',
+                p1: 'We at <strong>Saeed Al-Taayira Travel & Tourism</strong> collect the following information to provide our services:',
+                list1_1: 'Personal Information: Full name, phone number, email address, and contact details.',
+                list1_2: 'Booking Information: Trip details, hotel bookings, flight tickets, Umrah packages, and car rentals.',
+                list1_3: 'Payment Information: Secure payment data through approved payment gateways (we do not store credit card details).',
+                list1_4: 'Browsing Data: Information about your device and how you use our website to improve your experience.',
+                h2: 'How We Use Your Information',
+                p2: 'We use the information we collect for the following purposes:',
+                list2_1: 'Confirming and processing travel, hotel, and trip bookings.',
+                list2_2: 'Communicating with you about booking confirmations and important updates.',
+                list2_3: 'Improving our services and customizing offers based on your interests.',
+                list2_4: 'Sending special offers and exclusive discounts (with your consent).',
+                list2_5: 'Analyzing website usage to improve user experience.',
+                highlight1: 'We do not sell or share your personal data with any third party for marketing purposes without your explicit consent.',
+                h3: 'Data Security',
+                p3: 'We take data security very seriously and use the latest technologies to protect it:',
+                list3_1: 'Advanced Encryption: All data transmitted through our website is encrypted using SSL/TLS protocol.',
+                list3_2: 'Firewalls: We use advanced security systems to protect our servers from breaches.',
+                list3_3: 'Limited Access: Only authorized employees can access your data for service purposes.',
+                list3_4: 'Regular Reviews: We periodically review our security procedures to ensure the highest protection levels.',
+                h4: 'Cookies',
+                p4: 'We use cookies to improve your experience on our website:',
+                list4_1: 'Session Cookies: To maintain login status and your preferences.',
+                list4_2: 'Analytics: To understand how visitors use our website and improve content.',
+                list4_3: 'Personalization: To deliver customized offers and content based on your interests.',
+                list4_4: 'You can control cookie settings through your browser at any time.',
+                h5: 'Your Rights',
+                p5: 'You have the right to control your personal data. You can:',
+                list5_1: 'Access: Request a copy of the data we hold about you.',
+                list5_2: 'Correction: Request correction of any inaccurate information.',
+                list5_3: 'Deletion: Request deletion of your personal data (subject to legal requirements).',
+                list5_4: 'Unsubscribe: Unsubscribe from our marketing messages at any time.',
+                highlight2: 'For privacy-related inquiries, please contact us at 0555382038 or via email at hamdan@sueudaltaayira.com',
+                h6: 'Children\'s Privacy',
+                p6: 'Our website does not target children under 13 years of age. We do not knowingly collect personal information from children. If we discover that we have collected information from a child under the legal age, we will take steps to delete this information immediately.',
+                h7: 'Privacy Policy Updates',
+                p7: 'We may update this policy from time to time. You will be notified of any material changes via our website or email. We recommend reviewing this page periodically for the latest updates.',
+                h8: 'Contact Us',
+                p8: 'If you have any questions or concerns about our privacy policy, please do not hesitate to contact us:',
+                list6_1: 'Phone: 0555382038 (Owner) or 0554126832 (Work)',
+                list6_2: 'Email: hamdan@sueudaltaayira.com',
+                list6_3: 'Address: King Abdulaziz Road, Arar, Saudi Arabia',
+                backText: 'Back to Home',
+                footerBrand: 'Saeed Al-Taayira',
+                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinks: 'Quick Links',
+                footerServices: 'Services',
+                footerInfo: 'Info',
+                waLabel: 'WhatsApp',
+                aiTitle: 'Saeed Al-Taayira AI Assistant',
+                aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. I can help you understand our privacy policy and answer your questions.',
+                aiPlaceholder: 'Ask about privacy policy...',
+                footerRights: 'All Rights Reserved',
+                footerCredit: 'Designed & Developed ✧ with Vision'
+            }
+        };
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
+
+            const map = {
+                'logoText': 'logo',
+                'logoSlogan': 'logoSub',
+                'navHome': 'navHome',
+                'navServices': 'navServices',
+                'navOffers': 'navOffers',
+                'navHotels': 'navHotels',
+                'navPackages': 'navPackages',
+                'navRailway': 'navRailway',
+                'navCars': 'navCars',
+                'navAbout': 'navAbout',
+                'navContact': 'navContact',
+                'navCta': 'navCta',
+                'h1': 'h1',
+                'p1': 'p1',
+                'h2': 'h2',
+                'p2': 'p2',
+                'highlight1': 'highlight1',
+                'h3': 'h3',
+                'p3': 'p3',
+                'h4': 'h4',
+                'p4': 'p4',
+                'h5': 'h5',
+                'p5': 'p5',
+                'highlight2': 'highlight2',
+                'h6': 'h6',
+                'p6': 'p6',
+                'h7': 'h7',
+                'p7': 'p7',
+                'h8': 'h8',
+                'p8': 'p8',
+                'backText': 'backText',
+                'footerBrand': 'footerBrand',
+                'footerDesc': 'footerDesc',
+                'footerLinks': 'footerLinks',
+                'footerServices': 'footerServices',
+                'footerInfo': 'footerInfo',
+                'waLabel': 'waLabel',
+                'aiTitle': 'aiTitle',
+                'aiWelcome': 'aiWelcome',
+                'aiPlaceholder': 'aiPlaceholder',
+                'footerRights': 'footerRights',
+                'footerCredit': 'footerCredit'
+            };
+
+            for (const [id, key] of Object.entries(map)) {
+                const el = document.getElementById(id);
+                if (el && translations[lang] && translations[lang][key] !== undefined) {
+                    if (id === 'logoText' || id === 'footerBrand') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            }
+
+            // Update list items
+            const listItems = [
+                { id: 'list1', items: ['list1_1', 'list1_2', 'list1_3', 'list1_4'] },
+                { id: 'list2', items: ['list2_1', 'list2_2', 'list2_3', 'list2_4', 'list2_5'] },
+                { id: 'list3', items: ['list3_1', 'list3_2', 'list3_3', 'list3_4'] },
+                { id: 'list4', items: ['list4_1', 'list4_2', 'list4_3', 'list4_4'] },
+                { id: 'list5', items: ['list5_1', 'list5_2', 'list5_3', 'list5_4'] },
+                { id: 'list6', items: ['list6_1', 'list6_2', 'list6_3'] }
+            ];
+
+            listItems.forEach(({ id, items }) => {
+                const ul = document.getElementById(id);
+                if (ul) {
+                    const lis = ul.querySelectorAll('li');
+                    lis.forEach((li, index) => {
+                        if (index < items.length && translations[lang] && translations[lang][items[index]]) {
+                            // Keep the <strong> tags if present
+                            const strong = li.querySelector('strong');
+                            if (strong) {
+                                const text = translations[lang][items[index]];
+                                const parts = text.split(':');
+                                if (parts.length > 1) {
+                                    li.innerHTML =
+                                        `<strong>${parts[0]}:</strong> ${parts.slice(1).join(':')}`;
+                                } else {
+                                    li.innerHTML = text;
+                                }
+                            } else {
+                                li.textContent = translations[lang][items[index]];
+                            }
+                        }
+                    });
+                }
+            });
+
+            // Update hero section
+            const heroTitle = document.querySelector('.privacy-hero h1');
+            if (heroTitle) {
+                const highlight = heroTitle.querySelector('.highlight');
+                if (highlight) {
+                    const h1 = document.createElement('span');
+                    h1.textContent = translations[lang]['heroTitle'];
+                    heroTitle.innerHTML = '';
+                    heroTitle.appendChild(h1);
+                    const h2 = document.createElement('span');
+                    h2.className = 'highlight';
+                    h2.textContent = translations[lang]['heroHighlight'];
+                    heroTitle.appendChild(document.createTextNode(' '));
+                    heroTitle.appendChild(h2);
+                }
+            }
+            const heroDesc = document.querySelector('.privacy-hero p');
+            if (heroDesc) {
+                heroDesc.innerHTML = translations[lang]['heroDesc'];
+            }
+
+            // Update date
+            const updateText = document.getElementById('updateText');
+            if (updateText) {
+                const date = new Date();
+                const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر',
+                    'ديسمبر'
+                ];
+                const enMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                    'October', 'November', 'December'
+                ];
+                const monthArr = lang === 'ar' ? months : enMonths;
+                updateText.textContent =
+                    `${translations[lang]['updateText']} ${date.getDate()} ${monthArr[date.getMonth()]} ${date.getFullYear()}`;
+            }
+
+            // Update AI chat
+            const aiTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiTitle) {
+                const status = aiTitle.querySelector('.ai-status');
+                aiTitle.innerHTML = translations[lang]['aiTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` :
+                    '');
+            }
+            const welcomeMsg = chatMessages.querySelector('.msg.bot');
+            if (welcomeMsg) {
+                welcomeMsg.innerHTML = translations[lang]['aiWelcome'] + '<span class="time">الآن</span>';
+            }
+            const placeholder = document.getElementById('aiChatInput');
+            if (placeholder) {
+                placeholder.placeholder = translations[lang]['aiPlaceholder'];
+            }
+
+            // Update back button
+            const backBtn = document.getElementById('backText');
+            if (backBtn) {
+                backBtn.textContent = translations[lang]['backText'];
+            }
+
+            localStorage.setItem('lang', lang);
+        }
+
+        langToggle.addEventListener('click', () => {
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguage(newLang);
+        });
+
+        const savedLang = localStorage.getItem('lang') || 'ar';
+        applyLanguage(savedLang);
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+                        behavior: 'smooth' });
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                }
+            });
+        });
+
+        // ===== KEYBOARD SHORTCUTS =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (chatBox.classList.contains('open')) chatBox.classList.remove('open');
+            }
+        });
+
+        // ===== DYNAMIC FOOTER YEAR =====
+        document.querySelector('.footer-bottom').innerHTML =
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية`;
+
+        console.log('%c🔒 صعود الطائرة – سياسة الخصوصية', 'font-size:20px;font-weight:bold;color:#d4af37;');
+        console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
+        console.log('%c🔐 نحمي خصوصيتك – بياناتك آمنة معنا', 'font-size:13px;color:#888;');
+    </script>
 </body>
 </html>

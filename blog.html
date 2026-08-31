@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مدونة السفر – صعود الطائرة</title>
+    <meta name="description" content="أحدث المقالات والنصائح حول السفر والسياحة – دليلك الشامل لاكتشاف العالم." />
+    <link rel="canonical" href="https://sueud-altayira-website.vercel.app/blog.html" />
+    <meta name="google-site-verification" content="NUXJFyGqpEREN03eh19P0DeJ5hVYHo8qtaXTvsfuAI4" />
+    <meta property="og:title" content="مدونة السفر – صعود الطائرة" />
+    <meta property="og:description" content="أحدث المقالات والنصائح حول السفر والسياحة." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sueud-altayira-website.vercel.app/blog.html" />
+    <meta name="keywords" content="مدونة سفر, مقالات سياحية, نصائح سفر, وجهات سياحية, صعود الطائرة" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "مدونة السفر – صعود الطائرة",
+            "description": "أحدث المقالات والنصائح حول السفر والسياحة",
+            "url": "https://sueud-altayira-website.vercel.app/blog.html",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "صعود الطائرة للسفر والسياحة",
+                "url": "https://sueud-altayira-website.vercel.app"
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-dark: #061d3a;
+            --gold: #d4af37;
+            --gold-light: #f0d060;
+            --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
+            --glass-bg: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.06);
+            --text-muted: rgba(255,255,255,0.6);
+            --radius: 20px;
+            --font: 'Tajawal', sans-serif;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--primary-dark);
+            color: #f0f4ff;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        body.rtl { direction: rtl; text-align: right; }
+        body.ltr { direction: ltr; text-align: left; }
+        body.ltr .nav-links a { font-family: 'Segoe UI', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        #particles-canvas {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 14px 0; transition: 0.3s;
+            background: rgba(6,29,58,0.94);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212,175,55,0.1);
+        }
+        .header .container {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1320px; margin: 0 auto; padding: 0 24px;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.5rem; font-weight: 900; cursor: pointer;
+        }
+        .logo-icon {
+            font-size: 2.2rem; color: var(--gold);
+            animation: logoFloat 3s ease-in-out infinite;
+            display: flex; align-items: center; justify-content: center;
+        }
+        @keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .logo-text .main {
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;
+        }
+        .logo-text .sub {
+            font-size: 0.55rem; font-weight: 300; color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted); letter-spacing: 2px;
+        }
+        .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+        .nav-links a {
+            padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-muted); transition: 0.3s; position: relative;
+        }
+        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
+        .nav-links a.active::after {
+            content: ''; position: absolute; bottom: 4px; left: 50%;
+            transform: translateX(-50%); width: 18px; height: 2.5px;
+            background: var(--gold); border-radius: 4px;
+        }
+        .nav-cta {
+            background: var(--gold-gradient) !important; color: var(--primary-dark) !important;
+            font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
+        }
+        .nav-cta:hover { transform: scale(1.05); }
+        .lang-toggle {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 0.8rem; transition: 0.3s; font-family: inherit;
+        }
+        .lang-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1001;
+        }
+        .hamburger span { width: 28px; height: 2.5px; background: #fff; border-radius: 4px; transition: 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        @media (max-width:768px) {
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: rgba(6,29,58,0.97); flex-direction: column;
+                padding: 80px 28px 32px; transition: right 0.4s;
+                border-left: 1px solid rgba(255,255,255,0.04);
+            }
+            .nav-links.open { right: 0; }
+            .nav-links a { width: 100%; padding: 14px 18px; border-radius: 12px; }
+            .nav-links a.active::after { display: none; }
+            .nav-cta { margin-top: 8px; }
+            .hamburger { display: flex; }
+        }
+
+        /* ===== HERO ===== */
+        .blog-hero {
+            padding: 150px 24px 60px;
+            position: relative; overflow: hidden; background: var(--primary-dark); text-align: center;
+        }
+        .blog-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06), transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(108,60,224,0.04), transparent 60%);
+            z-index: 0;
+        }
+        .blog-hero .container { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; }
+        .blog-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .blog-hero h1 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blog-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* ===== SECTION ===== */
+        .section { padding: 60px 24px 80px; position: relative; z-index: 1; }
+        .section .container { max-width: 1320px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 48px; }
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+        .section-title h2 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+        .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
+
+        /* ===== FILTERS ===== */
+        .filters-section {
+            background: rgba(255,255,255,0.02);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            border: 1px solid rgba(255,255,255,0.04);
+            margin-bottom: 40px;
+        }
+        .filters-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+        .filters-row .filter-group {
+            flex: 1;
+            min-width: 160px;
+        }
+        .filters-row .filter-group label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .filters-row .filter-group input,
+        .filters-row .filter-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .filters-row .filter-group input:focus,
+        .filters-row .filter-group select:focus {
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.06);
+        }
+        .filters-row .filter-group select option { background: #0a1a2e; color: #fff; }
+        .filters-row .filter-group input::placeholder { color: rgba(255,255,255,0.25); }
+
+        /* ===== BLOG GRID ===== */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+        .blog-card {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212,175,55,0.15);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+        }
+        .blog-card .img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .blog-card .img .blog-badge {
+            position: absolute; top: 12px; right: 12px;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            padding: 2px 14px; border-radius: 50px; font-size: 0.65rem; font-weight: 700;
+        }
+        .blog-card .img .blog-date-badge {
+            position: absolute; bottom: 12px; left: 12px;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+            padding: 4px 14px; border-radius: 50px; font-size: 0.7rem;
+            color: var(--gold-light);
+        }
+        .blog-card .body { padding: 20px 22px 24px; }
+        .blog-card .body .blog-tag {
+            display: inline-block; padding: 2px 14px; border-radius: 50px;
+            background: rgba(212,175,55,0.08); color: var(--gold-light);
+            font-size: 0.6rem; border: 1px solid rgba(212,175,55,0.06);
+            margin-bottom: 8px;
+        }
+        .blog-card .body h3 {
+            font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .blog-card .body p {
+            color: var(--text-muted); font-size: 0.9rem; line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .blog-card .body .blog-meta {
+            display: flex; gap: 16px; font-size: 0.75rem; color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+        .blog-card .body .blog-meta i { color: var(--gold); margin-left: 4px; }
+        .blog-card .body .btn-sm {
+            padding: 8px 24px; border-radius: 50px; font-size: 0.8rem;
+            font-weight: 700; border: none; cursor: pointer;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            transition: 0.3s; font-family: inherit;
+            width: 100%;
+        }
+        .blog-card .body .btn-sm:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
+
+        /* ===== LOAD MORE ===== */
+        .load-more-btn {
+            display: block; margin: 40px auto 0; padding: 14px 50px;
+            border-radius: 60px; background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; border: none; cursor: pointer; font-size: 1rem;
+            transition: 0.3s; font-family: inherit;
+        }
+        .load-more-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
+
+        /* ===== BLOG DETAIL MODAL ===== */
+        .blog-modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(14px); z-index: 9999;
+            display: none; align-items: center; justify-content: center; padding: 24px;
+        }
+        .blog-modal.open { display: flex; animation: modalFade 0.4s ease; }
+        @keyframes modalFade { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+        .blog-modal .modal-content {
+            background: #0a1a2e; border-radius: 24px; max-width: 800px; width: 100%;
+            max-height: 90vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6); padding: 0; position: relative;
+        }
+        .blog-modal .modal-content .close-btn {
+            position: sticky; top: 12px; left: 16px; float: left;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+            color: #fff; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem;
+            cursor: pointer; transition: 0.3s; z-index: 10;
+            display: flex; align-items: center; justify-content: center;
+            margin: 12px 12px 0 0;
+        }
+        .blog-modal .modal-content .close-btn:hover { background: rgba(255,0,0,0.2); border-color: #ff4444; transform: rotate(90deg); }
+        .blog-modal .modal-body { padding: 0 30px 30px; }
+        .blog-modal .modal-body .blog-detail-img {
+            width: 100%; height: 250px; background-size: cover; background-position: center;
+            border-radius: 16px; margin-bottom: 20px;
+        }
+        .blog-modal .modal-body .blog-detail-meta {
+            display: flex; gap: 20px; font-size: 0.85rem; color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .blog-modal .modal-body .blog-detail-meta i { color: var(--gold); margin-left: 6px; }
+        .blog-modal .modal-body h2 { font-size: 1.8rem; font-weight: 800; color: var(--gold); margin-bottom: 12px; }
+        .blog-modal .modal-body .blog-detail-content {
+            color: var(--text-muted); font-size: 1rem; line-height: 2;
+        }
+        .blog-modal .modal-body .blog-detail-content p { margin-bottom: 16px; }
+        .blog-modal .modal-body .blog-share {
+            display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;
+        }
+        .blog-modal .modal-body .blog-share span {
+            color: var(--text-muted); font-size: 0.85rem; display: flex; align-items: center; gap: 8px;
+        }
+        .blog-modal .modal-body .blog-share a {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted); transition: 0.3s;
+        }
+        .blog-modal .modal-body .blog-share a:hover {
+            background: rgba(212,175,55,0.12); border-color: var(--gold); color: var(--gold);
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter-section {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .newsletter-section h3 { font-size: 1.5rem; font-weight: 800; color: var(--gold); margin-bottom: 8px; }
+        .newsletter-section p { color: var(--text-muted); margin-bottom: 20px; }
+        .newsletter-section .newsletter-form {
+            display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap;
+        }
+        .newsletter-section .newsletter-form input {
+            flex: 1; padding: 12px 18px; border-radius: 50px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            color: #fff; font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
+            min-width: 200px;
+        }
+        .newsletter-section .newsletter-form input:focus { border-color: var(--gold); background: rgba(255,255,255,0.06); }
+        .newsletter-section .newsletter-form button {
+            padding: 12px 32px; border-radius: 50px; border: none;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit;
+        }
+        .newsletter-section .newsletter-form button:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
+        .newsletter-status { margin-top: 12px; font-size: 0.9rem; color: #4ade80; }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed; bottom: 28px; left: 28px; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+        }
+        .whatsapp-float .wa-btn {
+            width: 68px; height: 68px; border-radius: 50%; background: #25d366; color: #fff;
+            font-size: 2.4rem; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 40px rgba(37,211,102,0.3); transition: 0.3s; border: none; cursor: pointer;
+            animation: waPulse 2.8s ease-in-out infinite;
+        }
+        .whatsapp-float .wa-btn:hover { transform: scale(1.1); }
+        .whatsapp-float .wa-label {
+            font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
+            padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
+
+        /* ===== AI CHAT ===== */
+        .ai-chat-toggle {
+            position: fixed; bottom: 100px; right: 28px; z-index: 9998;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
+            font-size: 1.8rem; border: none; cursor: pointer;
+            box-shadow: 0 8px 40px rgba(108,60,224,0.35); transition: 0.3s;
+            animation: aiPulse 3s ease-in-out infinite;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .ai-chat-toggle:hover { transform: scale(1.1); }
+        @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35)} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06)} }
+        .ai-chat-box {
+            position: fixed; bottom: 175px; right: 28px; z-index: 9997;
+            width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
+            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            display: none; flex-direction: column; overflow: hidden;
+        }
+        .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
+        @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+        .ai-chat-header {
+            padding: 16px 20px; background: rgba(108,60,224,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+        }
+        .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .ai-chat-header .title i { color: #a855f7; }
+        .ai-chat-header .title .ai-status { font-size: 0.6rem; color: #4ade80; font-weight: 400; }
+        .ai-chat-header .close-btn {
+            background: none; border: none; color: var(--text-muted); font-size: 1.2rem;
+            cursor: pointer; transition: 0.3s; padding: 4px;
+        }
+        .ai-chat-header .close-btn:hover { color: #fff; transform: rotate(90deg); }
+        .ai-chat-messages {
+            flex: 1; padding: 16px 18px; overflow-y: auto; max-height: 350px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .ai-chat-messages .msg {
+            padding: 10px 16px; border-radius: 16px; max-width: 85%; font-size: 0.9rem;
+            line-height: 1.6; animation: msgPop 0.3s ease;
+        }
+        @keyframes msgPop { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
+        .ai-chat-messages .msg.bot {
+            background: rgba(108,60,224,0.12); border: 1px solid rgba(108,60,224,0.08);
+            align-self: flex-start; border-bottom-right-radius: 4px;
+        }
+        .ai-chat-messages .msg.user {
+            background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.06);
+            align-self: flex-end; border-bottom-left-radius: 4px;
+        }
+        .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
+        .ai-chat-input {
+            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
+            display: flex; gap: 10px; flex-shrink: 0;
+        }
+        .ai-chat-input input {
+            flex: 1; padding: 10px 16px; border-radius: 50px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
+        }
+        .ai-chat-input input:focus { border-color: #a855f7; }
+        .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
+        .ai-chat-input button {
+            padding: 10px 20px; border-radius: 50px; border: none;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
+            font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit;
+        }
+        .ai-chat-input button:hover { transform: scale(1.04); }
+        .ai-chat-typing { display: none; padding: 8px 16px; color: var(--text-muted); font-size: 0.8rem; font-style: italic; }
+        .ai-chat-typing.show { display: block; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 60px 24px 30px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            background: rgba(6,29,58,0.5);
+            backdrop-filter: blur(12px);
+        }
+        .footer .container {
+            max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+        }
+        .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
+        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
+        .footer .brand .socials a {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted); transition: 0.3s;
+        }
+        .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+        .footer ul li { margin-bottom: 6px; }
+        .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
+        .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
+        .footer-bottom {
+            max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            text-align: center; color: var(--text-muted); font-size: 0.8rem;
+        }
+        .footer-bottom span { color: var(--gold); }
+
+        /* ===== REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== SCROLL TOP ===== */
+        .scroll-top {
+            position: fixed; bottom: 100px; left: 28px; z-index: 9998;
+            width: 50px; height: 50px; border-radius: 50%; background: var(--gold-gradient);
+            color: var(--primary-dark); border: none; font-size: 1.4rem; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212,175,55,0.3); transition: 0.3s;
+            display: none; align-items: center; justify-content: center;
+        }
+        .scroll-top:hover { transform: scale(1.1); }
+        .scroll-top.show { display: flex; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width:768px) {
+            .blog-grid { grid-template-columns: 1fr 1fr; }
+            .filters-row .filter-group { min-width: 120px; flex: 1 1 45%; }
+            .ai-chat-box { width: calc(100vw - 32px); right: 16px; bottom: 155px; max-height: 450px; }
+            .ai-chat-toggle { right: 16px; bottom: 85px; width: 50px; height: 50px; font-size: 1.4rem; }
+            .blog-hero { padding: 120px 16px 40px; }
+            .footer .container { grid-template-columns: 1fr; text-align: center; }
+            .footer .brand .socials { justify-content: center; }
+            .blog-modal .modal-body { padding: 0 16px 20px; }
+            .blog-modal .modal-body .blog-detail-img { height: 180px; }
+            .newsletter-section .newsletter-form input { min-width: 100%; }
+        }
+        @media (max-width:480px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .filters-row { flex-direction: column; }
+            .filters-row .filter-group { min-width: 100%; }
+            .section { padding: 40px 16px 60px; }
+            .blog-hero h1 { font-size: 2rem; }
+            .newsletter-section { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== PARTICLES ===== -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo" id="logoLink">
+                <span class="logo-icon">✈️</span>
+                <span class="logo-text">
+                    <span class="main" id="logoMain">صعود الطائرة</span>
+                    <span class="sub" id="logoSub">للسفر والسياحة</span>
+                </span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" id="navHome">الرئيسية</a>
+                <a href="services.html" id="navServices">خدماتنا</a>
+                <a href="offers.html" id="navOffers">عروض</a>
+                <a href="hotels.html" id="navHotels">فنادق</a>
+                <a href="packages.html" id="navPackages">باقات</a>
+                <a href="railway.html" id="navRailway">قطارات</a>
+                <a href="cars.html" id="navCars">سيارات</a>
+                <a href="about.html" id="navAbout">من نحن</a>
+                <a href="contact.html" id="navContact">اتصل بنا</a>
+                <a href="blog.html" class="active" id="navBlog">📝 مدونة</a>
+                <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
+            </nav>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
+                <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1><span id="heroTitle1">📝 مدونة</span> <span class="highlight" id="heroTitle2">السفر</span></h1>
+            <p id="heroDesc">أحدث المقالات والنصائح حول السفر والسياحة – دليلك الشامل لاكتشاف العالم</p>
+        </div>
+    </section>
+
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <!-- ===== FILTERS ===== -->
+            <div class="filters-section reveal">
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label><i class="fas fa-search"></i> <span id="searchLabel">بحث</span></label>
+                        <input type="text" id="blogSearch" placeholder="ابحث عن مقال..." onkeyup="filterBlogs()" />
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-tag"></i> <span id="categoryLabel">التصنيف</span></label>
+                        <select id="blogCategory" onchange="filterBlogs()">
+                            <option value="all" id="catAll">جميع المقالات</option>
+                            <option value="destinations" id="catDestinations">وجهات سياحية</option>
+                            <option value="tips" id="catTips">نصائح سفر</option>
+                            <option value="umrah" id="catUmrah">عمرة</option>
+                            <option value="hotels" id="catHotels">فنادق</option>
+                            <option value="flights" id="catFlights">طيران</option>
+                            <option value="culture" id="catCulture">ثقافة</option>
+                        </select>
+                    </div>
+                    <div class="filter-group" style="flex:0.5;display:flex;align-items:flex-end;">
+                        <button onclick="resetBlogFilters()" style="padding:10px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
+                            <i class="fas fa-undo"></i> <span id="resetBtn">إعادة تعيين</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== BLOG GRID ===== -->
+            <div class="blog-grid" id="blogGrid"></div>
+
+            <!-- ===== LOAD MORE ===== -->
+            <button class="load-more-btn" id="loadMoreBlog"><span id="loadMoreText">عرض المزيد من المقالات</span></button>
+
+            <!-- ===== NEWSLETTER ===== -->
+            <div class="newsletter-section reveal">
+                <h3 id="newsletterTitle">📬 اشترك في النشرة البريدية</h3>
+                <p id="newsletterDesc">احصل على أحدث المقالات والعروض الحصرية مباشرة إلى بريدك الإلكتروني</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="أدخل بريدك الإلكتروني..." required />
+                    <button type="submit" id="newsletterBtn">اشترك الآن</button>
+                </form>
+                <div class="newsletter-status" id="newsletterStatus"></div>
+            </div>
+
+            <!-- ===== BACK TO HOME ===== -->
+            <div style="text-align:center;margin-top:30px;">
+                <a href="index.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
+                    <i class="fas fa-arrow-right"></i> <span id="backHomeBtn">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG DETAIL MODAL ===== -->
+    <div class="blog-modal" id="blogModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeBlogModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="blogModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                    <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="footerBrand"><strong>صعود الطائرة</strong></span>
+                </div>
+                <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 id="footerLinksTitle">روابط سريعة</h5>
+                <ul>
+                    <li><a href="index.html" id="fNavHome">الرئيسية</a></li>
+                    <li><a href="services.html" id="fNavServices">خدماتنا</a></li>
+                    <li><a href="offers.html" id="fNavOffers">عروض</a></li>
+                    <li><a href="hotels.html" id="fNavHotels">فنادق</a></li>
+                    <li><a href="packages.html" id="fNavPackages">باقات</a></li>
+                    <li><a href="railway.html" id="fNavRailway">قطارات</a></li>
+                    <li><a href="cars.html" id="fNavCars">سيارات</a></li>
+                    <li><a href="about.html" id="fNavAbout">من نحن</a></li>
+                    <li><a href="contact.html" id="fNavContact">اتصل بنا</a></li>
+                    <li><a href="blog.html" id="fNavBlog">📝 مدونة</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 id="footerServicesTitle">خدماتنا</h5>
+                <ul>
+                    <li><a href="services.html" id="fServFlights">تذاكر طيران</a></li>
+                    <li><a href="services.html" id="fServUmrah">باقات العمرة</a></li>
+                    <li><a href="services.html" id="fServVisa">تأشيرات</a></li>
+                    <li><a href="hotels.html" id="fServHotels">فنادق</a></li>
+                    <li><a href="cars.html" id="fServCars">تأجير سيارات</a></li>
+                    <li><a href="railway.html" id="fServRailway">قطارات</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 id="footerInfoTitle">معلومات</h5>
+                <ul>
+                    <li><a href="about.html" id="fInfoAbout">عن الوكالة</a></li>
+                    <li><a href="contact.html" id="fInfoContact">اتصل بنا</a></li>
+                    <li><a href="privacy.html" id="fInfoPrivacy">سياسة الخصوصية</a></li>
+                    <li><a href="terms.html" id="fInfoTerms">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+    </footer>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+        <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
+    </div>
+
+    <!-- ===== AI CHAT ===== -->
+    <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
+    <div class="ai-chat-box" id="aiChatBox">
+        <div class="ai-chat-header">
+            <div class="title"><i class="fas fa-robot"></i> <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span></div>
+            <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+            <div class="msg bot" id="aiWelcomeMsg">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل المقالات والنصائح للسفر!<span class="time">الآن</span></div>
+        </div>
+        <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="اسأل عن السفر..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
+            <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- ===== SCROLL TOP ===== -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // ===== PARTICLES =====
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            const particles = [];
+            const COUNT = 60;
+
+            function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.size = Math.random() * 2.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.4;
+                    this.speedY = (Math.random() - 0.5) * 0.4;
+                    this.opacity = Math.random() * 0.3 + 0.05;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > w) this.speedX *= -1;
+                    if (this.y < 0 || this.y > h) this.speedY *= -1;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+            for (let i = 0; i < COUNT; i++) particles.push(new Particle());
+
+            function drawLines() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 150) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(212, 175, 55, ${0.04 * (1 - dist / 150)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                particles.forEach(p => { p.update(); p.draw(); });
+                drawLines();
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // ===== HAMBURGER =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // ===== SCROLL REVEAL =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal, .blog-card').forEach(el => observer.observe(el));
+
+        // ===== SCROLL TOP =====
+        const scrollBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollBtn.classList.toggle('show', window.pageYOffset > 300);
+        });
+
+        // ===== BLOG DATA =====
+        const blogData = [
+            { id:1, title:'أفضل 10 وجهات سياحية في العالم', desc:'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم – من باريس إلى بالي، ودبي إلى كيب تاون.', 
+              tag:'وجهات سياحية', category:'destinations', 
+              img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', 
+              date:'1 أغسطس 2026', author:'فريق صعود الطائرة',
+              content:'<p>السفر هو أحد أجمل التجارب في الحياة، واكتشاف أماكن جديدة يمنحنا ذكريات لا تُنسى. في هذا المقال، نستعرض أفضل 10 وجهات سياحية حول العالم التي يجب عليك زيارتها في 2026.</p><p>من شواطئ بالي الخلابة إلى معالم باريس الرومانسية، ومن ناطحات سحاب دبي إلى جمال كيب تاون الطبيعي، هناك وجهة تناسب كل الأذواق. سواء كنت تبحث عن مغامرة، استرخاء، أو استكشاف ثقافي، هذه الوجهات تقدم لك كل ذلك.</p><p>لا تنسَ التخطيط لرحلتك مع <strong>صعود الطائرة</strong> للحصول على أفضل العروض والخدمات السياحية المتكاملة.</p>' },
+            { id:2, title:'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc:'نصائح وإرشادات لرحلة مثالية إلى دبي – من الفنادق إلى المعالم السياحية والمطاعم.', 
+              tag:'دليل سفر', category:'destinations', 
+              img:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', 
+              date:'29 يوليو 2026', author:'فريق صعود الطائرة',
+              content:'<p>دبي هي واحدة من أكثر المدن جذباً للسياح في العالم. في هذا الدليل الشامل، نقدم لك كل ما تحتاج معرفته قبل السفر إلى دبي.</p><p>من أفضل الفنادق في المدينة، إلى المعالم السياحية الأكثر شهرة مثل برج خليفة ونافورة دبي، بالإضافة إلى المطاعم الشهيرة ووجهات التسوق. سوف نقدم لك أيضاً نصائح عملية حول التنقل في المدينة وأفضل أوقات الزيارة.</p><p>احجز رحلتك مع <strong>صعود الطائرة</strong> واستمتع بعطلة لا تُنسى في دبي.</p>' },
+            { id:3, title:'كيف تحجز عمرة بسهولة؟', desc:'خطوات بسيطة لحجز عمرة مميزة ومريحة – من التأشيرة إلى السكن والمواصلات.', 
+              tag:'عمرة', category:'umrah', 
+              img:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', 
+              date:'25 يوليو 2026', author:'فريق صعود الطائرة',
+              content:'<p>أداء العمرة هو حلم لكل مسلم. في هذا المقال، نقدم لك دليلاً شاملاً حول كيفية حجز عمرة بسهولة وبأفضل الأسعار.</p><p>الخطوات تشمل: اختيار الباقة المناسبة، التأكد من صلاحية جواز السفر، حجز التأشيرة، اختيار السكن القريب من الحرم، والمواصلات الداخلية. كما نقدم لك نصائح حول أفضل الأوقات لأداء العمرة.</p><p>تواصل مع <strong>صعود الطائرة</strong> للحصول على أفضل باقات العمرة بأسعار تنافسية.</p>' },
+            { id:4, title:'أفضل فنادق مكة قرب الحرم', desc:'دليل شامل لأفضل الفنادق القريبة من الحرم المكي – فاخرة واقتصادية.', 
+              tag:'فنادق', category:'hotels', 
+              img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop', 
+              date:'20 يوليو 2026', author:'فريق صعود الطائرة',
+              content:'<p>مكة المكرمة هي وجهة الحج والعمرة لكل مسلم. اختيار فندق قريب من الحرم المكي يسهل أداء المناسك ويوفر الوقت والجهد.</p><p>في هذا الدليل، نستعرض أفضل الفنادق القريبة من الحرم، من الفاخرة إلى الاقتصادية، مع مقارنة الأسعار والخدمات. كما نقدم نصائح حول كيفية الحجز المسبق للحصول على أفضل العروض.</p><p>احجز فندقك مع <strong>صعود الطائرة</strong> واستمتع بإقامة مريحة قرب الحرم.</p>' },
+            { id:5, title:'رحلة إلى باريس – مدينة النور', desc:'استكشف أجمل معالم باريس مع نصائح السفر – من برج إيفل إلى متحف اللوفر.', 
+              tag:'سفر', category:'destinations', 
+              img:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop', 
+              date:'15 يوليو 2026', author:'فريق صعود الطائرة',
+              content:'<p>باريس، مدينة النور والحب، هي واحدة من أكثر المدن زيارة في العالم. في هذا المقال، نأخذك في جولة إلى أهم معالم باريس.</p><p>من برج إيفل الشهير، إلى متحف اللوفر الذي يضم لوحة الموناليزا، ومن كاتدرائية نوتردام إلى شارع الشانزليزيه، هناك الكثير لاكتشافه. نقدم لك أيضاً نصائح حول أفضل المطاعم والمقاهي في المدينة.</p><p>خطط لرحلتك إلى باريس مع <strong>صعود الطائرة</strong> واستمتع بتجربة لا تُنسى.</p>' },
+            { id:6, title:'تأشيرة السياحة إلى أوروبا – دليل كامل', desc:'كل ما تحتاج معرفته عن تأشيرة شنغن – المستندات، الإجراءات، والنصائح.', 
+              tag:'تأشيرات', category:'flights', 
+              img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', 
+              date:'10 يوليو 2026', author:'فريق صعود الطائرة',
+              content:'<p>السفر إلى أوروبا يتطلب الحصول على تأشيرة شنغن في معظم الحالات. في هذا الدليل، نقدم لك كل ما تحتاج معرفته عن تأشيرة شنغن.</p><p>نستعرض المستندات المطلوبة، إجراءات التقديم، الرسوم، ونصائح لتجنب رفض التأشيرة. كما نقدم معلومات حول مدة المعالجة وأفضل وقت للتقديم.</p><p>تواصل مع <strong>صعود الطائرة</strong> للحصول على مساعدة في إجراءات التأشيرة.</p>' },
+            { id:7, title:'السفر إلى اسطنبول – عبق التاريخ', desc:'اكتشف جمال اسطنبول بين الماضي والحاضر – من آيا صوفيا إلى البازار الكبير.', 
+              tag:'سياحة', category:'destinations', 
+              img:'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&h=400&fit=crop', 
+              date:'5 يوليو 2026', author:'فريق صعود الطائرة',
+              content:'<p>اسطنبول هي المدينة التي تجمع بين الشرق والغرب، التاريخ والحداثة. في هذا المقال، نستعرض أجمل معالم اسطنبول.</p><p>من آيا صوفيا والمسجد الأزرق، إلى البازار الكبير وقصر توبكابي، هناك الكثير لاكتشافه. نقدم لك أيضاً نصائح حول أفضل المطاعم والفنادق في المدينة.</p><p>احجز رحلتك إلى اسطنبول مع <strong>صعود الطائرة</strong> واستمتع بتجربة فريدة.</p>' },
+            { id:8, title:'نصائح لتوفير المال أثناء السفر', desc:'طرق ذكية لتوفير المال دون التأثير على متعة الرحلة – من الحجز إلى الإقامة.', 
+              tag:'نصائح سفر', category:'tips', 
+              img:'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop', 
+              date:'28 يونيو 2026', author:'فريق صعود الطائرة',
+              content:'<p>السفر لا يجب أن يكون مكلفاً. في هذا المقال، نقدم لك نصائح ذكية لتوفير المال أثناء السفر دون التضحية بالمتعة.</p><p>من الحجز المبكر، إلى اختيار الفنادق الاقتصادية، إلى استخدام وسائل النقل العامة، هناك العديد من الطرق لتوفير المال. كما نقدم نصائح حول العروض والخصومات المتاحة.</p><p>استفد من خدمات <strong>صعود الطائرة</strong> للحصول على أفضل العروض والأسعار.</p>' },
+            { id:9, title:'أفضل الوجهات للعطلات العائلية', desc:'وجهات مناسبة للعائلات مع أنشطة للأطفال – من أورلاندو إلى أنطاليا.', 
+              tag:'عائلات', category:'destinations', 
+              img:'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop', 
+              date:'20 يونيو 2026', author:'فريق صعود الطائرة',
+              content:'<p>العطلات العائلية هي فرصة رائعة لخلق ذكريات لا تُنسى. في هذا المقال، نستعرض أفضل الوجهات المناسبة للعائلات.</p><p>من أورلاندو في الولايات المتحدة، إلى أنطاليا في تركيا، إلى دبي في الإمارات، هناك العديد من الوجهات التي تقدم أنشطة ممتعة للأطفال والكبار على حد سواء.</p><p>خطط لعطلتك العائلية مع <strong>صعود الطائرة</strong> واحصل على أفضل العروض.</p>' },
+            { id:10, title:'رحلات بحرية – تجربة لا تُنسى', desc:'استمتع برحلة بحرية فاخرة مع أجمل المناظر – من الكاريبي إلى البحر الأبيض المتوسط.', 
+              tag:'رحلات بحرية', category:'culture', 
+              img:'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop', 
+              date:'15 يونيو 2026', author:'فريق صعود الطائرة',
+              content:'<p>الرحلات البحرية هي واحدة من أروع تجارب السفر. في هذا المقال، نستعرض أفضل وجهات الرحلات البحرية حول العالم.</p><p>من جزر الكاريبي الاستوائية، إلى البحر الأبيض المتوسط الجميل، إلى المضايق النرويجية الخلابة، هناك رحلة بحرية تناسب كل الأذواق. نقدم لك أيضاً نصائح حول اختيار السفينة والرحلات البرية.</p><p>احجز رحلتك البحرية مع <strong>صعود الطائرة</strong> واستمتع بتجربة فاخرة.</p>' },
+            { id:11, title:'دليل السفر إلى لندن – العاصمة البريطانية', desc:'كل ما تحتاج معرفته عن لندن – المعالم، الفنادق، المطاعم، ووسائل النقل.', 
+              tag:'دليل سفر', category:'destinations', 
+              img:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop', 
+              date:'10 يونيو 2026', author:'فريق صعود الطائرة',
+              content:'<p>لندن هي واحدة من أكثر المدن تنوعاً في العالم. في هذا الدليل، نقدم لك كل ما تحتاج معرفته عن العاصمة البريطانية.</p><p>من بيغ بن وبرج لندن، إلى متحف التاريخ الطبيعي وقصر باكنغهام، هناك الكثير لاكتشافه. كما نقدم لك نصائح حول أفضل الفنادق والمطاعم ووسائل النقل في المدينة.</p><p>خطط لرحلتك إلى لندن مع <strong>صعود الطائرة</strong> واستمتع بتجربة لا تُنسى.</p>' },
+            { id:12, title:'السياحة في نيويورك – المدينة التي لا تنام', desc:'استكشف معالم نيويورك الشهيرة – من تمثال الحرية إلى سنترال بارك.', 
+              tag:'سياحة', category:'destinations', 
+              img:'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop', 
+              date:'5 يونيو 2026', author:'فريق صعود الطائرة',
+              content:'<p>نيويورك هي المدينة التي لا تنام، وتقدم تجربة فريدة لكل زائر. في هذا المقال، نستعرض أهم معالم نيويورك.</p><p>من تمثال الحرية وشارع الخامس، إلى سنترال بارك وبرج إمباير ستيت، هناك الكثير لاكتشافه. نقدم لك أيضاً نصائح حول أفضل المطاعم والمتاحف في المدينة.</p><p>احجز رحلتك إلى نيويورك مع <strong>صعود الطائرة</strong> واستمتع بتجربة لا تُنسى.</p>' }
+        ];
+
+        // ===== STATE =====
+        let blogDisplayCount = 6;
+        let filteredBlogs = [...blogData];
+
+        // ===== RENDER BLOGS =====
+        function renderBlogs(count) {
+            const toShow = filteredBlogs.slice(0, count);
+            const grid = document.getElementById('blogGrid');
+            grid.innerHTML = '';
+            if (toShow.length === 0) {
+                grid.innerHTML =
+                    `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:1.2rem;">
+                        <i class="fas fa-search" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
+                        <span id="noBlogs">لا توجد مقالات مطابقة لبحثك</span>
+                    </div>`;
+                document.getElementById('loadMoreBlog').style.display = 'none';
+                return;
+            }
+            toShow.forEach((post, i) => {
+                const card = document.createElement('div');
+                card.className = 'blog-card reveal';
+                card.style.transitionDelay = `${i * 0.04}s`;
+                const tagColors = {
+                    'وجهات سياحية':'#fbbf24',
+                    'دليل سفر':'#60a5fa',
+                    'عمرة':'#34d399',
+                    'فنادق':'#f472b6',
+                    'سفر':'#a78bfa',
+                    'تأشيرات':'#f87171',
+                    'سياحة':'#fbbf24',
+                    'نصائح سفر':'#34d399',
+                    'عائلات':'#60a5fa',
+                    'رحلات بحرية':'#38bdf8'
+                };
+                const color = tagColors[post.tag] || '#d4af37';
+                card.innerHTML = `
+                    <div class="img" style="background-image:url('${post.img}');">
+                        <span class="blog-badge" style="background:${color};color:#000;">${post.tag}</span>
+                        <span class="blog-date-badge"><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                    </div>
+                    <div class="body">
+                        <span class="blog-tag">${post.tag}</span>
+                        <h3>${post.title}</h3>
+                        <p>${post.desc}</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-user"></i> ${post.author}</span>
+                            <span><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                        </div>
+                        <button class="btn-sm" onclick="openBlog(${post.id})"><i class="fas fa-book-open"></i> قراءة المزيد</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            document.querySelectorAll('.blog-card.reveal').forEach(el => observer.observe(el));
+            const loadBtn = document.getElementById('loadMoreBlog');
+            if (count >= filteredBlogs.length) loadBtn.style.display = 'none';
+            else loadBtn.style.display = 'block';
+        }
+
+        // ===== FILTER BLOGS =====
+        function filterBlogs() {
+            const search = document.getElementById('blogSearch').value.toLowerCase().trim();
+            const category = document.getElementById('blogCategory').value;
+
+            filteredBlogs = blogData.filter(p => {
+                if (search && !p.title.toLowerCase().includes(search) && !p.desc.toLowerCase().includes(search)) return false;
+                if (category !== 'all' && p.category !== category) return false;
+                return true;
+            });
+
+            blogDisplayCount = 6;
+            renderBlogs(blogDisplayCount);
+        }
+
+        // ===== RESET FILTERS =====
+        function resetBlogFilters() {
+            document.getElementById('blogSearch').value = '';
+            document.getElementById('blogCategory').value = 'all';
+            filterBlogs();
+        }
+
+        // ===== LOAD MORE =====
+        document.getElementById('loadMoreBlog').addEventListener('click', function() {
+            blogDisplayCount += 6;
+            renderBlogs(blogDisplayCount);
+        });
+
+        // ===== OPEN BLOG =====
+        function openBlog(id) {
+            const post = blogData.find(p => p.id === id);
+            if (!post) return;
+            const modal = document.getElementById('blogModal');
+            const body = document.getElementById('blogModalBody');
+            body.innerHTML = `
+                <div class="blog-detail-img" style="background-image:url('${post.img}');"></div>
+                <div class="blog-detail-meta">
+                    <span><i class="fas fa-user"></i> ${post.author}</span>
+                    <span><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                    <span><i class="fas fa-tag"></i> ${post.tag}</span>
+                </div>
+                <h2>${post.title}</h2>
+                <div class="blog-detail-content">${post.content}</div>
+                <div class="blog-share">
+                    <span><i class="fas fa-share-alt"></i> شارك المقال:</span>
+                    <a href="https://wa.me/?text=${encodeURIComponent(post.title + ' - ' + window.location.href)}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(post.title + '\n\n' + window.location.href)}"><i class="fas fa-envelope"></i></a>
+                </div>
+            `;
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogModal() {
+            document.getElementById('blogModal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+        document.getElementById('blogModal').addEventListener('click', function(e) {
+            if (e.target === this) closeBlogModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeBlogModal();
+        });
+
+        // ===== NEWSLETTER =====
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value.trim();
+            const status = document.getElementById('newsletterStatus');
+            if (!email) {
+                status.textContent = '⚠️ الرجاء إدخال بريد إلكتروني صحيح';
+                status.style.color = '#f87171';
+                return;
+            }
+            status.textContent = '✅ جاري الاشتراك...';
+            status.style.color = '#4ade80';
+            setTimeout(() => {
+                // Send to WORK NUMBER 0554126832
+                const msg = `📬 اشتراك في النشرة البريدية\nالبريد الإلكتروني: ${email}`;
+                window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
+                status.textContent = '✅ تم الاشتراك بنجاح! سنرسل لك أحدث المقالات والعروض.';
+                this.reset();
+                setTimeout(() => status.textContent = '', 5000);
+            }, 700);
+        });
+
+        // ===== INITIAL RENDER =====
+        renderBlogs(blogDisplayCount);
+
+        // ===== AI CHAT =====
+        const chatBox = document.getElementById('aiChatBox');
+        const chatMessages = document.getElementById('aiChatMessages');
+        const chatInput = document.getElementById('aiChatInput');
+        const typingIndicator = document.getElementById('aiTyping');
+
+        const aiKnowledge = {
+            'مرحبا':'👋 أهلاً بك! كيف يمكنني مساعدتك في العثور على مقالات مفيدة عن السفر؟',
+            'السلام عليكم':'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟',
+            'سفر':'✈️ لدينا مقالات عن أفضل الوجهات، نصائح السفر، تأشيرات، فنادق، وعمرة. أخبرني ما الذي تبحث عنه.',
+            'وجهة':'🌍 لدينا مقالات عن دبي، باريس، اسطنبول، لندن، نيويورك، مكة، وغيرها.',
+            'فندق':'🏨 يمكنك قراءة مقالنا عن أفضل فنادق مكة قرب الحرم، وفنادق دبي الفاخرة.',
+            'عمرة':'🕋 لدينا دليل كامل لحجز العمرة بسهولة مع نصائح مهمة.',
+            'نصائح':'💡 اقرأ مقال نصائح لتوفير المال أثناء السفر للحصول على أفضل العروض.',
+            'شكرا':'🙏 العفو! سعداء بمساعدتك.',
+            'hello':'👋 Welcome! How can I help you find travel articles?',
+            'travel':'✈️ We have articles about destinations, travel tips, visas, hotels, and Umrah.',
+            'hotel':'🏨 Read our article about the best hotels near Haram in Makkah.',
+            'umrah':'🕋 We have a complete guide to booking Umrah easily.',
+            'tips':'💡 Read our tips for saving money while traveling.',
+            'thanks':'🙏 You\'re welcome!'
+        };
+        const defaultReplies = [
+            '🤖 شكراً لسؤالك! يمكنك تصفح جميع المقالات في الأعلى أو البحث عن موضوع معين.',
+            '📱 يمكنك مراسلتنا على واتساب 0555382038 للاستفسار عن أي مقال.',
+            '🌍 اكتشف مقالاتنا عن أفضل الوجهات السياحية حول العالم.',
+            '✈️ صعود الطائرة وجهتك الأولى للسفر. تصفح مدونتنا للحصول على نصائح مفيدة.'
+        ];
+
+        function getAIResponse(text) {
+            const lower = text.toLowerCase().trim();
+            for (const [key, response] of Object.entries(aiKnowledge)) {
+                if (lower.includes(key)) return response;
+            }
+            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
+        }
+
+        window.toggleAIChat = function() {
+            chatBox.classList.toggle('open');
+            if (chatBox.classList.contains('open')) chatInput.focus();
+        };
+
+        function addMessage(type, text) {
+            const msg = document.createElement('div');
+            msg.className = `msg ${type}`;
+            const time = new Date().toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' });
+            msg.innerHTML = `${text}<span class="time">${time}</span>`;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        window.sendAIMessage = function() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            addMessage('user', text);
+            chatInput.value = '';
+            typingIndicator.classList.add('show');
+            setTimeout(() => {
+                typingIndicator.classList.remove('show');
+                addMessage('bot', getAIResponse(text));
+            }, 500 + Math.random() * 800);
+        };
+
+        // ===== LANGUAGE TOGGLE =====
+        const langToggle = document.getElementById('langToggle');
+        let currentLang = 'ar';
+
+        const translations = {
+            ar: {
+                logoMain:'صعود الطائرة', logoSub:'للسفر والسياحة',
+                navHome:'الرئيسية', navServices:'خدماتنا', navOffers:'عروض', navHotels:'فنادق',
+                navPackages:'باقات', navRailway:'قطارات', navCars:'سيارات', navAbout:'من نحن',
+                navContact:'اتصل بنا', navBlog:'📝 مدونة', navCta:'📞 احجز الآن',
+                heroTitle1:'📝 مدونة', heroTitle2:'السفر', heroDesc:'أحدث المقالات والنصائح حول السفر والسياحة – دليلك الشامل لاكتشاف العالم',
+                searchLabel:'بحث', categoryLabel:'التصنيف',
+                catAll:'جميع المقالات', catDestinations:'وجهات سياحية', catTips:'نصائح سفر',
+                catUmrah:'عمرة', catHotels:'فنادق', catFlights:'طيران', catCulture:'ثقافة',
+                resetBtn:'إعادة تعيين', loadMoreText:'عرض المزيد من المقالات', noBlogs:'لا توجد مقالات مطابقة لبحثك',
+                backHomeBtn:'العودة إلى الرئيسية',
+                newsletterTitle:'📬 اشترك في النشرة البريدية', newsletterDesc:'احصل على أحدث المقالات والعروض الحصرية مباشرة إلى بريدك الإلكتروني',
+                newsletterBtn:'اشترك الآن',
+                aiChatTitle:'مساعد صعود الطائرة AI', aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل المقالات والنصائح للسفر!',
+                aiPlaceholder:'اسأل عن السفر...', waFloatLabel:'تواصل واتساب',
+                footerBrand:'صعود الطائرة', footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle:'روابط سريعة', footerServicesTitle:'خدماتنا', footerInfoTitle:'معلومات',
+                fNavHome:'الرئيسية', fNavServices:'خدماتنا', fNavOffers:'عروض', fNavHotels:'فنادق',
+                fNavPackages:'باقات', fNavRailway:'قطارات', fNavCars:'سيارات', fNavAbout:'من نحن',
+                fNavContact:'اتصل بنا', fNavBlog:'📝 مدونة',
+                fServFlights:'تذاكر طيران', fServUmrah:'باقات العمرة', fServVisa:'تأشيرات', fServHotels:'فنادق',
+                fServCars:'تأجير سيارات', fServRailway:'قطارات',
+                fInfoAbout:'عن الوكالة', fInfoContact:'اتصل بنا', fInfoPrivacy:'سياسة الخصوصية', fInfoTerms:'الشروط والأحكام',
+                footerRights:'جميع الحقوق محفوظة', footerCredit:'تصميم وتطوير ✧ برؤية عصرية'
+            },
+            en: {
+                logoMain:'Saeed Al-Taayira', logoSub:'Travel & Tourism',
+                navHome:'Home', navServices:'Services', navOffers:'Offers', navHotels:'Hotels',
+                navPackages:'Packages', navRailway:'Railway', navCars:'Cars', navAbout:'About',
+                navContact:'Contact', navBlog:'📝 Blog', navCta:'📞 Book Now',
+                heroTitle1:'📝 Travel', heroTitle2:'Blog', heroDesc:'Latest articles and tips about travel and tourism – your complete guide to discovering the world',
+                searchLabel:'Search', categoryLabel:'Category',
+                catAll:'All Articles', catDestinations:'Destinations', catTips:'Travel Tips',
+                catUmrah:'Umrah', catHotels:'Hotels', catFlights:'Flights', catCulture:'Culture',
+                resetBtn:'Reset', loadMoreText:'Show More Articles', noBlogs:'No articles match your search',
+                backHomeBtn:'Back to Home',
+                newsletterTitle:'📬 Subscribe to Newsletter', newsletterDesc:'Get the latest articles and exclusive offers directly to your email',
+                newsletterBtn:'Subscribe Now',
+                aiChatTitle:'Saeed Al-Taayira AI Assistant', aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I can help you find the best travel articles and tips!',
+                aiPlaceholder:'Ask about travel...', waFloatLabel:'WhatsApp',
+                footerBrand:'Saeed Al-Taayira', footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle:'Quick Links', footerServicesTitle:'Services', footerInfoTitle:'Info',
+                fNavHome:'Home', fNavServices:'Services', fNavOffers:'Offers', fNavHotels:'Hotels',
+                fNavPackages:'Packages', fNavRailway:'Railway', fNavCars:'Cars', fNavAbout:'About',
+                fNavContact:'Contact', fNavBlog:'📝 Blog',
+                fServFlights:'Flights', fServUmrah:'Umrah', fServVisa:'Visas', fServHotels:'Hotels',
+                fServCars:'Car Rentals', fServRailway:'Trains',
+                fInfoAbout:'About Us', fInfoContact:'Contact', fInfoPrivacy:'Privacy Policy', fInfoTerms:'Terms & Conditions',
+                footerRights:'All Rights Reserved', footerCredit:'Designed & Developed ✧ with Vision'
+            }
+        };
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
+
+            const map = {
+                'logoMain':'logoMain','logoSub':'logoSub',
+                'navHome':'navHome','navServices':'navServices','navOffers':'navOffers','navHotels':'navHotels',
+                'navPackages':'navPackages','navRailway':'navRailway','navCars':'navCars','navAbout':'navAbout',
+                'navContact':'navContact','navBlog':'navBlog','navCta':'navCta',
+                'searchLabel':'searchLabel','categoryLabel':'categoryLabel',
+                'catAll':'catAll','catDestinations':'catDestinations','catTips':'catTips',
+                'catUmrah':'catUmrah','catHotels':'catHotels','catFlights':'catFlights','catCulture':'catCulture',
+                'resetBtn':'resetBtn','loadMoreText':'loadMoreText','noBlogs':'noBlogs','backHomeBtn':'backHomeBtn',
+                'newsletterTitle':'newsletterTitle','newsletterDesc':'newsletterDesc','newsletterBtn':'newsletterBtn',
+                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
+                'waFloatLabel':'waFloatLabel',
+                'footerBrand':'footerBrand','footerDesc':'footerDesc',
+                'footerLinksTitle':'footerLinksTitle','footerServicesTitle':'footerServicesTitle','footerInfoTitle':'footerInfoTitle',
+                'fNavHome':'fNavHome','fNavServices':'fNavServices','fNavOffers':'fNavOffers','fNavHotels':'fNavHotels',
+                'fNavPackages':'fNavPackages','fNavRailway':'fNavRailway','fNavCars':'fNavCars','fNavAbout':'fNavAbout',
+                'fNavContact':'fNavContact','fNavBlog':'fNavBlog',
+                'fServFlights':'fServFlights','fServUmrah':'fServUmrah','fServVisa':'fServVisa','fServHotels':'fServHotels',
+                'fServCars':'fServCars','fServRailway':'fServRailway',
+                'fInfoAbout':'fInfoAbout','fInfoContact':'fInfoContact','fInfoPrivacy':'fInfoPrivacy','fInfoTerms':'fInfoTerms',
+                'footerRights':'footerRights','footerCredit':'footerCredit'
+            };
+
+            for (const [id, key] of Object.entries(map)) {
+                const el = document.getElementById(id);
+                if (el && translations[lang] && translations[lang][key] !== undefined) {
+                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand') {
+                        if (id === 'logoMain') el.textContent = translations[lang][key];
+                        else if (id === 'logoSub') el.textContent = translations[lang][key];
+                        else if (id === 'footerBrand') el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            }
+
+            // Hero
+            const heroH1 = document.querySelector('.blog-hero h1');
+            if (heroH1) {
+                const highlight = heroH1.querySelector('.highlight');
+                if (highlight) {
+                    const s1 = document.createElement('span');
+                    s1.textContent = translations[lang]['heroTitle1'];
+                    heroH1.innerHTML = '';
+                    heroH1.appendChild(s1);
+                    const s2 = document.createElement('span');
+                    s2.className = 'highlight';
+                    s2.textContent = translations[lang]['heroTitle2'];
+                    heroH1.appendChild(document.createTextNode(' '));
+                    heroH1.appendChild(s2);
+                }
+            }
+            const heroDesc = document.querySelector('.blog-hero p');
+            if (heroDesc) heroDesc.textContent = translations[lang]['heroDesc'];
+
+            // Search placeholder
+            const searchInput = document.getElementById('blogSearch');
+            if (searchInput) searchInput.placeholder = lang === 'ar' ? 'ابحث عن مقال...' : 'Search for article...';
+
+            // Select options
+            const catSelect = document.getElementById('blogCategory');
+            if (catSelect) {
+                const opts = catSelect.options;
+                const keys = ['catAll','catDestinations','catTips','catUmrah','catHotels','catFlights','catCulture'];
+                opts.forEach((opt, i) => {
+                    if (i < keys.length && translations[lang] && translations[lang][keys[i]]) {
+                        opt.textContent = translations[lang][keys[i]];
+                    }
+                });
+            }
+
+            // Load more button
+            const loadBtn = document.getElementById('loadMoreBlog');
+            if (loadBtn) { const span = loadBtn.querySelector('span'); if (span) span.textContent = translations[lang]['loadMoreText']; }
+
+            // No blogs
+            const noBlogs = document.getElementById('noBlogs');
+            if (noBlogs) noBlogs.textContent = translations[lang]['noBlogs'];
+
+            // Back home
+            const backBtn = document.getElementById('backHomeBtn');
+            if (backBtn) backBtn.textContent = translations[lang]['backHomeBtn'];
+
+            // Newsletter
+            const nlTitle = document.getElementById('newsletterTitle');
+            if (nlTitle) nlTitle.textContent = translations[lang]['newsletterTitle'];
+            const nlDesc = document.getElementById('newsletterDesc');
+            if (nlDesc) nlDesc.textContent = translations[lang]['newsletterDesc'];
+            const nlBtn = document.getElementById('newsletterBtn');
+            if (nlBtn) nlBtn.textContent = translations[lang]['newsletterBtn'];
+
+            // AI chat
+            const aiTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiTitle) {
+                const status = aiTitle.querySelector('.ai-status');
+                aiTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
+            }
+            const welcomeMsg = chatMessages.querySelector('.msg.bot');
+            if (welcomeMsg) welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
+            const aiInput = document.getElementById('aiChatInput');
+            if (aiInput) aiInput.placeholder = translations[lang]['aiPlaceholder'];
+
+            localStorage.setItem('lang', lang);
+        }
+
+        langToggle.addEventListener('click', () => {
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguage(newLang);
+            renderBlogs(blogDisplayCount);
+        });
+
+        const savedLang = localStorage.getItem('lang') || 'ar';
+        applyLanguage(savedLang);
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                }
+            });
+        });
+
+        // ===== KEYBOARD SHORTCUTS =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (chatBox.classList.contains('open')) chatBox.classList.remove('open');
+                if (document.getElementById('blogModal').classList.contains('open')) closeBlogModal();
+            }
+        });
+
+        // ===== DYNAMIC FOOTER YEAR =====
+        document.querySelector('.footer-bottom').innerHTML =
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
+
+        console.log('%c📝 صعود الطائرة – مدونة السفر', 'font-size:20px;font-weight:bold;color:#d4af37;');
+        console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
+        console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
+        console.log('%c🌟 12 مقالة سياحية – فلتر بحث – نشرات بريدية', 'font-size:13px;color:#888;');
+    </script>
+</body>
+</html>

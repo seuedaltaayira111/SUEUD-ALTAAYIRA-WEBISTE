@@ -132,13 +132,8 @@
             justify-content: center;
         }
         @keyframes logoFloat {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-4px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
         }
         .logo-text {
             display: flex;
@@ -176,8 +171,7 @@
             transition: 0.3s;
             position: relative;
         }
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover, .nav-links a.active {
             color: #fff;
             background: rgba(212, 175, 55, 0.1);
         }
@@ -410,7 +404,7 @@
         /* ===== SERVICES GRID ===== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 24px;
         }
         .service-card {
@@ -506,14 +500,8 @@
             animation: modalFade 0.4s ease;
         }
         @keyframes modalFade {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
         .service-modal .modal-content {
             background: #0a1a2e;
@@ -658,6 +646,26 @@
             min-height: 28px;
         }
 
+        /* ===== LOAD MORE ===== */
+        .load-more-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 40px;
+            border-radius: 60px;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .load-more-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+        }
+
         /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
             position: fixed;
@@ -698,13 +706,8 @@
             border: 1px solid rgba(255, 255, 255, 0.04);
         }
         @keyframes waPulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            }
-            50% {
-                box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06);
-            }
+            0%, 100% { box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06); }
         }
 
         /* ===== AI CHAT ===== */
@@ -732,13 +735,8 @@
             transform: scale(1.1);
         }
         @keyframes aiPulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
-            }
-            50% {
-                box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06);
-            }
+            0%, 100% { box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35); }
+            50% { box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06); }
         }
         .ai-chat-box {
             position: fixed;
@@ -762,14 +760,8 @@
             animation: chatSlideUp 0.4s ease;
         }
         @keyframes chatSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(30px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
         .ai-chat-header {
             padding: 16px 20px;
@@ -825,14 +817,8 @@
             animation: msgPop 0.3s ease;
         }
         @keyframes msgPop {
-            from {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
         }
         .ai-chat-messages .msg.bot {
             background: rgba(108, 60, 224, 0.12);
@@ -900,26 +886,6 @@
         }
         .ai-chat-typing.show {
             display: block;
-        }
-
-        /* ===== LOAD MORE ===== */
-        .load-more-btn {
-            display: block;
-            margin: 30px auto 0;
-            padding: 12px 40px;
-            border-radius: 60px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
-            font-family: inherit;
-        }
-        .load-more-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
         }
 
         /* ===== FOOTER ===== */
@@ -1102,25 +1068,24 @@
     <!-- ===== HEADER ===== -->
     <header class="header">
         <div class="container">
-            <a href="index.html" class="logo">
+            <a href="index.html" class="logo" id="logoLink">
                 <span class="logo-icon">✈️</span>
                 <span class="logo-text">
-                    <span class="main">صعود الطائرة</span>
-                    <span class="sub">للسفر والسياحة</span>
+                    <span class="main" id="logoMain">صعود الطائرة</span>
+                    <span class="sub" id="logoSub">للسفر والسياحة</span>
                 </span>
             </a>
             <nav class="nav-links" id="navLinks">
-                <a href="index.html">الرئيسية</a>
-                <a href="services.html" class="active">خدماتنا</a>
-                <a href="offers.html">عروض</a>
-                <a href="hotels.html">فنادق</a>
-                <a href="packages.html">باقات</a>
-                <a href="railway.html">قطارات</a>
-                <a href="cars.html">سيارات</a>
-                <a href="about.html">من نحن</a>
-                <a href="contact.html">اتصل بنا</a>
-                <a href="chatbot.html" class="nav-cta">🤖 مساعد</a>
-                <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
+                <a href="index.html" id="navHome">الرئيسية</a>
+                <a href="services.html" class="active" id="navServices">خدماتنا</a>
+                <a href="offers.html" id="navOffers">عروض</a>
+                <a href="hotels.html" id="navHotels">فنادق</a>
+                <a href="packages.html" id="navPackages">باقات</a>
+                <a href="railway.html" id="navRailway">قطارات</a>
+                <a href="cars.html" id="navCars">سيارات</a>
+                <a href="about.html" id="navAbout">من نحن</a>
+                <a href="contact.html" id="navContact">اتصل بنا</a>
+                <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
@@ -1172,9 +1137,14 @@
             <div class="services-grid" id="servicesGrid"></div>
 
             <!-- ===== LOAD MORE ===== -->
-            <button class="load-more-btn" id="loadMoreServices" style="display:block;margin:30px auto 0;padding:12px 40px;border-radius:60px;background:var(--gold-gradient);color:var(--primary-dark);font-weight:700;border:none;cursor:pointer;font-size:1rem;transition:0.3s;font-family:inherit;">
-                <span id="loadMoreText">عرض المزيد من الخدمات</span>
-            </button>
+            <button class="load-more-btn" id="loadMoreServices"><span id="loadMoreText">عرض المزيد من الخدمات</span></button>
+
+            <!-- ===== BACK TO HOME ===== -->
+            <div style="text-align:center;margin-top:30px;">
+                <a href="index.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
+                    <i class="fas fa-arrow-right"></i> <span id="backHomeBtn">العودة إلى الرئيسية</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1186,10 +1156,65 @@
         </div>
     </div>
 
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                    <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" id="footerBrand"><strong>صعود الطائرة</strong></span>
+                </div>
+                <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 id="footerLinksTitle">روابط سريعة</h5>
+                <ul>
+                    <li><a href="index.html" id="fNavHome">الرئيسية</a></li>
+                    <li><a href="services.html" id="fNavServices">خدماتنا</a></li>
+                    <li><a href="offers.html" id="fNavOffers">عروض</a></li>
+                    <li><a href="hotels.html" id="fNavHotels">فنادق</a></li>
+                    <li><a href="packages.html" id="fNavPackages">باقات</a></li>
+                    <li><a href="railway.html" id="fNavRailway">قطارات</a></li>
+                    <li><a href="cars.html" id="fNavCars">سيارات</a></li>
+                    <li><a href="about.html" id="fNavAbout">من نحن</a></li>
+                    <li><a href="contact.html" id="fNavContact">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 id="footerServicesTitle">خدماتنا</h5>
+                <ul>
+                    <li><a href="services.html" id="fServFlights">تذاكر طيران</a></li>
+                    <li><a href="services.html" id="fServUmrah">باقات العمرة</a></li>
+                    <li><a href="services.html" id="fServVisa">تأشيرات</a></li>
+                    <li><a href="hotels.html" id="fServHotels">فنادق</a></li>
+                    <li><a href="cars.html" id="fServCars">تأجير سيارات</a></li>
+                    <li><a href="railway.html" id="fServRailway">قطارات</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 id="footerInfoTitle">معلومات</h5>
+                <ul>
+                    <li><a href="about.html" id="fInfoAbout">عن الوكالة</a></li>
+                    <li><a href="contact.html" id="fInfoContact">اتصل بنا</a></li>
+                    <li><a href="privacy.html" id="fInfoPrivacy">سياسة الخصوصية</a></li>
+                    <li><a href="terms.html" id="fInfoTerms">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+    </footer>
+
     <!-- ===== WHATSAPP FLOAT ===== -->
     <div class="whatsapp-float">
         <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
-        <span class="wa-label">تواصل واتساب</span>
+        <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
     </div>
 
     <!-- ===== AI CHAT ===== -->
@@ -1198,16 +1223,16 @@
         <div class="ai-chat-header">
             <div class="title">
                 <i class="fas fa-robot"></i>
-                <span>مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
+                <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
             </div>
             <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-chat-messages" id="aiChatMessages">
-            <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في اختيار الخدمة المناسبة والإجابة عن استفساراتك.<span class="time">الآن</span></div>
+            <div class="msg bot" id="aiWelcomeMsg">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.<span class="time">الآن</span></div>
         </div>
         <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
         <div class="ai-chat-input">
-            <input type="text" id="aiChatInput" placeholder="اسأل عن الخدمات..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
+            <input type="text" id="aiChatInput" placeholder="اكتب سؤالك بأي لغة..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
             <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
@@ -1228,8 +1253,7 @@
             const particles = [];
             const COUNT = 60;
 
-            function resize() { w = canvas.width = window.innerWidth;
-                h = canvas.height = window.innerHeight; }
+            function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
             window.addEventListener('resize', resize);
             resize();
 
@@ -1278,8 +1302,7 @@
 
             function animate() {
                 ctx.clearRect(0, 0, w, h);
-                particles.forEach(p => { p.update();
-                    p.draw(); });
+                particles.forEach(p => { p.update(); p.draw(); });
                 drawLines();
                 requestAnimationFrame(animate);
             }
@@ -1504,8 +1527,7 @@
             service.questions.forEach((q, i) => {
                 const name = `q_${i}`;
                 const isDate = q.includes('تاريخ') || q.includes('التاريخ');
-                const isCity = q.includes('مدينة') || q.includes('المدينة') || q.includes('الوجهة') || q.includes(
-                    'المطار');
+                const isCity = q.includes('مدينة') || q.includes('المدينة') || q.includes('الوجهة') || q.includes('المطار');
                 const isSelect = q.includes('نوع') || q.includes('درجة') || q.includes('فئة');
 
                 if (isSelect && q.includes('درجة')) {
@@ -1674,7 +1696,8 @@
                 status.textContent = '✅ جاري التحويل إلى واتساب ...';
                 status.style.color = '#4ade80';
                 setTimeout(() => {
-                    window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+                    // Send to WORK NUMBER 0554126832
+                    window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
                     status.textContent = '✅ تم إرسال الطلب بنجاح عبر واتساب!';
                     setTimeout(() => { closeServiceModal(); }, 1500);
                 }, 700);
@@ -1769,7 +1792,7 @@
 
         const translations = {
             ar: {
-                logo: '<strong>صعود الطائرة</strong>',
+                logoMain: 'صعود الطائرة',
                 logoSub: 'للسفر والسياحة',
                 navHome: 'الرئيسية',
                 navServices: 'خدماتنا',
@@ -1781,6 +1804,9 @@
                 navAbout: 'من نحن',
                 navContact: 'اتصل بنا',
                 navCta: '📞 احجز الآن',
+                heroTitle1: 'خدماتنا',
+                heroTitle2: 'المتكاملة',
+                heroDesc: 'نقدم لك أكثر من 20 خدمة سياحية متكاملة – اختر الخدمة التي تحتاجها واحصل على عرض مخصص مع نموذج حجز خاص',
                 searchLabel: 'بحث',
                 categoryLabel: 'التصنيف',
                 catAll: 'جميع الخدمات',
@@ -1794,20 +1820,40 @@
                 resetBtn: 'إعادة تعيين',
                 loadMoreText: 'عرض المزيد من الخدمات',
                 noResults: 'لا توجد خدمات مطابقة لبحثك',
-                aiTitle: 'مساعد صعود الطائرة AI',
-                aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. يمكنني مساعدتك في اختيار الخدمة المناسبة والإجابة عن استفساراتك.',
-                aiPlaceholder: 'اسأل عن الخدمات...',
-                waLabel: 'تواصل واتساب',
+                backHomeBtn: 'العودة إلى الرئيسية',
+                aiChatTitle: 'مساعد صعود الطائرة AI',
+                aiWelcomeMsg: '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.',
+                aiPlaceholder: 'اكتب سؤالك بأي لغة...',
+                waFloatLabel: 'تواصل واتساب',
                 footerBrand: 'صعود الطائرة',
                 footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
-                footerLinks: 'روابط سريعة',
-                footerServices: 'خدماتنا',
-                footerInfo: 'معلومات',
+                footerLinksTitle: 'روابط سريعة',
+                footerServicesTitle: 'خدماتنا',
+                footerInfoTitle: 'معلومات',
+                fNavHome: 'الرئيسية',
+                fNavServices: 'خدماتنا',
+                fNavOffers: 'عروض',
+                fNavHotels: 'فنادق',
+                fNavPackages: 'باقات',
+                fNavRailway: 'قطارات',
+                fNavCars: 'سيارات',
+                fNavAbout: 'من نحن',
+                fNavContact: 'اتصل بنا',
+                fServFlights: 'تذاكر طيران',
+                fServUmrah: 'باقات العمرة',
+                fServVisa: 'تأشيرات',
+                fServHotels: 'فنادق',
+                fServCars: 'تأجير سيارات',
+                fServRailway: 'قطارات',
+                fInfoAbout: 'عن الوكالة',
+                fInfoContact: 'اتصل بنا',
+                fInfoPrivacy: 'سياسة الخصوصية',
+                fInfoTerms: 'الشروط والأحكام',
                 footerRights: 'جميع الحقوق محفوظة',
                 footerCredit: 'تصميم وتطوير ✧ برؤية عصرية'
             },
             en: {
-                logo: '<strong>Saeed Al-Taayira</strong>',
+                logoMain: 'Saeed Al-Taayira',
                 logoSub: 'Travel & Tourism',
                 navHome: 'Home',
                 navServices: 'Services',
@@ -1819,6 +1865,9 @@
                 navAbout: 'About',
                 navContact: 'Contact',
                 navCta: '📞 Book Now',
+                heroTitle1: 'Our',
+                heroTitle2: 'Services',
+                heroDesc: 'We offer over 20 integrated travel services – choose the service you need and get a customized offer with a booking form',
                 searchLabel: 'Search',
                 categoryLabel: 'Category',
                 catAll: 'All Services',
@@ -1832,15 +1881,35 @@
                 resetBtn: 'Reset',
                 loadMoreText: 'Show More Services',
                 noResults: 'No services match your search',
-                aiTitle: 'Saeed Al-Taayira AI Assistant',
-                aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. I can help you choose the right service and answer your questions.',
-                aiPlaceholder: 'Ask about services...',
-                waLabel: 'WhatsApp',
+                backHomeBtn: 'Back to Home',
+                aiChatTitle: 'Saeed Al-Taayira AI Assistant',
+                aiWelcomeMsg: '👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. How can I help you today? I can answer in any language you choose.',
+                aiPlaceholder: 'Type your question in any language...',
+                waFloatLabel: 'WhatsApp',
                 footerBrand: 'Saeed Al-Taayira',
                 footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
-                footerLinks: 'Quick Links',
-                footerServices: 'Services',
-                footerInfo: 'Info',
+                footerLinksTitle: 'Quick Links',
+                footerServicesTitle: 'Services',
+                footerInfoTitle: 'Info',
+                fNavHome: 'Home',
+                fNavServices: 'Services',
+                fNavOffers: 'Offers',
+                fNavHotels: 'Hotels',
+                fNavPackages: 'Packages',
+                fNavRailway: 'Railway',
+                fNavCars: 'Cars',
+                fNavAbout: 'About',
+                fNavContact: 'Contact',
+                fServFlights: 'Flights',
+                fServUmrah: 'Umrah',
+                fServVisa: 'Visas',
+                fServHotels: 'Hotels',
+                fServCars: 'Car Rentals',
+                fServRailway: 'Trains',
+                fInfoAbout: 'About Us',
+                fInfoContact: 'Contact',
+                fInfoPrivacy: 'Privacy Policy',
+                fInfoTerms: 'Terms & Conditions',
                 footerRights: 'All Rights Reserved',
                 footerCredit: 'Designed & Developed ✧ with Vision'
             }
@@ -1854,8 +1923,8 @@
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
             const map = {
-                'logoText': 'logo',
-                'logoSlogan': 'logoSub',
+                'logoMain': 'logoMain',
+                'logoSub': 'logoSub',
                 'navHome': 'navHome',
                 'navServices': 'navServices',
                 'navOffers': 'navOffers',
@@ -1879,15 +1948,35 @@
                 'resetBtn': 'resetBtn',
                 'loadMoreText': 'loadMoreText',
                 'noResults': 'noResults',
-                'aiTitle': 'aiTitle',
-                'aiWelcome': 'aiWelcome',
+                'backHomeBtn': 'backHomeBtn',
+                'aiChatTitle': 'aiChatTitle',
+                'aiWelcomeMsg': 'aiWelcomeMsg',
                 'aiPlaceholder': 'aiPlaceholder',
-                'waLabel': 'waLabel',
+                'waFloatLabel': 'waFloatLabel',
                 'footerBrand': 'footerBrand',
                 'footerDesc': 'footerDesc',
-                'footerLinks': 'footerLinks',
-                'footerServices': 'footerServices',
-                'footerInfo': 'footerInfo',
+                'footerLinksTitle': 'footerLinksTitle',
+                'footerServicesTitle': 'footerServicesTitle',
+                'footerInfoTitle': 'footerInfoTitle',
+                'fNavHome': 'fNavHome',
+                'fNavServices': 'fNavServices',
+                'fNavOffers': 'fNavOffers',
+                'fNavHotels': 'fNavHotels',
+                'fNavPackages': 'fNavPackages',
+                'fNavRailway': 'fNavRailway',
+                'fNavCars': 'fNavCars',
+                'fNavAbout': 'fNavAbout',
+                'fNavContact': 'fNavContact',
+                'fServFlights': 'fServFlights',
+                'fServUmrah': 'fServUmrah',
+                'fServVisa': 'fServVisa',
+                'fServHotels': 'fServHotels',
+                'fServCars': 'fServCars',
+                'fServRailway': 'fServRailway',
+                'fInfoAbout': 'fInfoAbout',
+                'fInfoContact': 'fInfoContact',
+                'fInfoPrivacy': 'fInfoPrivacy',
+                'fInfoTerms': 'fInfoTerms',
                 'footerRights': 'footerRights',
                 'footerCredit': 'footerCredit'
             };
@@ -1895,25 +1984,57 @@
             for (const [id, key] of Object.entries(map)) {
                 const el = document.getElementById(id);
                 if (el && translations[lang] && translations[lang][key] !== undefined) {
-                    if (id === 'logoText' || id === 'footerBrand') {
-                        el.innerHTML = translations[lang][key];
+                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand') {
+                        if (id === 'logoMain') el.textContent = translations[lang][key];
+                        else if (id === 'logoSub') el.textContent = translations[lang][key];
+                        else if (id === 'footerBrand') el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
                     } else {
                         el.textContent = translations[lang][key];
                     }
                 }
             }
 
+            // Update hero title
+            const heroH1 = document.querySelector('.services-hero h1');
+            if (heroH1) {
+                const highlight = heroH1.querySelector('.highlight');
+                if (highlight) {
+                    const s1 = document.createElement('span');
+                    s1.textContent = translations[lang]['heroTitle1'];
+                    heroH1.innerHTML = '';
+                    heroH1.appendChild(s1);
+                    const s2 = document.createElement('span');
+                    s2.className = 'highlight';
+                    s2.textContent = translations[lang]['heroTitle2'];
+                    heroH1.appendChild(document.createTextNode(' '));
+                    heroH1.appendChild(s2);
+                }
+            }
+            const heroDesc = document.querySelector('.services-hero p');
+            if (heroDesc) heroDesc.textContent = translations[lang]['heroDesc'];
+
             // Update search placeholder
             const searchInput = document.getElementById('serviceSearch');
             if (searchInput) searchInput.placeholder = lang === 'ar' ? 'ابحث عن خدمة...' : 'Search for a service...';
+
+            // Update AI chat
+            const aiTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiTitle) {
+                const status = aiTitle.querySelector('.ai-status');
+                aiTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
+            }
+            const welcomeMsg = chatMessages.querySelector('.msg.bot');
+            if (welcomeMsg) {
+                welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
+            }
+            const placeholder = document.getElementById('aiChatInput');
+            if (placeholder) placeholder.placeholder = translations[lang]['aiPlaceholder'];
 
             // Update select options
             const categorySelect = document.getElementById('serviceCategory');
             if (categorySelect) {
                 const opts = categorySelect.options;
-                const keys = ['catAll', 'catTravel', 'catUmrah', 'catAccommodation', 'catTransport', 'catInsurance',
-                    'catGroups', 'catBusiness'
-                ];
+                const keys = ['catAll', 'catTravel', 'catUmrah', 'catAccommodation', 'catTransport', 'catInsurance', 'catGroups', 'catBusiness'];
                 opts.forEach((opt, i) => {
                     if (i < keys.length && translations[lang] && translations[lang][keys[i]]) {
                         opt.textContent = translations[lang][keys[i]];
@@ -1928,23 +2049,13 @@
                 if (span) span.textContent = translations[lang]['loadMoreText'];
             }
 
-            // Update AI chat
-            const aiTitle = document.querySelector('.ai-chat-header .title span');
-            if (aiTitle) {
-                const status = aiTitle.querySelector('.ai-status');
-                aiTitle.innerHTML = translations[lang]['aiTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` :
-                    '');
-            }
-            const welcomeMsg = chatMessages.querySelector('.msg.bot');
-            if (welcomeMsg) {
-                welcomeMsg.innerHTML = translations[lang]['aiWelcome'] + '<span class="time">الآن</span>';
-            }
-            const placeholder = document.getElementById('aiChatInput');
-            if (placeholder) placeholder.placeholder = translations[lang]['aiPlaceholder'];
-
-            // Update no results message
+            // Update no results
             const noResults = document.getElementById('noResults');
             if (noResults) noResults.textContent = translations[lang]['noResults'];
+
+            // Update back home button
+            const backBtn = document.getElementById('backHomeBtn');
+            if (backBtn) backBtn.textContent = translations[lang]['backHomeBtn'];
 
             localStorage.setItem('lang', lang);
         }
@@ -1967,8 +2078,7 @@
                 if (target) {
                     e.preventDefault();
                     const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset,
-                        behavior: 'smooth' });
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('open');
                 }
@@ -1985,11 +2095,12 @@
 
         // ===== DYNAMIC FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
 
         console.log('%c✈️ صعود الطائرة – خدمات متكاملة', 'font-size:20px;font-weight:bold;color:#d4af37;');
         console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
         console.log('%c🌟 20+ خدمة سياحية – فلتر بحث – نماذج حجز متقدمة', 'font-size:13px;color:#888;');
+        console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
         console.log('%c✅ Google Search Console Verified', 'font-size:13px;color:#4ade80;');
     </script>
 </body>

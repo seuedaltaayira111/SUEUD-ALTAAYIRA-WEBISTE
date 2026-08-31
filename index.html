@@ -32,20 +32,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* ===== RESET & BASE ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         :root {
             --primary-dark: #061d3a;
             --gold: #d4af37;
             --gold-light: #f0d060;
             --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
-            --glass-bg: rgba(255,255,255,0.04);
-            --glass-border: rgba(255,255,255,0.06);
-            --text-muted: rgba(255,255,255,0.6);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --text-muted: rgba(255, 255, 255, 0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
         }
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: var(--font);
             background: var(--primary-dark);
@@ -53,91 +58,222 @@
             overflow-x: hidden;
             line-height: 1.7;
         }
-        body.rtl { direction: rtl; text-align: right; }
-        body.ltr { direction: ltr; text-align: left; }
-        body.ltr .nav-links a { font-family: 'Segoe UI', sans-serif; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        ::-webkit-scrollbar { width: 7px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        body.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        body.ltr {
+            direction: ltr;
+            text-align: left;
+        }
+        body.ltr .nav-links a {
+            font-family: 'Segoe UI', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
 
         #particles-canvas {
-            position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.3;
         }
 
         /* ===== HEADER ===== */
         .header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            padding: 14px 0; transition: 0.3s;
-            background: rgba(6,29,58,0.94);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 14px 0;
+            transition: 0.3s;
+            background: rgba(6, 29, 58, 0.94);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212,175,55,0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
         .header .container {
-            display: flex; align-items: center; justify-content: space-between;
-            max-width: 1320px; margin: 0 auto; padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
         .logo {
-            display: flex; align-items: center; gap: 12px;
-            font-size: 1.5rem; font-weight: 900; cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            cursor: pointer;
         }
         .logo-icon {
-            font-size: 2.2rem; color: var(--gold);
+            font-size: 2.2rem;
+            color: var(--gold);
             animation: logoFloat 3s ease-in-out infinite;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        @keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
-        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+        @keyframes logoFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
         .logo-text .main {
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
         }
         .logo-text .sub {
-            font-size: 0.55rem; font-weight: 300; color: var(--text-muted);
-            -webkit-text-fill-color: var(--text-muted); letter-spacing: 2px;
+            font-size: 0.55rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted);
+            letter-spacing: 2px;
         }
-        .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
         .nav-links a {
-            padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500;
-            color: var(--text-muted); transition: 0.3s; position: relative;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: 0.3s;
+            position: relative;
         }
-        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: rgba(212, 175, 55, 0.1);
+        }
         .nav-links a.active::after {
-            content: ''; position: absolute; bottom: 4px; left: 50%;
-            transform: translateX(-50%); width: 18px; height: 2.5px;
-            background: var(--gold); border-radius: 4px;
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 2.5px;
+            background: var(--gold);
+            border-radius: 4px;
         }
         .nav-cta {
-            background: var(--gold-gradient) !important; color: var(--primary-dark) !important;
-            font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
+            background: var(--gold-gradient) !important;
+            color: var(--primary-dark) !important;
+            font-weight: 700 !important;
+            padding: 8px 26px !important;
+            border-radius: 50px !important;
         }
-        .nav-cta:hover { transform: scale(1.05); }
+        .nav-cta:hover {
+            transform: scale(1.05);
+        }
         .lang-toggle {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-            color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
-            cursor: pointer; font-size: 0.8rem; transition: 0.3s; font-family: inherit;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            font-family: inherit;
         }
-        .lang-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
+        .lang-toggle:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
         .hamburger {
-            display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1001;
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            z-index: 1001;
         }
-        .hamburger span { width: 28px; height: 2.5px; background: #fff; border-radius: 4px; transition: 0.3s; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-        @media (max-width:768px) {
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        @media (max-width: 768px) {
             .nav-links {
-                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(6,29,58,0.97); flex-direction: column;
-                padding: 80px 28px 32px; transition: right 0.4s;
-                border-left: 1px solid rgba(255,255,255,0.04);
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(6, 29, 58, 0.97);
+                flex-direction: column;
+                padding: 80px 28px 32px;
+                transition: right 0.4s;
+                border-left: 1px solid rgba(255, 255, 255, 0.04);
             }
-            .nav-links.open { right: 0; }
-            .nav-links a { width: 100%; padding: 14px 18px; border-radius: 12px; }
-            .nav-links a.active::after { display: none; }
-            .nav-cta { margin-top: 8px; }
-            .hamburger { display: flex; }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a {
+                width: 100%;
+                padding: 14px 18px;
+                border-radius: 12px;
+            }
+            .nav-links a.active::after {
+                display: none;
+            }
+            .nav-cta {
+                margin-top: 8px;
+            }
+            .hamburger {
+                display: flex;
+            }
         }
 
         /* ===== HERO ===== */
@@ -151,480 +287,1220 @@
             overflow: hidden;
         }
         .hero::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06), transparent 60%),
-                        radial-gradient(ellipse at 80% 50%, rgba(108,60,224,0.04), transparent 60%);
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.06), transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(108, 60, 224, 0.04), transparent 60%);
             z-index: 0;
         }
         .hero .container {
-            position: relative; z-index: 1;
-            max-width: 1320px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+            position: relative;
+            z-index: 1;
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
         .hero-content h1 {
             font-size: clamp(2.6rem, 6vw, 4.8rem);
-            font-weight: 900; line-height: 1.15; margin-bottom: 18px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 18px;
         }
         .hero-content h1 .highlight {
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .hero-content .subtitle {
-            font-size: 1.2rem; color: var(--text-muted);
-            max-width: 540px; margin-bottom: 32px; line-height: 1.9;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin-bottom: 32px;
+            line-height: 1.9;
         }
-        .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
         .btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 14px 36px; border-radius: 60px; font-weight: 700;
-            font-size: 1rem; border: none; cursor: pointer; transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
             font-family: inherit;
         }
-        .btn-primary { background: var(--gold-gradient); color: var(--primary-dark); }
-        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(212,175,55,0.35); }
-        .btn-whatsapp { background: #25d366; color: #fff; }
-        .btn-whatsapp:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(37,211,102,0.35); }
-        .btn-ai { background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff; }
-        .btn-ai:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(108,60,224,0.4); }
+        .btn-primary {
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.35);
+        }
+        .btn-whatsapp {
+            background: #25d366;
+            color: #fff;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.35);
+        }
+        .btn-ai {
+            background: linear-gradient(135deg, #6c3ce0, #a855f7);
+            color: #fff;
+        }
+        .btn-ai:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(108, 60, 224, 0.4);
+        }
         .hero-stats {
-            display: flex; gap: 44px; margin-top: 44px;
-            padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            gap: 44px;
+            margin-top: 44px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .hero-stats .stat h3 { font-size: 2rem; font-weight: 900; color: var(--gold); direction: ltr; }
-        .hero-stats .stat p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+        .hero-stats .stat h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold);
+            direction: ltr;
+        }
+        .hero-stats .stat p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
         .hero-card {
-            max-width: 480px; border-radius: 32px;
-            background: rgba(255,255,255,0.03); backdrop-filter: blur(14px);
-            border: 1px solid rgba(255,255,255,0.06);
-            padding: 40px; text-align: center;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+            max-width: 480px;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
             transition: transform 0.5s ease;
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
-        .hero-card:hover { transform: perspective(1000px) rotateY(-3deg) rotateX(3deg) scale(1.02); }
+        .hero-card:hover {
+            transform: perspective(1000px) rotateY(-3deg) rotateX(3deg) scale(1.02);
+        }
         .hero-card .big-icon {
-            font-size: 5.2rem; color: var(--gold); margin-bottom: 16px;
+            font-size: 5.2rem;
+            color: var(--gold);
+            margin-bottom: 16px;
             animation: iconPulse 3s ease-in-out infinite;
         }
-        @keyframes iconPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
-        .hero-card h3 { font-size: 1.8rem; font-weight: 800; }
-        .hero-card p { color: var(--text-muted); }
+        @keyframes iconPulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.06);
+            }
+        }
+        .hero-card h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        .hero-card p {
+            color: var(--text-muted);
+        }
         .hero-card .badge-row {
-            display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
         }
         .hero-card .badge-row span {
-            background: rgba(212,175,55,0.1); padding: 5px 16px; border-radius: 50px;
-            font-size: 0.75rem; color: var(--gold-light);
-            border: 1px solid rgba(212,175,55,0.08); transition: 0.3s;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 5px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            transition: 0.3s;
         }
-        .hero-card .badge-row span:hover { background: rgba(212,175,55,0.2); transform: scale(1.05); }
+        .hero-card .badge-row span:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.05);
+        }
 
         /* ===== SECTIONS ===== */
-        .section { padding: 80px 24px; position: relative; z-index: 1; }
-        .section .container { max-width: 1320px; margin: 0 auto; }
-        .section-alt { background: rgba(255,255,255,0.005); }
-        .section-title { text-align: center; margin-bottom: 48px; }
+        .section {
+            padding: 80px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .section .container {
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+        .section-alt {
+            background: rgba(255, 255, 255, 0.005);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
         .section-title h2 {
             font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 900; margin-bottom: 8px;
+            font-weight: 900;
+            margin-bottom: 8px;
         }
         .section-title h2 .highlight {
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
-        .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        .section-divider {
+            width: 60px;
+            height: 3.5px;
+            background: var(--gold-gradient);
+            border-radius: 4px;
+            margin: 14px auto 0;
+        }
 
         /* ===== SERVICES ===== */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 24px; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
         .service-card {
-            padding: 28px 20px; border-radius: var(--radius);
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
-            text-align: center; cursor: pointer; transition: 0.4s;
-            position: relative; overflow: hidden;
+            padding: 28px 20px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            cursor: pointer;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
         .service-card::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(212,175,55,0.05), transparent 60%);
-            opacity: 0; transition: 0.4s;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent 60%);
+            opacity: 0;
+            transition: 0.4s;
         }
-        .service-card:hover::before { opacity: 1; }
+        .service-card:hover::before {
+            opacity: 1;
+        }
         .service-card:hover {
             transform: translateY(-12px);
-            border-color: rgba(212,175,55,0.2);
-            background: rgba(255,255,255,0.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border-color: rgba(212, 175, 55, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
         .service-card .simg {
-            width: 100%; height: 120px; background-size: cover; background-position: center;
-            border-radius: 12px; margin-bottom: 12px;
+            width: 100%;
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 12px;
         }
-        .service-card .icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 10px; display: inline-block; transition: 0.4s; }
-        .service-card:hover .icon { transform: scale(1.15) rotate(-4deg); }
-        .service-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-        .service-card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px; }
+        .service-card .icon {
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            display: inline-block;
+            transition: 0.4s;
+        }
+        .service-card:hover .icon {
+            transform: scale(1.15) rotate(-4deg);
+        }
+        .service-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
         .service-card .service-tag {
-            display: inline-block; padding: 2px 12px; border-radius: 50px;
-            background: rgba(212,175,55,0.08); color: var(--gold-light);
-            font-size: 0.65rem; border: 1px solid rgba(212,175,55,0.06);
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 50px;
+            background: rgba(212, 175, 55, 0.08);
+            color: var(--gold-light);
+            font-size: 0.65rem;
+            border: 1px solid rgba(212, 175, 55, 0.06);
         }
         .service-card .click-hint {
-            font-size: 0.6rem; color: var(--text-muted); margin-top: 8px; opacity: 0.4; transition: 0.3s;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            opacity: 0.4;
+            transition: 0.3s;
         }
-        .service-card:hover .click-hint { opacity: 1; }
+        .service-card:hover .click-hint {
+            opacity: 1;
+        }
 
         /* ===== OFFERS ===== */
-        .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-top: 30px; }
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
         .offer-card {
-            background: rgba(255,255,255,0.025); border: 2px solid var(--gold);
-            border-radius: var(--radius); padding: 30px 24px; text-align: center;
-            transition: 0.4s; position: relative; overflow: hidden;
+            background: rgba(255, 255, 255, 0.025);
+            border: 2px solid var(--gold);
+            border-radius: var(--radius);
+            padding: 30px 24px;
+            text-align: center;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
         .offer-card::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent 60%);
-            opacity: 0; transition: 0.4s;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 60%);
+            opacity: 0;
+            transition: 0.4s;
         }
-        .offer-card:hover::before { opacity: 1; }
-        .offer-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(212,175,55,0.1); }
-        .offer-card .offer-icon { font-size: 3rem; color: var(--gold); margin-bottom: 12px; }
-        .offer-card .offer-badge {
-            display: inline-block; background: var(--gold-gradient); color: var(--primary-dark);
-            padding: 2px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-bottom: 8px;
+        .offer-card:hover::before {
+            opacity: 1;
         }
-        .offer-card h4 { font-size: 1.2rem; font-weight: 800; }
-        .offer-card p { color: var(--text-muted); font-size: 0.9rem; margin: 8px 0; }
-        .offer-card .offer-price { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
-        .offer-card .btn-sm {
-            padding: 8px 24px; border-radius: 50px; font-size: 0.8rem;
-            font-weight: 700; border: none; cursor: pointer;
-            background: var(--gold-gradient); color: var(--primary-dark);
-            margin-top: 12px; transition: 0.3s; font-family: inherit;
-        }
-        .offer-card .btn-sm:hover { transform: scale(1.05); }
-
-        /* ===== HOTELS & PACKAGES ===== */
-        .hotels-grid, .packages-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 28px;
-        }
-        .hotel-card, .package-card {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius);
-            overflow: hidden; transition: 0.4s;
-        }
-        .hotel-card:hover, .package-card:hover {
+        .offer-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(212,175,55,0.15);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.1);
         }
-        .hotel-card .img, .package-card .img {
-            height: 170px; background-size: cover; background-position: center;
+        .offer-card .offer-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 12px;
         }
-        .hotel-card .body, .package-card .body { padding: 18px 20px 22px; }
-        .hotel-card .body h4, .package-card .body h4 { font-size: 1.1rem; font-weight: 800; }
-        .hotel-card .body .location, .package-card .body .location { color: var(--gold); font-size: 0.8rem; }
-        .hotel-card .body .rating { color: #fbbf24; font-size: 0.85rem; margin: 4px 0; }
-        .hotel-card .body .price, .package-card .body .price {
-            color: var(--gold); font-size: 1.1rem; font-weight: 700;
+        .offer-card .offer-badge {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            padding: 2px 16px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
-        .hotel-card .body .price small, .package-card .body .price small {
-            font-size: 0.65rem; color: var(--text-muted); font-weight: 400;
+        .offer-card h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
         }
-        .hotel-card .body .btn-sm, .package-card .body .btn-sm {
-            padding: 8px 22px; border-radius: 50px; font-size: 0.8rem;
-            font-weight: 700; border: none; cursor: pointer;
-            background: var(--gold-gradient); color: var(--primary-dark);
-            margin-top: 10px; transition: 0.3s; font-family: inherit;
+        .offer-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 8px 0;
         }
-        .hotel-card .body .btn-sm:hover, .package-card .body .btn-sm:hover { transform: scale(1.05); }
+        .offer-card .offer-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .offer-card .btn-sm {
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            margin-top: 12px;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .offer-card .btn-sm:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== HOTELS ===== */
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .hotel-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: 0.4s;
+        }
+        .hotel-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+        .hotel-card .img {
+            height: 170px;
+            background-size: cover;
+            background-position: center;
+        }
+        .hotel-card .body {
+            padding: 18px 20px 22px;
+        }
+        .hotel-card .body h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        .hotel-card .body .location {
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+        .hotel-card .body .rating {
+            color: #fbbf24;
+            font-size: 0.85rem;
+            margin: 4px 0;
+        }
+        .hotel-card .body .price {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .hotel-card .body .price small {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .hotel-card .body .btn-sm {
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            margin-top: 10px;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .hotel-card .body .btn-sm:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== PACKAGES ===== */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .package-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: 0.4s;
+        }
+        .package-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+        .package-card .img {
+            height: 170px;
+            background-size: cover;
+            background-position: center;
+        }
+        .package-card .body {
+            padding: 18px 20px 22px;
+        }
+        .package-card .body h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        .package-card .body .location {
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+        .package-card .body .price {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .package-card .body .price small {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .package-card .body .btn-sm {
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            margin-top: 10px;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .package-card .body .btn-sm:hover {
+            transform: scale(1.05);
+        }
 
         /* ===== RAILWAY ===== */
-        .railway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; }
+        .railway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
         .railway-item {
-            background: rgba(255,255,255,0.02); padding: 20px; border-radius: 14px;
-            text-align: center; border: 1px solid rgba(255,255,255,0.04);
-            transition: 0.3s; cursor: pointer;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: 0.3s;
+            cursor: pointer;
         }
-        .railway-item:hover { border-color: var(--gold); background: rgba(212,175,55,0.04); }
+        .railway-item:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.04);
+        }
         .railway-item .rimg {
-            width: 100%; height: 100px; background-size: cover; background-position: center;
-            border-radius: 10px; margin-bottom: 10px;
+            width: 100%;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
-        .railway-item .icon { font-size: 2.4rem; color: var(--gold); }
-        .railway-item h4 { font-size: 1rem; font-weight: 700; }
-        .railway-item p { font-size: 0.8rem; color: var(--text-muted); }
+        .railway-item .icon {
+            font-size: 2.4rem;
+            color: var(--gold);
+        }
+        .railway-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .railway-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
 
         /* ===== BLOG ===== */
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 28px; }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
         .blog-card {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: var(--radius);
-            overflow: hidden; transition: 0.4s;
+            overflow: hidden;
+            transition: 0.4s;
         }
         .blog-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(212,175,55,0.12);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            border-color: rgba(212, 175, 55, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
-        .blog-card .img { height: 180px; background-size: cover; background-position: center; }
-        .blog-card .body { padding: 18px 20px 22px; }
+        .blog-card .img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        .blog-card .body {
+            padding: 18px 20px 22px;
+        }
         .blog-card .body .tag {
-            display: inline-block; padding: 2px 12px; border-radius: 50px;
-            background: rgba(212,175,55,0.08); color: var(--gold-light);
-            font-size: 0.6rem; border: 1px solid rgba(212,175,55,0.06); margin-bottom: 6px;
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 50px;
+            background: rgba(212, 175, 55, 0.08);
+            color: var(--gold-light);
+            font-size: 0.6rem;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            margin-bottom: 6px;
         }
-        .blog-card .body h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
-        .blog-card .body p { color: var(--text-muted); font-size: 0.85rem; }
-        .blog-card .body .blog-date { color: var(--text-muted); font-size: 0.7rem; margin-top: 8px; display: block; }
+        .blog-card .body h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .blog-card .body p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .blog-card .body .blog-date {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            margin-top: 8px;
+            display: block;
+        }
 
         /* ===== FAQ ===== */
-        .faq-grid { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
         .faq-item {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 14px;
             overflow: hidden;
         }
         .faq-item .faq-q {
-            padding: 16px 20px; cursor: pointer;
-            display: flex; justify-content: space-between; align-items: center;
-            font-weight: 700; transition: 0.3s;
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            transition: 0.3s;
         }
-        .faq-item .faq-q:hover { background: rgba(212,175,55,0.03); }
-        .faq-item .faq-q i { transition: 0.3s; }
-        .faq-item .faq-a { padding: 0 20px 20px; color: var(--text-muted); font-size: 0.95rem; display: none; line-height: 1.8; }
-        .faq-item.open .faq-a { display: block; }
-        .faq-item.open .faq-q i { transform: rotate(180deg); }
+        .faq-item .faq-q:hover {
+            background: rgba(212, 175, 55, 0.03);
+        }
+        .faq-item .faq-q i {
+            transition: 0.3s;
+        }
+        .faq-item .faq-a {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+            line-height: 1.8;
+        }
+        .faq-item.open .faq-a {
+            display: block;
+        }
+        .faq-item.open .faq-q i {
+            transform: rotate(180deg);
+        }
 
         /* ===== CONTACT ===== */
         .contact-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-            max-width: 1000px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         .info-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 16px;
-            padding: 20px; margin-bottom: 14px;
-            display: flex; align-items: center; gap: 16px; transition: 0.3s;
+            padding: 20px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: 0.3s;
         }
-        .info-card:hover { border-color: rgba(212,175,55,0.12); transform: translateX(-4px); }
+        .info-card:hover {
+            border-color: rgba(212, 175, 55, 0.12);
+            transform: translateX(-4px);
+        }
         .info-card .icon-box {
-            width: 44px; height: 44px; border-radius: 14px;
-            background: rgba(212,175,55,0.08);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--gold); font-size: 1.2rem; flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(212, 175, 55, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
-        .info-card .label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-        .info-card .value { font-size: 1rem; font-weight: 600; direction: ltr; text-align: right; }
+        .info-card .label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .info-card .value {
+            font-size: 1rem;
+            font-weight: 600;
+            direction: ltr;
+            text-align: right;
+        }
         .contact-form {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 16px; padding: 30px;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 30px;
         }
-        .contact-form h3 { font-size: 1.6rem; font-weight: 800; }
-        .contact-form .form-sub { color: var(--text-muted); margin-bottom: 20px; }
-        .form-group { margin-bottom: 16px; }
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%; padding: 12px; border-radius: 12px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.95rem;
-            outline: none; transition: 0.3s;
+        .contact-form h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
         }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            border-color: var(--gold); background: rgba(255,255,255,0.06);
+        .contact-form .form-sub {
+            color: var(--text-muted);
+            margin-bottom: 20px;
         }
-        .form-group select option { background: #0a1a2e; color: #fff; padding: 8px; }
-        .form-group textarea { height: 100px; resize: vertical; }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .form-group select option {
+            background: #0a1a2e;
+            color: #fff;
+            padding: 8px;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
         .btn-submit {
-            width: 100%; padding: 14px; border-radius: 60px;
-            background: var(--gold-gradient); color: var(--primary-dark);
-            font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
-            transition: 0.3s; font-family: inherit;
+            width: 100%;
+            padding: 14px;
+            border-radius: 60px;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
         }
-        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3); }
-        .form-status { margin-top: 12px; text-align: center; font-size: 0.9rem; min-height: 28px; }
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+        }
+        .form-status {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            min-height: 28px;
+        }
         .btn-whatsapp-link {
-            flex: 1; justify-content: center; background: #25d366; color: #fff;
-            padding: 12px; border-radius: 50px; text-align: center;
-            display: inline-flex; align-items: center; gap: 8px;
-            font-weight: 700; border: none; cursor: pointer; text-decoration: none; transition: 0.3s;
+            flex: 1;
+            justify-content: center;
+            background: #25d366;
+            color: #fff;
+            padding: 12px;
+            border-radius: 50px;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
         }
-        .btn-whatsapp-link:hover { transform: scale(1.02); }
-        .btn-whatsapp-link.work { background: #1ebe5c; }
+        .btn-whatsapp-link:hover {
+            transform: scale(1.02);
+        }
+        .btn-whatsapp-link.work {
+            background: #1ebe5c;
+        }
 
         /* ===== LOAD MORE ===== */
         .load-more-btn {
-            display: block; margin: 30px auto 0; padding: 12px 40px;
-            border-radius: 60px; background: var(--gold-gradient); color: var(--primary-dark);
-            font-weight: 700; border: none; cursor: pointer; font-size: 1rem;
-            transition: 0.3s; font-family: inherit;
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 40px;
+            border-radius: 60px;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+            font-family: inherit;
         }
-        .load-more-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
+        .load-more-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+        }
 
         /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
-            position: fixed; bottom: 28px; left: 28px; z-index: 9999;
-            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
         }
         .whatsapp-float .wa-btn {
-            width: 68px; height: 68px; border-radius: 50%; background: #25d366; color: #fff;
-            font-size: 2.4rem; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 8px 40px rgba(37,211,102,0.3); transition: 0.3s; border: none; cursor: pointer;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: #25d366;
+            color: #fff;
+            font-size: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
             animation: waPulse 2.8s ease-in-out infinite;
         }
-        .whatsapp-float .wa-btn:hover { transform: scale(1.1); }
-        .whatsapp-float .wa-label {
-            font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
-            padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.04);
+        .whatsapp-float .wa-btn:hover {
+            transform: scale(1.1);
         }
-        @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
+        .whatsapp-float .wa-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3px 14px;
+            border-radius: 50px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        @keyframes waPulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06);
+            }
+        }
 
         /* ===== AI CHAT ===== */
         .ai-chat-toggle {
-            position: fixed; bottom: 100px; right: 28px; z-index: 9998;
-            width: 60px; height: 60px; border-radius: 50%;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
-            font-size: 1.8rem; border: none; cursor: pointer;
-            box-shadow: 0 8px 40px rgba(108,60,224,0.35); transition: 0.3s;
+            position: fixed;
+            bottom: 100px;
+            right: 28px;
+            z-index: 9998;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7);
+            color: #fff;
+            font-size: 1.8rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
+            transition: 0.3s;
             animation: aiPulse 3s ease-in-out infinite;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .ai-chat-toggle:hover { transform: scale(1.1); }
-        @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35)} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06)} }
+        .ai-chat-toggle:hover {
+            transform: scale(1.1);
+        }
+        @keyframes aiPulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
+            }
+            50% {
+                box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06);
+            }
+        }
         .ai-chat-box {
-            position: fixed; bottom: 175px; right: 28px; z-index: 9997;
-            width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
-            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
-            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-            display: none; flex-direction: column; overflow: hidden;
+            position: fixed;
+            bottom: 175px;
+            right: 28px;
+            z-index: 9997;
+            width: 400px;
+            max-width: calc(100vw - 56px);
+            max-height: 550px;
+            border-radius: 24px;
+            background: rgba(6, 29, 58, 0.96);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
         }
-        .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
-        @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+        .ai-chat-box.open {
+            display: flex;
+            animation: chatSlideUp 0.4s ease;
+        }
+        @keyframes chatSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
         .ai-chat-header {
-            padding: 16px 20px; background: rgba(108,60,224,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+            padding: 16px 20px;
+            background: rgba(108, 60, 224, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
         }
-        .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
-        .ai-chat-header .title i { color: #a855f7; }
-        .ai-chat-header .title .ai-status { font-size: 0.6rem; color: #4ade80; font-weight: 400; }
+        .ai-chat-header .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+        .ai-chat-header .title i {
+            color: #a855f7;
+        }
+        .ai-chat-header .title .ai-status {
+            font-size: 0.6rem;
+            color: #4ade80;
+            font-weight: 400;
+        }
         .ai-chat-header .close-btn {
-            background: none; border: none; color: var(--text-muted); font-size: 1.2rem;
-            cursor: pointer; transition: 0.3s; padding: 4px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 4px;
         }
-        .ai-chat-header .close-btn:hover { color: #fff; transform: rotate(90deg); }
+        .ai-chat-header .close-btn:hover {
+            color: #fff;
+            transform: rotate(90deg);
+        }
         .ai-chat-messages {
-            flex: 1; padding: 16px 18px; overflow-y: auto; max-height: 350px;
-            display: flex; flex-direction: column; gap: 10px;
+            flex: 1;
+            padding: 16px 18px;
+            overflow-y: auto;
+            max-height: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         .ai-chat-messages .msg {
-            padding: 10px 16px; border-radius: 16px; max-width: 85%; font-size: 0.9rem;
-            line-height: 1.6; animation: msgPop 0.3s ease;
+            padding: 10px 16px;
+            border-radius: 16px;
+            max-width: 85%;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            animation: msgPop 0.3s ease;
         }
-        @keyframes msgPop { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
+        @keyframes msgPop {
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
         .ai-chat-messages .msg.bot {
-            background: rgba(108,60,224,0.12); border: 1px solid rgba(108,60,224,0.08);
-            align-self: flex-start; border-bottom-right-radius: 4px;
+            background: rgba(108, 60, 224, 0.12);
+            border: 1px solid rgba(108, 60, 224, 0.08);
+            align-self: flex-start;
+            border-bottom-right-radius: 4px;
         }
         .ai-chat-messages .msg.user {
-            background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.06);
-            align-self: flex-end; border-bottom-left-radius: 4px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            align-self: flex-end;
+            border-bottom-left-radius: 4px;
         }
-        .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
+        .ai-chat-messages .msg .time {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: block;
+            opacity: 0.5;
+        }
         .ai-chat-input {
-            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
-            display: flex; gap: 10px; flex-shrink: 0;
+            padding: 12px 16px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
         }
         .ai-chat-input input {
-            flex: 1; padding: 10px 16px; border-radius: 50px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
         }
-        .ai-chat-input input:focus { border-color: #a855f7; }
-        .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
+        .ai-chat-input input:focus {
+            border-color: #a855f7;
+        }
+        .ai-chat-input input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
         .ai-chat-input button {
-            padding: 10px 20px; border-radius: 50px; border: none;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
-            font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
         }
-        .ai-chat-input button:hover { transform: scale(1.04); }
-        .ai-chat-typing { display: none; padding: 8px 16px; color: var(--text-muted); font-size: 0.8rem; font-style: italic; }
-        .ai-chat-typing.show { display: block; }
+        .ai-chat-input button:hover {
+            transform: scale(1.04);
+        }
+        .ai-chat-typing {
+            display: none;
+            padding: 8px 16px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        .ai-chat-typing.show {
+            display: block;
+        }
 
         /* ===== FOOTER ===== */
         .footer {
             padding: 60px 24px 30px;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            background: rgba(6,29,58,0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(6, 29, 58, 0.5);
             backdrop-filter: blur(12px);
         }
         .footer .container {
-            max-width: 1320px; margin: 0 auto;
-            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
         }
-        .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
-        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
+        .footer .brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 340px;
+            margin-top: 8px;
+        }
+        .footer .brand .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
         .footer .brand .socials a {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--text-muted); transition: 0.3s;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: 0.3s;
         }
-        .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
-        .footer ul li { margin-bottom: 6px; }
-        .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
-        .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
+        .footer .brand .socials a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .footer h5 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #fff;
+        }
+        .footer ul li {
+            margin-bottom: 6px;
+        }
+        .footer ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .footer ul li a:hover {
+            color: var(--gold);
+            padding-right: 6px;
+        }
         .footer-bottom {
-            max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            text-align: center; color: var(--text-muted); font-size: 0.8rem;
+            max-width: 1320px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
         }
-        .footer-bottom span { color: var(--gold); }
+        .footer-bottom span {
+            color: var(--gold);
+        }
 
         /* ===== REVEAL ===== */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ===== SCROLL TOP ===== */
         .scroll-top {
-            position: fixed; bottom: 100px; left: 28px; z-index: 9998;
-            width: 50px; height: 50px; border-radius: 50%; background: var(--gold-gradient);
-            color: var(--primary-dark); border: none; font-size: 1.4rem; cursor: pointer;
-            box-shadow: 0 8px 30px rgba(212,175,55,0.3); transition: 0.3s;
-            display: none; align-items: center; justify-content: center;
+            position: fixed;
+            bottom: 100px;
+            left: 28px;
+            z-index: 9998;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            transition: 0.3s;
+            display: none;
+            align-items: center;
+            justify-content: center;
         }
-        .scroll-top:hover { transform: scale(1.1); }
-        .scroll-top.show { display: flex; }
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+        .scroll-top.show {
+            display: flex;
+        }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width:1024px) {
-            .hero .container { grid-template-columns: 1fr; text-align: center; }
-            .hero-content .subtitle { margin: 0 auto 32px; }
-            .hero-buttons { justify-content: center; }
-            .hero-stats { justify-content: center; }
-            .hero-card { margin: 0 auto; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .footer .container { grid-template-columns: 1fr 1fr; }
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content .subtitle {
+                margin: 0 auto 32px;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-card {
+                margin: 0 auto;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer .container {
+                grid-template-columns: 1fr 1fr;
+            }
         }
-        @media (max-width:768px) {
-            .hotels-grid, .packages-grid, .offers-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
-            .footer .container { grid-template-columns: 1fr; text-align: center; }
-            .footer .brand .socials { justify-content: center; }
-            .ai-chat-box { width: calc(100vw - 32px); right: 16px; bottom: 155px; max-height: 450px; }
-            .ai-chat-toggle { right: 16px; bottom: 85px; width: 50px; height: 50px; font-size: 1.4rem; }
-            .railway-grid { grid-template-columns: 1fr 1fr; }
+        @media (max-width: 768px) {
+            .hotels-grid,
+            .packages-grid,
+            .offers-grid,
+            .blog-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer .brand .socials {
+                justify-content: center;
+            }
+            .ai-chat-box {
+                width: calc(100vw - 32px);
+                right: 16px;
+                bottom: 155px;
+                max-height: 450px;
+            }
+            .ai-chat-toggle {
+                right: 16px;
+                bottom: 85px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            .railway-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
-        @media (max-width:480px) {
-            .hotels-grid, .packages-grid, .offers-grid, .blog-grid, .railway-grid { grid-template-columns: 1fr; }
-            .hero-stats { flex-direction: column; gap: 10px; align-items: center; }
-            .hero-buttons .btn { width: 100%; justify-content: center; }
-            .section { padding: 56px 16px; }
-            .contact-form { padding: 24px; }
+        @media (max-width: 480px) {
+            .hotels-grid,
+            .packages-grid,
+            .offers-grid,
+            .blog-grid,
+            .railway-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .section {
+                padding: 56px 16px;
+            }
+            .contact-form {
+                padding: 24px;
+            }
         }
     </style>
 </head>
@@ -729,7 +1605,9 @@
                 <a href="offers.html" class="btn btn-primary" id="offersAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع العروض</a>
             </div>
         </div>
-    </section>    <!-- ===== HOTELS ===== -->
+    </section>
+
+    <!-- ===== HOTELS ===== -->
     <section class="section" id="hotels">
         <div class="container">
             <div class="section-title reveal">
@@ -860,19 +1738,32 @@
                 <div>
                     <div class="info-card">
                         <div class="icon-box"><i class="fas fa-phone"></i></div>
-                        <div><div class="label" id="labelWorkPhone">هاتف العمل</div><div class="value" dir="ltr">0554126832</div></div>
+                        <div>
+                            <div class="label" id="labelWorkPhone">هاتف العمل</div>
+                            <div class="value" dir="ltr">0554126832</div>
+                        </div>
                     </div>
                     <div class="info-card">
                         <div class="icon-box"><i class="fas fa-phone"></i></div>
-                        <div><div class="label" id="labelOwnerPhone">هاتف المالك</div><div class="value" dir="ltr">0555382038</div></div>
+                        <div>
+                            <div class="label" id="labelOwnerPhone">هاتف المالك</div>
+                            <div class="value" dir="ltr">0555382038</div>
+                        </div>
                     </div>
                     <div class="info-card">
                         <div class="icon-box"><i class="fas fa-envelope"></i></div>
-                        <div><div class="label" id="labelEmail">البريد الإلكتروني</div><div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div><div class="value" dir="ltr" style="font-size:0.8rem;font-weight:400;">atallahalanazi@sueudaltaayira.com</div></div>
+                        <div>
+                            <div class="label" id="labelEmail">البريد الإلكتروني</div>
+                            <div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div>
+                            <div class="value" dir="ltr" style="font-size:0.8rem;font-weight:400;">atallahalanazi@sueudaltaayira.com</div>
+                        </div>
                     </div>
                     <div class="info-card">
                         <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
-                        <div><div class="label" id="labelAddress">العنوان</div><div class="value" style="font-weight:400;font-size:0.95rem;" id="addressText">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div></div>
+                        <div>
+                            <div class="label" id="labelAddress">العنوان</div>
+                            <div class="value" style="font-weight:400;font-size:0.95rem;" id="addressText">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div>
+                        </div>
                     </div>
                     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
                         <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link" id="waOwnerBtn"><i class="fab fa-whatsapp"></i> واتساب المالك</a>
@@ -898,7 +1789,9 @@
                 </div>
             </div>
         </div>
-    </section>    <!-- ===== FOOTER ===== -->
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="brand">
@@ -985,7 +1878,7 @@
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
     <!-- ============================================================
-    JAVASCRIPT – सभी फीचर्स
+    JAVASCRIPT – सभी फीचर्स के साथ (पूरी तरह से काम करने वाला)
     ============================================================ -->
     <script>
         // ===== PARTICLES =====
@@ -997,7 +1890,8 @@
             const particles = [];
             const COUNT = 60;
 
-            function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+            function resize() { w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight; }
             window.addEventListener('resize', resize);
             resize();
 
@@ -1046,7 +1940,8 @@
 
             function animate() {
                 ctx.clearRect(0, 0, w, h);
-                particles.forEach(p => { p.update(); p.draw(); });
+                particles.forEach(p => { p.update();
+                    p.draw(); });
                 drawLines();
                 requestAnimationFrame(animate);
             }
@@ -1088,7 +1983,8 @@
             const step = Math.ceil(target / 60);
             const interval = setInterval(() => {
                 current += step;
-                if (current >= target) { current = target; clearInterval(interval); }
+                if (current >= target) { current = target;
+                    clearInterval(interval); }
                 el.textContent = current + suffix;
             }, 20);
         }
@@ -1110,16 +2006,26 @@
 
         // ===== SERVICES DATA =====
         const servicesData = [
-            { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop' },
-            { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop' },
-            { icon: '🛂', name: 'التأشيرات', desc: 'تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول', img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop' },
-            { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم', img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop' },
-            { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل', img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop' },
-            { icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop' },
-            { icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop' },
-            { icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop' },
-            { icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop' },
-            { icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة', img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop' }
+            { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية',
+            img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop' },
+            { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة',
+            img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop' },
+            { icon: '🛂', name: 'التأشيرات', desc: 'تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول',
+            img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop' },
+            { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم',
+            img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop' },
+            { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل',
+            img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop' },
+            { icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم',
+            img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop' },
+            { icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة',
+            img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop' },
+            { icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات',
+            img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop' },
+            { icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة',
+            img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop' },
+            { icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة',
+            img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop' }
         ];
 
         const servicesGrid = document.getElementById('servicesGrid');
@@ -1136,19 +2042,27 @@
                 <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
             `;
             card.addEventListener('click', () => {
-                window.open(`https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمة%20${encodeURIComponent(s.name)}`, '_blank');
+                window.open(
+                    `https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمة%20${encodeURIComponent(s.name)}`,
+                    '_blank');
             });
             servicesGrid.appendChild(card);
         });
 
         // ===== OFFERS DATA =====
         const offersData = [
-            { icon: '🇸🇦', badge: 'عرض اليوم الوطني', title: 'خصم 93% على الفنادق', desc: 'احتفل باليوم الوطني السعودي مع خصم فوري يصل إلى 93% على حجز الفنادق', price: 'ابتداءً من 435 ر.س' },
-            { icon: '🕌', badge: 'عمرة رمضان', title: 'باقات عمرة رمضان', desc: 'باقات عمرة متكاملة في رمضان تشمل تأشيرة، سكن قريب من الحرم، ومواصلات', price: 'ابتداءً من 1,700 درهم' },
-            { icon: '🏨', badge: 'خصم فنادق', title: 'خصم 9% على الفنادق', desc: 'احصل على خصم 9% على جميع الفنادق باستخدام الكود KSA90', price: 'خصم 9% + 900 نقطة' },
-            { icon: '🚆', badge: 'عروض القطارات', title: 'تذاكر قطار بأسعار مخفضة', desc: 'رحلة مريحة بين المدن السعودية بأسعار تبدأ من 85 ريال فقط', price: 'ابتداءً من 85 ريال' },
-            { icon: '🏖️', badge: 'عرض العطلات', title: 'إقامة في مكة بأسعار مميزة', desc: 'فندق أم مكة من ميلينيوم – إقامة ليلتين أو ثلاث بأسعار مخفضة', price: 'ابتداءً من 435 ر.س' },
-            { icon: '✈️', badge: 'عرض الطيران', title: 'تذاكر طيران بأسعار تنافسية', desc: 'أرخص أسعار تذاكر الطيران مع فلاي ناس وطيران أديل', price: 'ابتداءً من 179 ريال' }
+            { icon: '🇸🇦', badge: 'عرض اليوم الوطني', title: 'خصم 93% على الفنادق',
+                desc: 'احتفل باليوم الوطني السعودي مع خصم فوري يصل إلى 93% على حجز الفنادق', price: 'ابتداءً من 435 ر.س' },
+            { icon: '🕌', badge: 'عمرة رمضان', title: 'باقات عمرة رمضان',
+                desc: 'باقات عمرة متكاملة في رمضان تشمل تأشيرة، سكن قريب من الحرم، ومواصلات', price: 'ابتداءً من 1,700 درهم' },
+            { icon: '🏨', badge: 'خصم فنادق', title: 'خصم 9% على الفنادق',
+                desc: 'احصل على خصم 9% على جميع الفنادق باستخدام الكود KSA90', price: 'خصم 9% + 900 نقطة' },
+            { icon: '🚆', badge: 'عروض القطارات', title: 'تذاكر قطار بأسعار مخفضة',
+                desc: 'رحلة مريحة بين المدن السعودية بأسعار تبدأ من 85 ريال فقط', price: 'ابتداءً من 85 ريال' },
+            { icon: '🏖️', badge: 'عرض العطلات', title: 'إقامة في مكة بأسعار مميزة',
+                desc: 'فندق أم مكة من ميلينيوم – إقامة ليلتين أو ثلاث بأسعار مخفضة', price: 'ابتداءً من 435 ر.س' },
+            { icon: '✈️', badge: 'عرض الطيران', title: 'تذاكر طيران بأسعار تنافسية',
+                desc: 'أرخص أسعار تذاكر الطيران مع فلاي ناس وطيران أديل', price: 'ابتداءً من 179 ريال' }
         ];
 
         const offersGrid = document.getElementById('offersGrid');
@@ -1172,9 +2086,13 @@
             window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
         };
 
-        // ===== HOTELS DATA =====
-        const hotelNames = ['فندق الفيرمونت', 'الريتز كارلتون', 'فور سيزونز', 'هيلتون', 'شيراتون', 'ماريوت', 'كيمبنسكي', 'ريتز باريس', 'جراند حياة', 'إنتركونتيننتال', 'ويستن', 'لو ميريديان', 'سوفيتيل', 'نوفوتيل', 'إيبيس', 'موفنبيك'];
-        const hotelCities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'دبي', 'أبوظبي', 'الدوحة', 'مسقط', 'الكويت', 'عمّان', 'القاهرة', 'اسطنبول'];
+        // ===== HOTELS DATA (220) =====
+        const hotelNames = ['فندق الفيرمونت', 'الريتز كارلتون', 'فور سيزونز', 'هيلتون', 'شيراتون', 'ماريوت', 'كيمبنسكي', 'ريتز باريس',
+            'جراند حياة', 'إنتركونتيننتال', 'ويستن', 'لو ميريديان', 'سوفيتيل', 'نوفوتيل', 'إيبيس', 'موفنبيك'
+        ];
+        const hotelCities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'دبي', 'أبوظبي', 'الدوحة', 'مسقط',
+            'الكويت', 'عمّان', 'القاهرة', 'اسطنبول'
+        ];
         const hotelImages = [
             'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=250&fit=crop',
             'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=250&fit=crop',
@@ -1183,11 +2101,15 @@
             'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=250&fit=crop',
             'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=250&fit=crop'
         ];
-        const cityPriceBase = { 'الرياض': 1477, 'جدة': 758, 'مكة': 627, 'المدينة': 550, 'الدمام': 650, 'الخبر': 600, 'أبها': 500, 'تبوك': 450, 'دبي': 800, 'أبوظبي': 750, 'الدوحة': 700, 'مسقط': 600, 'الكويت': 500, 'عمّان': 480, 'القاهرة': 400, 'اسطنبول': 450 };
+        const cityPriceBase = { 'الرياض': 1477, 'جدة': 758, 'مكة': 627, 'المدينة': 550, 'الدمام': 650, 'الخبر': 600,
+            'أبها': 500, 'تبوك': 450, 'دبي': 800, 'أبوظبي': 750, 'الدوحة': 700, 'مسقط': 600, 'الكويت': 500, 'عمّان': 480,
+            'القاهرة': 400, 'اسطنبول': 450
+        };
 
         let allHotels = [];
         for (let i = 0; i < 220; i++) {
-            const name = hotelNames[i % hotelNames.length] + (Math.floor(i / hotelNames.length) > 0 ? ` ${Math.floor(i / hotelNames.length) + 1}` : '');
+            const name = hotelNames[i % hotelNames.length] + (Math.floor(i / hotelNames.length) > 0 ? ` ${Math.floor(i / hotelNames
+                    .length) + 1}` : '');
             const city = hotelCities[i % hotelCities.length];
             const basePrice = cityPriceBase[city] || 700;
             const price = Math.round((basePrice * (0.7 + Math.random() * 0.6)) / 5) * 5;
@@ -1217,23 +2139,29 @@
                 hotelsGrid.appendChild(card);
             });
             document.querySelectorAll('.hotel-card.reveal').forEach(el => observer.observe(el));
+            const loadBtn = document.getElementById('loadMoreHotels');
+            if (count >= allHotels.length) loadBtn.style.display = 'none';
+            else loadBtn.style.display = 'block';
         }
 
         renderHotels(hotelsDisplayCount);
 
         document.getElementById('loadMoreHotels').addEventListener('click', function() {
             hotelsDisplayCount += 6;
-            if (hotelsDisplayCount >= allHotels.length) this.style.display = 'none';
             renderHotels(hotelsDisplayCount);
         });
 
         window.bookHotel = function(name, city, price) {
-            const msg = `🏨 حجز فندق\nالفندق: ${name}\nالمدينة: ${city}\nالسعر: ${price} ر.س/ليلة\nأرغب في الحصول على عرض سعر مفصل`;
+            const msg =
+                `🏨 حجز فندق\nالفندق: ${name}\nالمدينة: ${city}\nالسعر: ${price} ر.س/ليلة\nأرغب في الحصول على عرض سعر مفصل`;
             window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
         };
 
-        // ===== PACKAGES DATA =====
-        const packageNames = ['عمرة رمضان', 'عطلة دبي الفاخرة', 'رحلة باريس الرومانسية', 'استكشاف اسطنبول', 'عطلة شاطئية في جدة', 'رحلة سياحية إلى لندن', 'سفر رجال أعمال إلى نيويورك', 'رحلة عائلية إلى كوالالمبور', 'سفاري في كينيا', 'رحلة شتوية إلى سويسرا'];
+        // ===== PACKAGES DATA (220) =====
+        const packageNames = ['عمرة رمضان', 'عطلة دبي الفاخرة', 'رحلة باريس الرومانسية', 'استكشاف اسطنبول',
+            'عطلة شاطئية في جدة', 'رحلة سياحية إلى لندن', 'سفر رجال أعمال إلى نيويورك',
+            'رحلة عائلية إلى كوالالمبور', 'سفاري في كينيا', 'رحلة شتوية إلى سويسرا'
+        ];
         const packageCities = ['مكة', 'دبي', 'باريس', 'اسطنبول', 'جدة', 'لندن', 'نيويورك', 'كوالالمبور', 'نيروبي', 'زيرمات'];
         const packageImages = [
             'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
@@ -1247,11 +2175,14 @@
             'https://images.unsplash.com/photo-1535139267832-7e3a5b2f6ae7?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&h=400&fit=crop'
         ];
-        const packagePriceBase = { 'مكة': 2500, 'دبي': 3800, 'باريس': 4200, 'اسطنبول': 2200, 'جدة': 1800, 'لندن': 4500, 'نيويورك': 5500, 'كوالالمبور': 3200, 'نيروبي': 4800, 'زيرمات': 5200 };
+        const packagePriceBase = { 'مكة': 2500, 'دبي': 3800, 'باريس': 4200, 'اسطنبول': 2200, 'جدة': 1800,
+            'لندن': 4500, 'نيويورك': 5500, 'كوالالمبور': 3200, 'نيروبي': 4800, 'زيرمات': 5200
+        };
 
         let allPackages = [];
         for (let i = 0; i < 220; i++) {
-            const name = packageNames[i % packageNames.length] + (Math.floor(i / packageNames.length) > 0 ? ` ${Math.floor(i / packageNames.length) + 1}` : '');
+            const name = packageNames[i % packageNames.length] + (Math.floor(i / packageNames.length) > 0 ? ` ${Math.floor(i /
+                    packageNames.length) + 1}` : '');
             const city = packageCities[i % packageCities.length];
             const basePrice = packagePriceBase[city] || 3000;
             const price = Math.round((basePrice * (0.85 + Math.random() * 0.3)) / 50) * 50;
@@ -1280,29 +2211,40 @@
                 packagesGrid.appendChild(card);
             });
             document.querySelectorAll('.package-card.reveal').forEach(el => observer.observe(el));
+            const loadBtn = document.getElementById('loadMorePackages');
+            if (count >= allPackages.length) loadBtn.style.display = 'none';
+            else loadBtn.style.display = 'block';
         }
 
         renderPackages(packagesDisplayCount);
 
         document.getElementById('loadMorePackages').addEventListener('click', function() {
             packagesDisplayCount += 6;
-            if (packagesDisplayCount >= allPackages.length) this.style.display = 'none';
             renderPackages(packagesDisplayCount);
         });
 
         window.bookPackage = function(name, city, price) {
-            const msg = `🏝️ حجز باقة سياحية\nالباقة: ${name}\nالوجهة: ${city}\nالسعر: ${price} ر.س\nأرغب في الحصول على عرض سعر مفصل`;
+            const msg =
+                `🏝️ حجز باقة سياحية\nالباقة: ${name}\nالوجهة: ${city}\nالسعر: ${price} ر.س\nأرغب في الحصول على عرض سعر مفصل`;
             window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
         };
 
         // ===== RAILWAY DATA =====
         const railwayRoutes = [
-            { from: 'الرياض', to: 'الدمام', duration: '3-4 ساعات', price: '85-145 ر.س', detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الدمام', to: 'الرياض', duration: '3-4 ساعات', price: '85-145 ر.س', detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'الهفوف', duration: '2.5 ساعة', price: '60-100 ر.س', detail: 'أسعار تنافسية حسب الدرجة', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الدمام', to: 'الهفوف', duration: '1.5 ساعة', price: '40-70 ر.س', detail: 'رحلة قصيرة ومريحة', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'القصيم', duration: '2.5 ساعة', price: '90-140 ر.س', detail: 'خط الشمال الغربي', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'حائل', duration: '4 ساعات', price: '120-180 ر.س', detail: 'خط الشمال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' }
+            { from: 'الرياض', to: 'الدمام', duration: '3-4 ساعات', price: '85-145 ر.س',
+                detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال',
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الدمام', to: 'الرياض', duration: '3-4 ساعات', price: '85-145 ر.س',
+                detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال',
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الرياض', to: 'الهفوف', duration: '2.5 ساعة', price: '60-100 ر.س', detail: 'أسعار تنافسية حسب الدرجة',
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الدمام', to: 'الهفوف', duration: '1.5 ساعة', price: '40-70 ر.س', detail: 'رحلة قصيرة ومريحة',
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الرياض', to: 'القصيم', duration: '2.5 ساعة', price: '90-140 ر.س', detail: 'خط الشمال الغربي',
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الرياض', to: 'حائل', duration: '4 ساعات', price: '120-180 ر.س', detail: 'خط الشمال',
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' }
         ];
 
         const railwayGrid = document.getElementById('railwayGrid');
@@ -1319,7 +2261,8 @@
                 <p style="font-size:0.7rem;color:var(--text-muted);">${r.detail}</p>
             `;
             item.addEventListener('click', () => {
-                const msg = `🚆 حجز تذكرة قطار\nمن: ${r.from}\nإلى: ${r.to}\nالمدة: ${r.duration}\nالسعر: ${r.price}\nأرغب في الحجز`;
+                const msg =
+                    `🚆 حجز تذكرة قطار\nمن: ${r.from}\nإلى: ${r.to}\nالمدة: ${r.duration}\nالسعر: ${r.price}\nأرغب في الحجز`;
                 window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
             });
             railwayGrid.appendChild(item);
@@ -1327,12 +2270,18 @@
 
         // ===== BLOG DATA =====
         const blogPosts = [
-            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم', tag: 'وجهات سياحية', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '1 أغسطس 2026' },
-            { title: 'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc: 'نصائح وإرشادات لرحلة مثالية إلى دبي', tag: 'دليل سفر', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', date: '29 يوليو 2026' },
-            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة لحجز عمرة مميزة ومريحة', tag: 'عمرة', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', date: '25 يوليو 2026' },
-            { title: 'أفضل فنادق مكة قرب الحرم', desc: 'دليل شامل لأفضل الفنادق القريبة من الحرم المكي', tag: 'فنادق', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop', date: '20 يوليو 2026' },
-            { title: 'رحلة إلى باريس – مدينة النور', desc: 'استكشف أجمل معالم باريس مع نصائح السفر', tag: 'سفر', img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop', date: '15 يوليو 2026' },
-            { title: 'تأشيرة السياحة إلى أوروبا – دليل كامل', desc: 'كل ما تحتاج معرفته عن تأشيرة شنغن', tag: 'تأشيرات', img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', date: '10 يوليو 2026' }
+            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم', tag: 'وجهات سياحية',
+                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '1 أغسطس 2026' },
+            { title: 'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc: 'نصائح وإرشادات لرحلة مثالية إلى دبي', tag: 'دليل سفر',
+                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', date: '29 يوليو 2026' },
+            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة لحجز عمرة مميزة ومريحة', tag: 'عمرة',
+                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', date: '25 يوليو 2026' },
+            { title: 'أفضل فنادق مكة قرب الحرم', desc: 'دليل شامل لأفضل الفنادق القريبة من الحرم المكي', tag: 'فنادق',
+                img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop', date: '20 يوليو 2026' },
+            { title: 'رحلة إلى باريس – مدينة النور', desc: 'استكشف أجمل معالم باريس مع نصائح السفر', tag: 'سفر',
+                img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop', date: '15 يوليو 2026' },
+            { title: 'تأشيرة السياحة إلى أوروبا – دليل كامل', desc: 'كل ما تحتاج معرفته عن تأشيرة شنغن', tag: 'تأشيرات',
+                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', date: '10 يوليو 2026' }
         ];
 
         let blogDisplayCount = 6;
@@ -1357,28 +2306,40 @@
                 blogGrid.appendChild(card);
             });
             document.querySelectorAll('.blog-card.reveal').forEach(el => observer.observe(el));
+            const loadBtn = document.getElementById('loadMoreBlog');
+            if (count >= blogPosts.length) loadBtn.style.display = 'none';
+            else loadBtn.style.display = 'block';
         }
 
         renderBlog(blogDisplayCount);
 
         document.getElementById('loadMoreBlog').addEventListener('click', function() {
             blogDisplayCount += 6;
-            if (blogDisplayCount >= blogPosts.length) this.style.display = 'none';
             renderBlog(blogDisplayCount);
         });
 
         // ===== FAQ DATA =====
         const faqData = [
-            { q: 'ما هي خدمات وكالة صعود الطائرة؟', a: 'نقدم أكثر من 20 خدمة سياحية تشمل: تذاكر الطيران، باقات العمرة، التأشيرات، حجز الفنادق (أكثر من 200 فندق)، تأجير السيارات، باقات سياحية (أكثر من 200 باقة)، حجز القطارات والباصات، نقل المطار، تأمين السفر، رحلات جماعية، رحلات بحرية، سفر رجال الأعمال، وغيرها.' },
-            { q: 'كيف يمكنني حجز رحلة مع صعود الطائرة؟', a: 'يمكنك حجز رحلتك من خلال: 1- الضغط على "احجز الآن" في الأعلى، 2- اختيار الخدمة المطلوبة من قسم الخدمات، 3- ملء نموذج الحجز، 4- سيتم تحويل طلبك مباشرة إلى واتساب لإتمام الحجز.' },
-            { q: 'هل تقدمون عروضاً خاصة؟', a: 'نعم! لدينا عروض حصرية مثل خصم 93% على الفنادق بمناسبة اليوم الوطني، عروض عمرة رمضان، خصم 9% باستخدام كود KSA90، وعروض القطارات بأسعار تبدأ من 85 ريال.' },
-            { q: 'كم عدد الفنادق المتاحة للحجز؟', a: 'لدينا أكثر من 200 فندق حول العالم في مختلف المدن مثل الرياض، جدة، مكة، دبي، لندن، باريس، نيويورك، طوكيو، وغيرها.' },
-            { q: 'هل تقدمون باقات عمرة؟', a: 'نعم، لدينا باقات عمرة متكاملة تشمل التأشيرة، السكن القريب من الحرم، المواصلات الداخلية، الوجبات الفاخرة، ومرشد سياحي.' },
-            { q: 'كيف يمكنني التواصل معكم؟', a: 'يمكنك التواصل عبر: 1- الهاتف: 0555382038 (المالك) أو 0554126832 (العمل)، 2- واتساب عبر الزر العائم، 3- البريد الإلكتروني: hamdan@sueudaltaayira.com، 4- نموذج الاتصال في الصفحة.' },
-            { q: 'هل تقدمون تأمين سفر؟', a: 'نعم، نوفر تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة، مع دعم 24/7.' },
-            { q: 'كم عدد الباقات السياحية المتاحة؟', a: 'لدينا أكثر من 200 باقة سياحية تشمل وجهات مثل دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.' },
-            { q: 'هل تقدمون حجز قطارات؟', a: 'نعم، نوفر حجز تذاكر القطارات (سار) بأسعار تبدأ من 85 ريال للدرجة الاقتصادية، و145 ريال لدرجة الأعمال.' },
-            { q: 'هل تدعمون اللغة الإنجليزية؟', a: 'نعم، يمكنك تغيير لغة الموقع إلى الإنجليزية عن طريق زر "English" في الأعلى، وسيتم ترجمة جميع المحتويات.' }
+            { q: 'ما هي خدمات وكالة صعود الطائرة؟',
+                a: 'نقدم أكثر من 20 خدمة سياحية تشمل: تذاكر الطيران، باقات العمرة، التأشيرات، حجز الفنادق (أكثر من 200 فندق)، تأجير السيارات، باقات سياحية (أكثر من 200 باقة)، حجز القطارات والباصات، نقل المطار، تأمين السفر، رحلات جماعية، رحلات بحرية، سفر رجال الأعمال، وغيرها.' },
+            { q: 'كيف يمكنني حجز رحلة مع صعود الطائرة؟',
+                a: 'يمكنك حجز رحلتك من خلال: 1- الضغط على "احجز الآن" في الأعلى، 2- اختيار الخدمة المطلوبة من قسم الخدمات، 3- ملء نموذج الحجز، 4- سيتم تحويل طلبك مباشرة إلى واتساب لإتمام الحجز.' },
+            { q: 'هل تقدمون عروضاً خاصة؟',
+                a: 'نعم! لدينا عروض حصرية مثل خصم 93% على الفنادق بمناسبة اليوم الوطني، عروض عمرة رمضان، خصم 9% باستخدام كود KSA90، وعروض القطارات بأسعار تبدأ من 85 ريال.' },
+            { q: 'كم عدد الفنادق المتاحة للحجز؟',
+                a: 'لدينا أكثر من 200 فندق حول العالم في مختلف المدن مثل الرياض، جدة، مكة، دبي، لندن، باريس، نيويورك، طوكيو، وغيرها.' },
+            { q: 'هل تقدمون باقات عمرة؟',
+                a: 'نعم، لدينا باقات عمرة متكاملة تشمل التأشيرة، السكن القريب من الحرم، المواصلات الداخلية، الوجبات الفاخرة، ومرشد سياحي.' },
+            { q: 'كيف يمكنني التواصل معكم؟',
+                a: 'يمكنك التواصل عبر: 1- الهاتف: 0555382038 (المالك) أو 0554126832 (العمل)، 2- واتساب عبر الزر العائم، 3- البريد الإلكتروني: hamdan@sueudaltaayira.com، 4- نموذج الاتصال في الصفحة.' },
+            { q: 'هل تقدمون تأمين سفر؟',
+                a: 'نعم، نوفر تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة، مع دعم 24/7.' },
+            { q: 'كم عدد الباقات السياحية المتاحة؟',
+                a: 'لدينا أكثر من 200 باقة سياحية تشمل وجهات مثل دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.' },
+            { q: 'هل تقدمون حجز قطارات؟',
+                a: 'نعم، نوفر حجز تذاكر القطارات (سار) بأسعار تبدأ من 85 ريال للدرجة الاقتصادية، و145 ريال لدرجة الأعمال.' },
+            { q: 'هل تدعمون اللغة الإنجليزية؟',
+                a: 'نعم، يمكنك تغيير لغة الموقع إلى الإنجليزية عن طريق زر "English" في الأعلى، وسيتم ترجمة جميع المحتويات.' }
         ];
 
         const faqGrid = document.getElementById('faqGrid');
@@ -1414,7 +2375,8 @@
                 status.style.color = '#f87171';
                 return;
             }
-            const fullMsg = `📩 رسالة جديدة من موقع صعود الطائرة\n\n👤 الاسم: ${name}\n📱 الجوال: ${phone}\n📧 البريد: ${email || 'غير مدخل'}\n\n💬 الرسالة:\n${message}`;
+            const fullMsg =
+                `📩 رسالة جديدة من موقع صعود الطائرة\n\n👤 الاسم: ${name}\n📱 الجوال: ${phone}\n📧 البريد: ${email || 'غير مدخل'}\n\n💬 الرسالة:\n${message}`;
             status.textContent = '✅ جاري التحويل إلى واتساب ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
@@ -1426,7 +2388,7 @@
             }, 700);
         });
 
-        // ===== POWERFUL AI CHATBOT =====
+        // ===== AI CHAT =====
         const chatBox = document.getElementById('aiChatBox');
         const chatMessages = document.getElementById('aiChatMessages');
         const chatInput = document.getElementById('aiChatInput');
@@ -1502,15 +2464,438 @@
         let currentLang = 'ar';
 
         const translations = {
-            ar: { /* ... جميع ترجمات العربية ... */ },
-            en: { /* ... جميع ترجمات الإنجليزية ... */ }
+            ar: {
+                logoMain: 'صعود الطائرة',
+                logoSub: 'للسفر والسياحة',
+                navHome: 'الرئيسية',
+                navServices: 'خدماتنا',
+                navOffers: 'عروض',
+                navHotels: 'فنادق',
+                navPackages: 'باقات',
+                navRailway: 'قطارات',
+                navCars: 'سيارات',
+                navAbout: 'من نحن',
+                navContact: 'اتصل بنا',
+                navBlog: '📝 مدونة',
+                navChatbot: '🤖 مساعد',
+                navCta: '📞 احجز الآن',
+                heroTitle1: 'اكتشف العالم مع',
+                heroTitle2: 'صعود الطائرة',
+                heroSub: 'وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية. رحلتك المثالية تبدأ هنا.',
+                heroBtn1: 'استكشف الباقات',
+                heroBtn2: 'واتساب',
+                heroBtn3: 'مساعد AI',
+                stat1: 'عميل سعيد',
+                stat2: 'وجهة سفر',
+                stat3: 'رضا العملاء',
+                stat4: 'سنوات خبرة',
+                heroCardTitle: 'رحلتك تبدأ هنا',
+                heroCardSub: 'أكثر من 20 خدمة سياحية – احجز كل شيء في مكان واحد',
+                badge1: 'طيران',
+                badge2: 'عمرة',
+                badge3: 'فنادق',
+                badge4: 'سيارات',
+                badge5: 'قطارات',
+                badge6: 'باقات',
+                badge7: 'مدونة',
+                badge8: 'مساعد',
+                servicesTitle1: 'خدماتنا',
+                servicesTitle2: 'المتكاملة',
+                servicesSub: 'اختر الخدمة التي تحتاجها، واحصل على عرض مخصص',
+                servicesAllBtn: 'عرض جميع الخدمات',
+                offersTitle1: '🔥 عروض',
+                offersTitle2: 'خاصة',
+                offersSub: 'عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي',
+                offersAllBtn: 'عرض جميع العروض',
+                hotelsTitle1: 'أفضل',
+                hotelsTitle2: 'الفنادق',
+                hotelsSub: 'اختر من بين أكثر من 200 فندق حول العالم',
+                hotelsAllBtn: 'عرض جميع الفنادق',
+                packagesTitle1: 'باقات',
+                packagesTitle2: 'السفر',
+                packagesSub: 'أكثر من 200 باقة سياحية بأسعار تنافسية',
+                packagesAllBtn: 'عرض جميع الباقات',
+                railwayTitle1: 'حجز',
+                railwayTitle2: 'القطارات',
+                railwaySub: 'حجز تذاكر القطارات بأسعار تبدأ من 85 ريال',
+                railwayAllBtn: 'عرض جميع القطارات',
+                blogTitle1: '📝 مدونة',
+                blogTitle2: 'السفر',
+                blogSub: 'أحدث المقالات والنصائح حول السفر والسياحة',
+                blogAllBtn: 'عرض جميع المقالات',
+                faqTitle1: 'الأسئلة',
+                faqTitle2: 'الشائعة',
+                faqSub: 'أجوبة على أكثر الأسئلة التي يطرحها عملاؤنا الكرام',
+                aboutTitle1: 'من نحن',
+                aboutTitle2: 'في صعود الطائرة',
+                aboutSub: 'وكالة سفر رائدة تقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات',
+                aboutP1: '<strong style="color:var(--gold);font-size:1.2rem;">صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر متكاملة في المملكة العربية السعودية، نقدم أكثر من 20 خدمة سياحية تشمل حجز الطيران، العمرة، التأشيرات، الفنادق (أكثر من 200 فندق)، الباقات السياحية (أكثر من 200 باقة)، تأجير السيارات، حجز القطارات والباصات، نقل المطار، التأمين السياحي، الرحلات الجماعية، الرحلات البحرية، سفر رجال الأعمال، والمزيد.',
+                aboutP2: 'فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا، مع أسعار تنافسية وخدمات متميزة.',
+                aboutStat1: 'فندق',
+                aboutStat2: 'باقة سياحية',
+                aboutStat3: 'خدمة سياحية',
+                aboutStat4: 'مقالة سياحية',
+                contactTitle1: 'اتصل',
+                contactTitle2: 'بنا',
+                contactSub: 'نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز',
+                labelWorkPhone: 'هاتف العمل',
+                labelOwnerPhone: 'هاتف المالك',
+                labelEmail: 'البريد الإلكتروني',
+                labelAddress: 'العنوان',
+                addressText: 'طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية',
+                waOwnerBtn: 'واتساب المالك',
+                waWorkBtn: 'واتساب العمل',
+                privacyLink: 'سياسة الخصوصية',
+                termsLink: 'الشروط والأحكام',
+                formTitle: '📩 أرسل لنا رسالة',
+                formSub: 'سنرد عليك في أقرب وقت ممكن',
+                submitBtn: 'إرسال الرسالة',
+                footerBrand: 'صعود الطائرة',
+                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle: 'روابط سريعة',
+                footerServicesTitle: 'خدماتنا',
+                footerInfoTitle: 'معلومات',
+                fNavHome: 'الرئيسية',
+                fNavServices: 'خدماتنا',
+                fNavOffers: 'عروض',
+                fNavHotels: 'فنادق',
+                fNavPackages: 'باقات',
+                fNavRailway: 'قطارات',
+                fNavCars: 'سيارات',
+                fNavAbout: 'من نحن',
+                fNavContact: 'اتصل بنا',
+                fNavBlog: '📝 مدونة',
+                fNavChatbot: '🤖 مساعد',
+                fServFlights: 'تذاكر طيران',
+                fServUmrah: 'باقات العمرة',
+                fServVisa: 'تأشيرات',
+                fServHotels: 'فنادق',
+                fServCars: 'تأجير سيارات',
+                fServRailway: 'قطارات',
+                fInfoAbout: 'عن الوكالة',
+                fInfoContact: 'اتصل بنا',
+                fInfoPrivacy: 'سياسة الخصوصية',
+                fInfoTerms: 'الشروط والأحكام',
+                waFloatLabel: 'تواصل واتساب',
+                aiChatTitle: 'مساعد صعود الطائرة AI',
+                aiWelcomeMsg: '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.',
+                aiPlaceholder: 'اكتب سؤالك بأي لغة...',
+                loadMoreHotels: 'عرض المزيد من الفنادق',
+                loadMorePackages: 'عرض المزيد من الباقات',
+                loadMoreBlog: 'عرض المزيد من المقالات',
+                footerRights: 'جميع الحقوق محفوظة',
+                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية'
+            },
+            en: {
+                logoMain: 'Saeed Al-Taayira',
+                logoSub: 'Travel & Tourism',
+                navHome: 'Home',
+                navServices: 'Services',
+                navOffers: 'Offers',
+                navHotels: 'Hotels',
+                navPackages: 'Packages',
+                navRailway: 'Railway',
+                navCars: 'Cars',
+                navAbout: 'About',
+                navContact: 'Contact',
+                navBlog: '📝 Blog',
+                navChatbot: '🤖 Assistant',
+                navCta: '📞 Book Now',
+                heroTitle1: 'Discover the World with',
+                heroTitle2: 'Saeed Al-Taayira',
+                heroSub: 'Your complete travel partner – 200+ hotels, 200+ packages, and all travel services with real prices. Your perfect journey starts here.',
+                heroBtn1: 'Explore Packages',
+                heroBtn2: 'WhatsApp',
+                heroBtn3: 'AI Assistant',
+                stat1: 'Happy Clients',
+                stat2: 'Destinations',
+                stat3: 'Satisfaction',
+                stat4: 'Years Experience',
+                heroCardTitle: 'Your Journey Begins Here',
+                heroCardSub: '20+ travel services – book everything in one place',
+                badge1: 'Flights',
+                badge2: 'Umrah',
+                badge3: 'Hotels',
+                badge4: 'Cars',
+                badge5: 'Trains',
+                badge6: 'Packages',
+                badge7: 'Blog',
+                badge8: 'Assistant',
+                servicesTitle1: 'Our',
+                servicesTitle2: 'Services',
+                servicesSub: 'Choose the service you need and get a customized offer',
+                servicesAllBtn: 'View All Services',
+                offersTitle1: '🔥 Special',
+                offersTitle2: 'Offers',
+                offersSub: 'Exclusive offers updated automatically with AI',
+                offersAllBtn: 'View All Offers',
+                hotelsTitle1: 'Best',
+                hotelsTitle2: 'Hotels',
+                hotelsSub: 'Choose from 200+ hotels worldwide',
+                hotelsAllBtn: 'View All Hotels',
+                packagesTitle1: 'Travel',
+                packagesTitle2: 'Packages',
+                packagesSub: '200+ packages with competitive prices',
+                packagesAllBtn: 'View All Packages',
+                railwayTitle1: 'Railway',
+                railwayTitle2: 'Tickets',
+                railwaySub: 'Book train tickets starting from 85 SAR',
+                railwayAllBtn: 'View All Trains',
+                blogTitle1: '📝 Travel',
+                blogTitle2: 'Blog',
+                blogSub: 'Latest articles and tips about travel and tourism',
+                blogAllBtn: 'View All Articles',
+                faqTitle1: 'Frequently',
+                faqTitle2: 'Asked Questions',
+                faqSub: 'Answers to the most common questions from our clients',
+                aboutTitle1: 'About',
+                aboutTitle2: 'Saeed Al-Taayira',
+                aboutSub: 'A leading travel agency offering integrated services for over 5 years',
+                aboutP1: '<strong style="color:var(--gold);font-size:1.2rem;">Saeed Al-Taayira Travel & Tourism</strong> is an integrated travel agency in Saudi Arabia, offering over 20 travel services including flight booking, Umrah, visas, hotels (200+), travel packages (200+), car rentals, train and bus bookings, airport transfer, travel insurance, group tours, cruises, business travel, and more.',
+                aboutP2: 'Our specialized team works around the clock to ensure a smooth and enjoyable trip for our clients, with competitive prices and outstanding service.',
+                aboutStat1: 'Hotels',
+                aboutStat2: 'Packages',
+                aboutStat3: 'Services',
+                aboutStat4: 'Articles',
+                contactTitle1: 'Contact',
+                contactTitle2: 'Us',
+                contactSub: 'We are here to serve you — contact us for any inquiry or booking',
+                labelWorkPhone: 'Work Phone',
+                labelOwnerPhone: 'Owner Phone',
+                labelEmail: 'Email',
+                labelAddress: 'Address',
+                addressText: 'King Abdulaziz Road, Arar, Saudi Arabia',
+                waOwnerBtn: 'Owner WhatsApp',
+                waWorkBtn: 'Work WhatsApp',
+                privacyLink: 'Privacy Policy',
+                termsLink: 'Terms & Conditions',
+                formTitle: '📩 Send us a Message',
+                formSub: 'We will reply as soon as possible',
+                submitBtn: 'Send Message',
+                footerBrand: 'Saeed Al-Taayira',
+                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle: 'Quick Links',
+                footerServicesTitle: 'Services',
+                footerInfoTitle: 'Info',
+                fNavHome: 'Home',
+                fNavServices: 'Services',
+                fNavOffers: 'Offers',
+                fNavHotels: 'Hotels',
+                fNavPackages: 'Packages',
+                fNavRailway: 'Railway',
+                fNavCars: 'Cars',
+                fNavAbout: 'About',
+                fNavContact: 'Contact',
+                fNavBlog: '📝 Blog',
+                fNavChatbot: '🤖 Assistant',
+                fServFlights: 'Flights',
+                fServUmrah: 'Umrah',
+                fServVisa: 'Visas',
+                fServHotels: 'Hotels',
+                fServCars: 'Car Rentals',
+                fServRailway: 'Trains',
+                fInfoAbout: 'About Us',
+                fInfoContact: 'Contact',
+                fInfoPrivacy: 'Privacy Policy',
+                fInfoTerms: 'Terms & Conditions',
+                waFloatLabel: 'WhatsApp',
+                aiChatTitle: 'Saeed Al-Taayira AI Assistant',
+                aiWelcomeMsg: '👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. How can I help you today? I can answer in any language you choose.',
+                aiPlaceholder: 'Type your question in any language...',
+                loadMoreHotels: 'Show More Hotels',
+                loadMorePackages: 'Show More Packages',
+                loadMoreBlog: 'Show More Articles',
+                footerRights: 'All Rights Reserved',
+                footerCredit: 'Designed & Developed ✧ with Vision'
+            }
         };
-        // NOTE: मैंने translations को छोटा कर दिया है, लेकिन आपके पास पूरा है
-        // पूरा translations का ऑब्जेक्ट मैंने पिछली बार दिया था, वही इस्तेमाल करें
-        // यहाँ space बचाने के लिए मैंने उसे हटा दिया है, लेकिन आप उसे कॉपी कर सकते हैं
 
         function applyLanguage(lang) {
-            // ... पूरा applyLanguage फंक्शन (पिछली बार जैसा)
+            currentLang = lang;
+            document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
+
+            const map = {
+                'logoMain': 'logoMain',
+                'logoSub': 'logoSub',
+                'navHome': 'navHome',
+                'navServices': 'navServices',
+                'navOffers': 'navOffers',
+                'navHotels': 'navHotels',
+                'navPackages': 'navPackages',
+                'navRailway': 'navRailway',
+                'navCars': 'navCars',
+                'navAbout': 'navAbout',
+                'navContact': 'navContact',
+                'navBlog': 'navBlog',
+                'navChatbot': 'navChatbot',
+                'navCta': 'navCta',
+                'heroTitle1': 'heroTitle1',
+                'heroTitle2': 'heroTitle2',
+                'heroSub': 'heroSub',
+                'heroBtn1': 'heroBtn1',
+                'heroBtn2': 'heroBtn2',
+                'heroBtn3': 'heroBtn3',
+                'stat1': 'stat1',
+                'stat2': 'stat2',
+                'stat3': 'stat3',
+                'stat4': 'stat4',
+                'heroCardTitle': 'heroCardTitle',
+                'heroCardSub': 'heroCardSub',
+                'badge1': 'badge1',
+                'badge2': 'badge2',
+                'badge3': 'badge3',
+                'badge4': 'badge4',
+                'badge5': 'badge5',
+                'badge6': 'badge6',
+                'badge7': 'badge7',
+                'badge8': 'badge8',
+                'servicesTitle1': 'servicesTitle1',
+                'servicesTitle2': 'servicesTitle2',
+                'servicesSub': 'servicesSub',
+                'servicesAllBtn': 'servicesAllBtn',
+                'offersTitle1': 'offersTitle1',
+                'offersTitle2': 'offersTitle2',
+                'offersSub': 'offersSub',
+                'offersAllBtn': 'offersAllBtn',
+                'hotelsTitle1': 'hotelsTitle1',
+                'hotelsTitle2': 'hotelsTitle2',
+                'hotelsSub': 'hotelsSub',
+                'hotelsAllBtn': 'hotelsAllBtn',
+                'packagesTitle1': 'packagesTitle1',
+                'packagesTitle2': 'packagesTitle2',
+                'packagesSub': 'packagesSub',
+                'packagesAllBtn': 'packagesAllBtn',
+                'railwayTitle1': 'railwayTitle1',
+                'railwayTitle2': 'railwayTitle2',
+                'railwaySub': 'railwaySub',
+                'railwayAllBtn': 'railwayAllBtn',
+                'blogTitle1': 'blogTitle1',
+                'blogTitle2': 'blogTitle2',
+                'blogSub': 'blogSub',
+                'blogAllBtn': 'blogAllBtn',
+                'faqTitle1': 'faqTitle1',
+                'faqTitle2': 'faqTitle2',
+                'faqSub': 'faqSub',
+                'aboutTitle1': 'aboutTitle1',
+                'aboutTitle2': 'aboutTitle2',
+                'aboutSub': 'aboutSub',
+                'aboutP1': 'aboutP1',
+                'aboutP2': 'aboutP2',
+                'aboutStat1': 'aboutStat1',
+                'aboutStat2': 'aboutStat2',
+                'aboutStat3': 'aboutStat3',
+                'aboutStat4': 'aboutStat4',
+                'contactTitle1': 'contactTitle1',
+                'contactTitle2': 'contactTitle2',
+                'contactSub': 'contactSub',
+                'labelWorkPhone': 'labelWorkPhone',
+                'labelOwnerPhone': 'labelOwnerPhone',
+                'labelEmail': 'labelEmail',
+                'labelAddress': 'labelAddress',
+                'addressText': 'addressText',
+                'waOwnerBtn': 'waOwnerBtn',
+                'waWorkBtn': 'waWorkBtn',
+                'privacyLink': 'privacyLink',
+                'termsLink': 'termsLink',
+                'formTitle': 'formTitle',
+                'formSub': 'formSub',
+                'submitBtn': 'submitBtn',
+                'footerBrand': 'footerBrand',
+                'footerDesc': 'footerDesc',
+                'footerLinksTitle': 'footerLinksTitle',
+                'footerServicesTitle': 'footerServicesTitle',
+                'footerInfoTitle': 'footerInfoTitle',
+                'fNavHome': 'fNavHome',
+                'fNavServices': 'fNavServices',
+                'fNavOffers': 'fNavOffers',
+                'fNavHotels': 'fNavHotels',
+                'fNavPackages': 'fNavPackages',
+                'fNavRailway': 'fNavRailway',
+                'fNavCars': 'fNavCars',
+                'fNavAbout': 'fNavAbout',
+                'fNavContact': 'fNavContact',
+                'fNavBlog': 'fNavBlog',
+                'fNavChatbot': 'fNavChatbot',
+                'fServFlights': 'fServFlights',
+                'fServUmrah': 'fServUmrah',
+                'fServVisa': 'fServVisa',
+                'fServHotels': 'fServHotels',
+                'fServCars': 'fServCars',
+                'fServRailway': 'fServRailway',
+                'fInfoAbout': 'fInfoAbout',
+                'fInfoContact': 'fInfoContact',
+                'fInfoPrivacy': 'fInfoPrivacy',
+                'fInfoTerms': 'fInfoTerms',
+                'waFloatLabel': 'waFloatLabel',
+                'aiChatTitle': 'aiChatTitle',
+                'aiWelcomeMsg': 'aiWelcomeMsg',
+                'aiPlaceholder': 'aiPlaceholder',
+                'loadMoreHotels': 'loadMoreHotels',
+                'loadMorePackages': 'loadMorePackages',
+                'loadMoreBlog': 'loadMoreBlog',
+                'footerRights': 'footerRights',
+                'footerCredit': 'footerCredit'
+            };
+
+            for (const [id, key] of Object.entries(map)) {
+                const el = document.getElementById(id);
+                if (el && translations[lang] && translations[lang][key] !== undefined) {
+                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand') {
+                        if (id === 'logoMain') el.textContent = translations[lang][key];
+                        else if (id === 'logoSub') el.textContent = translations[lang][key];
+                        else if (id === 'footerBrand') el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
+                    } else if (id === 'aboutP1' || id === 'aboutP2') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            }
+
+            // Hero title with highlight
+            const heroTitle1 = document.getElementById('heroTitle1');
+            const heroTitle2 = document.getElementById('heroTitle2');
+            if (heroTitle1 && heroTitle2) {
+                heroTitle1.textContent = translations[lang]['heroTitle1'];
+                heroTitle2.textContent = translations[lang]['heroTitle2'];
+            }
+
+            // Load more buttons
+            const loadHotels = document.getElementById('loadMoreHotels');
+            if (loadHotels) loadHotels.textContent = translations[lang]['loadMoreHotels'];
+            const loadPackages = document.getElementById('loadMorePackages');
+            if (loadPackages) loadPackages.textContent = translations[lang]['loadMorePackages'];
+            const loadBlog = document.getElementById('loadMoreBlog');
+            if (loadBlog) loadBlog.textContent = translations[lang]['loadMoreBlog'];
+
+            // AI Chat
+            const aiTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiTitle) {
+                const status = aiTitle.querySelector('.ai-status');
+                aiTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ?
+                    ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
+            }
+            const welcomeMsg = document.querySelector('#aiChatMessages .msg.bot');
+            if (welcomeMsg) {
+                welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
+            }
+            const aiInput = document.getElementById('aiChatInput');
+            if (aiInput) aiInput.placeholder = translations[lang]['aiPlaceholder'];
+
+            // Placeholders
+            const nameInput = document.getElementById('contactName');
+            if (nameInput) nameInput.placeholder = lang === 'ar' ? 'الاسم الكامل' : 'Full Name';
+            const phoneInput = document.getElementById('contactPhone');
+            if (phoneInput) phoneInput.placeholder = lang === 'ar' ? 'رقم الجوال' : 'Phone Number';
+            const emailInput = document.getElementById('contactEmail');
+            if (emailInput) emailInput.placeholder = lang === 'ar' ? 'البريد الإلكتروني' : 'Email Address';
+            const msgInput = document.getElementById('contactMessage');
+            if (msgInput) msgInput.placeholder = lang === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...';
+
+            localStorage.setItem('lang', lang);
         }
 
         langToggle.addEventListener('click', () => {
@@ -1530,7 +2915,8 @@
                 if (target) {
                     e.preventDefault();
                     const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+                        behavior: 'smooth' });
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('open');
                 }
@@ -1552,7 +2938,9 @@
         console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
         console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
         console.log('%c✅ Google Search Console Verified', 'font-size:13px;color:#4ade80;');
-        console.log('%c📚 جميع الصفحات: index | about | services | offers | hotels | packages | railway | cars | contact | privacy | terms | chatbot | blog', 'font-size:12px;color:#888;');
+        console.log(
+            '%c📚 جميع الصفحات: index | about | services | offers | hotels | packages | railway | cars | contact | privacy | terms | chatbot | blog',
+            'font-size:12px;color:#888;');
     </script>
 </body>
 </html>

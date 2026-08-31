@@ -3,33 +3,47 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>باقات السفر – صعود الطائرة</title>
+    <title>باقات السفر – صعود الطائرة للسفر والسياحة</title>
     <meta name="description" content="أكثر من 200 باقة سياحية حول العالم – عمرة، عطلات، مغامرات، ورحلات عائلية بأفضل الأسعار." />
-    <link rel="canonical" href="https://sueudaltaayira.com/packages.html" />
+    <link rel="canonical" href="https://sueud-altayira-website.vercel.app/packages.html" />
+    <meta name="google-site-verification" content="NUXJFyGqpEREN03eh19P0DeJ5hVYHo8qtaXTvsfuAI4" />
+    <meta property="og:title" content="باقات السفر – صعود الطائرة" />
+    <meta property="og:description" content="أكثر من 200 باقة سياحية حول العالم بأفضل الأسعار." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sueud-altayira-website.vercel.app/packages.html" />
+    <meta name="keywords" content="باقات سياحية, باقات عمرة, عطلات, مغامرات, رحلات عائلية, صعود الطائرة" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "باقات السفر – صعود الطائرة",
+            "description": "أكثر من 200 باقة سياحية حول العالم",
+            "url": "https://sueud-altayira-website.vercel.app/packages.html",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "صعود الطائرة للسفر والسياحة",
+                "url": "https://sueud-altayira-website.vercel.app"
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-dark: #061d3a;
             --gold: #d4af37;
             --gold-light: #f0d060;
             --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.06);
-            --text-muted: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.06);
+            --text-muted: rgba(255,255,255,0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
         }
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
             background: var(--primary-dark);
@@ -37,240 +51,127 @@
             overflow-x: hidden;
             line-height: 1.7;
         }
-        body.rtl {
-            direction: rtl;
-            text-align: right;
-        }
-        body.ltr {
-            direction: ltr;
-            text-align: left;
-        }
-        body.ltr .nav-links a {
-            font-family: 'Segoe UI', sans-serif;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        ul {
-            list-style: none;
-        }
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--primary-dark);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
+        body.rtl { direction: rtl; text-align: right; }
+        body.ltr { direction: ltr; text-align: left; }
+        body.ltr .nav-links a { font-family: 'Segoe UI', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         #particles-canvas {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.3;
+            position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
         /* ===== HEADER ===== */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 14px 0;
-            transition: 0.3s;
-            background: rgba(6, 29, 58, 0.94);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 14px 0; transition: 0.3s;
+            background: rgba(6,29,58,0.94);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212,175,55,0.1);
         }
         .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1320px; margin: 0 auto; padding: 0 24px;
         }
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 900;
-            cursor: pointer;
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.5rem; font-weight: 900; cursor: pointer;
         }
         .logo-icon {
-            font-size: 2.2rem;
-            color: var(--gold);
+            font-size: 2.2rem; color: var(--gold);
             animation: logoFloat 3s ease-in-out infinite;
+            display: flex; align-items: center; justify-content: center;
         }
-        @keyframes logoFloat {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-4px);
-            }
+        @keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .logo-text .main {
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;
         }
-        .logo-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
+        .logo-text .sub {
+            font-size: 0.55rem; font-weight: 300; color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted); letter-spacing: 2px;
         }
-        .logo-text strong {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-        }
-        .logo-sub {
-            font-size: 0.55rem;
-            font-weight: 300;
-            color: var(--text-muted);
-            display: block;
-            margin-top: -3px;
-            letter-spacing: 3px;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            flex-wrap: wrap;
-        }
+        .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
         .nav-links a {
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: 0.3s;
-            position: relative;
+            padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-muted); transition: 0.3s; position: relative;
         }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #fff;
-            background: rgba(212, 175, 55, 0.1);
-        }
+        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
         .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 18px;
-            height: 2.5px;
-            background: var(--gold);
-            border-radius: 4px;
+            content: ''; position: absolute; bottom: 4px; left: 50%;
+            transform: translateX(-50%); width: 18px; height: 2.5px;
+            background: var(--gold); border-radius: 4px;
         }
         .nav-cta {
-            background: var(--gold-gradient) !important;
-            color: var(--primary-dark) !important;
-            font-weight: 700 !important;
-            padding: 8px 26px !important;
-            border-radius: 50px !important;
+            background: var(--gold-gradient) !important; color: var(--primary-dark) !important;
+            font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
         }
-        .nav-cta:hover {
-            transform: scale(1.05);
-        }
+        .nav-cta:hover { transform: scale(1.05); }
         .lang-toggle {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: 0.3s;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 0.8rem; transition: 0.3s; font-family: inherit;
         }
-        .lang-toggle:hover {
-            background: rgba(212, 175, 55, 0.15);
-            border-color: var(--gold);
-        }
+        .lang-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 6px;
-            z-index: 1001;
+            display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1001;
         }
-        .hamburger span {
-            width: 28px;
-            height: 2.5px;
-            background: #fff;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        @media (max-width: 768px) {
+        .hamburger span { width: 28px; height: 2.5px; background: #fff; border-radius: 4px; transition: 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        @media (max-width:768px) {
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: rgba(6, 29, 58, 0.97);
-                flex-direction: column;
-                padding: 80px 28px 32px;
-                transition: right 0.4s;
-                border-left: 1px solid rgba(255, 255, 255, 0.04);
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: rgba(6,29,58,0.97); flex-direction: column;
+                padding: 80px 28px 32px; transition: right 0.4s;
+                border-left: 1px solid rgba(255,255,255,0.04);
             }
-            .nav-links.open {
-                right: 0;
-            }
-            .nav-links a {
-                width: 100%;
-                padding: 14px 18px;
-                border-radius: 12px;
-            }
-            .nav-links a.active::after {
-                display: none;
-            }
-            .nav-cta {
-                margin-top: 8px;
-            }
-            .hamburger {
-                display: flex;
-            }
+            .nav-links.open { right: 0; }
+            .nav-links a { width: 100%; padding: 14px 18px; border-radius: 12px; }
+            .nav-links a.active::after { display: none; }
+            .nav-cta { margin-top: 8px; }
+            .hamburger { display: flex; }
+        }
+
+        /* ===== HERO ===== */
+        .packages-hero {
+            padding: 150px 24px 60px;
+            position: relative; overflow: hidden; background: var(--primary-dark); text-align: center;
+        }
+        .packages-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06), transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(108,60,224,0.04), transparent 60%);
+            z-index: 0;
+        }
+        .packages-hero .container { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; }
+        .packages-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .packages-hero h1 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .packages-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
         }
 
         /* ===== SECTION ===== */
-        .section {
-            padding: 130px 24px 80px;
-            position: relative;
-            z-index: 1;
-        }
-        .section .container {
-            max-width: 1320px;
-            margin: 0 auto;
-        }
-        .section-alt {
-            background: rgba(255, 255, 255, 0.005);
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 48px;
-        }
+        .section { padding: 60px 24px 80px; position: relative; z-index: 1; }
+        .section .container { max-width: 1320px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 48px; }
         .section-title h2 {
             font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 900;
@@ -280,28 +181,16 @@
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 620px;
-            margin: 0 auto;
-        }
-        .section-divider {
-            width: 60px;
-            height: 3.5px;
-            background: var(--gold-gradient);
-            border-radius: 4px;
-            margin: 14px auto 0;
-        }
+        .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+        .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
 
         /* ===== FILTERS ===== */
         .filters-section {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255,255,255,0.02);
             border-radius: var(--radius);
             padding: 24px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255,255,255,0.04);
             margin-bottom: 40px;
         }
         .filters-row {
@@ -327,8 +216,8 @@
             width: 100%;
             padding: 10px 14px;
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
             color: #fff;
             font-family: inherit;
             font-size: 0.9rem;
@@ -338,17 +227,12 @@
         .filters-row .filter-group input:focus,
         .filters-row .filter-group select:focus {
             border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.06);
         }
-        .filters-row .filter-group select option {
-            background: #0a1a2e;
-            color: #fff;
-        }
-        .filters-row .filter-group input::placeholder {
-            color: rgba(255, 255, 255, 0.25);
-        }
+        .filters-row .filter-group select option { background: #0a1a2e; color: #fff; }
+        .filters-row .filter-group input::placeholder { color: rgba(255,255,255,0.25); }
 
-        /* ===== PRICE RANGE SLIDER ===== */
+        /* ===== PRICE SLIDER ===== */
         .price-slider {
             display: flex;
             align-items: center;
@@ -356,46 +240,24 @@
             flex-wrap: wrap;
         }
         .price-slider input[type="range"] {
-            width: 140px;
-            height: 4px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 4px;
-            outline: none;
-            transition: 0.3s;
+            width: 140px; height: 4px; -webkit-appearance: none; appearance: none;
+            background: rgba(212,175,55,0.2); border-radius: 4px; outline: none; transition: 0.3s;
         }
         .price-slider input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--gold-gradient);
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            -webkit-appearance: none; appearance: none;
+            width: 16px; height: 16px; border-radius: 50%; background: var(--gold-gradient);
+            cursor: pointer; box-shadow: 0 0 20px rgba(212,175,55,0.3);
         }
         .price-slider input[type="range"]::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--gold);
-            cursor: pointer;
-            border: none;
+            width: 16px; height: 16px; border-radius: 50%; background: var(--gold); cursor: pointer; border: none;
         }
         .price-slider .price-range-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            min-width: 100px;
+            display: flex; justify-content: space-between; font-size: 0.8rem;
+            color: var(--text-muted); min-width: 100px;
         }
         .price-slider .price-range-labels span {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 2px 12px;
-            border-radius: 50px;
-            font-weight: 600;
-            color: var(--gold);
+            background: rgba(255,255,255,0.04); padding: 2px 12px; border-radius: 50px;
+            font-weight: 600; color: var(--gold);
         }
 
         /* ===== PACKAGES GRID ===== */
@@ -405,8 +267,8 @@
             gap: 28px;
         }
         .package-card {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.04);
             border-radius: var(--radius);
             overflow: hidden;
             transition: 0.4s;
@@ -414,8 +276,8 @@
         }
         .package-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(212, 175, 55, 0.15);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212,175,55,0.15);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
         }
         .package-card .img {
             height: 180px;
@@ -424,686 +286,289 @@
             position: relative;
         }
         .package-card .img .pkg-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            padding: 2px 14px;
-            border-radius: 50px;
-            font-size: 0.65rem;
-            font-weight: 700;
+            position: absolute; top: 12px; right: 12px;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            padding: 2px 14px; border-radius: 50px; font-size: 0.65rem; font-weight: 700;
         }
         .package-card .img .pkg-price-badge {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
-            padding: 4px 14px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--gold);
-            font-weight: 700;
+            position: absolute; bottom: 12px; left: 12px;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+            padding: 4px 14px; border-radius: 50px; font-size: 0.8rem;
+            color: var(--gold); font-weight: 700;
         }
         .package-card .img .pkg-duration {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(6px);
-            padding: 2px 14px;
-            border-radius: 50px;
-            font-size: 0.65rem;
+            position: absolute; top: 12px; left: 12px;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+            padding: 2px 14px; border-radius: 50px; font-size: 0.65rem;
             color: var(--text-muted);
         }
-        .package-card .body {
-            padding: 18px 20px 22px;
-        }
-        .package-card .body h4 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 2px;
-        }
-        .package-card .body .location {
-            color: var(--gold);
-            font-size: 0.8rem;
-            margin-bottom: 4px;
-        }
-        .package-card .body .location i {
-            margin-left: 4px;
-        }
-        .package-card .body .pkg-desc {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin: 6px 0 10px;
-            line-height: 1.6;
-        }
+        .package-card .body { padding: 18px 20px 22px; }
+        .package-card .body h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 2px; }
+        .package-card .body .location { color: var(--gold); font-size: 0.8rem; margin-bottom: 4px; }
+        .package-card .body .location i { margin-left: 4px; }
+        .package-card .body .pkg-desc { color: var(--text-muted); font-size: 0.85rem; margin: 6px 0 10px; line-height: 1.6; }
         .package-card .body .pkg-includes {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin: 10px 0 14px;
+            display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 14px;
         }
         .package-card .body .pkg-includes span {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.04);
-            padding: 3px 12px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.65rem; color: var(--text-muted);
+            background: rgba(255,255,255,0.04); padding: 3px 12px; border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.04);
         }
-        .package-card .body .pkg-includes span i {
-            color: var(--gold);
-            margin-left: 4px;
-        }
+        .package-card .body .pkg-includes span i { color: var(--gold); margin-left: 4px; }
         .package-card .body .btn-sm {
-            padding: 10px 28px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            transition: 0.3s;
-            font-family: inherit;
-            width: 100%;
+            padding: 10px 28px; border-radius: 50px; font-size: 0.85rem;
+            font-weight: 700; border: none; cursor: pointer;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            transition: 0.3s; font-family: inherit; width: 100%;
         }
-        .package-card .body .btn-sm:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
-        }
+        .package-card .body .btn-sm:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(212,175,55,0.3); }
 
         /* ===== LOAD MORE ===== */
         .load-more-btn {
-            display: block;
-            margin: 40px auto 0;
-            padding: 14px 50px;
-            border-radius: 60px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
-            font-family: inherit;
+            display: block; margin: 40px auto 0; padding: 14px 50px;
+            border-radius: 60px; background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; border: none; cursor: pointer; font-size: 1rem;
+            transition: 0.3s; font-family: inherit;
         }
-        .load-more-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
-        }
+        .load-more-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
 
         /* ===== PACKAGE BOOKING MODAL ===== */
         .pkg-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(12px);
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(12px); z-index: 9999;
+            display: none; align-items: center; justify-content: center; padding: 24px;
         }
-        .pkg-modal.open {
-            display: flex;
-            animation: modalFade 0.4s ease;
-        }
-        @keyframes modalFade {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+        .pkg-modal.open { display: flex; animation: modalFade 0.4s ease; }
+        @keyframes modalFade { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
         .pkg-modal .modal-content {
-            background: #0a1a2e;
-            border-radius: 24px;
-            max-width: 550px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            position: relative;
+            background: #0a1a2e; border-radius: 24px; max-width: 550px; width: 100%;
+            max-height: 90vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6); padding: 30px; position: relative;
         }
         .pkg-modal .modal-content .close-btn {
-            position: absolute;
-            top: 12px;
-            left: 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute; top: 12px; left: 16px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+            color: #fff; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem;
+            cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center;
         }
-        .pkg-modal .modal-content .close-btn:hover {
-            background: rgba(255, 0, 0, 0.2);
-            border-color: #ff4444;
-            transform: rotate(90deg);
-        }
-        .pkg-modal .modal-content h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 4px;
-        }
-        .pkg-modal .modal-content .pkg-detail-location {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-        .pkg-modal .modal-content .form-group {
-            margin-bottom: 16px;
-        }
+        .pkg-modal .modal-content .close-btn:hover { background: rgba(255,0,0,0.2); border-color: #ff4444; transform: rotate(90deg); }
+        .pkg-modal .modal-content h3 { font-size: 1.5rem; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+        .pkg-modal .modal-content .pkg-detail-location { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+        .pkg-modal .modal-content .form-group { margin-bottom: 16px; }
         .pkg-modal .modal-content .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 4px;
+            display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;
         }
         .pkg-modal .modal-content .form-group input,
         .pkg-modal .modal-content .form-group select,
         .pkg-modal .modal-content .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-family: inherit;
-            font-size: 0.95rem;
-            outline: none;
-            transition: 0.3s;
+            width: 100%; padding: 12px; border-radius: 12px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            color: #fff; font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
         }
         .pkg-modal .modal-content .form-group input:focus,
         .pkg-modal .modal-content .form-group select:focus,
         .pkg-modal .modal-content .form-group textarea:focus {
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--gold); background: rgba(255,255,255,0.06);
         }
-        .pkg-modal .modal-content .form-group select option {
-            background: #0a1a2e;
-            color: #fff;
-        }
-        .pkg-modal .modal-content .form-group textarea {
-            height: 70px;
-            resize: vertical;
-        }
+        .pkg-modal .modal-content .form-group select option { background: #0a1a2e; color: #fff; }
+        .pkg-modal .modal-content .form-group textarea { height: 70px; resize: vertical; }
         .pkg-modal .modal-content .btn-submit-pkg {
-            width: 100%;
-            padding: 14px;
-            border-radius: 60px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: inherit;
+            width: 100%; padding: 14px; border-radius: 60px;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
+            transition: 0.3s; font-family: inherit;
         }
         .pkg-modal .modal-content .btn-submit-pkg:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+            transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3);
         }
-        .pkg-modal .modal-content .form-status {
-            margin-top: 12px;
-            text-align: center;
-            font-size: 0.9rem;
-            min-height: 28px;
-        }
+        .pkg-modal .modal-content .form-status { margin-top: 12px; text-align: center; font-size: 0.9rem; min-height: 28px; }
 
         /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
-            position: fixed;
-            bottom: 28px;
-            left: 28px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
+            position: fixed; bottom: 28px; left: 28px; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
         }
         .whatsapp-float .wa-btn {
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            background: #25d366;
-            color: #fff;
-            font-size: 2.4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
+            width: 68px; height: 68px; border-radius: 50%; background: #25d366; color: #fff;
+            font-size: 2.4rem; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 40px rgba(37,211,102,0.3); transition: 0.3s; border: none; cursor: pointer;
             animation: waPulse 2.8s ease-in-out infinite;
         }
-        .whatsapp-float .wa-btn:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float .wa-btn:hover { transform: scale(1.1); }
         .whatsapp-float .wa-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 3px 14px;
-            border-radius: 50px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
+            padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.04);
         }
-        @keyframes waPulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            }
-            50% {
-                box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06);
-            }
-        }
+        @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
 
         /* ===== AI CHAT ===== */
         .ai-chat-toggle {
-            position: fixed;
-            bottom: 100px;
-            right: 28px;
-            z-index: 9998;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7);
-            color: #fff;
-            font-size: 1.8rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
-            transition: 0.3s;
+            position: fixed; bottom: 100px; right: 28px; z-index: 9998;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
+            font-size: 1.8rem; border: none; cursor: pointer;
+            box-shadow: 0 8px 40px rgba(108,60,224,0.35); transition: 0.3s;
             animation: aiPulse 3s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-        .ai-chat-toggle:hover {
-            transform: scale(1.1);
-        }
-        @keyframes aiPulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
-            }
-            50% {
-                box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06);
-            }
-        }
+        .ai-chat-toggle:hover { transform: scale(1.1); }
+        @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35)} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06)} }
         .ai-chat-box {
-            position: fixed;
-            bottom: 175px;
-            right: 28px;
-            z-index: 9997;
-            width: 400px;
-            max-width: calc(100vw - 56px);
-            max-height: 550px;
-            border-radius: 24px;
-            background: rgba(6, 29, 58, 0.96);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
+            position: fixed; bottom: 175px; right: 28px; z-index: 9997;
+            width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
+            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            display: none; flex-direction: column; overflow: hidden;
         }
-        .ai-chat-box.open {
-            display: flex;
-            animation: chatSlideUp 0.4s ease;
-        }
-        @keyframes chatSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
+        .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
+        @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
         .ai-chat-header {
-            padding: 16px 20px;
-            background: rgba(108, 60, 224, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-shrink: 0;
+            padding: 16px 20px; background: rgba(108,60,224,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
         }
-        .ai-chat-header .title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-        }
-        .ai-chat-header .title i {
-            color: #a855f7;
-        }
-        .ai-chat-header .title .ai-status {
-            font-size: 0.6rem;
-            color: #4ade80;
-            font-weight: 400;
-        }
+        .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .ai-chat-header .title i { color: #a855f7; }
+        .ai-chat-header .title .ai-status { font-size: 0.6rem; color: #4ade80; font-weight: 400; }
         .ai-chat-header .close-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.3s;
-            padding: 4px;
+            background: none; border: none; color: var(--text-muted); font-size: 1.2rem;
+            cursor: pointer; transition: 0.3s; padding: 4px;
         }
-        .ai-chat-header .close-btn:hover {
-            color: #fff;
-            transform: rotate(90deg);
-        }
+        .ai-chat-header .close-btn:hover { color: #fff; transform: rotate(90deg); }
         .ai-chat-messages {
-            flex: 1;
-            padding: 16px 18px;
-            overflow-y: auto;
-            max-height: 350px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex: 1; padding: 16px 18px; overflow-y: auto; max-height: 350px;
+            display: flex; flex-direction: column; gap: 10px;
         }
         .ai-chat-messages .msg {
-            padding: 10px 16px;
-            border-radius: 16px;
-            max-width: 85%;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            animation: msgPop 0.3s ease;
+            padding: 10px 16px; border-radius: 16px; max-width: 85%; font-size: 0.9rem;
+            line-height: 1.6; animation: msgPop 0.3s ease;
         }
-        @keyframes msgPop {
-            from {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+        @keyframes msgPop { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
         .ai-chat-messages .msg.bot {
-            background: rgba(108, 60, 224, 0.12);
-            border: 1px solid rgba(108, 60, 224, 0.08);
-            align-self: flex-start;
-            border-bottom-right-radius: 4px;
+            background: rgba(108,60,224,0.12); border: 1px solid rgba(108,60,224,0.08);
+            align-self: flex-start; border-bottom-right-radius: 4px;
         }
         .ai-chat-messages .msg.user {
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.06);
-            align-self: flex-end;
-            border-bottom-left-radius: 4px;
+            background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.06);
+            align-self: flex-end; border-bottom-left-radius: 4px;
         }
-        .ai-chat-messages .msg .time {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            display: block;
-            opacity: 0.5;
-        }
+        .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
         .ai-chat-input {
-            padding: 12px 16px 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            gap: 10px;
-            flex-shrink: 0;
+            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
+            display: flex; gap: 10px; flex-shrink: 0;
         }
         .ai-chat-input input {
-            flex: 1;
-            padding: 10px 16px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-family: inherit;
-            font-size: 0.9rem;
-            outline: none;
+            flex: 1; padding: 10px 16px; border-radius: 50px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
         }
-        .ai-chat-input input:focus {
-            border-color: #a855f7;
-        }
-        .ai-chat-input input::placeholder {
-            color: rgba(255, 255, 255, 0.25);
-        }
+        .ai-chat-input input:focus { border-color: #a855f7; }
+        .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
         .ai-chat-input button {
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: none;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7);
-            color: #fff;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: inherit;
+            padding: 10px 20px; border-radius: 50px; border: none;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
+            font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit;
         }
-        .ai-chat-input button:hover {
-            transform: scale(1.04);
-        }
-        .ai-chat-typing {
-            display: none;
-            padding: 8px 16px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-style: italic;
-        }
-        .ai-chat-typing.show {
-            display: block;
-        }
+        .ai-chat-input button:hover { transform: scale(1.04); }
+        .ai-chat-typing { display: none; padding: 8px 16px; color: var(--text-muted); font-size: 0.8rem; font-style: italic; }
+        .ai-chat-typing.show { display: block; }
 
         /* ===== FOOTER ===== */
         .footer {
             padding: 60px 24px 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            background: rgba(6, 29, 58, 0.5);
+            border-top: 1px solid rgba(255,255,255,0.03);
+            background: rgba(6,29,58,0.5);
             backdrop-filter: blur(12px);
         }
         .footer .container {
-            max-width: 1320px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+            max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
         }
-        .footer .brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            max-width: 340px;
-            margin-top: 8px;
-        }
-        .footer .brand .socials {
-            display: flex;
-            gap: 10px;
-            margin-top: 16px;
-        }
+        .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
+        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
         .footer .brand .socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            transition: 0.3s;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted); transition: 0.3s;
         }
-        .footer .brand .socials a:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: var(--gold);
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-        .footer h5 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 14px;
-            color: #fff;
-        }
-        .footer ul li {
-            margin-bottom: 6px;
-        }
-        .footer ul li a {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .footer ul li a:hover {
-            color: var(--gold);
-            padding-right: 6px;
-        }
+        .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+        .footer ul li { margin-bottom: 6px; }
+        .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
+        .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
         .footer-bottom {
-            max-width: 1320px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
+            max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            text-align: center; color: var(--text-muted); font-size: 0.8rem;
         }
-        .footer-bottom span {
-            color: var(--gold);
-        }
+        .footer-bottom span { color: var(--gold); }
 
         /* ===== REVEAL ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ===== SCROLL TOP ===== */
         .scroll-top {
-            position: fixed;
-            bottom: 100px;
-            left: 28px;
-            z-index: 9998;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            border: none;
-            font-size: 1.4rem;
-            cursor: pointer;
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
-            transition: 0.3s;
-            display: none;
-            align-items: center;
-            justify-content: center;
+            position: fixed; bottom: 100px; left: 28px; z-index: 9998;
+            width: 50px; height: 50px; border-radius: 50%; background: var(--gold-gradient);
+            color: var(--primary-dark); border: none; font-size: 1.4rem; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212,175,55,0.3); transition: 0.3s;
+            display: none; align-items: center; justify-content: center;
         }
-        .scroll-top:hover {
-            transform: scale(1.1);
-        }
-        .scroll-top.show {
-            display: flex;
-        }
+        .scroll-top:hover { transform: scale(1.1); }
+        .scroll-top.show { display: flex; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .packages-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        @media (max-width:1024px) { .packages-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width:768px) {
+            .packages-grid { grid-template-columns: 1fr 1fr; }
+            .filters-row .filter-group { min-width: 120px; flex: 1 1 45%; }
+            .price-slider input[type="range"] { width: 100px; }
+            .ai-chat-box { width: calc(100vw - 32px); right: 16px; bottom: 155px; max-height: 450px; }
+            .ai-chat-toggle { right: 16px; bottom: 85px; width: 50px; height: 50px; font-size: 1.4rem; }
+            .pkg-modal .modal-content { padding: 20px; max-width: 100%; }
+            .packages-hero { padding: 120px 16px 40px; }
+            .footer .container { grid-template-columns: 1fr; text-align: center; }
+            .footer .brand .socials { justify-content: center; }
         }
-        @media (max-width: 768px) {
-            .packages-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .filters-row .filter-group {
-                min-width: 120px;
-                flex: 1 1 45%;
-            }
-            .price-slider input[type="range"] {
-                width: 100px;
-            }
-            .ai-chat-box {
-                width: calc(100vw - 32px);
-                right: 16px;
-                bottom: 155px;
-                max-height: 450px;
-            }
-            .ai-chat-toggle {
-                right: 16px;
-                bottom: 85px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-            }
-            .pkg-modal .modal-content {
-                padding: 20px;
-                max-width: 100%;
-            }
-        }
-        @media (max-width: 480px) {
-            .packages-grid {
-                grid-template-columns: 1fr;
-            }
-            .filters-row {
-                flex-direction: column;
-            }
-            .filters-row .filter-group {
-                min-width: 100%;
-            }
-            .section {
-                padding: 56px 16px;
-            }
-            .filters-section {
-                padding: 16px;
-            }
-            .price-slider input[type="range"] {
-                width: 100%;
-            }
+        @media (max-width:480px) {
+            .packages-grid { grid-template-columns: 1fr; }
+            .filters-row { flex-direction: column; }
+            .filters-row .filter-group { min-width: 100%; }
+            .section { padding: 40px 16px 60px; }
+            .price-slider input[type="range"] { width: 100%; }
+            .packages-hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
+    <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- ===== HEADER ===== -->
     <header class="header">
         <div class="container">
-            <a href="index.html" class="logo">
+            <a href="index.html" class="logo" id="logoLink">
                 <span class="logo-icon">✈️</span>
-                <span>
-                    <span class="logo-text"><strong>صعود الطائرة</strong></span>
-                    <span class="logo-sub">للسفر والسياحة</span>
+                <span class="logo-text">
+                    <span class="main" id="logoMain">صعود الطائرة</span>
+                    <span class="sub" id="logoSub">للسفر والسياحة</span>
                 </span>
             </a>
             <nav class="nav-links" id="navLinks">
-                <a href="index.html">الرئيسية</a>
-                <a href="services.html">خدماتنا</a>
-                <a href="offers.html">عروض</a>
-                <a href="hotels.html">فنادق</a>
-                <a href="packages.html" class="active">باقات</a>
-                <a href="railway.html">قطارات</a>
-                <a href="cars.html">سيارات</a>
-                <a href="about.html">من نحن</a>
-                <a href="contact.html">اتصل بنا</a>
-                <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
+                <a href="index.html" id="navHome">الرئيسية</a>
+                <a href="services.html" id="navServices">خدماتنا</a>
+                <a href="offers.html" id="navOffers">عروض</a>
+                <a href="hotels.html" id="navHotels">فنادق</a>
+                <a href="packages.html" class="active" id="navPackages">باقات</a>
+                <a href="railway.html" id="navRailway">قطارات</a>
+                <a href="cars.html" id="navCars">سيارات</a>
+                <a href="about.html" id="navAbout">من نحن</a>
+                <a href="contact.html" id="navContact">اتصل بنا</a>
+                <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
@@ -1112,57 +577,59 @@
         </div>
     </header>
 
+    <!-- ===== HERO ===== -->
+    <section class="packages-hero">
+        <div class="container">
+            <h1><span id="heroTitle1">باقات</span> <span class="highlight" id="heroTitle2">السفر</span></h1>
+            <p id="heroDesc">أكثر من 200 باقة سياحية تشمل العمرة، السياحة، المغامرات، والعطلات العائلية</p>
+        </div>
+    </section>
+
     <!-- ===== PACKAGES SECTION ===== -->
     <section class="section">
         <div class="container">
-            <div class="section-title reveal">
-                <h2>باقات <span class="highlight">السفر</span></h2>
-                <p>أكثر من 200 باقة سياحية تشمل العمرة، السياحة، المغامرات، والعطلات العائلية</p>
-                <div class="section-divider"></div>
-            </div>
-
             <!-- ===== FILTERS ===== -->
             <div class="filters-section reveal">
                 <div class="filters-row">
                     <div class="filter-group">
-                        <label><i class="fas fa-search"></i> بحث</label>
+                        <label><i class="fas fa-search"></i> <span id="searchLabel">بحث</span></label>
                         <input type="text" id="pkgSearch" placeholder="ابحث عن باقة..." onkeyup="filterPackages()" />
                     </div>
                     <div class="filter-group">
-                        <label><i class="fas fa-map-marker-alt"></i> الوجهة</label>
+                        <label><i class="fas fa-map-marker-alt"></i> <span id="destLabel">الوجهة</span></label>
                         <select id="pkgDestination" onchange="filterPackages()">
-                            <option value="all">جميع الوجهات</option>
+                            <option value="all" id="destAll">جميع الوجهات</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label><i class="fas fa-tag"></i> النوع</label>
+                        <label><i class="fas fa-tag"></i> <span id="typeLabel">النوع</span></label>
                         <select id="pkgType" onchange="filterPackages()">
-                            <option value="all">جميع الأنواع</option>
-                            <option value="umrah">عمرة</option>
-                            <option value="family">عائلي</option>
-                            <option value="adventure">مغامرات</option>
-                            <option value="luxury">فاخر</option>
-                            <option value="romantic">رومانسي</option>
-                            <option value="cultural">ثقافي</option>
+                            <option value="all" id="typeAll">جميع الأنواع</option>
+                            <option value="umrah" id="typeUmrah">عمرة</option>
+                            <option value="family" id="typeFamily">عائلي</option>
+                            <option value="adventure" id="typeAdventure">مغامرات</option>
+                            <option value="luxury" id="typeLuxury">فاخر</option>
+                            <option value="romantic" id="typeRomantic">رومانسي</option>
+                            <option value="cultural" id="typeCultural">ثقافي</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label><i class="fas fa-sort"></i> ترتيب حسب</label>
+                        <label><i class="fas fa-sort"></i> <span id="sortLabel">ترتيب حسب</span></label>
                         <select id="pkgSort" onchange="filterPackages()">
-                            <option value="price">السعر (الأقل أولاً)</option>
-                            <option value="price-desc">السعر (الأعلى أولاً)</option>
-                            <option value="duration">المدة (الأقل أولاً)</option>
-                            <option value="name">الاسم</option>
+                            <option value="price" id="sortPrice">السعر (الأقل أولاً)</option>
+                            <option value="price-desc" id="sortPriceDesc">السعر (الأعلى أولاً)</option>
+                            <option value="duration" id="sortDuration">المدة (الأقل أولاً)</option>
+                            <option value="name" id="sortName">الاسم</option>
                         </select>
                     </div>
                 </div>
                 <div class="filters-row" style="margin-top:14px;">
                     <div class="filter-group" style="flex:2;">
-                        <label><i class="fas fa-sliders-h"></i> نطاق السعر</label>
+                        <label><i class="fas fa-sliders-h"></i> <span id="priceLabel">نطاق السعر</span></label>
                         <div class="price-slider">
-                            <span style="color:var(--text-muted);font-size:0.8rem;">من</span>
+                            <span style="color:var(--text-muted);font-size:0.8rem;" id="fromLabel">من</span>
                             <input type="range" id="pkgPriceMin" min="500" max="12000" value="500" oninput="updatePkgPriceLabels(); filterPackages();" />
-                            <span style="color:var(--text-muted);font-size:0.8rem;">إلى</span>
+                            <span style="color:var(--text-muted);font-size:0.8rem;" id="toLabel">إلى</span>
                             <input type="range" id="pkgPriceMax" min="500" max="12000" value="12000" oninput="updatePkgPriceLabels(); filterPackages();" />
                             <div class="price-range-labels">
                                 <span id="pkgPriceMinLabel">500 ر.س</span>
@@ -1172,7 +639,7 @@
                     </div>
                     <div class="filter-group" style="flex:1;display:flex;align-items:flex-end;">
                         <button onclick="resetPkgFilters()" style="padding:10px 24px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
-                            <i class="fas fa-undo"></i> إعادة تعيين
+                            <i class="fas fa-undo"></i> <span id="resetBtn">إعادة تعيين</span>
                         </button>
                     </div>
                 </div>
@@ -1182,7 +649,14 @@
             <div class="packages-grid" id="packagesGrid"></div>
 
             <!-- ===== LOAD MORE ===== -->
-            <button class="load-more-btn" id="loadMorePackages">عرض المزيد من الباقات</button>
+            <button class="load-more-btn" id="loadMorePackages"><span id="loadMoreText">عرض المزيد من الباقات</span></button>
+
+            <!-- ===== BACK TO HOME ===== -->
+            <div style="text-align:center;margin-top:20px;">
+                <a href="index.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
+                    <i class="fas fa-arrow-right"></i> <span id="backHomeBtn">العودة إلى الرئيسية</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1190,67 +664,93 @@
     <div class="pkg-modal" id="pkgModal">
         <div class="modal-content">
             <button class="close-btn" onclick="closePkgModal()"><i class="fas fa-times"></i></button>
-            <h3 id="modalPkgName">حجز الباقة</h3>
+            <h3 id="modalPkgName">🏝️ حجز الباقة</h3>
             <div class="pkg-detail-location" id="modalPkgLocation"><i class="fas fa-map-marker-alt"></i> الوجهة</div>
             <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:16px;" id="modalPkgPrice">السعر: 0 ر.س</p>
             <form id="pkgBookingForm">
-                <div class="form-group">
-                    <label>الاسم الكامل</label>
-                    <input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required />
-                </div>
-                <div class="form-group">
-                    <label>رقم الجوال</label>
-                    <input type="tel" name="phone" placeholder="أدخل رقم جوالك" required />
-                </div>
-                <div class="form-group">
-                    <label>البريد الإلكتروني</label>
-                    <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" />
-                </div>
-                <div class="form-group">
-                    <label>عدد الأشخاص</label>
-                    <input type="number" name="travelers" placeholder="عدد المسافرين" min="1" value="2" required />
-                </div>
-                <div class="form-group">
-                    <label>تاريخ السفر المفضل</label>
-                    <input type="date" name="travelDate" required />
-                </div>
-                <div class="form-group">
-                    <label>نوع الغرفة</label>
-                    <select name="roomType">
-                        <option value="standard">قياسية</option>
-                        <option value="deluxe">ديلوكس</option>
-                        <option value="suite">جناح</option>
-                        <option value="family">عائلية</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>ملاحظات إضافية</label>
-                    <textarea name="notes" placeholder="أي تفاصيل إضافية..."></textarea>
-                </div>
+                <div class="form-group"><label>الاسم الكامل</label><input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required /></div>
+                <div class="form-group"><label>رقم الجوال</label><input type="tel" name="phone" placeholder="أدخل رقم جوالك" required /></div>
+                <div class="form-group"><label>البريد الإلكتروني</label><input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" /></div>
+                <div class="form-group"><label>عدد الأشخاص</label><input type="number" name="travelers" placeholder="عدد المسافرين" min="1" value="2" required /></div>
+                <div class="form-group"><label>تاريخ السفر المفضل</label><input type="date" name="travelDate" required /></div>
+                <div class="form-group"><label>نوع الغرفة</label><select name="roomType"><option value="standard">قياسية</option><option value="deluxe">ديلوكس</option><option value="suite">جناح</option><option value="family">عائلية</option></select></div>
+                <div class="form-group"><label>ملاحظات إضافية</label><textarea name="notes" placeholder="أي تفاصيل إضافية..."></textarea></div>
                 <button type="submit" class="btn-submit-pkg"><i class="fab fa-whatsapp"></i> تأكيد الحجز عبر واتساب</button>
                 <div class="form-status" id="pkgFormStatus"></div>
             </form>
         </div>
     </div>
 
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="brand">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                    <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="footerBrand"><strong>صعود الطائرة</strong></span>
+                </div>
+                <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 id="footerLinksTitle">روابط سريعة</h5>
+                <ul>
+                    <li><a href="index.html" id="fNavHome">الرئيسية</a></li>
+                    <li><a href="services.html" id="fNavServices">خدماتنا</a></li>
+                    <li><a href="offers.html" id="fNavOffers">عروض</a></li>
+                    <li><a href="hotels.html" id="fNavHotels">فنادق</a></li>
+                    <li><a href="packages.html" id="fNavPackages">باقات</a></li>
+                    <li><a href="railway.html" id="fNavRailway">قطارات</a></li>
+                    <li><a href="cars.html" id="fNavCars">سيارات</a></li>
+                    <li><a href="about.html" id="fNavAbout">من نحن</a></li>
+                    <li><a href="contact.html" id="fNavContact">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 id="footerServicesTitle">خدماتنا</h5>
+                <ul>
+                    <li><a href="services.html" id="fServFlights">تذاكر طيران</a></li>
+                    <li><a href="services.html" id="fServUmrah">باقات العمرة</a></li>
+                    <li><a href="services.html" id="fServVisa">تأشيرات</a></li>
+                    <li><a href="hotels.html" id="fServHotels">فنادق</a></li>
+                    <li><a href="cars.html" id="fServCars">تأجير سيارات</a></li>
+                    <li><a href="railway.html" id="fServRailway">قطارات</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 id="footerInfoTitle">معلومات</h5>
+                <ul>
+                    <li><a href="about.html" id="fInfoAbout">عن الوكالة</a></li>
+                    <li><a href="contact.html" id="fInfoContact">اتصل بنا</a></li>
+                    <li><a href="privacy.html" id="fInfoPrivacy">سياسة الخصوصية</a></li>
+                    <li><a href="terms.html" id="fInfoTerms">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+    </footer>
+
     <!-- ===== WHATSAPP FLOAT ===== -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20الباقات" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
-        <span class="wa-label">تواصل واتساب</span>
+        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+        <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
     </div>
 
     <!-- ===== AI CHAT ===== -->
     <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-chat-header">
-            <div class="title">
-                <i class="fas fa-robot"></i>
-                <span>مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
-            </div>
+            <div class="title"><i class="fas fa-robot"></i> <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span></div>
             <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-chat-messages" id="aiChatMessages">
-            <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل باقات السفر حسب رغبتك!<span class="time">الآن</span></div>
+            <div class="msg bot" id="aiWelcomeMsg">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل باقات السفر حسب رغبتك!<span class="time">الآن</span></div>
         </div>
         <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
         <div class="ai-chat-input">
@@ -1262,6 +762,9 @@
     <!-- ===== SCROLL TOP ===== -->
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
     <script>
         // ===== PARTICLES =====
         (function() {
@@ -1272,8 +775,7 @@
             const particles = [];
             const COUNT = 60;
 
-            function resize() { w = canvas.width = window.innerWidth;
-                h = canvas.height = window.innerHeight; }
+            function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
             window.addEventListener('resize', resize);
             resize();
 
@@ -1322,8 +824,7 @@
 
             function animate() {
                 ctx.clearRect(0, 0, w, h);
-                particles.forEach(p => { p.update();
-                    p.draw(); });
+                particles.forEach(p => { p.update(); p.draw(); });
                 drawLines();
                 requestAnimationFrame(animate);
             }
@@ -1358,7 +859,7 @@
             scrollBtn.classList.toggle('show', window.pageYOffset > 300);
         });
 
-        // ===== PACKAGES DATA (200+) =====
+        // ===== PACKAGES DATA (220+) =====
         const pkgNames = [
             'عمرة رمضان المبارك', 'عطلة دبي الفاخرة', 'رحلة باريس الرومانسية',
             'استكشاف اسطنبول', 'عطلة شاطئية في جدة', 'رحلة سياحية إلى لندن',
@@ -1399,62 +900,32 @@
             'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&h=400&fit=crop'
         ];
         const pkgIncludes = [
-            ['طيران', 'فندق', 'وجبات'],
-            ['طيران', 'فندق', 'جولات'],
-            ['طيران', 'فندق', 'مواصلات'],
-            ['طيران', 'فندق', 'وجبات', 'جولات'],
-            ['فندق', 'وجبات', 'جولات'],
-            ['طيران', 'فندق', 'مواصلات', 'وجبات']
+            ['طيران','فندق','وجبات'],
+            ['طيران','فندق','جولات'],
+            ['طيران','فندق','مواصلات'],
+            ['طيران','فندق','وجبات','جولات'],
+            ['فندق','وجبات','جولات'],
+            ['طيران','فندق','مواصلات','وجبات']
         ];
-
-        // Real prices based on destinations
         const pkgPriceBase = {
-            'مكة': 2500,
-            'دبي': 3800,
-            'باريس': 4200,
-            'اسطنبول': 2200,
-            'جدة': 1800,
-            'لندن': 4500,
-            'نيويورك': 5500,
-            'كوالالمبور': 3200,
-            'نيروبي': 4800,
-            'زيرمات': 5200,
-            'كوينزتاون': 4500,
-            'ماليه': 6000,
-            'طوكيو': 5000,
-            'بالي': 3500,
-            'كيب تاون': 4200,
-            'سيدني': 4800,
-            'ريو دي جانيرو': 4300,
-            'عمّان': 2800,
-            'روما': 3900,
-            'برشلونة': 3700,
-            'بانكوك': 2500,
-            'مراكش': 3000,
-            'أنطاليا': 2000,
-            'فيينا': 3800,
-            'أمستردام': 4000
+            'مكة':2500,'دبي':3800,'باريس':4200,'اسطنبول':2200,'جدة':1800,
+            'لندن':4500,'نيويورك':5500,'كوالالمبور':3200,'نيروبي':4800,
+            'زيرمات':5200,'كوينزتاون':4500,'ماليه':6000,'طوكيو':5000,
+            'بالي':3500,'كيب تاون':4200,'سيدني':4800,'ريو دي جانيرو':4300,
+            'عمّان':2800,'روما':3900,'برشلونة':3700,'بانكوك':2500,
+            'مراكش':3000,'أنطاليا':2000,'فيينا':3800,'أمستردام':4000
         };
 
         let allPackages = [];
         for (let i = 0; i < 220; i++) {
-            const name = pkgNames[i % pkgNames.length] + (Math.floor(i / pkgNames.length) > 0 ? ` ${Math.floor(i / pkgNames
-                    .length) + 1}` : '');
+            const name = pkgNames[i % pkgNames.length] + (Math.floor(i / pkgNames.length) > 0 ? ` ${Math.floor(i / pkgNames.length) + 1}` : '');
             const city = pkgCities[i % pkgCities.length];
             const type = pkgTypes[i % pkgTypes.length];
             const basePrice = pkgPriceBase[city] || 3000;
             const price = Math.round((basePrice * (0.8 + Math.random() * 0.4)) / 50) * 50;
             const days = 3 + Math.floor(Math.random() * 10);
             const includes = pkgIncludes[i % pkgIncludes.length];
-            allPackages.push({
-                name,
-                city,
-                type,
-                price,
-                days,
-                includes,
-                img: pkgImages[i % pkgImages.length]
-            });
+            allPackages.push({ name, city, type, price, days, includes, img: pkgImages[i % pkgImages.length] });
         }
 
         // ===== POPULATE DESTINATION FILTER =====
@@ -1475,9 +946,7 @@
         function updatePkgPriceLabels() {
             const min = parseInt(document.getElementById('pkgPriceMin').value);
             const max = parseInt(document.getElementById('pkgPriceMax').value);
-            if (min > max) {
-                document.getElementById('pkgPriceMax').value = min;
-            }
+            if (min > max) { document.getElementById('pkgPriceMax').value = min; }
             document.getElementById('pkgPriceMinLabel').textContent = min + ' ر.س';
             document.getElementById('pkgPriceMaxLabel').textContent = max + ' ر.س';
         }
@@ -1492,25 +961,17 @@
             const priceMax = parseInt(document.getElementById('pkgPriceMax').value);
 
             filteredPackages = allPackages.filter(p => {
-                if (search && !p.name.toLowerCase().includes(search) && !p.city.toLowerCase().includes(
-                    search)) {
-                    return false;
-                }
+                if (search && !p.name.toLowerCase().includes(search) && !p.city.toLowerCase().includes(search)) return false;
                 if (dest !== 'all' && p.city !== dest) return false;
                 if (type !== 'all' && p.type !== type) return false;
                 if (p.price < priceMin || p.price > priceMax) return false;
                 return true;
             });
 
-            if (sort === 'price') {
-                filteredPackages.sort((a, b) => a.price - b.price);
-            } else if (sort === 'price-desc') {
-                filteredPackages.sort((a, b) => b.price - a.price);
-            } else if (sort === 'duration') {
-                filteredPackages.sort((a, b) => a.days - b.days);
-            } else if (sort === 'name') {
-                filteredPackages.sort((a, b) => a.name.localeCompare(b.name));
-            }
+            if (sort === 'price') filteredPackages.sort((a,b) => a.price - b.price);
+            else if (sort === 'price-desc') filteredPackages.sort((a,b) => b.price - a.price);
+            else if (sort === 'duration') filteredPackages.sort((a,b) => a.days - b.days);
+            else if (sort === 'name') filteredPackages.sort((a,b) => a.name.localeCompare(b.name));
 
             pkgDisplayCount = 12;
             renderPackages();
@@ -1533,23 +994,20 @@
             const grid = document.getElementById('packagesGrid');
             const toShow = filteredPackages.slice(0, pkgDisplayCount);
             grid.innerHTML = '';
-
             if (toShow.length === 0) {
                 grid.innerHTML =
                     `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:1.2rem;">
                         <i class="fas fa-suitcase" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
-                        لا توجد باقات مطابقة لبحثك
+                        <span id="noPackages">لا توجد باقات مطابقة لبحثك</span>
                     </div>`;
                 document.getElementById('loadMorePackages').style.display = 'none';
                 return;
             }
-
             toShow.forEach((p, i) => {
                 const card = document.createElement('div');
                 card.className = 'package-card reveal';
                 card.style.transitionDelay = `${i * 0.03}s`;
                 const typeLabel = pkgTypeLabels[p.type] || p.type;
-
                 card.innerHTML = `
                     <div class="img" style="background-image:url('${p.img}');">
                         <span class="pkg-badge">${typeLabel}</span>
@@ -1560,25 +1018,18 @@
                         <h4>${p.name}</h4>
                         <div class="location"><i class="fas fa-map-pin"></i> ${p.city}</div>
                         <p class="pkg-desc">باقة ${p.days} ليالي في ${p.city} تشمل ${p.includes.join('، ')}.</p>
-                        <div class="pkg-includes">
-                            ${p.includes.map(item => `<span><i class="fas fa-check"></i> ${item}</span>`).join('')}
-                        </div>
+                        <div class="pkg-includes">${p.includes.map(item => `<span><i class="fas fa-check"></i> ${item}</span>`).join('')}</div>
                         <button class="btn-sm" onclick="openPkgBooking('${p.name.replace(/'/g, "\\'")}', '${p.city}', ${p.price}, ${p.days})">
-                            <i class="fas fa-calendar-check"></i> احجز الآن
+                            <i class="fas fa-calendar-check"></i> <span class="bookNowText">احجز الآن</span>
                         </button>
                     </div>
                 `;
                 grid.appendChild(card);
             });
-
             document.querySelectorAll('.package-card.reveal').forEach(el => observer.observe(el));
-
             const loadBtn = document.getElementById('loadMorePackages');
-            if (pkgDisplayCount >= filteredPackages.length) {
-                loadBtn.style.display = 'none';
-            } else {
-                loadBtn.style.display = 'block';
-            }
+            if (pkgDisplayCount >= filteredPackages.length) loadBtn.style.display = 'none';
+            else loadBtn.style.display = 'block';
         }
 
         // ===== LOAD MORE =====
@@ -1601,7 +1052,6 @@
             document.getElementById('pkgModal').classList.add('open');
             document.body.style.overflow = 'hidden';
             document.getElementById('pkgFormStatus').textContent = '';
-            // Set default date
             const today = new Date();
             const travelDate = document.querySelector('input[name="travelDate"]');
             if (travelDate) {
@@ -1622,22 +1072,17 @@
             if (e.key === 'Escape') closePkgModal();
         });
 
-        // ===== PACKAGE BOOKING FORM =====
+        // ===== PACKAGE BOOKING FORM (SEND TO WORK NUMBER) =====
         document.getElementById('pkgBookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
             const pkg = currentPkg;
-            let msg =
-                `🏝️ حجز باقة سياحية\n\nالباقة: ${pkg.name}\nالوجهة: ${pkg.city}\nالسعر: ${pkg.price} ر.س\nالمدة: ${pkg.days} ليالي\n\n`;
+            let msg = `🏝️ حجز باقة سياحية\n\nالباقة: ${pkg.name}\nالوجهة: ${pkg.city}\nالسعر: ${pkg.price} ر.س\nالمدة: ${pkg.days} ليالي\n\n`;
             for (const [key, value] of formData.entries()) {
                 if (value && value.trim()) {
-                    const label = key === 'fullname' ? 'الاسم' :
-                        key === 'phone' ? 'الجوال' :
-                        key === 'email' ? 'البريد' :
-                        key === 'travelers' ? 'عدد المسافرين' :
-                        key === 'travelDate' ? 'تاريخ السفر' :
-                        key === 'roomType' ? 'نوع الغرفة' :
-                        key === 'notes' ? 'ملاحظات' : key;
+                    const label = key === 'fullname' ? 'الاسم' : key === 'phone' ? 'الجوال' : key === 'email' ? 'البريد' :
+                        key === 'travelers' ? 'عدد المسافرين' : key === 'travelDate' ? 'تاريخ السفر' :
+                        key === 'roomType' ? 'نوع الغرفة' : key === 'notes' ? 'ملاحظات' : key;
                     msg += `${label}: ${value}\n`;
                 }
             }
@@ -1645,7 +1090,8 @@
             status.textContent = '✅ جاري التحويل إلى واتساب ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
-                window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+                // WORK NUMBER 0554126832
+                window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
                 status.textContent = '✅ تم إرسال طلب الحجز بنجاح!';
                 setTimeout(() => { closePkgModal(); }, 1500);
             }, 700);
@@ -1658,66 +1104,44 @@
         const typingIndicator = document.getElementById('aiTyping');
 
         const aiKnowledge = {
-            'مرحبا': '👋 أهلاً بك في <strong>صعود الطائرة</strong>! لدينا أكثر من 200 باقة سياحية حول العالم. أخبرني الوجهة التي تبحث عنها.',
-            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني مساعدتك في اختيار باقة سفر مناسبة؟',
-            'باقة': '🏝️ لدينا باقات عمرة، عائلية، مغامرات، فاخرة، رومانسية، وثقافية. أخبرني نوع الباقة التي تفضلها.',
-            'عمرة': '🕋 باقات العمرة تشمل تأشيرة، سكن قريب من الحرم، ومواصلات. تبدأ من ١٢٠٠ ريال.',
-            'دبي': '🇦🇪 باقات دبي تشمل إقامة فندق 5 نجوم، جولة صحراوية، ورحلة بحرية. تبدأ من ٢٢٨٠ ريال.',
-            'باريس': '🇫🇷 باقات باريس تشمل تذاكر الطيران، فندق 4 نجوم، وجولات سياحية. تبدأ من ٢٥٠٠ ريال.',
-            'اسطنبول': '🇹🇷 باقات اسطنبول تشمل جولات تاريخية ورحلة بحرية في البوسفور. تبدأ من ١٥٠٠ ريال.',
-            'سويسرا': '🇨🇭 باقات سويسرا تشمل التزلج وإقامة فندقية في جبال الألب. تبدأ من ٣٦٤٠ ريال.',
-            'سعر': '💰 أسعار الباقات تختلف حسب الوجهة والموسم. لدينا خصومات تصل إلى 45% على بعض الباقات!',
-            'خصم': '💸 عروض الباقات: خصم 45% على رحلة القاهرة، 40% على دبي، 35% على كينيا!',
-            'عرض': '🔥 عروض الباقات السياحية: خصم يصل إلى 45% على باقات محدودة!',
-            'عائلية': '👨‍👩‍👧‍👦 لدينا باقات عائلية ممتازة في كوالالمبور، أنطاليا، وأورلاندو بأسعار تنافسية.',
-            'مغامرات': '🏔️ باقات المغامرات تشمل سفاري، تسلق جبال، ورحلات استكشاف في كينيا، نيوزيلندا، وسويسرا.',
-            'شكرا': '🙏 العفو! سعداء بمساعدتك.',
-            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong>! We have over 200 travel packages worldwide. Tell me the destination you\'re looking for.',
-            'package': '🏝️ We have Umrah, family, adventure, luxury, romantic, and cultural packages. Tell me your preferred type.',
-            'umrah': '🕋 Umrah packages include visa, accommodation near Haram, and transportation. Starting from 1,200 SAR.',
-            'price': '💰 Package prices vary by destination and season. We have discounts up to 45% on some packages!',
-            'discount': '💸 Package offers: 45% off on Cairo trip, 40% off on Dubai, 35% off on Kenya!',
-            'offer': '🔥 Travel package offers: Discounts up to 45% on limited packages!',
-            'family': '👨‍👩‍👧‍👦 We have excellent family packages in Kuala Lumpur, Antalya, and Orlando at competitive prices.',
-            'adventure': '🏔️ Adventure packages include safari, mountain climbing, and exploration tours in Kenya, New Zealand, and Switzerland.',
-            'thanks': '🙏 You\'re welcome! Happy to help.'
+            'مرحبا':'👋 أهلاً بك! لدينا أكثر من 200 باقة سياحية حول العالم. أخبرني الوجهة التي تبحث عنها.',
+            'السلام عليكم':'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني مساعدتك في اختيار باقة سفر مناسبة؟',
+            'باقة':'🏝️ لدينا باقات عمرة، عائلية، مغامرات، فاخرة، رومانسية، وثقافية.',
+            'عمرة':'🕋 باقات العمرة تشمل تأشيرة، سكن قريب من الحرم، ومواصلات. تبدأ من ١٢٠٠ ريال.',
+            'دبي':'🇦🇪 باقات دبي تشمل إقامة فندق 5 نجوم، جولة صحراوية، ورحلة بحرية. تبدأ من ٢٢٨٠ ريال.',
+            'باريس':'🇫🇷 باقات باريس تشمل تذاكر الطيران، فندق 4 نجوم، وجولات سياحية. تبدأ من ٢٥٠٠ ريال.',
+            'اسطنبول':'🇹🇷 باقات اسطنبول تشمل جولات تاريخية ورحلة بحرية في البوسفور. تبدأ من ١٥٠٠ ريال.',
+            'سويسرا':'🇨🇭 باقات سويسرا تشمل التزلج وإقامة فندقية في جبال الألب. تبدأ من ٣٦٤٠ ريال.',
+            'سعر':'💰 أسعار الباقات تختلف حسب الوجهة والموسم. لدينا خصومات تصل إلى 45% على بعض الباقات!',
+            'خصم':'💸 عروض الباقات: خصم 45% على رحلة القاهرة، 40% على دبي، 35% على كينيا!',
+            'عرض':'🔥 عروض الباقات السياحية: خصم يصل إلى 45% على باقات محدودة!',
+            'شكرا':'🙏 العفو! سعداء بمساعدتك.',
+            'hello':'👋 Welcome! We have over 200 travel packages worldwide. Tell me the destination you\'re looking for.',
+            'package':'🏝️ We have Umrah, family, adventure, luxury, romantic, and cultural packages.',
+            'umrah':'🕋 Umrah packages include visa, accommodation near Haram, and transportation. Starting from 1,200 SAR.',
+            'price':'💰 Package prices vary by destination and season. We have discounts up to 45%!',
+            'discount':'💸 Package offers: 45% off on Cairo, 40% off on Dubai, 35% off on Kenya!',
+            'offer':'🔥 Travel package offers: Discounts up to 45% on limited packages!',
+            'thanks':'🙏 You\'re welcome!'
         };
+        const defaultReplies = [
+            '🤖 شكراً لسؤالك عن الباقات! لدينا أكثر من 200 باقة سياحية في جميع أنحاء العالم.',
+            '🏝️ يمكنك تصفح جميع الباقات في الأعلى أو مراسلتنا على واتساب 0555382038.',
+            '🔥 لا تفوت عروض الباقات – خصم يصل إلى 45%!',
+            '📱 كود الخصم KSA90 يمنحك 9% على جميع الباقات.'
+        ];
 
         function getAIResponse(text) {
             const lower = text.toLowerCase().trim();
             for (const [key, response] of Object.entries(aiKnowledge)) {
                 if (lower.includes(key)) return response;
             }
-            // Check for city names
-            const cities = ['مكة', 'دبي', 'باريس', 'اسطنبول', 'جدة', 'لندن', 'نيويورك', 'كوالالمبور', 'طوكيو',
-                'القاهرة', 'عمّان', 'بيروت', 'الدوحة', 'مسقط', 'الكويت', 'المنامة', 'سنغافورة', 'بانكوك',
-                'سويسرا', 'ماليه', 'بالي', 'كيب تاون', 'سيدني', 'روما', 'برشلونة', 'مراكش', 'أنطاليا'
-            ];
-            for (const city of cities) {
-                if (lower.includes(city)) {
-                    return `🏝️ لدينا باقات رائعة إلى ${city} بأسعار تنافسية. هل ترغب في معرفة العروض المتاحة؟`;
-                }
-            }
-            const hasArabic = /[\u0600-\u06FF]/.test(text);
-            if (hasArabic) {
-                return '🤖 شكراً لسؤالك عن الباقات! لدينا أكثر من 200 باقة سياحية في جميع أنحاء العالم. أخبرني الوجهة التي تبحث عنها وسأجد لك أفضل العروض.';
-            } else {
-                return '🤖 Thank you for asking about packages! We have over 200 travel packages worldwide. Tell me the destination you\'re looking for and I\'ll find the best deals.';
-            }
+            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
         }
 
         window.toggleAIChat = function() {
             chatBox.classList.toggle('open');
-            if (chatBox.classList.contains('open')) {
-                chatInput.focus();
-                if (chatMessages.children.length === 1) {
-                    const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-                    const welcome = lang === 'en' ?
-                        '👋 Hello! I\'m the <strong>Saeed Al-Taayira</strong> AI assistant. I can help you find the best travel packages based on your preferences!' :
-                        '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل باقات السفر حسب رغبتك!';
-                    chatMessages.innerHTML = `<div class="msg bot">${welcome}<span class="time">الآن</span></div>`;
-                }
-            }
+            if (chatBox.classList.contains('open')) chatInput.focus();
         };
 
         function addMessage(type, text) {
@@ -1747,98 +1171,52 @@
 
         const translations = {
             ar: {
-                logo: '<strong>صعود الطائرة</strong>',
-                logoSub: 'للسفر والسياحة',
-                navHome: 'الرئيسية',
-                navServices: 'خدماتنا',
-                navOffers: 'عروض',
-                navHotels: 'فنادق',
-                navPackages: 'باقات',
-                navRailway: 'قطارات',
-                navCars: 'سيارات',
-                navAbout: 'من نحن',
-                navContact: 'اتصل بنا',
-                navCta: '📞 احجز الآن',
-                sectionTitle: 'باقات',
-                sectionHighlight: 'السفر',
-                sectionDesc: 'أكثر من 200 باقة سياحية تشمل العمرة، السياحة، المغامرات، والعطلات العائلية',
-                searchPlaceholder: 'ابحث عن باقة...',
-                allDest: 'جميع الوجهات',
-                allTypes: 'جميع الأنواع',
-                typeUmrah: 'عمرة',
-                typeFamily: 'عائلي',
-                typeAdventure: 'مغامرات',
-                typeLuxury: 'فاخر',
-                typeRomantic: 'رومانسي',
-                typeCultural: 'ثقافي',
-                sortPrice: 'السعر (الأقل أولاً)',
-                sortPriceDesc: 'السعر (الأعلى أولاً)',
-                sortDuration: 'المدة (الأقل أولاً)',
-                sortName: 'الاسم',
-                priceRange: 'نطاق السعر',
-                reset: 'إعادة تعيين',
-                loadMore: 'عرض المزيد من الباقات',
-                noPackages: 'لا توجد باقات مطابقة لبحثك',
-                bookNow: 'احجز الآن',
-                aiTitle: 'مساعد صعود الطائرة AI',
-                aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. يمكنني مساعدتك في العثور على أفضل باقات السفر حسب رغبتك!',
-                aiPlaceholder: 'اسأل عن الباقات...',
-                waLabel: 'تواصل واتساب',
-                footerBrand: 'صعود الطائرة',
-                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
-                footerLinks: 'روابط سريعة',
-                footerServices: 'خدماتنا',
-                footerInfo: 'معلومات',
-                footerRights: 'جميع الحقوق محفوظة',
-                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية',
-                confirmBooking: 'تأكيد الحجز عبر واتساب'
+                logoMain:'صعود الطائرة', logoSub:'للسفر والسياحة',
+                navHome:'الرئيسية', navServices:'خدماتنا', navOffers:'عروض', navHotels:'فنادق',
+                navPackages:'باقات', navRailway:'قطارات', navCars:'سيارات', navAbout:'من نحن',
+                navContact:'اتصل بنا', navCta:'📞 احجز الآن',
+                heroTitle1:'باقات', heroTitle2:'السفر', heroDesc:'أكثر من 200 باقة سياحية تشمل العمرة، السياحة، المغامرات، والعطلات العائلية',
+                searchLabel:'بحث', destLabel:'الوجهة', typeLabel:'النوع', sortLabel:'ترتيب حسب',
+                destAll:'جميع الوجهات', typeAll:'جميع الأنواع', typeUmrah:'عمرة', typeFamily:'عائلي',
+                typeAdventure:'مغامرات', typeLuxury:'فاخر', typeRomantic:'رومانسي', typeCultural:'ثقافي',
+                sortPrice:'السعر (الأقل أولاً)', sortPriceDesc:'السعر (الأعلى أولاً)', sortDuration:'المدة (الأقل أولاً)', sortName:'الاسم',
+                priceLabel:'نطاق السعر', fromLabel:'من', toLabel:'إلى', resetBtn:'إعادة تعيين',
+                loadMoreText:'عرض المزيد من الباقات', noPackages:'لا توجد باقات مطابقة لبحثك', backHomeBtn:'العودة إلى الرئيسية',
+                bookNowText:'احجز الآن',
+                aiChatTitle:'مساعد صعود الطائرة AI', aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل باقات السفر حسب رغبتك!',
+                aiPlaceholder:'اسأل عن الباقات...', waFloatLabel:'تواصل واتساب',
+                footerBrand:'صعود الطائرة', footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle:'روابط سريعة', footerServicesTitle:'خدماتنا', footerInfoTitle:'معلومات',
+                fNavHome:'الرئيسية', fNavServices:'خدماتنا', fNavOffers:'عروض', fNavHotels:'فنادق',
+                fNavPackages:'باقات', fNavRailway:'قطارات', fNavCars:'سيارات', fNavAbout:'من نحن', fNavContact:'اتصل بنا',
+                fServFlights:'تذاكر طيران', fServUmrah:'باقات العمرة', fServVisa:'تأشيرات', fServHotels:'فنادق',
+                fServCars:'تأجير سيارات', fServRailway:'قطارات',
+                fInfoAbout:'عن الوكالة', fInfoContact:'اتصل بنا', fInfoPrivacy:'سياسة الخصوصية', fInfoTerms:'الشروط والأحكام',
+                footerRights:'جميع الحقوق محفوظة', footerCredit:'تصميم وتطوير ✧ برؤية عصرية'
             },
             en: {
-                logo: '<strong>Saeed Al-Taayira</strong>',
-                logoSub: 'Travel & Tourism',
-                navHome: 'Home',
-                navServices: 'Services',
-                navOffers: 'Offers',
-                navHotels: 'Hotels',
-                navPackages: 'Packages',
-                navRailway: 'Railway',
-                navCars: 'Cars',
-                navAbout: 'About',
-                navContact: 'Contact',
-                navCta: '📞 Book Now',
-                sectionTitle: 'Travel',
-                sectionHighlight: 'Packages',
-                sectionDesc: '200+ travel packages including Umrah, tourism, adventure, and family holidays',
-                searchPlaceholder: 'Search for package...',
-                allDest: 'All Destinations',
-                allTypes: 'All Types',
-                typeUmrah: 'Umrah',
-                typeFamily: 'Family',
-                typeAdventure: 'Adventure',
-                typeLuxury: 'Luxury',
-                typeRomantic: 'Romantic',
-                typeCultural: 'Cultural',
-                sortPrice: 'Price (Lowest first)',
-                sortPriceDesc: 'Price (Highest first)',
-                sortDuration: 'Duration (Shortest first)',
-                sortName: 'Name',
-                priceRange: 'Price Range',
-                reset: 'Reset',
-                loadMore: 'Show More Packages',
-                noPackages: 'No packages match your search',
-                bookNow: 'Book Now',
-                aiTitle: 'Saeed Al-Taayira AI Assistant',
-                aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. I can help you find the best travel packages based on your preferences!',
-                aiPlaceholder: 'Ask about packages...',
-                waLabel: 'WhatsApp',
-                footerBrand: 'Saeed Al-Taayira',
-                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
-                footerLinks: 'Quick Links',
-                footerServices: 'Services',
-                footerInfo: 'Info',
-                footerRights: 'All Rights Reserved',
-                footerCredit: 'Designed & Developed ✧ with Vision',
-                confirmBooking: 'Confirm Booking via WhatsApp'
+                logoMain:'Saeed Al-Taayira', logoSub:'Travel & Tourism',
+                navHome:'Home', navServices:'Services', navOffers:'Offers', navHotels:'Hotels',
+                navPackages:'Packages', navRailway:'Railway', navCars:'Cars', navAbout:'About',
+                navContact:'Contact', navCta:'📞 Book Now',
+                heroTitle1:'Travel', heroTitle2:'Packages', heroDesc:'200+ travel packages including Umrah, tourism, adventure, and family holidays',
+                searchLabel:'Search', destLabel:'Destination', typeLabel:'Type', sortLabel:'Sort By',
+                destAll:'All Destinations', typeAll:'All Types', typeUmrah:'Umrah', typeFamily:'Family',
+                typeAdventure:'Adventure', typeLuxury:'Luxury', typeRomantic:'Romantic', typeCultural:'Cultural',
+                sortPrice:'Price (Lowest first)', sortPriceDesc:'Price (Highest first)', sortDuration:'Duration (Shortest first)', sortName:'Name',
+                priceLabel:'Price Range', fromLabel:'From', toLabel:'To', resetBtn:'Reset',
+                loadMoreText:'Show More Packages', noPackages:'No packages match your search', backHomeBtn:'Back to Home',
+                bookNowText:'Book Now',
+                aiChatTitle:'Saeed Al-Taayira AI Assistant', aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I can help you find the best travel packages based on your preferences!',
+                aiPlaceholder:'Ask about packages...', waFloatLabel:'WhatsApp',
+                footerBrand:'Saeed Al-Taayira', footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle:'Quick Links', footerServicesTitle:'Services', footerInfoTitle:'Info',
+                fNavHome:'Home', fNavServices:'Services', fNavOffers:'Offers', fNavHotels:'Hotels',
+                fNavPackages:'Packages', fNavRailway:'Railway', fNavCars:'Cars', fNavAbout:'About', fNavContact:'Contact',
+                fServFlights:'Flights', fServUmrah:'Umrah', fServVisa:'Visas', fServHotels:'Hotels',
+                fServCars:'Car Rentals', fServRailway:'Trains',
+                fInfoAbout:'About Us', fInfoContact:'Contact', fInfoPrivacy:'Privacy Policy', fInfoTerms:'Terms & Conditions',
+                footerRights:'All Rights Reserved', footerCredit:'Designed & Developed ✧ with Vision'
             }
         };
 
@@ -1850,190 +1228,108 @@
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
             const map = {
-                'logoText': 'logo',
-                'logoSlogan': 'logoSub',
-                'navHome': 'navHome',
-                'navServices': 'navServices',
-                'navOffers': 'navOffers',
-                'navHotels': 'navHotels',
-                'navPackages': 'navPackages',
-                'navRailway': 'navRailway',
-                'navCars': 'navCars',
-                'navAbout': 'navAbout',
-                'navContact': 'navContact',
-                'navCta': 'navCta',
-                'sectionTitle': 'sectionTitle',
-                'sectionHighlight': 'sectionHighlight',
-                'sectionDesc': 'sectionDesc',
-                'searchPlaceholder': 'searchPlaceholder',
-                'allDest': 'allDest',
-                'allTypes': 'allTypes',
-                'typeUmrah': 'typeUmrah',
-                'typeFamily': 'typeFamily',
-                'typeAdventure': 'typeAdventure',
-                'typeLuxury': 'typeLuxury',
-                'typeRomantic': 'typeRomantic',
-                'typeCultural': 'typeCultural',
-                'sortPrice': 'sortPrice',
-                'sortPriceDesc': 'sortPriceDesc',
-                'sortDuration': 'sortDuration',
-                'sortName': 'sortName',
-                'priceRange': 'priceRange',
-                'reset': 'reset',
-                'loadMore': 'loadMore',
-                'noPackages': 'noPackages',
-                'bookNow': 'bookNow',
-                'aiTitle': 'aiTitle',
-                'aiWelcome': 'aiWelcome',
-                'aiPlaceholder': 'aiPlaceholder',
-                'waLabel': 'waLabel',
-                'footerBrand': 'footerBrand',
-                'footerDesc': 'footerDesc',
-                'footerLinks': 'footerLinks',
-                'footerServices': 'footerServices',
-                'footerInfo': 'footerInfo',
-                'footerRights': 'footerRights',
-                'footerCredit': 'footerCredit',
-                'confirmBooking': 'confirmBooking'
+                'logoMain':'logoMain','logoSub':'logoSub',
+                'navHome':'navHome','navServices':'navServices','navOffers':'navOffers','navHotels':'navHotels',
+                'navPackages':'navPackages','navRailway':'navRailway','navCars':'navCars','navAbout':'navAbout',
+                'navContact':'navContact','navCta':'navCta',
+                'searchLabel':'searchLabel','destLabel':'destLabel','typeLabel':'typeLabel','sortLabel':'sortLabel',
+                'destAll':'destAll','typeAll':'typeAll','typeUmrah':'typeUmrah','typeFamily':'typeFamily',
+                'typeAdventure':'typeAdventure','typeLuxury':'typeLuxury','typeRomantic':'typeRomantic','typeCultural':'typeCultural',
+                'sortPrice':'sortPrice','sortPriceDesc':'sortPriceDesc','sortDuration':'sortDuration','sortName':'sortName',
+                'priceLabel':'priceLabel','fromLabel':'fromLabel','toLabel':'toLabel','resetBtn':'resetBtn',
+                'loadMoreText':'loadMoreText','noPackages':'noPackages','backHomeBtn':'backHomeBtn',
+                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
+                'waFloatLabel':'waFloatLabel',
+                'footerBrand':'footerBrand','footerDesc':'footerDesc',
+                'footerLinksTitle':'footerLinksTitle','footerServicesTitle':'footerServicesTitle','footerInfoTitle':'footerInfoTitle',
+                'fNavHome':'fNavHome','fNavServices':'fNavServices','fNavOffers':'fNavOffers','fNavHotels':'fNavHotels',
+                'fNavPackages':'fNavPackages','fNavRailway':'fNavRailway','fNavCars':'fNavCars','fNavAbout':'fNavAbout',
+                'fNavContact':'fNavContact',
+                'fServFlights':'fServFlights','fServUmrah':'fServUmrah','fServVisa':'fServVisa','fServHotels':'fServHotels',
+                'fServCars':'fServCars','fServRailway':'fServRailway',
+                'fInfoAbout':'fInfoAbout','fInfoContact':'fInfoContact','fInfoPrivacy':'fInfoPrivacy','fInfoTerms':'fInfoTerms',
+                'footerRights':'footerRights','footerCredit':'footerCredit'
             };
 
             for (const [id, key] of Object.entries(map)) {
                 const el = document.getElementById(id);
                 if (el && translations[lang] && translations[lang][key] !== undefined) {
-                    if (id === 'logoText' || id === 'footerBrand') {
-                        el.innerHTML = translations[lang][key];
+                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand') {
+                        if (id === 'logoMain') el.textContent = translations[lang][key];
+                        else if (id === 'logoSub') el.textContent = translations[lang][key];
+                        else if (id === 'footerBrand') el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
                     } else {
                         el.textContent = translations[lang][key];
                     }
                 }
             }
 
-            // Update search placeholder
-            const searchInput = document.getElementById('pkgSearch');
-            if (searchInput) {
-                searchInput.placeholder = translations[lang]['searchPlaceholder'];
+            // Hero
+            const heroH1 = document.querySelector('.packages-hero h1');
+            if (heroH1) {
+                const highlight = heroH1.querySelector('.highlight');
+                if (highlight) {
+                    const s1 = document.createElement('span');
+                    s1.textContent = translations[lang]['heroTitle1'];
+                    heroH1.innerHTML = '';
+                    heroH1.appendChild(s1);
+                    const s2 = document.createElement('span');
+                    s2.className = 'highlight';
+                    s2.textContent = translations[lang]['heroTitle2'];
+                    heroH1.appendChild(document.createTextNode(' '));
+                    heroH1.appendChild(s2);
+                }
             }
+            const heroDesc = document.querySelector('.packages-hero p');
+            if (heroDesc) heroDesc.textContent = translations[lang]['heroDesc'];
 
-            // Update select options
+            // Search placeholder
+            const searchInput = document.getElementById('pkgSearch');
+            if (searchInput) searchInput.placeholder = lang === 'ar' ? 'ابحث عن باقة...' : 'Search for package...';
+
+            // Select options
             const destSel = document.getElementById('pkgDestination');
-            if (destSel) {
-                const firstOpt = destSel.options[0];
-                if (firstOpt) firstOpt.textContent = translations[lang]['allDest'];
-            }
+            if (destSel) { const o = destSel.options[0]; if (o) o.textContent = translations[lang]['destAll']; }
             const typeSel = document.getElementById('pkgType');
             if (typeSel) {
                 const opts = typeSel.options;
-                if (opts[0]) opts[0].textContent = translations[lang]['allTypes'];
-                if (opts[1]) opts[1].textContent = translations[lang]['typeUmrah'];
-                if (opts[2]) opts[2].textContent = translations[lang]['typeFamily'];
-                if (opts[3]) opts[3].textContent = translations[lang]['typeAdventure'];
-                if (opts[4]) opts[4].textContent = translations[lang]['typeLuxury'];
-                if (opts[5]) opts[5].textContent = translations[lang]['typeRomantic'];
-                if (opts[6]) opts[6].textContent = translations[lang]['typeCultural'];
+                const keys = ['typeAll','typeUmrah','typeFamily','typeAdventure','typeLuxury','typeRomantic','typeCultural'];
+                opts.forEach((opt, i) => { if (i < keys.length && translations[lang][keys[i]]) opt.textContent = translations[lang][keys[i]]; });
             }
             const sortSel = document.getElementById('pkgSort');
             if (sortSel) {
                 const opts = sortSel.options;
-                if (opts[0]) opts[0].textContent = translations[lang]['sortPrice'];
-                if (opts[1]) opts[1].textContent = translations[lang]['sortPriceDesc'];
-                if (opts[2]) opts[2].textContent = translations[lang]['sortDuration'];
-                if (opts[3]) opts[3].textContent = translations[lang]['sortName'];
+                const keys = ['sortPrice','sortPriceDesc','sortDuration','sortName'];
+                opts.forEach((opt, i) => { if (i < keys.length && translations[lang][keys[i]]) opt.textContent = translations[lang][keys[i]]; });
             }
 
-            // Update load more button
+            // Load more
             const loadBtn = document.getElementById('loadMorePackages');
-            if (loadBtn) {
-                loadBtn.textContent = translations[lang]['loadMore'];
-            }
+            if (loadBtn) { const span = loadBtn.querySelector('span'); if (span) span.textContent = translations[lang]['loadMoreText']; }
 
-            // Update reset button
-            const resetBtn = document.querySelector('.filters-section button');
-            if (resetBtn) {
-                resetBtn.innerHTML = `<i class="fas fa-undo"></i> ${translations[lang]['reset']}`;
-            }
+            // No packages
+            const noPkg = document.getElementById('noPackages');
+            if (noPkg) noPkg.textContent = translations[lang]['noPackages'];
 
-            // Update price range label
-            const priceLabels = document.querySelectorAll('.filters-row .filter-group label');
-            priceLabels.forEach(label => {
-                if (label.textContent.includes('نطاق السعر') || label.textContent.includes('Price Range')) {
-                    label.textContent = translations[lang]['priceRange'];
-                }
-                if (label.textContent.includes('بحث') || label.textContent.includes('Search')) {
-                    label.innerHTML = `<i class="fas fa-search"></i> ${translations[lang]['searchPlaceholder']}`;
-                }
-                if (label.textContent.includes('الوجهة') || label.textContent.includes('Destination')) {
-                    label.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${translations[lang]['allDest']}`;
-                }
-                if (label.textContent.includes('النوع') || label.textContent.includes('Type')) {
-                    label.innerHTML = `<i class="fas fa-tag"></i> ${translations[lang]['allTypes']}`;
-                }
-                if (label.textContent.includes('ترتيب') || label.textContent.includes('Sort')) {
-                    label.innerHTML = `<i class="fas fa-sort"></i> ${translations[lang]['sortPrice']}`;
-                }
+            // Back home
+            const backBtn = document.getElementById('backHomeBtn');
+            if (backBtn) backBtn.textContent = translations[lang]['backHomeBtn'];
+
+            // Book now text on cards
+            document.querySelectorAll('.package-card .btn-sm .bookNowText').forEach(el => {
+                el.textContent = translations[lang]['bookNowText'];
             });
 
-            // Update AI chat
+            // AI chat
             const aiTitle = document.querySelector('.ai-chat-header .title span');
             if (aiTitle) {
                 const status = aiTitle.querySelector('.ai-status');
-                aiTitle.innerHTML = translations[lang]['aiTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` :
-                    '');
+                aiTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
             }
             const welcomeMsg = chatMessages.querySelector('.msg.bot');
-            if (welcomeMsg) {
-                welcomeMsg.innerHTML = translations[lang]['aiWelcome'] + '<span class="time">الآن</span>';
-            }
-            const placeholder = document.getElementById('aiChatInput');
-            if (placeholder) {
-                placeholder.placeholder = translations[lang]['aiPlaceholder'];
-            }
-
-            // Update section title
-            const titleEl = document.querySelector('.section-title h2');
-            if (titleEl) {
-                const highlight = titleEl.querySelector('.highlight');
-                if (highlight) {
-                    const h1 = document.createElement('span');
-                    h1.textContent = translations[lang]['sectionTitle'];
-                    titleEl.innerHTML = '';
-                    titleEl.appendChild(h1);
-                    const h2 = document.createElement('span');
-                    h2.className = 'highlight';
-                    h2.textContent = translations[lang]['sectionHighlight'];
-                    titleEl.appendChild(document.createTextNode(' '));
-                    titleEl.appendChild(h2);
-                }
-            }
-            const descEl = document.querySelector('.section-title p');
-            if (descEl) {
-                descEl.textContent = translations[lang]['sectionDesc'];
-            }
-
-            // Update modal button
-            const modalBtn = document.querySelector('.pkg-modal .btn-submit-pkg');
-            if (modalBtn) {
-                const icon = modalBtn.querySelector('i');
-                modalBtn.innerHTML = '';
-                if (icon) modalBtn.appendChild(icon.cloneNode(true));
-                modalBtn.appendChild(document.createTextNode(' ' + translations[lang]['confirmBooking']));
-            }
-
-            // Update book now buttons on existing cards
-            document.querySelectorAll('.package-card .btn-sm').forEach(btn => {
-                const icon = btn.querySelector('i');
-                btn.innerHTML = '';
-                if (icon) btn.appendChild(icon.cloneNode(true));
-                btn.appendChild(document.createTextNode(' ' + translations[lang]['bookNow']));
-            });
-
-            // Update no packages message
-            const noMsg = document.querySelector('.packages-grid > div[style*="grid-column:1/-1"]');
-            if (noMsg) {
-                noMsg.innerHTML = `
-                    <i class="fas fa-suitcase" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
-                    ${translations[lang]['noPackages']}
-                `;
-            }
+            if (welcomeMsg) welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
+            const aiInput = document.getElementById('aiChatInput');
+            if (aiInput) aiInput.placeholder = translations[lang]['aiPlaceholder'];
 
             localStorage.setItem('lang', lang);
         }
@@ -2056,8 +1352,7 @@
                 if (target) {
                     e.preventDefault();
                     const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset,
-                        behavior: 'smooth' });
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('open');
                 }
@@ -2074,11 +1369,11 @@
 
         // ===== DYNAMIC FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
 
         console.log('%c🏝️ صعود الطائرة – باقات 200+', 'font-size:20px;font-weight:bold;color:#d4af37;');
         console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
-        console.log('%c🏝️ 220 باقة – فلتر متقدم – AI Chatbot – نظام حجز', 'font-size:13px;color:#888;');
+        console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
     </script>
 </body>
 </html>

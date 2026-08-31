@@ -24,12 +24,7 @@
                 "streetAddress": "طريق ملك عبدالعزيز",
                 "addressLocality": "عرعر",
                 "addressCountry": "SA"
-            },
-            "sameAs": [
-                "https://www.facebook.com/sueudaltaayira",
-                "https://www.instagram.com/sueudaltaayira",
-                "https://twitter.com/sueudaltaayira"
-            ]
+            }
         }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1467,25 +1462,24 @@
     <!-- ===== HEADER ===== -->
     <header class="header">
         <div class="container">
-            <a href="index.html" class="logo">
+            <a href="index.html" class="logo" id="logoLink">
                 <span class="logo-icon">✈️</span>
                 <span class="logo-text">
-                    <span class="main">صعود الطائرة</span>
-                    <span class="sub">للسفر والسياحة</span>
+                    <span class="main" id="logoMain">صعود الطائرة</span>
+                    <span class="sub" id="logoSub">للسفر والسياحة</span>
                 </span>
             </a>
             <nav class="nav-links" id="navLinks">
-                <a href="index.html" class="active">الرئيسية</a>
-                <a href="services.html">خدماتنا</a>
-                <a href="offers.html">عروض</a>
-                <a href="hotels.html">فنادق</a>
-                <a href="packages.html">باقات</a>
-                <a href="railway.html">قطارات</a>
-                <a href="cars.html">سيارات</a>
-                <a href="about.html">من نحن</a>
-                <a href="contact.html">اتصل بنا</a>
-                <a href="chatbot.html" class="nav-cta">🤖 مساعد</a>
-                <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
+                <a href="index.html" class="active" id="navHome">الرئيسية</a>
+                <a href="services.html" id="navServices">خدماتنا</a>
+                <a href="offers.html" id="navOffers">عروض</a>
+                <a href="hotels.html" id="navHotels">فنادق</a>
+                <a href="packages.html" id="navPackages">باقات</a>
+                <a href="railway.html" id="navRailway">قطارات</a>
+                <a href="cars.html" id="navCars">سيارات</a>
+                <a href="about.html" id="navAbout">من نحن</a>
+                <a href="contact.html" id="navContact">اتصل بنا</a>
+                <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
@@ -1498,33 +1492,33 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>اكتشف العالم مع <br /><span class="highlight">صعود الطائرة</span></h1>
-                <p class="subtitle">وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية. رحلتك المثالية تبدأ هنا.</p>
+                <h1 id="heroTitle1">اكتشف العالم مع <br /><span class="highlight" id="heroTitle2">صعود الطائرة</span></h1>
+                <p class="subtitle" id="heroSub">وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية. رحلتك المثالية تبدأ هنا.</p>
                 <div class="hero-buttons">
-                    <a href="#packages" class="btn btn-primary"><i class="fas fa-globe-asia"></i> استكشف الباقات</a>
-                    <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
-                    <button class="btn btn-ai" onclick="toggleAIChat()"><i class="fas fa-robot"></i> مساعد AI</button>
+                    <a href="#packages" class="btn btn-primary" id="heroBtn1"><i class="fas fa-globe-asia"></i> استكشف الباقات</a>
+                    <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" id="heroBtn2"><i class="fab fa-whatsapp"></i> واتساب</a>
+                    <button class="btn btn-ai" onclick="toggleAIChat()" id="heroBtn3"><i class="fas fa-robot"></i> مساعد AI</button>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat"><h3 id="count1">0</h3><p>عميل سعيد</p></div>
-                    <div class="stat"><h3 id="count2">0</h3><p>وجهة سفر</p></div>
-                    <div class="stat"><h3 id="count3">0</h3><p>رضا العملاء</p></div>
-                    <div class="stat"><h3 id="count4">0</h3><p>سنوات خبرة</p></div>
+                    <div class="stat"><h3 id="count1">0</h3><p id="stat1">عميل سعيد</p></div>
+                    <div class="stat"><h3 id="count2">0</h3><p id="stat2">وجهة سفر</p></div>
+                    <div class="stat"><h3 id="count3">0</h3><p id="stat3">رضا العملاء</p></div>
+                    <div class="stat"><h3 id="count4">0</h3><p id="stat4">سنوات خبرة</p></div>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="hero-card">
                     <div class="big-icon">🌍</div>
-                    <h3>رحلتك تبدأ هنا</h3>
-                    <p>أكثر من 20 خدمة سياحية – احجز كل شيء في مكان واحد</p>
+                    <h3 id="heroCardTitle">رحلتك تبدأ هنا</h3>
+                    <p id="heroCardSub">أكثر من 20 خدمة سياحية – احجز كل شيء في مكان واحد</p>
                     <div class="badge-row">
-                        <span>✈️ طيران</span>
-                        <span>🕋 عمرة</span>
-                        <span>🏨 فنادق</span>
-                        <span>🚗 سيارات</span>
-                        <span>🚆 قطارات</span>
-                        <span>🏝️ باقات</span>
-                        <span>📝 مدونة</span>
+                        <span id="badge1">✈️ طيران</span>
+                        <span id="badge2">🕋 عمرة</span>
+                        <span id="badge3">🏨 فنادق</span>
+                        <span id="badge4">🚗 سيارات</span>
+                        <span id="badge5">🚆 قطارات</span>
+                        <span id="badge6">🏝️ باقات</span>
+                        <span id="badge7">📝 مدونة</span>
                     </div>
                 </div>
             </div>
@@ -1535,13 +1529,13 @@
     <section class="section" id="services">
         <div class="container">
             <div class="section-title reveal">
-                <h2>خدماتنا <span class="highlight">المتكاملة</span></h2>
-                <p>اختر الخدمة التي تحتاجها، واحصل على عرض مخصص</p>
+                <h2 id="servicesTitle1">خدماتنا <span class="highlight" id="servicesTitle2">المتكاملة</span></h2>
+                <p id="servicesSub">اختر الخدمة التي تحتاجها، واحصل على عرض مخصص</p>
                 <div class="section-divider"></div>
             </div>
             <div class="services-grid" id="servicesGrid"></div>
             <div style="text-align:center;margin-top:30px;">
-                <a href="services.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> عرض جميع الخدمات</a>
+                <a href="services.html" class="btn btn-primary" id="servicesAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع الخدمات</a>
             </div>
         </div>
     </section>
@@ -1550,13 +1544,13 @@
     <section class="section section-alt" id="offers">
         <div class="container">
             <div class="section-title reveal">
-                <h2>🔥 عروض <span class="highlight">خاصة</span></h2>
-                <p>عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي</p>
+                <h2 id="offersTitle1">🔥 عروض <span class="highlight" id="offersTitle2">خاصة</span></h2>
+                <p id="offersSub">عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي</p>
                 <div class="section-divider"></div>
             </div>
             <div class="offers-grid" id="offersGrid"></div>
             <div style="text-align:center;margin-top:30px;">
-                <a href="offers.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> عرض جميع العروض</a>
+                <a href="offers.html" class="btn btn-primary" id="offersAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع العروض</a>
             </div>
         </div>
     </section>
@@ -1565,14 +1559,14 @@
     <section class="section" id="hotels">
         <div class="container">
             <div class="section-title reveal">
-                <h2>أفضل <span class="highlight">الفنادق</span></h2>
-                <p>اختر من بين أكثر من 200 فندق حول العالم</p>
+                <h2 id="hotelsTitle1">أفضل <span class="highlight" id="hotelsTitle2">الفنادق</span></h2>
+                <p id="hotelsSub">اختر من بين أكثر من 200 فندق حول العالم</p>
                 <div class="section-divider"></div>
             </div>
             <div class="hotels-grid" id="hotelsGrid"></div>
             <button class="load-more-btn" id="loadMoreHotels">عرض المزيد من الفنادق</button>
             <div style="text-align:center;margin-top:20px;">
-                <a href="hotels.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> عرض جميع الفنادق</a>
+                <a href="hotels.html" class="btn btn-primary" id="hotelsAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع الفنادق</a>
             </div>
         </div>
     </section>
@@ -1581,14 +1575,14 @@
     <section class="section section-alt" id="packages">
         <div class="container">
             <div class="section-title reveal">
-                <h2>باقات <span class="highlight">السفر</span></h2>
-                <p>أكثر من 200 باقة سياحية بأسعار تنافسية</p>
+                <h2 id="packagesTitle1">باقات <span class="highlight" id="packagesTitle2">السفر</span></h2>
+                <p id="packagesSub">أكثر من 200 باقة سياحية بأسعار تنافسية</p>
                 <div class="section-divider"></div>
             </div>
             <div class="packages-grid" id="packagesGrid"></div>
             <button class="load-more-btn" id="loadMorePackages">عرض المزيد من الباقات</button>
             <div style="text-align:center;margin-top:20px;">
-                <a href="packages.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> عرض جميع الباقات</a>
+                <a href="packages.html" class="btn btn-primary" id="packagesAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع الباقات</a>
             </div>
         </div>
     </section>
@@ -1597,13 +1591,13 @@
     <section class="section" id="railway">
         <div class="container">
             <div class="section-title reveal">
-                <h2>حجز <span class="highlight">القطارات</span></h2>
-                <p>حجز تذاكر القطارات بأسعار تبدأ من 85 ريال</p>
+                <h2 id="railwayTitle1">حجز <span class="highlight" id="railwayTitle2">القطارات</span></h2>
+                <p id="railwaySub">حجز تذاكر القطارات بأسعار تبدأ من 85 ريال</p>
                 <div class="section-divider"></div>
             </div>
             <div class="railway-grid" id="railwayGrid"></div>
             <div style="text-align:center;margin-top:30px;">
-                <a href="railway.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> عرض جميع القطارات</a>
+                <a href="railway.html" class="btn btn-primary" id="railwayAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع القطارات</a>
             </div>
         </div>
     </section>
@@ -1612,14 +1606,14 @@
     <section class="section section-alt" id="blog">
         <div class="container">
             <div class="section-title reveal">
-                <h2>📝 مدونة <span class="highlight">السفر</span></h2>
-                <p>أحدث المقالات والنصائح حول السفر والسياحة</p>
+                <h2 id="blogTitle1">📝 مدونة <span class="highlight" id="blogTitle2">السفر</span></h2>
+                <p id="blogSub">أحدث المقالات والنصائح حول السفر والسياحة</p>
                 <div class="section-divider"></div>
             </div>
             <div class="blog-grid" id="blogGrid"></div>
             <button class="load-more-btn" id="loadMoreBlog">عرض المزيد من المقالات</button>
             <div style="text-align:center;margin-top:20px;">
-                <a href="blog.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> عرض جميع المقالات</a>
+                <a href="blog.html" class="btn btn-primary" id="blogAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع المقالات</a>
             </div>
         </div>
     </section>
@@ -1628,8 +1622,8 @@
     <section class="section" id="faq">
         <div class="container">
             <div class="section-title reveal">
-                <h2>الأسئلة <span class="highlight">الشائعة</span></h2>
-                <p>أجوبة على أكثر الأسئلة التي يطرحها عملاؤنا الكرام</p>
+                <h2 id="faqTitle1">الأسئلة <span class="highlight" id="faqTitle2">الشائعة</span></h2>
+                <p id="faqSub">أجوبة على أكثر الأسئلة التي يطرحها عملاؤنا الكرام</p>
                 <div class="section-divider"></div>
             </div>
             <div class="faq-grid" id="faqGrid"></div>
@@ -1640,37 +1634,37 @@
     <section class="section section-alt" id="about">
         <div class="container">
             <div class="section-title reveal">
-                <h2>من نحن <span class="highlight">في صعود الطائرة</span></h2>
-                <p>وكالة سفر رائدة تقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات</p>
+                <h2 id="aboutTitle1">من نحن <span class="highlight" id="aboutTitle2">في صعود الطائرة</span></h2>
+                <p id="aboutSub">وكالة سفر رائدة تقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات</p>
                 <div class="section-divider"></div>
             </div>
             <div style="max-width:800px;margin:0 auto;text-align:center;">
-                <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.9;">
+                <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.9;" id="aboutP1">
                     <strong style="color:var(--gold);font-size:1.2rem;">صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر متكاملة في المملكة العربية السعودية،
                     نقدم أكثر من 20 خدمة سياحية تشمل حجز الطيران، العمرة، التأشيرات، الفنادق (أكثر من 200 فندق)،
                     الباقات السياحية (أكثر من 200 باقة)، تأجير السيارات، حجز القطارات والباصات، نقل المطار،
                     التأمين السياحي، الرحلات الجماعية، الرحلات البحرية، سفر رجال الأعمال، والمزيد.
                 </p>
-                <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.9;margin-top:16px;">
+                <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.9;margin-top:16px;" id="aboutP2">
                     فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا،
                     مع أسعار تنافسية وخدمات متميزة.
                 </p>
                 <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:30px;">
                     <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
                         <h3 style="color:var(--gold);font-size:2rem;">+200</h3>
-                        <p style="color:var(--text-muted);font-size:0.8rem;">فندق</p>
+                        <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat1">فندق</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
                         <h3 style="color:var(--gold);font-size:2rem;">+200</h3>
-                        <p style="color:var(--text-muted);font-size:0.8rem;">باقة سياحية</p>
+                        <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat2">باقة سياحية</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
                         <h3 style="color:var(--gold);font-size:2rem;">+20</h3>
-                        <p style="color:var(--text-muted);font-size:0.8rem;">خدمة سياحية</p>
+                        <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat3">خدمة سياحية</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
                         <h3 style="color:var(--gold);font-size:2rem;">+50</h3>
-                        <p style="color:var(--text-muted);font-size:0.8rem;">مقالة سياحية</p>
+                        <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat4">مقالة سياحية</p>
                     </div>
                 </div>
             </div>
@@ -1681,46 +1675,46 @@
     <section class="section" id="contact">
         <div class="container">
             <div class="section-title reveal">
-                <h2>اتصل <span class="highlight">بنا</span></h2>
-                <p>نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز</p>
+                <h2 id="contactTitle1">اتصل <span class="highlight" id="contactTitle2">بنا</span></h2>
+                <p id="contactSub">نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز</p>
                 <div class="section-divider"></div>
             </div>
             <div class="contact-grid">
                 <div>
                     <div class="info-card">
                         <div class="icon-box"><i class="fas fa-phone"></i></div>
-                        <div><div class="label">هاتف العمل</div><div class="value" dir="ltr">0554126832</div></div>
+                        <div><div class="label" id="labelWorkPhone">هاتف العمل</div><div class="value" dir="ltr">0554126832</div></div>
                     </div>
                     <div class="info-card">
                         <div class="icon-box"><i class="fas fa-phone"></i></div>
-                        <div><div class="label">هاتف المالك</div><div class="value" dir="ltr">0555382038</div></div>
+                        <div><div class="label" id="labelOwnerPhone">هاتف المالك</div><div class="value" dir="ltr">0555382038</div></div>
                     </div>
                     <div class="info-card">
                         <div class="icon-box"><i class="fas fa-envelope"></i></div>
-                        <div><div class="label">البريد الإلكتروني</div><div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div><div class="value" dir="ltr" style="font-size:0.8rem;font-weight:400;">atallahalanazi@sueudaltaayira.com</div></div>
+                        <div><div class="label" id="labelEmail">البريد الإلكتروني</div><div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div><div class="value" dir="ltr" style="font-size:0.8rem;font-weight:400;">atallahalanazi@sueudaltaayira.com</div></div>
                     </div>
                     <div class="info-card">
                         <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
-                        <div><div class="label">العنوان</div><div class="value" style="font-weight:400;font-size:0.95rem;">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div></div>
+                        <div><div class="label" id="labelAddress">العنوان</div><div class="value" style="font-weight:400;font-size:0.95rem;" id="addressText">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div></div>
                     </div>
                     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
-                        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link"><i class="fab fa-whatsapp"></i> واتساب المالك</a>
-                        <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link work"><i class="fab fa-whatsapp"></i> واتساب العمل</a>
+                        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link" id="waOwnerBtn"><i class="fab fa-whatsapp"></i> واتساب المالك</a>
+                        <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link work" id="waWorkBtn"><i class="fab fa-whatsapp"></i> واتساب العمل</a>
                     </div>
                     <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
-                        <a href="privacy.html" style="color:var(--gold);font-size:0.85rem;"><i class="fas fa-lock"></i> سياسة الخصوصية</a>
-                        <a href="terms.html" style="color:var(--gold);font-size:0.85rem;"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
+                        <a href="privacy.html" style="color:var(--gold);font-size:0.85rem;" id="privacyLink"><i class="fas fa-lock"></i> سياسة الخصوصية</a>
+                        <a href="terms.html" style="color:var(--gold);font-size:0.85rem;" id="termsLink"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>📩 أرسل لنا رسالة</h3>
-                    <p class="form-sub">سنرد عليك في أقرب وقت ممكن</p>
+                    <h3 id="formTitle">📩 أرسل لنا رسالة</h3>
+                    <p class="form-sub" id="formSub">سنرد عليك في أقرب وقت ممكن</p>
                     <form id="contactForm">
                         <div class="form-group"><input type="text" id="contactName" placeholder="الاسم الكامل" required /></div>
                         <div class="form-group"><input type="tel" id="contactPhone" placeholder="رقم الجوال" required /></div>
                         <div class="form-group"><input type="email" id="contactEmail" placeholder="البريد الإلكتروني" /></div>
                         <div class="form-group"><textarea id="contactMessage" placeholder="اكتب رسالتك هنا..." required></textarea></div>
-                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
+                        <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
                     </form>
                     <div class="form-status" id="formStatus"></div>
                 </div>
@@ -1734,9 +1728,9 @@
             <div class="brand">
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
                     <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
-                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"><strong>صعود الطائرة</strong></span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" id="footerBrand"><strong>صعود الطائرة</strong></span>
                 </div>
-                <p>وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
+                <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
                 <div class="socials">
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1746,48 +1740,47 @@
                 </div>
             </div>
             <div>
-                <h5>روابط سريعة</h5>
+                <h5 id="footerLinksTitle">روابط سريعة</h5>
                 <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="services.html">خدماتنا</a></li>
-                    <li><a href="offers.html">عروض</a></li>
-                    <li><a href="hotels.html">فنادق</a></li>
-                    <li><a href="packages.html">باقات</a></li>
-                    <li><a href="railway.html">قطارات</a></li>
-                    <li><a href="cars.html">سيارات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                    <li><a href="chatbot.html">🤖 مساعد</a></li>
+                    <li><a href="index.html" id="fNavHome">الرئيسية</a></li>
+                    <li><a href="services.html" id="fNavServices">خدماتنا</a></li>
+                    <li><a href="offers.html" id="fNavOffers">عروض</a></li>
+                    <li><a href="hotels.html" id="fNavHotels">فنادق</a></li>
+                    <li><a href="packages.html" id="fNavPackages">باقات</a></li>
+                    <li><a href="railway.html" id="fNavRailway">قطارات</a></li>
+                    <li><a href="cars.html" id="fNavCars">سيارات</a></li>
+                    <li><a href="about.html" id="fNavAbout">من نحن</a></li>
+                    <li><a href="contact.html" id="fNavContact">اتصل بنا</a></li>
                 </ul>
             </div>
             <div>
-                <h5>خدماتنا</h5>
+                <h5 id="footerServicesTitle">خدماتنا</h5>
                 <ul>
-                    <li><a href="services.html">تذاكر طيران</a></li>
-                    <li><a href="services.html">باقات العمرة</a></li>
-                    <li><a href="services.html">تأشيرات</a></li>
-                    <li><a href="hotels.html">فنادق</a></li>
-                    <li><a href="cars.html">تأجير سيارات</a></li>
-                    <li><a href="railway.html">قطارات</a></li>
+                    <li><a href="services.html" id="fServFlights">تذاكر طيران</a></li>
+                    <li><a href="services.html" id="fServUmrah">باقات العمرة</a></li>
+                    <li><a href="services.html" id="fServVisa">تأشيرات</a></li>
+                    <li><a href="hotels.html" id="fServHotels">فنادق</a></li>
+                    <li><a href="cars.html" id="fServCars">تأجير سيارات</a></li>
+                    <li><a href="railway.html" id="fServRailway">قطارات</a></li>
                 </ul>
             </div>
             <div>
-                <h5>معلومات</h5>
+                <h5 id="footerInfoTitle">معلومات</h5>
                 <ul>
-                    <li><a href="about.html">عن الوكالة</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                    <li><a href="privacy.html">سياسة الخصوصية</a></li>
-                    <li><a href="terms.html">الشروط والأحكام</a></li>
+                    <li><a href="about.html" id="fInfoAbout">عن الوكالة</a></li>
+                    <li><a href="contact.html" id="fInfoContact">اتصل بنا</a></li>
+                    <li><a href="privacy.html" id="fInfoPrivacy">سياسة الخصوصية</a></li>
+                    <li><a href="terms.html" id="fInfoTerms">الشروط والأحكام</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
     </footer>
 
     <!-- ===== WHATSAPP FLOAT ===== -->
     <div class="whatsapp-float">
         <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمات%20السفر" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
-        <span class="wa-label">تواصل واتساب</span>
+        <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
     </div>
 
     <!-- ===== AI CHAT (integrated) ===== -->
@@ -1796,12 +1789,12 @@
         <div class="ai-chat-header">
             <div class="title">
                 <i class="fas fa-robot"></i>
-                <span>مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
+                <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
             </div>
             <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-chat-messages" id="aiChatMessages">
-            <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.<span class="time">الآن</span></div>
+            <div class="msg bot" id="aiWelcomeMsg">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.<span class="time">الآن</span></div>
         </div>
         <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
         <div class="ai-chat-input">
@@ -1963,13 +1956,13 @@
             card.className = 'service-card reveal';
             card.style.transitionDelay = `${i * 0.05}s`;
             card.innerHTML = `
-                <div class="simg" style="background-image:url('${s.img}');"></div>
-                <div class="icon">${s.icon}</div>
-                <h4>${s.name}</h4>
-                <p>${s.desc}</p>
-                <span class="service-tag">احجز الآن</span>
-                <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
-            `;
+                    <div class="simg" style="background-image:url('${s.img}');"></div>
+                    <div class="icon">${s.icon}</div>
+                    <h4>${s.name}</h4>
+                    <p>${s.desc}</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                `;
             card.addEventListener('click', () => {
                 window.open(`https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمة%20${encodeURIComponent(s.name)}`, '_blank');
             });
@@ -1998,13 +1991,13 @@
             card.className = 'offer-card reveal';
             card.style.transitionDelay = `${i * 0.1}s`;
             card.innerHTML = `
-                <div class="offer-icon">${offer.icon}</div>
-                <div class="offer-badge">${offer.badge}</div>
-                <h4>${offer.title}</h4>
-                <p>${offer.desc}</p>
-                <div class="offer-price">${offer.price}</div>
-                <button class="btn-sm" onclick="bookOffer('${offer.title}')"><i class="fab fa-whatsapp"></i> استفد من العرض</button>
-            `;
+                    <div class="offer-icon">${offer.icon}</div>
+                    <div class="offer-badge">${offer.badge}</div>
+                    <h4>${offer.title}</h4>
+                    <p>${offer.desc}</p>
+                    <div class="offer-price">${offer.price}</div>
+                    <button class="btn-sm" onclick="bookOffer('${offer.title}')"><i class="fab fa-whatsapp"></i> استفد من العرض</button>
+                `;
             offersGrid.appendChild(card);
         });
 
@@ -2054,15 +2047,15 @@
                 const card = document.createElement('div');
                 card.className = 'hotel-card reveal';
                 card.innerHTML = `
-                    <div class="img" style="background-image:url('${h.img}');"></div>
-                    <div class="body">
-                        <h4>${h.name}</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> ${h.city}</div>
-                        <div class="rating">${'★'.repeat(Math.floor(h.rating))}${h.rating % 1 >= 0.5 ? '½' : ''} (${h.rating}) <i class="fas fa-star"></i></div>
-                        <div class="price">${h.price} ر.س <small>/ ليلة</small></div>
-                        <button class="btn-sm" onclick="bookHotel('${h.name}','${h.city}',${h.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
-                    </div>
-                `;
+                        <div class="img" style="background-image:url('${h.img}');"></div>
+                        <div class="body">
+                            <h4>${h.name}</h4>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> ${h.city}</div>
+                            <div class="rating">${'★'.repeat(Math.floor(h.rating))}${h.rating % 1 >= 0.5 ? '½' : ''} (${h.rating}) <i class="fas fa-star"></i></div>
+                            <div class="price">${h.price} ر.س <small>/ ليلة</small></div>
+                            <button class="btn-sm" onclick="bookHotel('${h.name}','${h.city}',${h.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
+                        </div>
+                    `;
                 hotelsGrid.appendChild(card);
             });
             document.querySelectorAll('.hotel-card.reveal').forEach(el => observer.observe(el));
@@ -2125,14 +2118,14 @@
                 const card = document.createElement('div');
                 card.className = 'package-card reveal';
                 card.innerHTML = `
-                    <div class="img" style="background-image:url('${p.img}');"></div>
-                    <div class="body">
-                        <h4>${p.name}</h4>
-                        <div class="location"><i class="fas fa-map-pin"></i> ${p.city}</div>
-                        <div class="price">${p.price} ر.س <small>/ ${p.days} ليالي</small></div>
-                        <button class="btn-sm" onclick="bookPackage('${p.name}','${p.city}',${p.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
-                    </div>
-                `;
+                        <div class="img" style="background-image:url('${p.img}');"></div>
+                        <div class="body">
+                            <h4>${p.name}</h4>
+                            <div class="location"><i class="fas fa-map-pin"></i> ${p.city}</div>
+                            <div class="price">${p.price} ر.س <small>/ ${p.days} ليالي</small></div>
+                            <button class="btn-sm" onclick="bookPackage('${p.name}','${p.city}',${p.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
+                        </div>
+                    `;
                 packagesGrid.appendChild(card);
             });
             document.querySelectorAll('.package-card.reveal').forEach(el => observer.observe(el));
@@ -2174,13 +2167,13 @@
             item.className = 'railway-item reveal';
             item.style.transitionDelay = `${i * 0.1}s`;
             item.innerHTML = `
-                <div class="rimg" style="background-image:url('${r.img}');"></div>
-                <div class="icon">🚆</div>
-                <h4>${r.from} → ${r.to}</h4>
-                <p>⏱ ${r.duration}</p>
-                <p style="color:var(--gold);font-weight:700;">${r.price}</p>
-                <p style="font-size:0.7rem;color:var(--text-muted);">${r.detail}</p>
-            `;
+                    <div class="rimg" style="background-image:url('${r.img}');"></div>
+                    <div class="icon">🚆</div>
+                    <h4>${r.from} → ${r.to}</h4>
+                    <p>⏱ ${r.duration}</p>
+                    <p style="color:var(--gold);font-weight:700;">${r.price}</p>
+                    <p style="font-size:0.7rem;color:var(--text-muted);">${r.detail}</p>
+                `;
             item.addEventListener('click', () => {
                 const msg =
                     `🚆 حجز تذكرة قطار\nمن: ${r.from}\nإلى: ${r.to}\nالمدة: ${r.duration}\nالسعر: ${r.price}\nأرغب في الحجز`;
@@ -2228,14 +2221,14 @@
                 card.className = 'blog-card reveal';
                 card.style.transitionDelay = `${i * 0.04}s`;
                 card.innerHTML = `
-                    <div class="img" style="background-image:url('${post.img}');"></div>
-                    <div class="body">
-                        <span class="tag">${post.tag}</span>
-                        <h4>${post.title}</h4>
-                        <p>${post.desc}</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
-                    </div>
-                `;
+                        <div class="img" style="background-image:url('${post.img}');"></div>
+                        <div class="body">
+                            <span class="tag">${post.tag}</span>
+                            <h4>${post.title}</h4>
+                            <p>${post.desc}</p>
+                            <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                        </div>
+                    `;
                 blogGrid.appendChild(card);
             });
             document.querySelectorAll('.blog-card.reveal').forEach(el => observer.observe(el));
@@ -2251,17 +2244,17 @@
 
         // ===== FAQ DATA =====
         const faqData = [
-            { q: 'ما هي خدمات وكالة صعود الطائرة？', a: 'نقدم أكثر من 20 خدمة سياحية تشمل: تذاكر الطيران، باقات العمرة، التأشيرات، حجز الفنادق (أكثر من 200 فندق)، تأجير السيارات، باقات سياحية (أكثر من 200 باقة)، حجز القطارات والباصات، نقل المطار، تأمين السفر، رحلات جماعية، رحلات بحرية، سفر رجال الأعمال، وغيرها.' },
+            { q: 'ما هي خدمات وكالة صعود الطائرة؟', a: 'نقدم أكثر من 20 خدمة سياحية تشمل: تذاكر الطيران، باقات العمرة، التأشيرات، حجز الفنادق (أكثر من 200 فندق)، تأجير السيارات، باقات سياحية (أكثر من 200 باقة)، حجز القطارات والباصات، نقل المطار، تأمين السفر، رحلات جماعية، رحلات بحرية، سفر رجال الأعمال، وغيرها.' },
             { q: 'كيف يمكنني حجز رحلة مع صعود الطائرة؟', a: 'يمكنك حجز رحلتك من خلال: 1- الضغط على "احجز الآن" في الأعلى، 2- اختيار الخدمة المطلوبة من قسم الخدمات، 3- ملء نموذج الحجز، 4- سيتم تحويل طلبك مباشرة إلى واتساب لإتمام الحجز.' },
             { q: 'هل تقدمون عروضاً خاصة؟', a: 'نعم! لدينا عروض حصرية مثل خصم 93% على الفنادق بمناسبة اليوم الوطني، عروض عمرة رمضان، خصم 9% باستخدام كود KSA90، وعروض القطارات بأسعار تبدأ من 85 ريال.' },
             { q: 'كم عدد الفنادق المتاحة للحجز؟', a: 'لدينا أكثر من 200 فندق حول العالم في مختلف المدن مثل الرياض، جدة، مكة، دبي، لندن، باريس، نيويورك، طوكيو، وغيرها.' },
             { q: 'هل تقدمون باقات عمرة؟', a: 'نعم، لدينا باقات عمرة متكاملة تشمل التأشيرة، السكن القريب من الحرم، المواصلات الداخلية، الوجبات الفاخرة، ومرشد سياحي.' },
             { q: 'كيف يمكنني التواصل معكم؟', a: 'يمكنك التواصل عبر: 1- الهاتف: 0555382038 (المالك) أو 0554126832 (العمل)، 2- واتساب عبر الزر العائم، 3- البريد الإلكتروني: hamdan@sueudaltaayira.com، 4- نموذج الاتصال في الصفحة.' },
             { q: 'هل تقدمون تأمين سفر؟', a: 'نعم، نوفر تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة، مع دعم 24/7.' },
-            { q: 'كم عدد الباقات السياحية المتاحة？', a: 'لدينا أكثر من 200 باقة سياحية تشمل وجهات مثل دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.' },
+            { q: 'كم عدد الباقات السياحية المتاحة؟', a: 'لدينا أكثر من 200 باقة سياحية تشمل وجهات مثل دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.' },
             { q: 'هل تقدمون حجز قطارات؟', a: 'نعم، نوفر حجز تذاكر القطارات (سار) بأسعار تبدأ من 85 ريال للدرجة الاقتصادية، و145 ريال لدرجة الأعمال.' },
             { q: 'هل تدعمون اللغة الإنجليزية؟', a: 'نعم، يمكنك تغيير لغة الموقع إلى الإنجليزية عن طريق زر "English" في الأعلى، وسيتم ترجمة جميع المحتويات.' },
-            { q: 'كيف أستفيد من خصم اليوم الوطني？', a: 'استخدم الكود SND93 عند حجز الفنادق للحصول على خصم يصل إلى 93% على إقامتك.' },
+            { q: 'كيف أستفيد من خصم اليوم الوطني؟', a: 'استخدم الكود SND93 عند حجز الفنادق للحصول على خصم يصل إلى 93% على إقامتك.' },
             { q: 'هل تقدمون خدمة نقل المطار؟', a: 'نعم، لدينا خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة مع سائقين محترفين.' }
         ];
 
@@ -2271,12 +2264,12 @@
             div.className = 'faq-item reveal';
             div.style.transitionDelay = `${i * 0.05}s`;
             div.innerHTML = `
-                <div class="faq-q" onclick="toggleFaq(this)">
-                    <span>${item.q}</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-a">${item.a}</div>
-            `;
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span>${item.q}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-a">${item.a}</div>
+                `;
             faqGrid.appendChild(div);
         });
 
@@ -2285,7 +2278,7 @@
             parent.classList.toggle('open');
         };
 
-        // ===== CONTACT FORM =====
+        // ===== CONTACT FORM - SEND TO 0554126832 =====
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('contactName').value.trim();
@@ -2298,61 +2291,172 @@
                 status.style.color = '#f87171';
                 return;
             }
+            // Send to 0554126832 (work number) as requested
             const fullMsg =
                 `📩 رسالة جديدة من موقع صعود الطائرة\n\n👤 الاسم: ${name}\n📱 الجوال: ${phone}\n📧 البريد: ${email || 'غير مدخل'}\n\n💬 الرسالة:\n${message}`;
             status.textContent = '✅ جاري التحويل إلى واتساب ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
-                window.open(`https://wa.me/966555382038?text=${encodeURIComponent(fullMsg)}`, '_blank');
+                window.open(`https://wa.me/966554126832?text=${encodeURIComponent(fullMsg)}`, '_blank');
                 this.reset();
                 status.textContent = '✅ تم إرسال رسالتك بنجاح!';
                 setTimeout(() => status.textContent = '', 5000);
             }, 700);
         });
 
-        // ===== AI CHAT (integrated) =====
+        // ===== POWERFUL AI CHATBOT =====
         const chatBox = document.getElementById('aiChatBox');
         const chatMessages = document.getElementById('aiChatMessages');
         const chatInput = document.getElementById('aiChatInput');
         const typingIndicator = document.getElementById('aiTyping');
 
+        // Extended AI knowledge base with more responses and multi-language support
         const aiKnowledge = {
-            'مرحبا': '👋 أهلاً بك في وكالة <strong>صعود الطائرة</strong>! كيف يمكنني مساعدتك اليوم؟',
-            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟',
-            'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، ومواصلات.',
-            'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول.',
-            'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس وطيران أديل بأسعار تبدأ من 179 ريال.',
-            'فندق': '🏨 لدينا أكثر من 200 فندق بأسعار حقيقية. عروض اليوم الوطني تصل إلى 93% خصم!',
-            'سيارة': '🚗 تأجير سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل.',
-            'باقة': '🌍 لدينا أكثر من 200 باقة سياحية بأسعار تبدأ من 1800 ريال.',
-            'قطار': '🚆 نوفر حجز تذاكر القطارات بأسعار تبدأ من 85 ريال مع سار.',
-            'عرض': '🔥 عروض اليوم الوطني: خصم 93% على الفنادق، وخصم 9% باستخدام كود KSA90!',
-            'شكرا': '🙏 العفو! سعداء بمساعدتك.',
-            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong> Travel Agency! How can I help you?',
-            'hi': '👋 Hi there! Welcome to Saeed Al-Taayira.',
-            'umrah': '🕋 Our Umrah packages start from 1,200 SAR.',
-            'visa': '🛂 We offer tourist, business, visit, and medical visas.',
-            'flight': '✈️ We offer cheap flights starting from 179 SAR.',
-            'hotel': '🏨 We have 200+ hotels with real prices. Up to 93% off!',
-            'car': '🚗 Luxury and economy car rentals.',
-            'package': '🌍 200+ travel packages starting from 1,800 SAR.',
-            'train': '🚆 Train tickets starting from 85 SAR with SAR.',
-            'offer': '🔥 National Day offers: 93% off on hotels, 9% off with code KSA90!',
-            'thanks': '🙏 You\'re welcome!'
+            // Arabic
+            'مرحبا': '👋 أهلاً بك في وكالة <strong>صعود الطائرة</strong>! كيف يمكنني مساعدتك اليوم؟ يمكنك سؤالي عن الخدمات، العروض، أو بدء حجز.',
+            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟ أخبرني ما الذي تبحث عنه.',
+            'اهلا': '👋 أهلاً وسهلاً! أنا هنا لمساعدتك في كل ما يخص السفر والسياحة.',
+            'كيف حالك': '🙂 أنا بخير، شكراً للسؤال! كيف يمكنني مساعدتك؟',
+            'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، مواصلات، ووجبات فاخرة. هل ترغب في حجز باقة؟',
+            'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول. نضمن معالجة سريعة وأسعار تنافسية. أخبرني الدولة التي تريدها.',
+            'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس، طيران أديل، وشركات عالمية. الأسعار تبدأ من ١٧٩ ريال للرحلات الداخلية.',
+            'طيران': '✈️ نقدم حجز تذاكر الطيران الداخلية والدولية بأسعار تنافسية. يمكننا مقارنة أسعار أكثر من 500 شركة طيران.',
+            'فندق': '🏨 لدينا أكثر من 200 فندق حول العالم بأسعار حقيقية من Booking.com. عروض اليوم الوطني تصل إلى 93% خصم! أخبرني المدينة وتواريخ الإقامة.',
+            'فنادق': '🏨 نقدم حجز فنادق فاخرة واقتصادية في جميع المدن الرئيسية. لدينا عروض حصرية لعملائنا.',
+            'سيارة': '🚗 تأجير سيارات بجميع الفئات: اقتصادي، سيدان، SUV، فاخر. يشمل تأمين شامل ضد الغير، مع خيار تأمين شامل كامل.',
+            'سيارات': '🚗 جميع أنواع السيارات متوفرة للإيجار اليومي أو الأسبوعي. احصل على خصم 15% للإيجار لمدة أسبوع أو أكثر.',
+            'باقة': '🏝️ لدينا أكثر من 200 باقة سياحية إلى أجمل وجهات العالم: دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.',
+            'باقات': '🏝️ باقاتنا تشمل الطيران، الإقامة، الجولات السياحية، والوجبات. اختر الباقة التي تناسب ميزانيتك.',
+            'قطار': '🚆 نوفر حجز تذاكر القطارات (سار) بأسعار تبدأ من ٨٥ ريال للدرجة الاقتصادية، و١٤٥ ريال لدرجة الأعمال.',
+            'قطارات': '🚆 حجز تذاكر القطارات بين المدن السعودية بأسعار مخفضة. رحلات مريحة وآمنة.',
+            'تأمين': '🛡️ تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة. نوفر خيارات متعددة تناسب احتياجاتك.',
+            'نقل مطار': '✈️ خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة مع سائقين محترفين. أسعار ثابتة.',
+            'جماعية': '👥 ننظم رحلات جماعية مع مرشدين سياحيين محترفين. أسعار خاصة للمجموعات.',
+            'بحرية': '🚢 رحلات كروز فاخرة على أفضل السفن السياحية. وجهات مميزة وبرامج ترفيهية.',
+            'أعمال': '💼 خدمات سفر مخصصة لرجال الأعمال: درجة الأعمال، فنادق تنفيذية، استقبال في المطار، وخدمة الكونسيرج.',
+            'عرض': '🔥 لدينا عروض رائعة: خصم 93% على الفنادق بمناسبة اليوم الوطني (كود SND93)، وخصم 9% باستخدام كود KSA90، وعروض عمرة رمضان، وتذاكر قطار بأسعار مخفضة.',
+            'خصم': '💸 الخصومات المتاحة: 93% على الفنادق، 9% باستخدام كود KSA90، 20% على باقات العمرة، 30% على القطارات.',
+            'كود': '📱 كود الخصم KSA90 يمنحك 9% على جميع الفنادق + 900 نقطة في محفظتك. كود SND93 لخصم 93% بمناسبة اليوم الوطني.',
+            'سعر': '💰 أسعارنا تنافسية ومأخوذة من مصادر موثوقة. يرجى تحديد الخدمة التي تريدها للحصول على عرض دقيق.',
+            'حجز': '📝 يمكنك الحجز عبر هذا المساعد الذكي. سأطلب منك بعض المعلومات ثم سأرسل طلبك مباشرة إلى فريقنا عبر واتساب. هل تريد البدء؟',
+            'اتصال': '📞 يمكنك التواصل معنا عبر واتساب 0555382038 أو الاتصال على 0554126832.',
+            'العنوان': '📍 عنواننا: طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية.',
+            'وقت العمل': '🕐 نعمل من السبت إلى الخميس ٩ ص – ١١ م. الجمعة مغلق (خدمة طوارئ متاحة عبر واتساب).',
+            'مساعدة': '🤖 أنا هنا لمساعدتك! يمكنك سؤالي عن أي من خدماتنا، أو طلب حجز، أو الاستفسار عن العروض.',
+            'الخدمات': '🛫 نقدم أكثر من 20 خدمة سياحية: طيران، عمرة، تأشيرات، فنادق، سيارات، قطارات، باصات، نقل مطار، تأمين، رحلات جماعية، بحرية، وأعمال.',
+            'من نحن': '🏢 نحن <strong>صعود الطائرة للسفر والسياحة</strong>، وكالة سفر رائدة في المملكة العربية السعودية منذ عام 2020.',
+            'تقييم': '⭐ معدل رضا العملاء لدينا 98% – نحن نفخر بثقة عملائنا.',
+            'شكوى': '📩 إذا كان لديك أي استفسار أو اقتراح، يرجى التواصل معنا عبر واتساب وسنقوم بالرد في أقرب وقت.',
+            'شكرا': '🙏 العفو! سعداء بمساعدتك. هل هناك شيء آخر تريد معرفته؟',
+            'اريد حجز': '📝 رائع! سأقوم بمساعدتك في الحجز. سأطلب منك بعض المعلومات وسنرسل طلبك مباشرة إلى فريقنا. هل أنت مستعد؟ (أجب بـ "نعم" للبدء)',
+            'نعم': '👍 ممتاز! لنبدأ. سأسألك عدة أسئلة. يرجى الإجابة عليها بدقة.',
+
+            // English
+            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong> Travel Agency! I\'m your smart assistant. How can I help you today? You can ask about our services, offers, or start a booking.',
+            'hi': '👋 Hi there! How can I assist you?',
+            'umrah': '🕋 Our Umrah packages start from 1,200 SAR including visa, accommodation near Haram, transportation, and meals.',
+            'visa': '🛂 We offer tourist, business, visit, and medical visas for all countries.',
+            'flight': '✈️ We offer cheap flights starting from 179 SAR. Tell me your destination and travel dates.',
+            'hotel': '🏨 We have 200+ hotels with real prices from Booking.com. Up to 93% off for National Day!',
+            'car': '🚗 Luxury and economy car rentals with comprehensive insurance. 15% off for weekly rentals!',
+            'package': '🏝️ 200+ travel packages to Dubai, Paris, Istanbul, London, New York, Kuala Lumpur, and more.',
+            'train': '🚆 Train tickets starting from 85 SAR with SAR. Business class available from 145 SAR.',
+            'offer': '🔥 Special offers: 93% off on hotels (code SND93), 9% off with code KSA90.',
+            'price': '💰 Our prices are competitive. Tell me the service you need for a detailed quote.',
+            'booking': '📝 I can help you book. I\'ll ask for some details and send your request to our team via WhatsApp. Ready? (reply "yes")',
+            'yes': '👍 Great! Let\'s start. I\'ll ask you a few questions.',
+            'contact': '📞 You can reach us via WhatsApp at 0555382038 or call 0554126832.',
+            'address': '📍 King Abdulaziz Road, Arar, Saudi Arabia.',
+            'thanks': '🙏 You\'re welcome! Happy to help.',
+            'thank you': '🙏 You\'re welcome! Happy to help.',
+            'about': '🏢 We are <strong>Saeed Al-Taayira Travel & Tourism</strong>, a leading travel agency in Saudi Arabia since 2020.',
+            'services': '🛫 We offer 20+ travel services: flights, Umrah, visas, hotels, cars, trains, buses, airport transfer, insurance, group tours, cruises, and business travel.',
+            'discount': '💸 Available discounts: 93% on hotels (National Day), 9% with code KSA90, 20% on Umrah packages, 30% on trains.'
         };
-        const defaultReplies = [
-            '🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك قريباً.',
-            '📱 يرجى مراسلتنا على واتساب 0555382038.',
-            '🌍 اكتشف عروضنا المميزة في قسم العروض!',
-            '✈️ صعود الطائرة وجهتك الأولى للسفر.'
-        ];
+
+        // Default responses for unknown queries
+        const defaultReplies = {
+            ar: [
+                '🤖 شكراً لسؤالك! سيقوم فريق <strong>صعود الطائرة</strong> بالتواصل معك قريباً. يمكنك أيضاً مراسلتنا على واتساب 0555382038.',
+                '📱 يرجى مراسلتنا على واتساب 0555382038 للحصول على مساعدة فورية.',
+                '🌍 اكتشف عروضنا المميزة في قسم العروض!',
+                '✈️ صعود الطائرة وجهتك الأولى للسفر. تواصل معنا الآن!',
+                '🏨 لدينا أكثر من 200 فندق بأسعار مميزة. أخبرني المدينة التي تبحث عنها.',
+                '🚗 تأجير السيارات بجميع الفئات بأسعار تنافسية مع تأمين شامل.'
+            ],
+            en: [
+                '🤖 Thank you for your question! The <strong>Saeed Al-Taayira</strong> team will contact you soon. You can also message us on WhatsApp at 0555382038.',
+                '📱 Please message us on WhatsApp at 0555382038 for immediate assistance.',
+                '🌍 Discover our special offers in the offers section!',
+                '✈️ Saeed Al-Taayira is your first destination for travel. Contact us now!',
+                '🏨 We have 200+ hotels at great prices. Tell me the city you\'re looking for.',
+                '🚗 Car rentals in all categories at competitive prices with comprehensive insurance.'
+            ]
+        };
+
+        // Booking state
+        let bookingState = 'idle'; // idle, collecting
+        let bookingData = {};
+        let bookingQuestions = [];
+        let bookingIndex = 0;
 
         function getAIResponse(text) {
             const lower = text.toLowerCase().trim();
+            const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
+
+            // Check if user wants to start booking
+            if (lower.includes('حجز') || lower.includes('book') || lower.includes('اريد حجز') || lower.includes('i want to book') ||
+                lower.includes('بدء حجز') || lower.includes('start booking')) {
+                bookingState = 'collecting';
+                bookingData = {};
+                bookingIndex = 0;
+                bookingQuestions = lang === 'ar' ?
+                    [
+                        { key: 'fullname', label: 'الاسم الكامل' },
+                        { key: 'phone', label: 'رقم الجوال' },
+                        { key: 'email', label: 'البريد الإلكتروني' },
+                        { key: 'service', label: 'الخدمة المطلوبة (طيران، عمرة، فندق، سيارة، باقة، قطار)' },
+                        { key: 'details', label: 'تفاصيل الرحلة (التواريخ، الوجهة، عدد الأشخاص)' }
+                    ] :
+                    [
+                        { key: 'fullname', label: 'Full Name' },
+                        { key: 'phone', label: 'Phone Number' },
+                        { key: 'email', label: 'Email Address' },
+                        { key: 'service', label: 'Service needed (Flight, Umrah, Hotel, Car, Package, Train)' },
+                        { key: 'details', label: 'Trip details (dates, destination, number of people)' }
+                    ];
+                return '📝 رائع! سأساعدك في الحجز. سأطرح عليك بعض الأسئلة. أجب على كل سؤال وسنرسل طلبك مباشرة إلى فريقنا.\n\n' +
+                    `❓ ${bookingQuestions[0].label}:`;
+            }
+
+            // If in booking state, handle the input
+            if (bookingState === 'collecting') {
+                const q = bookingQuestions[bookingIndex];
+                if (q) {
+                    bookingData[q.key] = text;
+                    bookingIndex++;
+                    if (bookingIndex < bookingQuestions.length) {
+                        return `❓ ${bookingQuestions[bookingIndex].label}:`;
+                    } else {
+                        // All questions answered - send to WhatsApp
+                        const msg = `📩 طلب حجز جديد من المساعد الذكي\n\n` +
+                            Object.entries(bookingData).map(([k, v]) => `${k}: ${v}`).join('\n');
+                        bookingState = 'idle';
+                        // Send to work number 0554126832
+                        window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
+                        return `✅ تم استلام جميع المعلومات! سيتم إرسال طلبك إلى فريقنا عبر واتساب. سنتواصل معك قريباً.\n\n📌 ملخص طلبك:\n${Object.entries(bookingData).map(([k, v]) => `• ${k}: ${v}`).join('\n')}`;
+                    }
+                }
+            }
+
+            // Check knowledge base
             for (const [key, response] of Object.entries(aiKnowledge)) {
                 if (lower.includes(key)) return response;
             }
-            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
+
+            // Default response
+            const replies = lang === 'ar' ? defaultReplies.ar : defaultReplies.en;
+            return replies[Math.floor(Math.random() * replies.length)];
         }
 
         window.toggleAIChat = function() {
@@ -2377,7 +2481,8 @@
             typingIndicator.classList.add('show');
             setTimeout(() => {
                 typingIndicator.classList.remove('show');
-                addMessage('bot', getAIResponse(text));
+                const response = getAIResponse(text);
+                addMessage('bot', response);
             }, 500 + Math.random() * 800);
         };
 
@@ -2387,7 +2492,7 @@
 
         const translations = {
             ar: {
-                logo: '<strong>صعود الطائرة</strong>',
+                logoMain: 'صعود الطائرة',
                 logoSub: 'للسفر والسياحة',
                 navHome: 'الرئيسية',
                 navServices: 'خدماتنا',
@@ -2401,7 +2506,7 @@
                 navCta: '📞 احجز الآن',
                 heroTitle1: 'اكتشف العالم مع',
                 heroTitle2: 'صعود الطائرة',
-                heroSub: 'وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية.',
+                heroSub: 'وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية. رحلتك المثالية تبدأ هنا.',
                 heroBtn1: 'استكشف الباقات',
                 heroBtn2: 'واتساب',
                 heroBtn3: 'مساعد AI',
@@ -2421,56 +2526,90 @@
                 servicesTitle1: 'خدماتنا',
                 servicesTitle2: 'المتكاملة',
                 servicesSub: 'اختر الخدمة التي تحتاجها، واحصل على عرض مخصص',
+                servicesAllBtn: 'عرض جميع الخدمات',
                 offersTitle1: '🔥 عروض',
                 offersTitle2: 'خاصة',
                 offersSub: 'عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي',
+                offersAllBtn: 'عرض جميع العروض',
                 hotelsTitle1: 'أفضل',
                 hotelsTitle2: 'الفنادق',
                 hotelsSub: 'اختر من بين أكثر من 200 فندق حول العالم',
+                hotelsAllBtn: 'عرض جميع الفنادق',
                 packagesTitle1: 'باقات',
                 packagesTitle2: 'السفر',
                 packagesSub: 'أكثر من 200 باقة سياحية بأسعار تنافسية',
+                packagesAllBtn: 'عرض جميع الباقات',
                 railwayTitle1: 'حجز',
                 railwayTitle2: 'القطارات',
                 railwaySub: 'حجز تذاكر القطارات بأسعار تبدأ من 85 ريال',
-                carsTitle1: 'تأجير',
-                carsTitle2: 'السيارات',
-                carsSub: 'أفضل العروض على تأجير السيارات الفاخرة والاقتصادية',
+                railwayAllBtn: 'عرض جميع القطارات',
+                blogTitle1: '📝 مدونة',
+                blogTitle2: 'السفر',
+                blogSub: 'أحدث المقالات والنصائح حول السفر والسياحة',
+                blogAllBtn: 'عرض جميع المقالات',
+                faqTitle1: 'الأسئلة',
+                faqTitle2: 'الشائعة',
+                faqSub: 'أجوبة على أكثر الأسئلة التي يطرحها عملاؤنا الكرام',
                 aboutTitle1: 'من نحن',
                 aboutTitle2: 'في صعود الطائرة',
+                aboutSub: 'وكالة سفر رائدة تقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات',
+                aboutP1: '<strong style="color:var(--gold);font-size:1.2rem;">صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر متكاملة في المملكة العربية السعودية، نقدم أكثر من 20 خدمة سياحية تشمل حجز الطيران، العمرة، التأشيرات، الفنادق (أكثر من 200 فندق)، الباقات السياحية (أكثر من 200 باقة)، تأجير السيارات، حجز القطارات والباصات، نقل المطار، التأمين السياحي، الرحلات الجماعية، الرحلات البحرية، سفر رجال الأعمال، والمزيد.',
+                aboutP2: 'فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا، مع أسعار تنافسية وخدمات متميزة.',
+                aboutStat1: 'فندق',
+                aboutStat2: 'باقة سياحية',
+                aboutStat3: 'خدمة سياحية',
+                aboutStat4: 'مقالة سياحية',
                 contactTitle1: 'اتصل',
                 contactTitle2: 'بنا',
                 contactSub: 'نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز',
-                footerBrand: 'صعود الطائرة',
-                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
-                footerLinks: 'روابط سريعة',
-                footerServices: 'خدماتنا',
-                footerInfo: 'معلومات',
-                waLabel: 'تواصل واتساب',
-                aiTitle: 'مساعد صعود الطائرة AI',
-                aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟',
-                aiPlaceholder: 'اكتب سؤالك بأي لغة...',
-                workPhone: 'هاتف العمل',
-                ownerPhone: 'هاتف المالك',
-                emailLabel: 'البريد الإلكتروني',
-                addressLabel: 'العنوان',
-                fullAddress: 'طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية',
-                waOwner: 'واتساب المالك',
-                waWork: 'واتساب العمل',
-                formTitle: '📩 أرسل لنا رسالة',
-                formSub: 'سنرد عليك في أقرب وقت ممكن',
-                formName: 'الاسم الكامل',
-                formPhone: 'رقم الجوال',
-                formEmail: 'البريد الإلكتروني',
-                formMsg: 'اكتب رسالتك هنا...',
-                formSubmit: 'إرسال الرسالة',
+                labelWorkPhone: 'هاتف العمل',
+                labelOwnerPhone: 'هاتف المالك',
+                labelEmail: 'البريد الإلكتروني',
+                labelAddress: 'العنوان',
+                addressText: 'طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية',
+                waOwnerBtn: 'واتساب المالك',
+                waWorkBtn: 'واتساب العمل',
                 privacyLink: 'سياسة الخصوصية',
                 termsLink: 'الشروط والأحكام',
+                formTitle: '📩 أرسل لنا رسالة',
+                formSub: 'سنرد عليك في أقرب وقت ممكن',
+                submitBtn: 'إرسال الرسالة',
+                footerBrand: 'صعود الطائرة',
+                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle: 'روابط سريعة',
+                footerServicesTitle: 'خدماتنا',
+                footerInfoTitle: 'معلومات',
+                fNavHome: 'الرئيسية',
+                fNavServices: 'خدماتنا',
+                fNavOffers: 'عروض',
+                fNavHotels: 'فنادق',
+                fNavPackages: 'باقات',
+                fNavRailway: 'قطارات',
+                fNavCars: 'سيارات',
+                fNavAbout: 'من نحن',
+                fNavContact: 'اتصل بنا',
+                fServFlights: 'تذاكر طيران',
+                fServUmrah: 'باقات العمرة',
+                fServVisa: 'تأشيرات',
+                fServHotels: 'فنادق',
+                fServCars: 'تأجير سيارات',
+                fServRailway: 'قطارات',
+                fInfoAbout: 'عن الوكالة',
+                fInfoContact: 'اتصل بنا',
+                fInfoPrivacy: 'سياسة الخصوصية',
+                fInfoTerms: 'الشروط والأحكام',
+                waFloatLabel: 'تواصل واتساب',
+                aiChatTitle: 'مساعد صعود الطائرة AI',
+                aiWelcomeMsg: '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.',
+                aiPlaceholder: 'اكتب سؤالك بأي لغة...',
+                loadMoreHotels: 'عرض المزيد من الفنادق',
+                loadMorePackages: 'عرض المزيد من الباقات',
+                loadMoreBlog: 'عرض المزيد من المقالات',
                 footerRights: 'جميع الحقوق محفوظة',
                 footerCredit: 'تصميم وتطوير ✧ برؤية عصرية'
             },
             en: {
-                logo: '<strong>Saeed Al-Taayira</strong>',
+                logoMain: 'Saeed Al-Taayira',
                 logoSub: 'Travel & Tourism',
                 navHome: 'Home',
                 navServices: 'Services',
@@ -2484,7 +2623,7 @@
                 navCta: '📞 Book Now',
                 heroTitle1: 'Discover the World with',
                 heroTitle2: 'Saeed Al-Taayira',
-                heroSub: 'Your complete travel partner – 200+ hotels, 200+ packages, and all travel services with real prices.',
+                heroSub: 'Your complete travel partner – 200+ hotels, 200+ packages, and all travel services with real prices. Your perfect journey starts here.',
                 heroBtn1: 'Explore Packages',
                 heroBtn2: 'WhatsApp',
                 heroBtn3: 'AI Assistant',
@@ -2504,51 +2643,85 @@
                 servicesTitle1: 'Our',
                 servicesTitle2: 'Services',
                 servicesSub: 'Choose the service you need and get a customized offer',
+                servicesAllBtn: 'View All Services',
                 offersTitle1: '🔥 Special',
                 offersTitle2: 'Offers',
                 offersSub: 'Exclusive offers updated automatically with AI',
+                offersAllBtn: 'View All Offers',
                 hotelsTitle1: 'Best',
                 hotelsTitle2: 'Hotels',
                 hotelsSub: 'Choose from 200+ hotels worldwide',
+                hotelsAllBtn: 'View All Hotels',
                 packagesTitle1: 'Travel',
                 packagesTitle2: 'Packages',
                 packagesSub: '200+ packages with competitive prices',
+                packagesAllBtn: 'View All Packages',
                 railwayTitle1: 'Railway',
                 railwayTitle2: 'Tickets',
                 railwaySub: 'Book train tickets starting from 85 SAR',
-                carsTitle1: 'Car',
-                carsTitle2: 'Rental',
-                carsSub: 'Best deals on luxury and economy car rentals',
+                railwayAllBtn: 'View All Trains',
+                blogTitle1: '📝 Travel',
+                blogTitle2: 'Blog',
+                blogSub: 'Latest articles and tips about travel and tourism',
+                blogAllBtn: 'View All Articles',
+                faqTitle1: 'Frequently',
+                faqTitle2: 'Asked Questions',
+                faqSub: 'Answers to the most common questions from our clients',
                 aboutTitle1: 'About',
                 aboutTitle2: 'Saeed Al-Taayira',
+                aboutSub: 'A leading travel agency offering integrated services for over 5 years',
+                aboutP1: '<strong style="color:var(--gold);font-size:1.2rem;">Saeed Al-Taayira Travel & Tourism</strong> is an integrated travel agency in Saudi Arabia, offering over 20 travel services including flight booking, Umrah, visas, hotels (200+), travel packages (200+), car rentals, train and bus bookings, airport transfer, travel insurance, group tours, cruises, business travel, and more.',
+                aboutP2: 'Our specialized team works around the clock to ensure a smooth and enjoyable trip for our clients, with competitive prices and outstanding service.',
+                aboutStat1: 'Hotels',
+                aboutStat2: 'Packages',
+                aboutStat3: 'Services',
+                aboutStat4: 'Articles',
                 contactTitle1: 'Contact',
                 contactTitle2: 'Us',
-                contactSub: 'We are here to serve you — contact us for any inquiry',
-                footerBrand: 'Saeed Al-Taayira',
-                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
-                footerLinks: 'Quick Links',
-                footerServices: 'Services',
-                footerInfo: 'Info',
-                waLabel: 'WhatsApp',
-                aiTitle: 'Saeed Al-Taayira AI Assistant',
-                aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. How can I help you today?',
-                aiPlaceholder: 'Type your question in any language...',
-                workPhone: 'Work Phone',
-                ownerPhone: 'Owner Phone',
-                emailLabel: 'Email',
-                addressLabel: 'Address',
-                fullAddress: 'King Abdulaziz Road, Arar, Saudi Arabia',
-                waOwner: 'Owner WhatsApp',
-                waWork: 'Work WhatsApp',
-                formTitle: '📩 Send us a Message',
-                formSub: 'We will reply as soon as possible',
-                formName: 'Full Name',
-                formPhone: 'Mobile Number',
-                formEmail: 'Email Address',
-                formMsg: 'Write your message here...',
-                formSubmit: 'Send Message',
+                contactSub: 'We are here to serve you — contact us for any inquiry or booking',
+                labelWorkPhone: 'Work Phone',
+                labelOwnerPhone: 'Owner Phone',
+                labelEmail: 'Email',
+                labelAddress: 'Address',
+                addressText: 'King Abdulaziz Road, Arar, Saudi Arabia',
+                waOwnerBtn: 'Owner WhatsApp',
+                waWorkBtn: 'Work WhatsApp',
                 privacyLink: 'Privacy Policy',
                 termsLink: 'Terms & Conditions',
+                formTitle: '📩 Send us a Message',
+                formSub: 'We will reply as soon as possible',
+                submitBtn: 'Send Message',
+                footerBrand: 'Saeed Al-Taayira',
+                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle: 'Quick Links',
+                footerServicesTitle: 'Services',
+                footerInfoTitle: 'Info',
+                fNavHome: 'Home',
+                fNavServices: 'Services',
+                fNavOffers: 'Offers',
+                fNavHotels: 'Hotels',
+                fNavPackages: 'Packages',
+                fNavRailway: 'Railway',
+                fNavCars: 'Cars',
+                fNavAbout: 'About',
+                fNavContact: 'Contact',
+                fServFlights: 'Flights',
+                fServUmrah: 'Umrah',
+                fServVisa: 'Visas',
+                fServHotels: 'Hotels',
+                fServCars: 'Car Rentals',
+                fServRailway: 'Trains',
+                fInfoAbout: 'About Us',
+                fInfoContact: 'Contact',
+                fInfoPrivacy: 'Privacy Policy',
+                fInfoTerms: 'Terms & Conditions',
+                waFloatLabel: 'WhatsApp',
+                aiChatTitle: 'Saeed Al-Taayira AI Assistant',
+                aiWelcomeMsg: '👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. How can I help you today? I can answer in any language you choose.',
+                aiPlaceholder: 'Type your question in any language...',
+                loadMoreHotels: 'Show More Hotels',
+                loadMorePackages: 'Show More Packages',
+                loadMoreBlog: 'Show More Articles',
                 footerRights: 'All Rights Reserved',
                 footerCredit: 'Designed & Developed ✧ with Vision'
             }
@@ -2561,9 +2734,10 @@
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
+            // Update all translatable elements
             const map = {
-                'logoText': 'logo',
-                'logoSlogan': 'logoSub',
+                'logoMain': 'logoMain',
+                'logoSub': 'logoSub',
                 'navHome': 'navHome',
                 'navServices': 'navServices',
                 'navOffers': 'navOffers',
@@ -2574,12 +2748,12 @@
                 'navAbout': 'navAbout',
                 'navContact': 'navContact',
                 'navCta': 'navCta',
-                'heroTitle': 'heroTitle1',
-                'heroHighlight': 'heroTitle2',
+                'heroTitle1': 'heroTitle1',
+                'heroTitle2': 'heroTitle2',
                 'heroSub': 'heroSub',
-                'heroBtn1Text': 'heroBtn1',
-                'heroBtn2Text': 'heroBtn2',
-                'heroBtn3Text': 'heroBtn3',
+                'heroBtn1': 'heroBtn1',
+                'heroBtn2': 'heroBtn2',
+                'heroBtn3': 'heroBtn3',
                 'stat1': 'stat1',
                 'stat2': 'stat2',
                 'stat3': 'stat3',
@@ -2596,47 +2770,85 @@
                 'servicesTitle1': 'servicesTitle1',
                 'servicesTitle2': 'servicesTitle2',
                 'servicesSub': 'servicesSub',
+                'servicesAllBtn': 'servicesAllBtn',
                 'offersTitle1': 'offersTitle1',
                 'offersTitle2': 'offersTitle2',
                 'offersSub': 'offersSub',
+                'offersAllBtn': 'offersAllBtn',
                 'hotelsTitle1': 'hotelsTitle1',
                 'hotelsTitle2': 'hotelsTitle2',
                 'hotelsSub': 'hotelsSub',
+                'hotelsAllBtn': 'hotelsAllBtn',
                 'packagesTitle1': 'packagesTitle1',
                 'packagesTitle2': 'packagesTitle2',
                 'packagesSub': 'packagesSub',
+                'packagesAllBtn': 'packagesAllBtn',
                 'railwayTitle1': 'railwayTitle1',
                 'railwayTitle2': 'railwayTitle2',
                 'railwaySub': 'railwaySub',
-                'carsTitle1': 'carsTitle1',
-                'carsTitle2': 'carsTitle2',
-                'carsSub': 'carsSub',
+                'railwayAllBtn': 'railwayAllBtn',
+                'blogTitle1': 'blogTitle1',
+                'blogTitle2': 'blogTitle2',
+                'blogSub': 'blogSub',
+                'blogAllBtn': 'blogAllBtn',
+                'faqTitle1': 'faqTitle1',
+                'faqTitle2': 'faqTitle2',
+                'faqSub': 'faqSub',
                 'aboutTitle1': 'aboutTitle1',
                 'aboutTitle2': 'aboutTitle2',
+                'aboutSub': 'aboutSub',
+                'aboutP1': 'aboutP1',
+                'aboutP2': 'aboutP2',
+                'aboutStat1': 'aboutStat1',
+                'aboutStat2': 'aboutStat2',
+                'aboutStat3': 'aboutStat3',
+                'aboutStat4': 'aboutStat4',
                 'contactTitle1': 'contactTitle1',
                 'contactTitle2': 'contactTitle2',
                 'contactSub': 'contactSub',
-                'footerBrand': 'footerBrand',
-                'footerDesc': 'footerDesc',
-                'footerLinks': 'footerLinks',
-                'footerServices': 'footerServices',
-                'footerInfo': 'footerInfo',
-                'waLabel': 'waLabel',
-                'aiTitle': 'aiTitle',
-                'aiWelcome': 'aiWelcome',
-                'aiPlaceholder': 'aiPlaceholder',
-                'workPhone': 'workPhone',
-                'ownerPhone': 'ownerPhone',
-                'emailLabel': 'emailLabel',
-                'addressLabel': 'addressLabel',
-                'fullAddress': 'fullAddress',
-                'waOwner': 'waOwner',
-                'waWork': 'waWork',
-                'formTitle': 'formTitle',
-                'formSub': 'formSub',
-                'formSubmit': 'formSubmit',
+                'labelWorkPhone': 'labelWorkPhone',
+                'labelOwnerPhone': 'labelOwnerPhone',
+                'labelEmail': 'labelEmail',
+                'labelAddress': 'labelAddress',
+                'addressText': 'addressText',
+                'waOwnerBtn': 'waOwnerBtn',
+                'waWorkBtn': 'waWorkBtn',
                 'privacyLink': 'privacyLink',
                 'termsLink': 'termsLink',
+                'formTitle': 'formTitle',
+                'formSub': 'formSub',
+                'submitBtn': 'submitBtn',
+                'footerBrand': 'footerBrand',
+                'footerDesc': 'footerDesc',
+                'footerLinksTitle': 'footerLinksTitle',
+                'footerServicesTitle': 'footerServicesTitle',
+                'footerInfoTitle': 'footerInfoTitle',
+                'fNavHome': 'fNavHome',
+                'fNavServices': 'fNavServices',
+                'fNavOffers': 'fNavOffers',
+                'fNavHotels': 'fNavHotels',
+                'fNavPackages': 'fNavPackages',
+                'fNavRailway': 'fNavRailway',
+                'fNavCars': 'fNavCars',
+                'fNavAbout': 'fNavAbout',
+                'fNavContact': 'fNavContact',
+                'fServFlights': 'fServFlights',
+                'fServUmrah': 'fServUmrah',
+                'fServVisa': 'fServVisa',
+                'fServHotels': 'fServHotels',
+                'fServCars': 'fServCars',
+                'fServRailway': 'fServRailway',
+                'fInfoAbout': 'fInfoAbout',
+                'fInfoContact': 'fInfoContact',
+                'fInfoPrivacy': 'fInfoPrivacy',
+                'fInfoTerms': 'fInfoTerms',
+                'waFloatLabel': 'waFloatLabel',
+                'aiChatTitle': 'aiChatTitle',
+                'aiWelcomeMsg': 'aiWelcomeMsg',
+                'aiPlaceholder': 'aiPlaceholder',
+                'loadMoreHotels': 'loadMoreHotels',
+                'loadMorePackages': 'loadMorePackages',
+                'loadMoreBlog': 'loadMoreBlog',
                 'footerRights': 'footerRights',
                 'footerCredit': 'footerCredit'
             };
@@ -2644,26 +2856,70 @@
             for (const [id, key] of Object.entries(map)) {
                 const el = document.getElementById(id);
                 if (el && translations[lang] && translations[lang][key] !== undefined) {
-                    if (id === 'logoText' || id === 'footerBrand') {
-                        el.innerHTML = translations[lang][key];
+                    if (id === 'aboutP1' || id === 'aboutP2' || id === 'logoMain' || id === 'logoSub' || id ===
+                        'footerBrand') {
+                        // For these, we need to preserve HTML
+                        if (id === 'logoMain') {
+                            el.textContent = translations[lang][key];
+                        } else if (id === 'logoSub') {
+                            el.textContent = translations[lang][key];
+                        } else if (id === 'footerBrand') {
+                            el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
+                        } else {
+                            el.innerHTML = translations[lang][key];
+                        }
                     } else {
                         el.textContent = translations[lang][key];
                     }
                 }
             }
 
-            const placeholders = {
-                'contactName': 'formName',
-                'contactPhone': 'formPhone',
-                'contactEmail': 'formEmail',
-                'contactMessage': 'formMsg',
-                'aiChatInput': 'aiPlaceholder'
-            };
-            for (const [id, key] of Object.entries(placeholders)) {
-                const el = document.getElementById(id);
-                if (el && translations[lang] && translations[lang][key] !== undefined) {
-                    el.placeholder = translations[lang][key];
-                }
+            // Update placeholder for AI chat
+            const aiInput = document.getElementById('aiChatInput');
+            if (aiInput) {
+                aiInput.placeholder = translations[lang]['aiPlaceholder'];
+            }
+
+            // Update placeholders for contact form
+            const nameInput = document.getElementById('contactName');
+            if (nameInput) nameInput.placeholder = lang === 'ar' ? 'الاسم الكامل' : 'Full Name';
+            const phoneInput = document.getElementById('contactPhone');
+            if (phoneInput) phoneInput.placeholder = lang === 'ar' ? 'رقم الجوال' : 'Phone Number';
+            const emailInput = document.getElementById('contactEmail');
+            if (emailInput) emailInput.placeholder = lang === 'ar' ? 'البريد الإلكتروني' : 'Email Address';
+            const msgInput = document.getElementById('contactMessage');
+            if (msgInput) msgInput.placeholder = lang === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...';
+
+            // Update load more buttons
+            const loadHotels = document.getElementById('loadMoreHotels');
+            if (loadHotels) loadHotels.textContent = translations[lang]['loadMoreHotels'];
+            const loadPackages = document.getElementById('loadMorePackages');
+            if (loadPackages) loadPackages.textContent = translations[lang]['loadMorePackages'];
+            const loadBlog = document.getElementById('loadMoreBlog');
+            if (loadBlog) loadBlog.textContent = translations[lang]['loadMoreBlog'];
+
+            // Update hero title with highlight
+            const heroTitle1 = document.getElementById('heroTitle1');
+            const heroTitle2 = document.getElementById('heroTitle2');
+            if (heroTitle1 && heroTitle2) {
+                const t1 = translations[lang]['heroTitle1'];
+                const t2 = translations[lang]['heroTitle2'];
+                heroTitle1.textContent = t1;
+                heroTitle2.textContent = t2;
+            }
+
+            // Update AI chat title
+            const aiChatTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiChatTitle) {
+                const status = aiChatTitle.querySelector('.ai-status');
+                aiChatTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ?
+                    ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
+            }
+
+            // Update welcome message in AI chat
+            const welcomeMsg = document.querySelector('#aiChatMessages .msg.bot');
+            if (welcomeMsg) {
+                welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
             }
 
             localStorage.setItem('lang', lang);
@@ -2673,6 +2929,7 @@
             const newLang = currentLang === 'ar' ? 'en' : 'ar';
             applyLanguage(newLang);
         });
+
         const savedLang = localStorage.getItem('lang') || 'ar';
         applyLanguage(savedLang);
 
@@ -2702,12 +2959,13 @@
 
         // ===== DYNAMIC FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
 
         console.log('%c✈️ صعود الطائرة – وكالة سفر متقدمة', 'font-size:20px;font-weight:bold;color:#d4af37;');
         console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
         console.log('%c🌍 Multi-language | AI Chatbot | Real Prices | All Services', 'font-size:13px;color:#888;');
         console.log('%c✅ Google Search Console Verified', 'font-size:13px;color:#4ade80;');
+        console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
     </script>
 </body>
 </html>

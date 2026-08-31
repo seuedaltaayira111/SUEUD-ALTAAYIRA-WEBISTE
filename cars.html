@@ -1,321 +1,2161 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تأجير السيارات – صعود الطائرة</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    /* ===== نفس الستايل (نفس hotels) ===== */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    :root { --primary-dark:#061d3a; --gold:#d4af37; --gold-light:#f0d060; --gold-gradient:linear-gradient(135deg,#d4af37,#f5e56b); --glass-bg:rgba(255,255,255,0.04); --glass-border:rgba(255,255,255,0.06); --text-muted:rgba(255,255,255,0.6); --radius:20px; --font:'Tajawal',sans-serif; }
-    html { scroll-behavior:smooth; }
-    body { font-family:var(--font); background:var(--primary-dark); color:#f0f4ff; line-height:1.7; }
-    body.rtl { direction:rtl; text-align:right; }
-    body.ltr { direction:ltr; text-align:left; }
-    a { text-decoration:none; color:inherit; }
-    ul { list-style:none; }
-    ::-webkit-scrollbar { width:7px; }
-    ::-webkit-scrollbar-track { background:var(--primary-dark); }
-    ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:10px; }
-    /* ===== HEADER ===== (نفسه) ===== */
-    .header { position:fixed; top:0; left:0; right:0; z-index:1000; padding:14px 0; background:rgba(6,29,58,0.94); backdrop-filter:blur(20px); border-bottom:1px solid rgba(212,175,55,0.1); }
-    .header .container { display:flex; align-items:center; justify-content:space-between; max-width:1320px; margin:0 auto; padding:0 24px; }
-    .logo { display:flex; align-items:center; gap:10px; font-size:1.5rem; font-weight:900; }
-    .logo-icon { font-size:2rem; color:var(--gold); }
-    .logo-text { background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .logo-sub { font-size:0.6rem; font-weight:300; color:var(--text-muted); display:block; margin-top:-3px; }
-    .nav-links { display:flex; align-items:center; gap:4px; flex-wrap:wrap; }
-    .nav-links a { padding:8px 18px; border-radius:50px; font-size:0.9rem; font-weight:500; color:var(--text-muted); transition:0.3s; }
-    .nav-links a:hover, .nav-links a.active { color:#fff; background:rgba(212,175,55,0.1); }
-    .nav-links a.active { position:relative; }
-    .nav-links a.active::after { content:''; position:absolute; bottom:4px; left:50%; transform:translateX(-50%); width:18px; height:2.5px; background:var(--gold); border-radius:4px; }
-    .nav-cta { background:var(--gold-gradient) !important; color:var(--primary-dark) !important; font-weight:700 !important; padding:8px 26px !important; border-radius:50px !important; }
-    .nav-cta:hover { transform:scale(1.05); }
-    .lang-toggle { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; padding:6px 16px; border-radius:50px; font-weight:600; cursor:pointer; font-size:0.8rem; transition:0.3s; }
-    .lang-toggle:hover { background:rgba(212,175,55,0.15); border-color:var(--gold); }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; z-index:1001; }
-    .hamburger span { width:28px; height:2.5px; background:#fff; border-radius:4px; transition:0.3s; }
-    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-    .hamburger.active span:nth-child(2){opacity:0; transform:scaleX(0);}
-    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-    @media (max-width:768px) {
-      .nav-links { position:fixed; top:0; right:-100%; width:280px; height:100vh; background:rgba(6,29,58,0.97); flex-direction:column; padding:80px 28px 32px; transition:right 0.4s; border-left:1px solid rgba(255,255,255,0.04); }
-      .nav-links.open { right:0; }
-      .nav-links a { width:100%; padding:14px 18px; border-radius:12px; }
-      .nav-cta { margin-top:8px; }
-      .hamburger { display:flex; }
-    }
-    .section { padding:130px 24px 80px; }
-    .section .container { max-width:1320px; margin:0 auto; }
-    .section-title { text-align:center; margin-bottom:56px; }
-    .section-title h2 { font-size:clamp(2rem,4vw,3.2rem); font-weight:900; margin-bottom:8px; }
-    .section-title h2 .highlight { background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .section-title p { color:var(--text-muted); font-size:1.1rem; max-width:620px; margin:0 auto; }
-    .section-divider { width:60px; height:3.5px; background:var(--gold-gradient); border-radius:4px; margin:14px auto 0; }
-    .grid { display:grid; gap:28px; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); }
-    .car-card { background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); border-radius:var(--radius); overflow:hidden; transition:0.4s; }
-    .car-card:hover { transform:translateY(-8px); border-color:rgba(212,175,55,0.15); box-shadow:0 20px 60px rgba(0,0,0,0.25); }
-    .car-card .img { height:150px; background-size:cover; background-position:center; }
-    .car-card .body { padding:18px 18px 22px; text-align:center; }
-    .car-card .body h4 { font-size:1.1rem; font-weight:800; }
-    .car-card .body .type { color:var(--text-muted); font-size:0.75rem; }
-    .car-card .body .price { color:var(--gold); font-size:1.1rem; font-weight:700; }
-    .car-card .body .price small { font-size:0.65rem; color:var(--text-muted); font-weight:400; }
-    .car-card .body .features { display:flex; justify-content:center; gap:10px; margin:10px 0 14px; flex-wrap:wrap; }
-    .car-card .body .features span { font-size:0.65rem; color:var(--text-muted); background:rgba(255,255,255,0.04); padding:2px 8px; border-radius:50px; border:1px solid rgba(255,255,255,0.04); }
-    .car-card .body .btn-sm { padding:8px 24px; border-radius:50px; font-size:0.8rem; font-weight:700; border:none; cursor:pointer; background:var(--gold-gradient); color:var(--primary-dark); transition:0.3s; font-family:inherit; }
-    .car-card .body .btn-sm:hover { transform:scale(1.05); }
-    /* ===== FOOTER, WHATSAPP, AI ===== */
-    .footer { padding:60px 24px 30px; border-top:1px solid rgba(255,255,255,0.03); background:rgba(6,29,58,0.5); backdrop-filter:blur(12px); }
-    .footer .container { max-width:1320px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; }
-    .footer .brand p { color:var(--text-muted); font-size:0.9rem; max-width:340px; margin-top:8px; }
-    .footer .brand .socials { display:flex; gap:10px; margin-top:16px; }
-    .footer .brand .socials a { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:0.3s; }
-    .footer .brand .socials a:hover { background:rgba(212,175,55,0.1); border-color:var(--gold); color:var(--gold); transform:translateY(-3px); }
-    .footer h5 { font-size:1.05rem; font-weight:700; margin-bottom:14px; color:#fff; }
-    .footer ul li { margin-bottom:6px; }
-    .footer ul li a { color:var(--text-muted); font-size:0.9rem; transition:0.3s; }
-    .footer ul li a:hover { color:var(--gold); padding-right:6px; }
-    .footer-bottom { max-width:1320px; margin:40px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.03); text-align:center; color:var(--text-muted); font-size:0.8rem; }
-    .footer-bottom span { color:var(--gold); }
-    .whatsapp-float { position:fixed; bottom:28px; left:28px; z-index:9999; display:flex; flex-direction:column; align-items:center; gap:6px; }
-    .whatsapp-float .wa-btn { width:68px; height:68px; border-radius:50%; background:#25d366; color:#fff; font-size:2.4rem; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 40px rgba(37,211,102,0.3); transition:0.3s; border:none; cursor:pointer; animation:waPulse 2.8s ease-in-out infinite; }
-    .whatsapp-float .wa-btn:hover { transform:scale(1.1); }
-    .whatsapp-float .wa-label { font-size:0.65rem; color:var(--text-muted); background:rgba(0,0,0,0.5); padding:3px 14px; border-radius:50px; backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.04); }
-    @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3);} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06);} }
-    .ai-chat-toggle { position:fixed; bottom:100px; right:28px; z-index:9998; width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; font-size:1.8rem; border:none; cursor:pointer; box-shadow:0 8px 40px rgba(108,60,224,0.35); transition:0.3s; animation:aiPulse 3s ease-in-out infinite; display:flex; align-items:center; justify-content:center; }
-    .ai-chat-toggle:hover { transform:scale(1.1); }
-    @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35);} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06);} }
-    .ai-chat-box { position:fixed; bottom:175px; right:28px; z-index:9997; width:380px; max-width:calc(100vw - 56px); max-height:500px; border-radius:24px; background:rgba(6,29,58,0.96); backdrop-filter:blur(30px); border:1px solid rgba(255,255,255,0.06); box-shadow:0 30px 80px rgba(0,0,0,0.6); display:none; flex-direction:column; overflow:hidden; }
-    .ai-chat-box.open { display:flex; animation:chatSlideUp 0.4s ease; }
-    @keyframes chatSlideUp { from{opacity:0;transform:translateY(30px) scale(0.96);} to{opacity:1;transform:translateY(0) scale(1);} }
-    .ai-chat-header { padding:16px 20px; background:rgba(108,60,224,0.1); border-bottom:1px solid rgba(255,255,255,0.04); display:flex; align-items:center; justify-content:space-between; }
-    .ai-chat-header .title { display:flex; align-items:center; gap:10px; font-weight:700; }
-    .ai-chat-header .title i { color:#a855f7; }
-    .ai-chat-header .close-btn { background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer; transition:0.3s; padding:4px; }
-    .ai-chat-header .close-btn:hover { color:#fff; transform:rotate(90deg); }
-    .ai-chat-messages { flex:1; padding:16px 18px; overflow-y:auto; max-height:320px; display:flex; flex-direction:column; gap:10px; }
-    .ai-chat-messages .msg { padding:10px 16px; border-radius:16px; max-width:85%; font-size:0.9rem; line-height:1.6; animation:msgPop 0.3s ease; }
-    @keyframes msgPop { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
-    .ai-chat-messages .msg.bot { background:rgba(108,60,224,0.12); border:1px solid rgba(108,60,224,0.08); align-self:flex-start; border-bottom-right-radius:4px; }
-    .ai-chat-messages .msg.user { background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.06); align-self:flex-end; border-bottom-left-radius:4px; }
-    .ai-chat-messages .msg .time { font-size:0.6rem; color:var(--text-muted); margin-top:4px; display:block; opacity:0.5; }
-    .ai-chat-input { padding:12px 16px 16px; border-top:1px solid rgba(255,255,255,0.04); display:flex; gap:10px; }
-    .ai-chat-input input { flex:1; padding:10px 16px; border-radius:50px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); color:#fff; font-family:inherit; font-size:0.9rem; outline:none; }
-    .ai-chat-input input:focus { border-color:#a855f7; }
-    .ai-chat-input button { padding:10px 20px; border-radius:50px; border:none; background:linear-gradient(135deg,#6c3ce0,#a855f7); color:#fff; font-weight:700; cursor:pointer; transition:0.3s; font-family:inherit; }
-    .ai-chat-input button:hover { transform:scale(1.04); }
-    @media (max-width:1024px) { .footer .container { grid-template-columns:1fr 1fr; } }
-    @media (max-width:768px) { .grid { grid-template-columns:1fr 1fr; } .footer .container { grid-template-columns:1fr; text-align:center; } .footer .brand .socials { justify-content:center; } .ai-chat-box { width:calc(100vw - 32px); right:16px; bottom:155px; } .ai-chat-toggle { right:16px; bottom:85px; width:50px; height:50px; font-size:1.4rem; } }
-    @media (max-width:480px) { .grid { grid-template-columns:1fr; } .section { padding:56px 16px; } }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تأجير السيارات – صعود الطائرة</title>
+    <meta name="description" content="أكثر من 200 سيارة للإيجار – فاخرة، اقتصادية، SUV، ورياضية بأفضل الأسعار مع تأمين شامل." />
+    <link rel="canonical" href="https://sueudaltaayira.com/cars.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-dark: #061d3a;
+            --gold: #d4af37;
+            --gold-light: #f0d060;
+            --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --radius: 20px;
+            --font: 'Tajawal', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font);
+            background: var(--primary-dark);
+            color: #f0f4ff;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        body.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        body.ltr {
+            direction: ltr;
+            text-align: left;
+        }
+        body.ltr .nav-links a {
+            font-family: 'Segoe UI', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        #particles-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 14px 0;
+            transition: 0.3s;
+            background: rgba(6, 29, 58, 0.94);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--gold);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        @keyframes logoFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+        .logo-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .logo-text strong {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+        .logo-sub {
+            font-size: 0.55rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            display: block;
+            margin-top: -3px;
+            letter-spacing: 3px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: rgba(212, 175, 55, 0.1);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 2.5px;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+        .nav-cta {
+            background: var(--gold-gradient) !important;
+            color: var(--primary-dark) !important;
+            font-weight: 700 !important;
+            padding: 8px 26px !important;
+            border-radius: 50px !important;
+        }
+        .nav-cta:hover {
+            transform: scale(1.05);
+        }
+        .lang-toggle {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+        .lang-toggle:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(6, 29, 58, 0.97);
+                flex-direction: column;
+                padding: 80px 28px 32px;
+                transition: right 0.4s;
+                border-left: 1px solid rgba(255, 255, 255, 0.04);
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a {
+                width: 100%;
+                padding: 14px 18px;
+                border-radius: 12px;
+            }
+            .nav-links a.active::after {
+                display: none;
+            }
+            .nav-cta {
+                margin-top: 8px;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 130px 24px 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .section .container {
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+        .section-alt {
+            background: rgba(255, 255, 255, 0.005);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+        .section-title h2 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        .section-divider {
+            width: 60px;
+            height: 3.5px;
+            background: var(--gold-gradient);
+            border-radius: 4px;
+            margin: 14px auto 0;
+        }
+
+        /* ===== FILTERS ===== */
+        .filters-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 40px;
+        }
+        .filters-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+        .filters-row .filter-group {
+            flex: 1;
+            min-width: 140px;
+        }
+        .filters-row .filter-group label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .filters-row .filter-group input,
+        .filters-row .filter-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .filters-row .filter-group input:focus,
+        .filters-row .filter-group select:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .filters-row .filter-group select option {
+            background: #0a1a2e;
+            color: #fff;
+        }
+        .filters-row .filter-group input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* ===== PRICE SLIDER ===== */
+        .price-slider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .price-slider input[type="range"] {
+            width: 120px;
+            height: 4px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .price-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .price-slider input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--gold);
+            cursor: pointer;
+            border: none;
+        }
+        .price-slider .price-range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            min-width: 100px;
+        }
+        .price-slider .price-range-labels span {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* ===== CARS GRID ===== */
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .car-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: 0.4s;
+            position: relative;
+        }
+        .car-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+        }
+        .car-card .img {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .car-card .img .car-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            padding: 2px 14px;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+        .car-card .img .car-price-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .car-card .body {
+            padding: 18px 20px 22px;
+        }
+        .car-card .body h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 2px;
+        }
+        .car-card .body .car-type {
+            color: var(--gold);
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+        }
+        .car-card .body .car-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 6px 0 10px;
+            line-height: 1.6;
+        }
+        .car-card .body .car-features {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 10px 0 14px;
+        }
+        .car-card .body .car-features span {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 3px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .car-card .body .car-features span i {
+            color: var(--gold);
+            margin-left: 4px;
+        }
+        .car-card .body .btn-sm {
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            transition: 0.3s;
+            font-family: inherit;
+            width: 100%;
+        }
+        .car-card .body .btn-sm:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* ===== CAR BOOKING MODAL ===== */
+        .car-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .car-modal.open {
+            display: flex;
+            animation: modalFade 0.4s ease;
+        }
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .car-modal .modal-content {
+            background: #0a1a2e;
+            border-radius: 24px;
+            max-width: 550px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            position: relative;
+        }
+        .car-modal .modal-content .close-btn {
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .car-modal .modal-content .close-btn:hover {
+            background: rgba(255, 0, 0, 0.2);
+            border-color: #ff4444;
+            transform: rotate(90deg);
+        }
+        .car-modal .modal-content h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+        .car-modal .modal-content .car-detail-type {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        .car-modal .modal-content .form-group {
+            margin-bottom: 16px;
+        }
+        .car-modal .modal-content .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .car-modal .modal-content .form-group input,
+        .car-modal .modal-content .form-group select,
+        .car-modal .modal-content .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .car-modal .modal-content .form-group input:focus,
+        .car-modal .modal-content .form-group select:focus,
+        .car-modal .modal-content .form-group textarea:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .car-modal .modal-content .form-group select option {
+            background: #0a1a2e;
+            color: #fff;
+        }
+        .car-modal .modal-content .form-group textarea {
+            height: 70px;
+            resize: vertical;
+        }
+        .car-modal .modal-content .btn-submit-car {
+            width: 100%;
+            padding: 14px;
+            border-radius: 60px;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .car-modal .modal-content .btn-submit-car:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+        }
+        .car-modal .modal-content .form-status {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            min-height: 28px;
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .whatsapp-float .wa-btn {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: #25d366;
+            color: #fff;
+            font-size: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            animation: waPulse 2.8s ease-in-out infinite;
+        }
+        .whatsapp-float .wa-btn:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-float .wa-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3px 14px;
+            border-radius: 50px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        @keyframes waPulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06);
+            }
+        }
+
+        /* ===== AI CHAT ===== */
+        .ai-chat-toggle {
+            position: fixed;
+            bottom: 100px;
+            right: 28px;
+            z-index: 9998;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7);
+            color: #fff;
+            font-size: 1.8rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
+            transition: 0.3s;
+            animation: aiPulse 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ai-chat-toggle:hover {
+            transform: scale(1.1);
+        }
+        @keyframes aiPulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
+            }
+            50% {
+                box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06);
+            }
+        }
+        .ai-chat-box {
+            position: fixed;
+            bottom: 175px;
+            right: 28px;
+            z-index: 9997;
+            width: 400px;
+            max-width: calc(100vw - 56px);
+            max-height: 550px;
+            border-radius: 24px;
+            background: rgba(6, 29, 58, 0.96);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .ai-chat-box.open {
+            display: flex;
+            animation: chatSlideUp 0.4s ease;
+        }
+        @keyframes chatSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .ai-chat-header {
+            padding: 16px 20px;
+            background: rgba(108, 60, 224, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+        .ai-chat-header .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+        .ai-chat-header .title i {
+            color: #a855f7;
+        }
+        .ai-chat-header .title .ai-status {
+            font-size: 0.6rem;
+            color: #4ade80;
+            font-weight: 400;
+        }
+        .ai-chat-header .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 4px;
+        }
+        .ai-chat-header .close-btn:hover {
+            color: #fff;
+            transform: rotate(90deg);
+        }
+        .ai-chat-messages {
+            flex: 1;
+            padding: 16px 18px;
+            overflow-y: auto;
+            max-height: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .ai-chat-messages .msg {
+            padding: 10px 16px;
+            border-radius: 16px;
+            max-width: 85%;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            animation: msgPop 0.3s ease;
+        }
+        @keyframes msgPop {
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .ai-chat-messages .msg.bot {
+            background: rgba(108, 60, 224, 0.12);
+            border: 1px solid rgba(108, 60, 224, 0.08);
+            align-self: flex-start;
+            border-bottom-right-radius: 4px;
+        }
+        .ai-chat-messages .msg.user {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            align-self: flex-end;
+            border-bottom-left-radius: 4px;
+        }
+        .ai-chat-messages .msg .time {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: block;
+            opacity: 0.5;
+        }
+        .ai-chat-input {
+            padding: 12px 16px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .ai-chat-input input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .ai-chat-input input:focus {
+            border-color: #a855f7;
+        }
+        .ai-chat-input input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+        .ai-chat-input button {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .ai-chat-input button:hover {
+            transform: scale(1.04);
+        }
+        .ai-chat-typing {
+            display: none;
+            padding: 8px 16px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        .ai-chat-typing.show {
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 60px 24px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(6, 29, 58, 0.5);
+            backdrop-filter: blur(12px);
+        }
+        .footer .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer .brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 340px;
+            margin-top: 8px;
+        }
+        .footer .brand .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .footer .brand .socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+        .footer .brand .socials a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .footer h5 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #fff;
+        }
+        .footer ul li {
+            margin-bottom: 6px;
+        }
+        .footer ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .footer ul li a:hover {
+            color: var(--gold);
+            padding-right: 6px;
+        }
+        .footer-bottom {
+            max-width: 1320px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .footer-bottom span {
+            color: var(--gold);
+        }
+
+        /* ===== REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== SCROLL TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 100px;
+            left: 28px;
+            z-index: 9998;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            transition: 0.3s;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+        .scroll-top.show {
+            display: flex;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .cars-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .cars-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .filters-row .filter-group {
+                min-width: 120px;
+                flex: 1 1 45%;
+            }
+            .price-slider input[type="range"] {
+                width: 100px;
+            }
+            .ai-chat-box {
+                width: calc(100vw - 32px);
+                right: 16px;
+                bottom: 155px;
+                max-height: 450px;
+            }
+            .ai-chat-toggle {
+                right: 16px;
+                bottom: 85px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            .car-modal .modal-content {
+                padding: 20px;
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 480px) {
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+            .filters-row {
+                flex-direction: column;
+            }
+            .filters-row .filter-group {
+                min-width: 100%;
+            }
+            .section {
+                padding: 56px 16px;
+            }
+            .filters-section {
+                padding: 16px;
+            }
+            .price-slider input[type="range"] {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
-  <header class="header">
-    <div class="container">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">✈️</span>
-        <span><span class="logo-text">صعود الطائرة</span><span class="logo-sub">للسفر والسياحة</span></span>
-      </a>
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html">الرئيسية</a>
-        <a href="services.html">خدماتنا</a>
-        <a href="packages.html">باقات</a>
-        <a href="hotels.html">فنادق</a>
-        <a href="cars.html" class="active">سيارات</a>
-        <a href="about.html">من نحن</a>
-        <a href="contact.html">اتصل بنا</a>
-        <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
-      </nav>
-      <div style="display:flex; align-items:center; gap:12px;">
-        <button class="lang-toggle" id="langToggle">🇬🇧 EN</button>
-        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-      </div>
-    </div>
-  </header>
+    <canvas id="particles-canvas"></canvas>
 
-  <!-- ===== CARS ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <h2>تأجير <span class="highlight">السيارات</span></h2>
-        <p>أفضل العروض على تأجير السيارات الفاخرة والاقتصادية مع خدمات إضافية</p>
-        <div class="section-divider"></div>
-      </div>
-      <div class="grid">
-        <div class="car-card">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop');"></div>
-          <div class="body">
-            <h4>تويوتا كامري</h4>
-            <div class="type">سيدان فاخرة</div>
-            <div class="price">$١٢٠ <small>/ يوم</small></div>
-            <div class="features"><span>٥ مقاعد</span><span>اقتصادية</span><span>Bluetooth</span></div>
-            <button class="btn-sm" onclick="rentCar('كامري')">استأجر الآن</button>
-          </div>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">✈️</span>
+                <span>
+                    <span class="logo-text"><strong>صعود الطائرة</strong></span>
+                    <span class="logo-sub">للسفر والسياحة</span>
+                </span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">خدماتنا</a>
+                <a href="offers.html">عروض</a>
+                <a href="hotels.html">فنادق</a>
+                <a href="packages.html">باقات</a>
+                <a href="railway.html">قطارات</a>
+                <a href="cars.html" class="active">سيارات</a>
+                <a href="about.html">من نحن</a>
+                <a href="contact.html">اتصل بنا</a>
+                <a href="contact.html" class="nav-cta">📞 احجز الآن</a>
+            </nav>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
+                <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            </div>
         </div>
-        <div class="car-card">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400&h=250&fit=crop');"></div>
-          <div class="body">
-            <h4>مرسيدس E-Class</h4>
-            <div class="type">فاخرة تنفيذية</div>
-            <div class="price">$٢٥٠ <small>/ يوم</small></div>
-            <div class="features"><span>٥ مقاعد</span><span>فاخرة</span><span>Apple CarPlay</span></div>
-            <button class="btn-sm" onclick="rentCar('مرسيدس')">استأجر الآن</button>
-          </div>
-        </div>
-        <div class="car-card">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1556189250-72ba954cfc2b?w=400&h=250&fit=crop');"></div>
-          <div class="body">
-            <h4>بي إم دبليو X5</h4>
-            <div class="type">SUV فاخر</div>
-            <div class="price">$٢٨٠ <small>/ يوم</small></div>
-            <div class="features"><span>٧ مقاعد</span><span>دفع رباعي</span><span>شاشة كبيرة</span></div>
-            <button class="btn-sm" onclick="rentCar('BMW X5')">استأجر الآن</button>
-          </div>
-        </div>
-        <div class="car-card">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1633951752296-258f42c71d0c?w=400&h=250&fit=crop');"></div>
-          <div class="body">
-            <h4>هيونداي توسان</h4>
-            <div class="type">SUV اقتصادي</div>
-            <div class="price">$٩٠ <small>/ يوم</small></div>
-            <div class="features"><span>٥ مقاعد</span><span>اقتصادية</span><span>كاميرا خلفية</span></div>
-            <button class="btn-sm" onclick="rentCar('توسان')">استأجر الآن</button>
-          </div>
-        </div>
-        <div class="car-card">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=400&h=250&fit=crop');"></div>
-          <div class="body">
-            <h4>فورد موستانج</h4>
-            <div class="type">رياضية</div>
-            <div class="price">$٢٠٠ <small>/ يوم</small></div>
-            <div class="features"><span>٤ مقاعد</span><span>V8</span><span>صوت رياضي</span></div>
-            <button class="btn-sm" onclick="rentCar('موستانج')">استأجر الآن</button>
-          </div>
-        </div>
-        <div class="car-card">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&h=250&fit=crop');"></div>
-          <div class="body">
-            <h4>لاند روفر فيلار</h4>
-            <div class="type">SUV فاخر فائق</div>
-            <div class="price">$٣٢٠ <small>/ يوم</small></div>
-            <div class="features"><span>٥ مقاعد</span><span>دفع رباعي</span><span>فاخر</span></div>
-            <button class="btn-sm" onclick="rentCar('فيلار')">استأجر الآن</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ===== WHATSAPP & AI ===== -->
-  <div class="whatsapp-float">
-    <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
-    <span class="wa-label">تواصل واتساب</span>
-  </div>
-  <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
-  <div class="ai-chat-box" id="aiChatBox">
-    <div class="ai-chat-header">
-      <div class="title"><i class="fas fa-robot"></i> مساعد صعود الطائرة AI</div>
-      <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="ai-chat-messages" id="aiChatMessages">
-      <div class="msg bot">👋 مرحباً! كيف يمكنني مساعدتك؟<span class="time">الآن</span></div>
-    </div>
-    <div class="ai-chat-input">
-      <input type="text" id="aiChatInput" placeholder="اكتب سؤالك..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
-      <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
-    </div>
-  </div>
+    <!-- ===== CARS SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>تأجير <span class="highlight">السيارات</span></h2>
+                <p>أكثر من 200 سيارة للإيجار – فاخرة، اقتصادية، SUV، ورياضية بأفضل الأسعار مع تأمين شامل</p>
+                <div class="section-divider"></div>
+            </div>
 
-  <script>
-    // ===== نفس الـ JS =====
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
-      });
-    });
-    // AI Chat (نفس الكود السابق)
-    const chatBox = document.getElementById('aiChatBox');
-    const chatMessages = document.getElementById('aiChatMessages');
-    const chatInput = document.getElementById('aiChatInput');
-    const aiResponses = {
-      'مرحبا': '👋 أهلاً بك!',
-      'عمرة': '🕋 باقات العمرة تبدأ من ١٢٠٠ ريال.',
-      'تأشيرة': '🛂 نقدم تأشيرات سياحة وعمل.',
-      'تذكرة': '✈️ أرخص تذاكر الطيران.',
-      'فندق': '🏨 عروض حصرية على الفنادق.',
-      'سيارة': '🚗 تأجير سيارات بأسعار مميزة.',
-      'سعر': '💰 أسعارنا تنافسية!',
-      'شكرا': '🙏 العفو!'
-    };
-    const defaultReplies = ['🤖 شكراً! سيقوم فريقنا بالتواصل.', '📱 اتصل بنا على واتساب 0555382038.', '🌍 اكتشف عروضنا في قسم الباقات!'];
-    function getAIResponse(text) {
-      const lower = text.toLowerCase().trim();
-      for (const [key, response] of Object.entries(aiResponses)) {
-        if (lower.includes(key)) return response;
-      }
-      return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
-    }
-    window.toggleAIChat = function() {
-      chatBox.classList.toggle('open');
-      if (chatBox.classList.contains('open')) chatInput.focus();
-    };
-    function addMessage(type, text) {
-      const msg = document.createElement('div');
-      msg.className = `msg ${type}`;
-      const time = new Date().toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' });
-      msg.innerHTML = `${text}<span class="time">${time}</span>`;
-      chatMessages.appendChild(msg);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-    window.sendAIMessage = function() {
-      const text = chatInput.value.trim();
-      if (!text) return;
-      addMessage('user', text);
-      chatInput.value = '';
-      const typing = document.createElement('div');
-      typing.className = 'msg bot';
-      typing.innerHTML = '🤖 جاري التفكير...';
-      typing.id = 'typingIndicator';
-      chatMessages.appendChild(typing);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-      setTimeout(() => {
-        document.getElementById('typingIndicator')?.remove();
-        addMessage('bot', getAIResponse(text));
-      }, 500 + Math.random() * 400);
-    };
-    window.rentCar = function(name) {
-      const msg = `مرحباً، أرغب في تأجير سيارة ${name}`;
-      window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
-    };
-    // Language toggle
-    const langToggle = document.getElementById('langToggle');
-    let currentLang = 'ar';
-    langToggle.addEventListener('click', () => {
-      const newLang = currentLang === 'ar' ? 'en' : 'ar';
-      currentLang = newLang;
-      document.body.className = newLang === 'ar' ? 'rtl' : 'ltr';
-      document.documentElement.lang = newLang;
-      document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
-      langToggle.textContent = newLang === 'ar' ? '🇬🇧 EN' : '🇸🇦 عربي';
-      localStorage.setItem('lang', newLang);
-    });
-    const savedLang = localStorage.getItem('lang') || 'ar';
-    document.body.className = savedLang === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = savedLang;
-    document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
-    langToggle.textContent = savedLang === 'ar' ? '🇬🇧 EN' : '🇸🇦 عربي';
-    currentLang = savedLang;
-  </script>
+            <!-- ===== FILTERS ===== -->
+            <div class="filters-section reveal">
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label><i class="fas fa-search"></i> بحث</label>
+                        <input type="text" id="carSearch" placeholder="ابحث عن سيارة..." onkeyup="filterCars()" />
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-car"></i> الماركة</label>
+                        <select id="carMake" onchange="filterCars()">
+                            <option value="all">جميع الماركات</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-tag"></i> النوع</label>
+                        <select id="carType" onchange="filterCars()">
+                            <option value="all">جميع الأنواع</option>
+                            <option value="sedan">سيدان</option>
+                            <option value="suv">SUV</option>
+                            <option value="luxury">فاخر</option>
+                            <option value="sports">رياضي</option>
+                            <option value="economy">اقتصادي</option>
+                            <option value="van">فان</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-sort"></i> ترتيب حسب</label>
+                        <select id="carSort" onchange="filterCars()">
+                            <option value="price">السعر (الأقل أولاً)</option>
+                            <option value="price-desc">السعر (الأعلى أولاً)</option>
+                            <option value="name">الاسم</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filters-row" style="margin-top:14px;">
+                    <div class="filter-group" style="flex:2;">
+                        <label><i class="fas fa-sliders-h"></i> نطاق السعر</label>
+                        <div class="price-slider">
+                            <span style="color:var(--text-muted);font-size:0.8rem;">من</span>
+                            <input type="range" id="carPriceMin" min="50" max="2000" value="50" oninput="updateCarPriceLabels(); filterCars();" />
+                            <span style="color:var(--text-muted);font-size:0.8rem;">إلى</span>
+                            <input type="range" id="carPriceMax" min="50" max="2000" value="2000" oninput="updateCarPriceLabels(); filterCars();" />
+                            <div class="price-range-labels">
+                                <span id="carPriceMinLabel">50 ر.س</span>
+                                <span id="carPriceMaxLabel">2000 ر.س</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group" style="flex:1;display:flex;align-items:flex-end;">
+                        <button onclick="resetCarFilters()" style="padding:10px 24px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
+                            <i class="fas fa-undo"></i> إعادة تعيين
+                        </button>
+                    </div>
+                </div>
+                <div class="filters-row" style="margin-top:14px;">
+                    <div class="filter-group" style="flex:1;">
+                        <label><i class="fas fa-users"></i> عدد المقاعد</label>
+                        <select id="carSeats" onchange="filterCars()">
+                            <option value="all">جميع</option>
+                            <option value="2">2 مقاعد</option>
+                            <option value="4">4 مقاعد</option>
+                            <option value="5">5 مقاعد</option>
+                            <option value="7">7 مقاعد</option>
+                            <option value="8">8+ مقاعد</option>
+                        </select>
+                    </div>
+                    <div class="filter-group" style="flex:1;">
+                        <label><i class="fas fa-gas-pump"></i> نوع الوقود</label>
+                        <select id="carFuel" onchange="filterCars()">
+                            <option value="all">جميع</option>
+                            <option value="petrol">بنزين</option>
+                            <option value="diesel">ديزل</option>
+                            <option value="hybrid">هايبرد</option>
+                            <option value="electric">كهربائي</option>
+                        </select>
+                    </div>
+                    <div class="filter-group" style="flex:1;">
+                        <label><i class="fas fa-exchange-alt"></i> ناقل الحركة</label>
+                        <select id="carTransmission" onchange="filterCars()">
+                            <option value="all">جميع</option>
+                            <option value="automatic">أوتوماتيك</option>
+                            <option value="manual">يدوي</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CARS GRID ===== -->
+            <div class="cars-grid" id="carsGrid"></div>
+
+            <!-- ===== LOAD MORE ===== -->
+            <button class="load-more-btn" id="loadMoreCars">عرض المزيد من السيارات</button>
+        </div>
+    </section>
+
+    <!-- ===== CAR BOOKING MODAL ===== -->
+    <div class="car-modal" id="carModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeCarModal()"><i class="fas fa-times"></i></button>
+            <h3 id="modalCarName">🚗 تأجير السيارة</h3>
+            <div class="car-detail-type" id="modalCarType"><i class="fas fa-tag"></i> النوع</div>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:16px;" id="modalCarPrice">السعر: 0 ر.س / يوم</p>
+            <form id="carBookingForm">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required />
+                </div>
+                <div class="form-group">
+                    <label>رقم الجوال</label>
+                    <input type="tel" name="phone" placeholder="أدخل رقم جوالك" required />
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" />
+                </div>
+                <div class="form-group">
+                    <label>تاريخ الاستلام</label>
+                    <input type="date" name="pickupDate" required />
+                </div>
+                <div class="form-group">
+                    <label>تاريخ التسليم</label>
+                    <input type="date" name="returnDate" required />
+                </div>
+                <div class="form-group">
+                    <label>مكان الاستلام</label>
+                    <select name="pickupLocation" required>
+                        <option value="المطار">المطار</option>
+                        <option value="الرياض">الرياض</option>
+                        <option value="جدة">جدة</option>
+                        <option value="مكة">مكة</option>
+                        <option value="المدينة">المدينة</option>
+                        <option value="الدمام">الدمام</option>
+                        <option value="دبي">دبي</option>
+                        <option value="أبوظبي">أبوظبي</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>خيارات إضافية</label>
+                    <select name="extras">
+                        <option value="none">بدون إضافات</option>
+                        <option value="insurance">تأمين شامل (+50 ر.س/يوم)</option>
+                        <option value="gps">GPS (+20 ر.س/يوم)</option>
+                        <option value="child">مقعد طفل (+15 ر.س/يوم)</option>
+                        <option value="insurance-gps">تأمين + GPS (+70 ر.س/يوم)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>ملاحظات إضافية</label>
+                    <textarea name="notes" placeholder="أي تفاصيل إضافية..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit-car"><i class="fab fa-whatsapp"></i> تأكيد الحجز عبر واتساب</button>
+                <div class="form-status" id="carFormStatus"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20تأجير%20السيارات" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+        <span class="wa-label">تواصل واتساب</span>
+    </div>
+
+    <!-- ===== AI CHAT ===== -->
+    <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
+    <div class="ai-chat-box" id="aiChatBox">
+        <div class="ai-chat-header">
+            <div class="title">
+                <i class="fas fa-robot"></i>
+                <span>مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
+            </div>
+            <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+            <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل سيارة للإيجار حسب احتياجاتك!<span class="time">الآن</span></div>
+        </div>
+        <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="اسأل عن السيارات..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
+            <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- ===== SCROLL TOP ===== -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // ===== PARTICLES =====
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            const particles = [];
+            const COUNT = 60;
+
+            function resize() { w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight; }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.size = Math.random() * 2.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.4;
+                    this.speedY = (Math.random() - 0.5) * 0.4;
+                    this.opacity = Math.random() * 0.3 + 0.05;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > w) this.speedX *= -1;
+                    if (this.y < 0 || this.y > h) this.speedY *= -1;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+            for (let i = 0; i < COUNT; i++) particles.push(new Particle());
+
+            function drawLines() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 150) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(212, 175, 55, ${0.04 * (1 - dist / 150)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                particles.forEach(p => { p.update();
+                    p.draw(); });
+                drawLines();
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // ===== HAMBURGER =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // ===== SCROLL REVEAL =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal, .car-card').forEach(el => observer.observe(el));
+
+        // ===== SCROLL TOP =====
+        const scrollBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollBtn.classList.toggle('show', window.pageYOffset > 300);
+        });
+
+        // ===== CARS DATA (200+) =====
+        const carMakes = [
+            'تويوتا', 'هوندا', 'نيسان', 'مرسيدس', 'بي إم دبليو', 'أودي', 'فولكس واجن',
+            'فورد', 'شيفروليه', 'هيونداي', 'كيا', 'لكزس', 'إنفينيتي', 'جاكوار',
+            'لاند روفر', 'بورش', 'فيراري', 'لامبورغيني', 'مازدا', 'سوبارو', 'ميتسوبيشي'
+        ];
+        const carModels = [
+            'كامري', 'أكورد', 'ألتيما', 'E-Class', 'X5', 'A6', 'باسات',
+            'موستانج', 'تاهو', 'سوناتا', 'سبورتاج', 'ES', 'QX80', 'F-Pace',
+            'فيلار', 'كايين', '488', 'أوروس', 'CX-9', 'أوت باك', 'باجيرو'
+        ];
+        const carTypes = ['sedan', 'suv', 'luxury', 'sports', 'economy', 'van'];
+        const carTypeLabels = {
+            'sedan': 'سيدان',
+            'suv': 'SUV',
+            'luxury': 'فاخر',
+            'sports': 'رياضي',
+            'economy': 'اقتصادي',
+            'van': 'فان'
+        };
+        const carImages = [
+            'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop',
+            'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400&h=250&fit=crop',
+            'https://images.unsplash.com/photo-1556189250-72ba954cfc2b?w=400&h=250&fit=crop',
+            'https://images.unsplash.com/photo-1633951752296-258f42c71d0c?w=400&h=250&fit=crop',
+            'https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=400&h=250&fit=crop',
+            'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&h=250&fit=crop',
+            'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=250&fit=crop'
+        ];
+        const carSeatsOptions = [2, 4, 5, 5, 7, 8];
+        const carFuelOptions = ['petrol', 'petrol', 'diesel', 'hybrid', 'electric', 'petrol'];
+        const carFuelLabels = {
+            'petrol': '⛽ بنزين',
+            'diesel': '⛽ ديزل',
+            'hybrid': '⚡ هايبرد',
+            'electric': '🔌 كهربائي'
+        };
+        const carTransOptions = ['automatic', 'automatic', 'manual', 'automatic', 'automatic'];
+        const carTransLabels = {
+            'automatic': 'أوتوماتيك',
+            'manual': 'يدوي'
+        };
+        const carFeatures = [
+            ['مكيف', 'بلوتوث', 'USB'],
+            ['مكيف', 'بلوتوث', 'كاميرا خلفية'],
+            ['مكيف', 'شاشة', 'حساسات'],
+            ['مكيف', 'بلوتوث', 'USB', 'كاميرا خلفية'],
+            ['مكيف', 'شاشة', 'حساسات', 'سقف بانورامي'],
+            ['مكيف', 'بلوتوث', 'USB', 'حساسات', 'كاميرا']
+        ];
+
+        let allCars = [];
+        for (let i = 0; i < 220; i++) {
+            const make = carMakes[i % carMakes.length];
+            const model = carModels[i % carModels.length];
+            const type = carTypes[i % carTypes.length];
+            const basePrice = type === 'luxury' ? 500 + Math.random() * 800 :
+                type === 'sports' ? 400 + Math.random() * 600 :
+                type === 'suv' ? 250 + Math.random() * 400 :
+                type === 'van' ? 300 + Math.random() * 300 :
+                type === 'sedan' ? 150 + Math.random() * 250 :
+                80 + Math.random() * 120;
+            const price = Math.round(basePrice / 5) * 5;
+            const seats = carSeatsOptions[i % carSeatsOptions.length];
+            const fuel = carFuelOptions[i % carFuelOptions.length];
+            const transmission = carTransOptions[i % carTransOptions.length];
+            const features = carFeatures[i % carFeatures.length];
+            allCars.push({
+                name: `${make} ${model}`,
+                make: make,
+                model: model,
+                type: type,
+                price: price,
+                seats: seats,
+                fuel: fuel,
+                transmission: transmission,
+                features: features,
+                img: carImages[i % carImages.length]
+            });
+        }
+
+        // ===== POPULATE FILTERS =====
+        const makeSelect = document.getElementById('carMake');
+        const uniqueMakes = [...new Set(allCars.map(c => c.make))].sort();
+        uniqueMakes.forEach(make => {
+            const opt = document.createElement('option');
+            opt.value = make;
+            opt.textContent = make;
+            makeSelect.appendChild(opt);
+        });
+
+        // ===== STATE =====
+        let carDisplayCount = 12;
+        let filteredCars = [...allCars];
+
+        // ===== PRICE SLIDER =====
+        function updateCarPriceLabels() {
+            const min = parseInt(document.getElementById('carPriceMin').value);
+            const max = parseInt(document.getElementById('carPriceMax').value);
+            if (min > max) {
+                document.getElementById('carPriceMax').value = min;
+            }
+            document.getElementById('carPriceMinLabel').textContent = min + ' ر.س';
+            document.getElementById('carPriceMaxLabel').textContent = max + ' ر.س';
+        }
+
+        // ===== FILTER CARS =====
+        function filterCars() {
+            const search = document.getElementById('carSearch').value.toLowerCase().trim();
+            const make = document.getElementById('carMake').value;
+            const type = document.getElementById('carType').value;
+            const sort = document.getElementById('carSort').value;
+            const priceMin = parseInt(document.getElementById('carPriceMin').value);
+            const priceMax = parseInt(document.getElementById('carPriceMax').value);
+            const seats = document.getElementById('carSeats').value;
+            const fuel = document.getElementById('carFuel').value;
+            const transmission = document.getElementById('carTransmission').value;
+
+            filteredCars = allCars.filter(c => {
+                if (search && !c.name.toLowerCase().includes(search) && !c.make.toLowerCase().includes(
+                    search)) {
+                    return false;
+                }
+                if (make !== 'all' && c.make !== make) return false;
+                if (type !== 'all' && c.type !== type) return false;
+                if (c.price < priceMin || c.price > priceMax) return false;
+                if (seats !== 'all' && c.seats !== parseInt(seats)) return false;
+                if (fuel !== 'all' && c.fuel !== fuel) return false;
+                if (transmission !== 'all' && c.transmission !== transmission) return false;
+                return true;
+            });
+
+            if (sort === 'price') {
+                filteredCars.sort((a, b) => a.price - b.price);
+            } else if (sort === 'price-desc') {
+                filteredCars.sort((a, b) => b.price - a.price);
+            } else if (sort === 'name') {
+                filteredCars.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            carDisplayCount = 12;
+            renderCars();
+        }
+
+        // ===== RESET FILTERS =====
+        function resetCarFilters() {
+            document.getElementById('carSearch').value = '';
+            document.getElementById('carMake').value = 'all';
+            document.getElementById('carType').value = 'all';
+            document.getElementById('carSort').value = 'price';
+            document.getElementById('carPriceMin').value = 50;
+            document.getElementById('carPriceMax').value = 2000;
+            document.getElementById('carSeats').value = 'all';
+            document.getElementById('carFuel').value = 'all';
+            document.getElementById('carTransmission').value = 'all';
+            updateCarPriceLabels();
+            filterCars();
+        }
+
+        // ===== RENDER CARS =====
+        function renderCars() {
+            const grid = document.getElementById('carsGrid');
+            const toShow = filteredCars.slice(0, carDisplayCount);
+            grid.innerHTML = '';
+
+            if (toShow.length === 0) {
+                grid.innerHTML =
+                    `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:1.2rem;">
+                        <i class="fas fa-car" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
+                        لا توجد سيارات مطابقة لبحثك
+                    </div>`;
+                document.getElementById('loadMoreCars').style.display = 'none';
+                return;
+            }
+
+            toShow.forEach((c, i) => {
+                const card = document.createElement('div');
+                card.className = 'car-card reveal';
+                card.style.transitionDelay = `${i * 0.03}s`;
+                const typeLabel = carTypeLabels[c.type] || c.type;
+                const fuelLabel = carFuelLabels[c.fuel] || c.fuel;
+                const transLabel = carTransLabels[c.transmission] || c.transmission;
+
+                card.innerHTML = `
+                    <div class="img" style="background-image:url('${c.img}');">
+                        <span class="car-badge">${typeLabel}</span>
+                        <span class="car-price-badge">${c.price} ر.س <small style="font-size:0.6rem;font-weight:400;">/ يوم</small></span>
+                    </div>
+                    <div class="body">
+                        <h4>${c.name}</h4>
+                        <div class="car-type"><i class="fas fa-tag"></i> ${typeLabel}</div>
+                        <div style="display:flex;gap:12px;font-size:0.8rem;color:var(--text-muted);margin:4px 0;">
+                            <span><i class="fas fa-users"></i> ${c.seats} مقاعد</span>
+                            <span>${fuelLabel}</span>
+                            <span><i class="fas fa-exchange-alt"></i> ${transLabel}</span>
+                        </div>
+                        <p class="car-desc">سيارة ${typeLabel} من ${c.make} مثالية للرحلات اليومية والمغامرات.</p>
+                        <div class="car-features">
+                            ${c.features.map(f => `<span><i class="fas fa-check"></i> ${f}</span>`).join('')}
+                        </div>
+                        <button class="btn-sm" onclick="openCarBooking('${c.name.replace(/'/g, "\\'")}', '${typeLabel}', ${c.price})">
+                            <i class="fas fa-key"></i> استأجر الآن
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            document.querySelectorAll('.car-card.reveal').forEach(el => observer.observe(el));
+
+            const loadBtn = document.getElementById('loadMoreCars');
+            if (carDisplayCount >= filteredCars.length) {
+                loadBtn.style.display = 'none';
+            } else {
+                loadBtn.style.display = 'block';
+            }
+        }
+
+        // ===== LOAD MORE =====
+        document.getElementById('loadMoreCars').addEventListener('click', function() {
+            carDisplayCount += 12;
+            renderCars();
+        });
+
+        // ===== INITIAL RENDER =====
+        renderCars();
+
+        // ===== CAR BOOKING MODAL =====
+        let currentCar = { name: '', type: '', price: 0 };
+
+        function openCarBooking(name, type, price) {
+            currentCar = { name, type, price };
+            document.getElementById('modalCarName').textContent = `🚗 ${name}`;
+            document.getElementById('modalCarType').innerHTML = `<i class="fas fa-tag"></i> ${type}`;
+            document.getElementById('modalCarPrice').textContent = `السعر: ${price} ر.س / يوم`;
+            document.getElementById('carModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('carFormStatus').textContent = '';
+            // Set default dates
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const weekLater = new Date(today);
+            weekLater.setDate(weekLater.getDate() + 7);
+            const pickup = document.querySelector('input[name="pickupDate"]');
+            const ret = document.querySelector('input[name="returnDate"]');
+            if (pickup) pickup.value = today.toISOString().split('T')[0];
+            if (ret) ret.value = weekLater.toISOString().split('T')[0];
+        }
+
+        function closeCarModal() {
+            document.getElementById('carModal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+        document.getElementById('carModal').addEventListener('click', function(e) {
+            if (e.target === this) closeCarModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCarModal();
+        });
+
+        // ===== CAR BOOKING FORM =====
+        document.getElementById('carBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const car = currentCar;
+            let msg =
+                `🚗 طلب تأجير سيارة\n\nالسيارة: ${car.name}\nالنوع: ${car.type}\nالسعر: ${car.price} ر.س/يوم\n\n`;
+            for (const [key, value] of formData.entries()) {
+                if (value && value.trim()) {
+                    const label = key === 'fullname' ? 'الاسم' :
+                        key === 'phone' ? 'الجوال' :
+                        key === 'email' ? 'البريد' :
+                        key === 'pickupDate' ? 'تاريخ الاستلام' :
+                        key === 'returnDate' ? 'تاريخ التسليم' :
+                        key === 'pickupLocation' ? 'مكان الاستلام' :
+                        key === 'extras' ? 'خيارات إضافية' :
+                        key === 'notes' ? 'ملاحظات' : key;
+                    const displayValue = key === 'extras' && value !== 'none' ?
+                        value.replace(/-/g, ' ').replace(/\+\d+/g, '') : value;
+                    msg += `${label}: ${displayValue}\n`;
+                }
+            }
+            const status = document.getElementById('carFormStatus');
+            status.textContent = '✅ جاري التحويل إلى واتساب ...';
+            status.style.color = '#4ade80';
+            setTimeout(() => {
+                window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
+                status.textContent = '✅ تم إرسال طلب التأجير بنجاح!';
+                setTimeout(() => { closeCarModal(); }, 1500);
+            }, 700);
+        });
+
+        // ===== AI CHAT =====
+        const chatBox = document.getElementById('aiChatBox');
+        const chatMessages = document.getElementById('aiChatMessages');
+        const chatInput = document.getElementById('aiChatInput');
+        const typingIndicator = document.getElementById('aiTyping');
+
+        const aiKnowledge = {
+            'مرحبا': '👋 أهلاً بك في <strong>صعود الطائرة</strong>! لدينا أكثر من 200 سيارة للإيجار. أخبرني نوع السيارة التي تبحث عنها.',
+            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني مساعدتك في تأجير سيارة؟',
+            'سيارة': '🚗 لدينا سيارات سيدان، SUV، فاخرة، رياضية، اقتصادية، وفانات. الأسعار تبدأ من ٨٠ ريال/يوم.',
+            'سيارات': '🚗 جميع أنواع السيارات متوفرة: تويوتا، هوندا، مرسيدس، بي إم دبليو، وأكثر. أخبرني احتياجاتك.',
+            'سعر': '💰 الأسعار: اقتصادي من ٨٠ ريال، سيدان من ١٥٠ ريال، SUV من ٢٥٠ ريال، فاخر من ٥٠٠ ريال، رياضي من ٤٠٠ ريال.',
+            'SUV': '🚙 لدينا SUV مثل بي إم دبليو X5، لاند روفر فيلار، تويوتا فورتشنر بأسعار تنافسية.',
+            'فاخر': '💎 سيارات فاخرة: مرسيدس E-Class، لكزس ES، بي إم دبليو 7-series بأسعار تبدأ من ٥٠٠ ريال.',
+            'اقتصادي': '💰 سيارات اقتصادية: تويوتا يارس، هوندا سيفيك، نيسان صني بأسعار تبدأ من ٨٠ ريال.',
+            'رياضي': '🏎️ سيارات رياضية: فورد موستانج، بورش كايين، فيراري بأسعار مميزة.',
+            'تأمين': '🛡️ جميع السيارات مشمولة بتأمين شامل ضد الغير. يمكنك إضافة تأمين شامل كامل مقابل ٥٠ ريال/يوم.',
+            'خصم': '💸 عروض تأجير السيارات: خصم 15% على الإيجار لمدة أسبوع أو أكثر!',
+            'عرض': '🔥 عروض السيارات: خصم 15% على الإيجار الأسبوعي، وتأمين شامل مجاني للسيارات الفاخرة!',
+            'شكرا': '🙏 العفو! سعداء بمساعدتك.',
+            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong>! We have over 200 cars for rent. Tell me what type of car you\'re looking for.',
+            'car': '🚗 We have sedans, SUVs, luxury, sports, economy, and vans. Prices start from 80 SAR/day.',
+            'price': '💰 Prices: Economy from 80 SAR, Sedan from 150 SAR, SUV from 250 SAR, Luxury from 500 SAR, Sports from 400 SAR.',
+            'suv': '🚙 We have SUVs like BMW X5, Land Rover Velar, Toyota Fortuner at competitive prices.',
+            'luxury': '💎 Luxury cars: Mercedes E-Class, Lexus ES, BMW 7-series starting from 500 SAR.',
+            'economy': '💰 Economy cars: Toyota Yaris, Honda Civic, Nissan Sunny starting from 80 SAR.',
+            'sports': '🏎️ Sports cars: Ford Mustang, Porsche Cayenne, Ferrari at great prices.',
+            'insurance': '🛡️ All cars come with third-party insurance. You can add comprehensive insurance for 50 SAR/day.',
+            'discount': '💸 Car rental offers: 15% off for weekly rentals or more!',
+            'offer': '🔥 Car offers: 15% off weekly rentals, and free comprehensive insurance for luxury cars!',
+            'thanks': '🙏 You\'re welcome! Happy to help.'
+        };
+
+        function getAIResponse(text) {
+            const lower = text.toLowerCase().trim();
+            for (const [key, response] of Object.entries(aiKnowledge)) {
+                if (lower.includes(key)) return response;
+            }
+            // Check for car make mentions
+            const makes = ['تويوتا', 'هوندا', 'نيسان', 'مرسيدس', 'بي إم دبليو', 'أودي', 'فورد', 'شيفروليه', 'هيونداي', 'كيا', 'لكزس',
+                'جاكوار', 'لاند روفر', 'بورش', 'فيراري', 'مازدا'
+            ];
+            for (const make of makes) {
+                if (lower.includes(make)) {
+                    return `🚗 لدينا سيارات ${make} بأسعار تنافسية. هل ترغب في معرفة الموديلات المتوفرة؟`;
+                }
+            }
+            const hasArabic = /[\u0600-\u06FF]/.test(text);
+            if (hasArabic) {
+                return '🤖 شكراً لسؤالك عن تأجير السيارات! لدينا أكثر من 200 سيارة بجميع الفئات. أخبرني نوع السيارة التي تبحث عنها وسأجد لك أفضل العروض.';
+            } else {
+                return '🤖 Thank you for asking about car rentals! We have over 200 cars in all categories. Tell me what type of car you\'re looking for and I\'ll find the best deals.';
+            }
+        }
+
+        window.toggleAIChat = function() {
+            chatBox.classList.toggle('open');
+            if (chatBox.classList.contains('open')) {
+                chatInput.focus();
+                if (chatMessages.children.length === 1) {
+                    const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
+                    const welcome = lang === 'en' ?
+                        '👋 Hello! I\'m the <strong>Saeed Al-Taayira</strong> AI assistant. I can help you find the best car rentals based on your needs!' :
+                        '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل سيارة للإيجار حسب احتياجاتك!';
+                    chatMessages.innerHTML = `<div class="msg bot">${welcome}<span class="time">الآن</span></div>`;
+                }
+            }
+        };
+
+        function addMessage(type, text) {
+            const msg = document.createElement('div');
+            msg.className = `msg ${type}`;
+            const time = new Date().toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' });
+            msg.innerHTML = `${text}<span class="time">${time}</span>`;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        window.sendAIMessage = function() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            addMessage('user', text);
+            chatInput.value = '';
+            typingIndicator.classList.add('show');
+            setTimeout(() => {
+                typingIndicator.classList.remove('show');
+                addMessage('bot', getAIResponse(text));
+            }, 500 + Math.random() * 800);
+        };
+
+        // ===== LANGUAGE TOGGLE =====
+        const langToggle = document.getElementById('langToggle');
+        let currentLang = 'ar';
+
+        const translations = {
+            ar: {
+                logo: '<strong>صعود الطائرة</strong>',
+                logoSub: 'للسفر والسياحة',
+                navHome: 'الرئيسية',
+                navServices: 'خدماتنا',
+                navOffers: 'عروض',
+                navHotels: 'فنادق',
+                navPackages: 'باقات',
+                navRailway: 'قطارات',
+                navCars: 'سيارات',
+                navAbout: 'من نحن',
+                navContact: 'اتصل بنا',
+                navCta: '📞 احجز الآن',
+                sectionTitle: 'تأجير',
+                sectionHighlight: 'السيارات',
+                sectionDesc: 'أكثر من 200 سيارة للإيجار – فاخرة، اقتصادية، SUV، ورياضية بأفضل الأسعار مع تأمين شامل',
+                searchPlaceholder: 'ابحث عن سيارة...',
+                allMakes: 'جميع الماركات',
+                allTypes: 'جميع الأنواع',
+                typeSedan: 'سيدان',
+                typeSUV: 'SUV',
+                typeLuxury: 'فاخر',
+                typeSports: 'رياضي',
+                typeEconomy: 'اقتصادي',
+                typeVan: 'فان',
+                sortPrice: 'السعر (الأقل أولاً)',
+                sortPriceDesc: 'السعر (الأعلى أولاً)',
+                sortName: 'الاسم',
+                priceRange: 'نطاق السعر',
+                reset: 'إعادة تعيين',
+                seatsAll: 'جميع',
+                seats2: '2 مقاعد',
+                seats4: '4 مقاعد',
+                seats5: '5 مقاعد',
+                seats7: '7 مقاعد',
+                seats8: '8+ مقاعد',
+                fuelAll: 'جميع',
+                fuelPetrol: 'بنزين',
+                fuelDiesel: 'ديزل',
+                fuelHybrid: 'هايبرد',
+                fuelElectric: 'كهربائي',
+                transAll: 'جميع',
+                transAuto: 'أوتوماتيك',
+                transManual: 'يدوي',
+                loadMore: 'عرض المزيد من السيارات',
+                noCars: 'لا توجد سيارات مطابقة لبحثك',
+                bookNow: 'استأجر الآن',
+                aiTitle: 'مساعد صعود الطائرة AI',
+                aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. يمكنني مساعدتك في العثور على أفضل سيارة للإيجار حسب احتياجاتك!',
+                aiPlaceholder: 'اسأل عن السيارات...',
+                waLabel: 'تواصل واتساب',
+                footerBrand: 'صعود الطائرة',
+                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinks: 'روابط سريعة',
+                footerServices: 'خدماتنا',
+                footerInfo: 'معلومات',
+                footerRights: 'جميع الحقوق محفوظة',
+                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية',
+                confirmBooking: 'تأكيد الحجز عبر واتساب'
+            },
+            en: {
+                logo: '<strong>Saeed Al-Taayira</strong>',
+                logoSub: 'Travel & Tourism',
+                navHome: 'Home',
+                navServices: 'Services',
+                navOffers: 'Offers',
+                navHotels: 'Hotels',
+                navPackages: 'Packages',
+                navRailway: 'Railway',
+                navCars: 'Cars',
+                navAbout: 'About',
+                navContact: 'Contact',
+                navCta: '📞 Book Now',
+                sectionTitle: 'Car',
+                sectionHighlight: 'Rental',
+                sectionDesc: 'Over 200 cars for rent – luxury, economy, SUV, and sports at the best prices with comprehensive insurance',
+                searchPlaceholder: 'Search for car...',
+                allMakes: 'All Makes',
+                allTypes: 'All Types',
+                typeSedan: 'Sedan',
+                typeSUV: 'SUV',
+                typeLuxury: 'Luxury',
+                typeSports: 'Sports',
+                typeEconomy: 'Economy',
+                typeVan: 'Van',
+                sortPrice: 'Price (Lowest first)',
+                sortPriceDesc: 'Price (Highest first)',
+                sortName: 'Name',
+                priceRange: 'Price Range',
+                reset: 'Reset',
+                seatsAll: 'All',
+                seats2: '2 Seats',
+                seats4: '4 Seats',
+                seats5: '5 Seats',
+                seats7: '7 Seats',
+                seats8: '8+ Seats',
+                fuelAll: 'All',
+                fuelPetrol: 'Petrol',
+                fuelDiesel: 'Diesel',
+                fuelHybrid: 'Hybrid',
+                fuelElectric: 'Electric',
+                transAll: 'All',
+                transAuto: 'Automatic',
+                transManual: 'Manual',
+                loadMore: 'Show More Cars',
+                noCars: 'No cars match your search',
+                bookNow: 'Rent Now',
+                aiTitle: 'Saeed Al-Taayira AI Assistant',
+                aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. I can help you find the best car rentals based on your needs!',
+                aiPlaceholder: 'Ask about cars...',
+                waLabel: 'WhatsApp',
+                footerBrand: 'Saeed Al-Taayira',
+                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinks: 'Quick Links',
+                footerServices: 'Services',
+                footerInfo: 'Info',
+                footerRights: 'All Rights Reserved',
+                footerCredit: 'Designed & Developed ✧ with Vision',
+                confirmBooking: 'Confirm Booking via WhatsApp'
+            }
+        };
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
+
+            const map = {
+                'logoText': 'logo',
+                'logoSlogan': 'logoSub',
+                'navHome': 'navHome',
+                'navServices': 'navServices',
+                'navOffers': 'navOffers',
+                'navHotels': 'navHotels',
+                'navPackages': 'navPackages',
+                'navRailway': 'navRailway',
+                'navCars': 'navCars',
+                'navAbout': 'navAbout',
+                'navContact': 'navContact',
+                'navCta': 'navCta',
+                'sectionTitle': 'sectionTitle',
+                'sectionHighlight': 'sectionHighlight',
+                'sectionDesc': 'sectionDesc',
+                'searchPlaceholder': 'searchPlaceholder',
+                'allMakes': 'allMakes',
+                'allTypes': 'allTypes',
+                'typeSedan': 'typeSedan',
+                'typeSUV': 'typeSUV',
+                'typeLuxury': 'typeLuxury',
+                'typeSports': 'typeSports',
+                'typeEconomy': 'typeEconomy',
+                'typeVan': 'typeVan',
+                'sortPrice': 'sortPrice',
+                'sortPriceDesc': 'sortPriceDesc',
+                'sortName': 'sortName',
+                'priceRange': 'priceRange',
+                'reset': 'reset',
+                'seatsAll': 'seatsAll',
+                'seats2': 'seats2',
+                'seats4': 'seats4',
+                'seats5': 'seats5',
+                'seats7': 'seats7',
+                'seats8': 'seats8',
+                'fuelAll': 'fuelAll',
+                'fuelPetrol': 'fuelPetrol',
+                'fuelDiesel': 'fuelDiesel',
+                'fuelHybrid': 'fuelHybrid',
+                'fuelElectric': 'fuelElectric',
+                'transAll': 'transAll',
+                'transAuto': 'transAuto',
+                'transManual': 'transManual',
+                'loadMore': 'loadMore',
+                'noCars': 'noCars',
+                'bookNow': 'bookNow',
+                'aiTitle': 'aiTitle',
+                'aiWelcome': 'aiWelcome',
+                'aiPlaceholder': 'aiPlaceholder',
+                'waLabel': 'waLabel',
+                'footerBrand': 'footerBrand',
+                'footerDesc': 'footerDesc',
+                'footerLinks': 'footerLinks',
+                'footerServices': 'footerServices',
+                'footerInfo': 'footerInfo',
+                'footerRights': 'footerRights',
+                'footerCredit': 'footerCredit',
+                'confirmBooking': 'confirmBooking'
+            };
+
+            for (const [id, key] of Object.entries(map)) {
+                const el = document.getElementById(id);
+                if (el && translations[lang] && translations[lang][key] !== undefined) {
+                    if (id === 'logoText' || id === 'footerBrand') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            }
+
+            // Update search placeholder
+            const searchInput = document.getElementById('carSearch');
+            if (searchInput) {
+                searchInput.placeholder = translations[lang]['searchPlaceholder'];
+            }
+
+            // Update select options
+            const makeSel = document.getElementById('carMake');
+            if (makeSel) {
+                const firstOpt = makeSel.options[0];
+                if (firstOpt) firstOpt.textContent = translations[lang]['allMakes'];
+            }
+            const typeSel = document.getElementById('carType');
+            if (typeSel) {
+                const opts = typeSel.options;
+                if (opts[0]) opts[0].textContent = translations[lang]['allTypes'];
+                if (opts[1]) opts[1].textContent = translations[lang]['typeSedan'];
+                if (opts[2]) opts[2].textContent = translations[lang]['typeSUV'];
+                if (opts[3]) opts[3].textContent = translations[lang]['typeLuxury'];
+                if (opts[4]) opts[4].textContent = translations[lang]['typeSports'];
+                if (opts[5]) opts[5].textContent = translations[lang]['typeEconomy'];
+                if (opts[6]) opts[6].textContent = translations[lang]['typeVan'];
+            }
+            const sortSel = document.getElementById('carSort');
+            if (sortSel) {
+                const opts = sortSel.options;
+                if (opts[0]) opts[0].textContent = translations[lang]['sortPrice'];
+                if (opts[1]) opts[1].textContent = translations[lang]['sortPriceDesc'];
+                if (opts[2]) opts[2].textContent = translations[lang]['sortName'];
+            }
+            const seatsSel = document.getElementById('carSeats');
+            if (seatsSel) {
+                const opts = seatsSel.options;
+                if (opts[0]) opts[0].textContent = translations[lang]['seatsAll'];
+                if (opts[1]) opts[1].textContent = translations[lang]['seats2'];
+                if (opts[2]) opts[2].textContent = translations[lang]['seats4'];
+                if (opts[3]) opts[3].textContent = translations[lang]['seats5'];
+                if (opts[4]) opts[4].textContent = translations[lang]['seats7'];
+                if (opts[5]) opts[5].textContent = translations[lang]['seats8'];
+            }
+            const fuelSel = document.getElementById('carFuel');
+            if (fuelSel) {
+                const opts = fuelSel.options;
+                if (opts[0]) opts[0].textContent = translations[lang]['fuelAll'];
+                if (opts[1]) opts[1].textContent = translations[lang]['fuelPetrol'];
+                if (opts[2]) opts[2].textContent = translations[lang]['fuelDiesel'];
+                if (opts[3]) opts[3].textContent = translations[lang]['fuelHybrid'];
+                if (opts[4]) opts[4].textContent = translations[lang]['fuelElectric'];
+            }
+            const transSel = document.getElementById('carTransmission');
+            if (transSel) {
+                const opts = transSel.options;
+                if (opts[0]) opts[0].textContent = translations[lang]['transAll'];
+                if (opts[1]) opts[1].textContent = translations[lang]['transAuto'];
+                if (opts[2]) opts[2].textContent = translations[lang]['transManual'];
+            }
+
+            // Update load more button
+            const loadBtn = document.getElementById('loadMoreCars');
+            if (loadBtn) {
+                loadBtn.textContent = translations[lang]['loadMore'];
+            }
+
+            // Update reset button
+            const resetBtn = document.querySelector('.filters-section button');
+            if (resetBtn) {
+                resetBtn.innerHTML = `<i class="fas fa-undo"></i> ${translations[lang]['reset']}`;
+            }
+
+            // Update price range label
+            const priceLabels = document.querySelectorAll('.filters-row .filter-group label');
+            priceLabels.forEach(label => {
+                const text = label.textContent;
+                if (text.includes('نطاق السعر') || text.includes('Price Range')) {
+                    label.textContent = translations[lang]['priceRange'];
+                } else if (text.includes('بحث') || text.includes('Search')) {
+                    label.innerHTML = `<i class="fas fa-search"></i> ${translations[lang]['searchPlaceholder']}`;
+                } else if (text.includes('الماركة') || text.includes('Make')) {
+                    label.innerHTML = `<i class="fas fa-car"></i> ${translations[lang]['allMakes']}`;
+                } else if (text.includes('النوع') || text.includes('Type')) {
+                    label.innerHTML = `<i class="fas fa-tag"></i> ${translations[lang]['allTypes']}`;
+                } else if (text.includes('ترتيب') || text.includes('Sort')) {
+                    label.innerHTML = `<i class="fas fa-sort"></i> ${translations[lang]['sortPrice']}`;
+                } else if (text.includes('المقاعد') || text.includes('Seats')) {
+                    label.innerHTML = `<i class="fas fa-users"></i> ${translations[lang]['seatsAll']}`;
+                } else if (text.includes('الوقود') || text.includes('Fuel')) {
+                    label.innerHTML = `<i class="fas fa-gas-pump"></i> ${translations[lang]['fuelAll']}`;
+                } else if (text.includes('ناقل الحركة') || text.includes('Transmission')) {
+                    label.innerHTML = `<i class="fas fa-exchange-alt"></i> ${translations[lang]['transAll']}`;
+                }
+            });
+
+            // Update AI chat
+            const aiTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiTitle) {
+                const status = aiTitle.querySelector('.ai-status');
+                aiTitle.innerHTML = translations[lang]['aiTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` :
+                    '');
+            }
+            const welcomeMsg = chatMessages.querySelector('.msg.bot');
+            if (welcomeMsg) {
+                welcomeMsg.innerHTML = translations[lang]['aiWelcome'] + '<span class="time">الآن</span>';
+            }
+            const placeholder = document.getElementById('aiChatInput');
+            if (placeholder) {
+                placeholder.placeholder = translations[lang]['aiPlaceholder'];
+            }
+
+            // Update section title
+            const titleEl = document.querySelector('.section-title h2');
+            if (titleEl) {
+                const highlight = titleEl.querySelector('.highlight');
+                if (highlight) {
+                    const h1 = document.createElement('span');
+                    h1.textContent = translations[lang]['sectionTitle'];
+                    titleEl.innerHTML = '';
+                    titleEl.appendChild(h1);
+                    const h2 = document.createElement('span');
+                    h2.className = 'highlight';
+                    h2.textContent = translations[lang]['sectionHighlight'];
+                    titleEl.appendChild(document.createTextNode(' '));
+                    titleEl.appendChild(h2);
+                }
+            }
+            const descEl = document.querySelector('.section-title p');
+            if (descEl) {
+                descEl.textContent = translations[lang]['sectionDesc'];
+            }
+
+            // Update modal button
+            const modalBtn = document.querySelector('.car-modal .btn-submit-car');
+            if (modalBtn) {
+                const icon = modalBtn.querySelector('i');
+                modalBtn.innerHTML = '';
+                if (icon) modalBtn.appendChild(icon.cloneNode(true));
+                modalBtn.appendChild(document.createTextNode(' ' + translations[lang]['confirmBooking']));
+            }
+
+            // Update book now buttons on existing cards
+            document.querySelectorAll('.car-card .btn-sm').forEach(btn => {
+                const icon = btn.querySelector('i');
+                btn.innerHTML = '';
+                if (icon) btn.appendChild(icon.cloneNode(true));
+                btn.appendChild(document.createTextNode(' ' + translations[lang]['bookNow']));
+            });
+
+            // Update no cars message
+            const noMsg = document.querySelector('.cars-grid > div[style*="grid-column:1/-1"]');
+            if (noMsg) {
+                noMsg.innerHTML = `
+                    <i class="fas fa-car" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
+                    ${translations[lang]['noCars']}
+                `;
+            }
+
+            localStorage.setItem('lang', lang);
+        }
+
+        langToggle.addEventListener('click', () => {
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguage(newLang);
+            renderCars();
+        });
+
+        const savedLang = localStorage.getItem('lang') || 'ar';
+        applyLanguage(savedLang);
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+                        behavior: 'smooth' });
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                }
+            });
+        });
+
+        // ===== KEYBOARD SHORTCUTS =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (chatBox.classList.contains('open')) chatBox.classList.remove('open');
+                if (document.getElementById('carModal').classList.contains('open')) closeCarModal();
+            }
+        });
+
+        // ===== DYNAMIC FOOTER YEAR =====
+        document.querySelector('.footer-bottom').innerHTML =
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية`;
+
+        console.log('%c🚗 صعود الطائرة – تأجير السيارات', 'font-size:20px;font-weight:bold;color:#d4af37;');
+        console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
+        console.log('%c🚗 220 سيارة – فلتر متقدم – AI Chatbot – نظام حجز', 'font-size:13px;color:#888;');
+    </script>
 </body>
 </html>

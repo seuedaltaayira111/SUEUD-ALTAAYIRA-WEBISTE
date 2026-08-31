@@ -4,8 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>خدماتنا – صعود الطائرة</title>
-    <meta name="description" content="جميع خدمات السفر في وكالة صعود الطائرة – تذاكر، عمرة، تأشيرات، فنادق، سيارات، قطارات، باصات، نقل مطار، تأمين." />
-    <link rel="canonical" href="https://sueudaltaayira.com/services.html" />
+    <meta name="description" content="جميع خدمات السفر في وكالة صعود الطائرة – تذاكر، عمرة، تأشيرات، فنادق، سيارات، قطارات، باصات، نقل مطار، تأمين، رحلات جماعية، بحرية، رجال أعمال." />
+    <link rel="canonical" href="https://sueud-altayira-website.vercel.app/services.html" />
+    <meta name="google-site-verification" content="NUXJFyGqpEREN03eh19P0DeJ5hVYHo8qtaXTvsfuAI4" />
+    <meta property="og:title" content="خدماتنا – صعود الطائرة" />
+    <meta property="og:description" content="جميع خدمات السفر في مكان واحد – احجز الآن بأفضل الأسعار." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sueud-altayira-website.vercel.app/services.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "صعود الطائرة للسفر والسياحة",
+      "url": "https://sueud-altayira-website.vercel.app",
+      "telephone": "+966555382038",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "طريق ملك عبدالعزيز",
+        "addressLocality": "عرعر",
+        "addressCountry": "SA"
+      }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -254,9 +274,51 @@
             }
         }
 
+        /* ===== HERO ===== */
+        .services-hero {
+            padding: 150px 24px 60px;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary-dark);
+            text-align: center;
+        }
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.06), transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(108, 60, 224, 0.04), transparent 60%);
+            z-index: 0;
+        }
+        .services-hero .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+        .services-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .services-hero h1 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .services-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
         /* ===== SECTION ===== */
         .section {
-            padding: 130px 24px 80px;
+            padding: 60px 24px 80px;
             position: relative;
             z-index: 1;
         }
@@ -294,6 +356,58 @@
             background: var(--gold-gradient);
             border-radius: 4px;
             margin: 14px auto 0;
+        }
+
+        /* ===== FILTERS ===== */
+        .filters-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 40px;
+        }
+        .filters-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+        .filters-row .filter-group {
+            flex: 1;
+            min-width: 160px;
+        }
+        .filters-row .filter-group label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .filters-row .filter-group input,
+        .filters-row .filter-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .filters-row .filter-group input:focus,
+        .filters-row .filter-group select:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .filters-row .filter-group select option {
+            background: #0a1a2e;
+            color: #fff;
+        }
+        .filters-row .filter-group input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
         }
 
         /* ===== SERVICES GRID ===== */
@@ -367,13 +481,23 @@
             font-size: 0.65rem;
             border: 1px solid rgba(212, 175, 55, 0.06);
         }
+        .service-card .click-hint {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            opacity: 0.4;
+            transition: 0.3s;
+        }
+        .service-card:hover .click-hint {
+            opacity: 1;
+        }
 
         /* ===== SERVICE MODAL ===== */
         .service-modal {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(14px);
             z-index: 9999;
             display: none;
             align-items: center;
@@ -508,7 +632,6 @@
         .service-modal .modal-body .form-group select option {
             background: #0a1a2e;
             color: #fff;
-            padding: 8px;
         }
         .service-modal .modal-body .form-group textarea {
             height: 80px;
@@ -894,6 +1017,7 @@
             display: flex;
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .services-grid {
                 grid-template-columns: 1fr 1fr;
@@ -906,6 +1030,10 @@
             }
             .service-modal .modal-body .service-details {
                 grid-template-columns: 1fr;
+            }
+            .filters-row .filter-group {
+                min-width: 120px;
+                flex: 1 1 45%;
             }
             .ai-chat-box {
                 width: calc(100vw - 32px);
@@ -920,13 +1048,32 @@
                 height: 50px;
                 font-size: 1.4rem;
             }
+            .services-hero {
+                padding: 120px 16px 40px;
+            }
+            .footer .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer .brand .socials {
+                justify-content: center;
+            }
         }
         @media (max-width: 480px) {
             .services-grid {
                 grid-template-columns: 1fr;
             }
+            .filters-row {
+                flex-direction: column;
+            }
+            .filters-row .filter-group {
+                min-width: 100%;
+            }
             .section {
-                padding: 56px 16px;
+                padding: 40px 16px 60px;
+            }
+            .services-hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -963,15 +1110,52 @@
         </div>
     </header>
 
-    <!-- ===== SERVICES ===== -->
+    <!-- ===== HERO ===== -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>خدماتنا <span class="highlight">المتكاملة</span></h1>
+            <p>نقدم لك أكثر من 20 خدمة سياحية متكاملة – اختر الخدمة التي تحتاجها واحصل على عرض مخصص مع نموذج حجز خاص</p>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
     <section class="section">
         <div class="container">
-            <div class="section-title reveal">
-                <h2>خدماتنا <span class="highlight">المتكاملة</span></h2>
-                <p>اختر الخدمة التي تحتاجها، واحصل على عرض مخصص – كل خدمة لها نموذج حجز خاص بها مع جميع الخيارات</p>
-                <div class="section-divider"></div>
+            <!-- ===== FILTERS ===== -->
+            <div class="filters-section reveal">
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label><i class="fas fa-search"></i> <span id="searchLabel">بحث</span></label>
+                        <input type="text" id="serviceSearch" placeholder="ابحث عن خدمة..." onkeyup="filterServices()" />
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-tag"></i> <span id="categoryLabel">التصنيف</span></label>
+                        <select id="serviceCategory" onchange="filterServices()">
+                            <option value="all" id="catAll">جميع الخدمات</option>
+                            <option value="travel" id="catTravel">سفر وطيران</option>
+                            <option value="umrah" id="catUmrah">عمرة ودينية</option>
+                            <option value="accommodation" id="catAccommodation">إقامة وفنادق</option>
+                            <option value="transport" id="catTransport">مواصلات</option>
+                            <option value="insurance" id="catInsurance">تأمين</option>
+                            <option value="groups" id="catGroups">مجموعات</option>
+                            <option value="business" id="catBusiness">أعمال</option>
+                        </select>
+                    </div>
+                    <div class="filter-group" style="flex:0.5;display:flex;align-items:flex-end;">
+                        <button onclick="resetServiceFilters()" style="padding:10px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
+                            <i class="fas fa-undo"></i> <span id="resetBtn">إعادة تعيين</span>
+                        </button>
+                    </div>
+                </div>
             </div>
+
+            <!-- ===== SERVICES GRID ===== -->
             <div class="services-grid" id="servicesGrid"></div>
+
+            <!-- ===== LOAD MORE ===== -->
+            <button class="load-more-btn" id="loadMoreServices" style="display:block;margin:30px auto 0;padding:12px 40px;border-radius:60px;background:var(--gold-gradient);color:var(--primary-dark);font-weight:700;border:none;cursor:pointer;font-size:1rem;transition:0.3s;font-family:inherit;">
+                <span id="loadMoreText">عرض المزيد من الخدمات</span>
+            </button>
         </div>
     </section>
 
@@ -1000,11 +1184,11 @@
             <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-chat-messages" id="aiChatMessages">
-            <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.<span class="time">الآن</span></div>
+            <div class="msg bot">👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في اختيار الخدمة المناسبة والإجابة عن استفساراتك.<span class="time">الآن</span></div>
         </div>
         <div class="ai-chat-typing" id="aiTyping">🤖 جاري التفكير...</div>
         <div class="ai-chat-input">
-            <input type="text" id="aiChatInput" placeholder="اكتب سؤالك بأي لغة..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
+            <input type="text" id="aiChatInput" placeholder="اسأل عن الخدمات..." onkeypress="if(event.key==='Enter') sendAIMessage()" />
             <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
@@ -1012,6 +1196,9 @@
     <!-- ===== SCROLL TOP ===== -->
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
     <script>
         // ===== PARTICLES =====
         (function() {
@@ -1108,78 +1295,171 @@
             scrollBtn.classList.toggle('show', window.pageYOffset > 300);
         });
 
-        // ===== SERVICES DATA (13 خدمة) =====
+        // ===== SERVICES DATA =====
         const servicesData = [
-            { id: 'flights', icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية',
+            // Travel & Flights
+            { id: 'flights', icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية', category: 'travel',
                 img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
                 details: ['أكثر من 500 شركة طيران', 'أسعار مخفضة تصل إلى 40%', 'حجز سريع وآمن', 'إلغاء وتعديل مجاني'],
                 questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين', 'درجة السفر'] },
-            { id: 'umrah', icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة',
+            { id: 'umrah', icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة', category: 'umrah',
                 img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
                 details: ['تأشيرة عمرة', 'سكن قريب من الحرم', 'مواصلات داخلية', 'وجبات فاخرة', 'مرشد سياحي'],
                 questions: ['عدد الأشخاص', 'مدة الإقامة', 'نوع السكن', 'هل تريد مرشد سياحي؟'] },
-            { id: 'visa', icon: '🛂', name: 'التأشيرات', desc: 'تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول',
+            { id: 'visa', icon: '🛂', name: 'التأشيرات', desc: 'تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول', category: 'travel',
                 img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop',
                 details: ['جميع أنواع التأشيرات', 'معالجة سريعة', 'أسعار تنافسية', 'دعم كامل'],
                 questions: ['نوع التأشيرة', 'الدولة المطلوبة', 'مدة الإقامة', 'عدد الأشخاص'] },
-            { id: 'hotels', icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم',
+
+            // Accommodation
+            { id: 'hotels', icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم', category: 'accommodation',
                 img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop',
                 details: ['أكثر من 200 فندق', 'عروض حصرية', 'إلغاء مجاني', 'تقييمات العملاء'],
                 questions: ['المدينة', 'عدد الليالي', 'عدد الغرف', 'عدد الأشخاص'] },
-            { id: 'cars', icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل',
+
+            // Transport
+            { id: 'cars', icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل', category: 'transport',
                 img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop',
                 details: ['جميع فئات السيارات', 'تأمين شامل', 'توصيل للمطار', 'أسعار تنافسية'],
                 questions: ['المدينة', 'نوع السيارة', 'مدة التأجير', 'هل تريد توصيل للمطار؟'] },
-            { id: 'packages', icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم',
-                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop',
-                details: ['أكثر من 200 باقة', 'وجهات عالمية', 'شاملة الطيران والفندق', 'عروض خاصة'],
-                questions: ['الوجهة', 'عدد الأشخاص', 'مدة الرحلة', 'نوع الباقة'] },
-            { id: 'railway', icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة',
+            { id: 'railway', icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة', category: 'transport',
                 img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop',
                 details: ['جميع خطوط القطارات', 'أسعار مخفضة', 'حجز سريع', 'إلغاء مرن'],
                 questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين'] },
-            { id: 'bus', icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات',
+            { id: 'bus', icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات', category: 'transport',
                 img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop',
                 details: ['جميع خطوط الباصات', 'أسعار تنافسية', 'حجز سريع'],
                 questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين'] },
-            { id: 'airport', icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة',
+            { id: 'airport', icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة', category: 'transport',
                 img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
                 details: ['سيارات حديثة', 'سائقين محترفين', 'تتبع الرحلة', 'أسعار ثابتة'],
                 questions: ['المطار', 'نوع السيارة', 'عدد الركاب', 'وقت الاستقبال'] },
+
+            // Insurance
             { id: 'insurance', icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة',
+                category: 'insurance',
                 img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop',
                 details: ['تغطية طبية شاملة', 'تعويض إلغاء الرحلات', 'تأمين الأمتعة', 'دعم 24/7'],
                 questions: ['نوع التأمين', 'مدة السفر', 'الوجهة', 'عدد المسافرين'] },
-            { id: 'group', icon: '👥', name: 'رحلات جماعية', desc: 'تنظيم رحلات للمجموعات مع مرشدين سياحيين محترفين',
+
+            // Groups
+            { id: 'group', icon: '👥', name: 'رحلات جماعية', desc: 'تنظيم رحلات للمجموعات مع مرشدين سياحيين محترفين', category: 'groups',
                 img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop',
                 details: ['مرشدين سياحيين', 'برامج مخصصة', 'أسعار جماعية', 'تنظيم كامل'],
                 questions: ['الوجهة', 'عدد الأشخاص', 'مدة الرحلة', 'نوع البرنامج'] },
-            { id: 'cruise', icon: '🚢', name: 'رحلات بحرية', desc: 'كروز فاخر على متن أفضل السفن السياحية العالمية',
+            { id: 'cruise', icon: '🚢', name: 'رحلات بحرية', desc: 'كروز فاخر على متن أفضل السفن السياحية العالمية', category: 'groups',
                 img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop',
                 details: ['أفضل السفن', 'برامج ترفيهية', 'وجبات فاخرة', 'وجهات مميزة'],
                 questions: ['الوجهة', 'عدد الليالي', 'نوع الكابينة', 'عدد الأشخاص'] },
-            { id: 'business', icon: '💼', name: 'سفر رجال أعمال', desc: 'خدمات مخصصة لرجال الأعمال مع أفضل وسائل الراحة',
+
+            // Business
+            { id: 'business', icon: '💼', name: 'سفر رجال أعمال', desc: 'خدمات مخصصة لرجال الأعمال مع أفضل وسائل الراحة', category: 'business',
                 img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop',
                 details: ['درجة الأعمال', 'فنادق تنفيذية', 'استقبال في المطار', 'خدمة الكونسيرج'],
-                questions: ['الوجهة', 'مدة الرحلة', 'عدد الأشخاص', 'خدمات إضافية'] }
+                questions: ['الوجهة', 'مدة الرحلة', 'عدد الأشخاص', 'خدمات إضافية'] },
+
+            // Packages (Travel)
+            { id: 'packages', icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم', category: 'travel',
+                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop',
+                details: ['أكثر من 200 باقة', 'وجهات عالمية', 'شاملة الطيران والفندق', 'عروض خاصة'],
+                questions: ['الوجهة', 'عدد الأشخاص', 'مدة الرحلة', 'نوع الباقة'] },
+
+            // Additional
+            { id: 'adventure', icon: '🏔️', name: 'رحلات مغامرات', desc: 'رحلات مغامرات مثيرة في أجمل مناطق العالم', category: 'groups',
+                img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop',
+                details: ['أنشطة مثيرة', 'مرشدين محترفين', 'معدات حديثة', 'برامج مخصصة'],
+                questions: ['الوجهة', 'نوع المغامرة', 'عدد الأشخاص', 'مدة الرحلة'] },
+            { id: 'medical', icon: '🏥', name: 'السياحة العلاجية', desc: 'رحلات علاجية في أفضل المراكز الطبية العالمية', category: 'travel',
+                img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop',
+                details: ['مراكز طبية معتمدة', 'برامج علاجية', 'ترجمة طبية', 'إقامة فندقية'],
+                questions: ['الوجهة', 'نوع العلاج', 'مدة البرنامج', 'عدد المرافقين'] },
+            { id: 'education', icon: '🎓', name: 'السياحة التعليمية', desc: 'برامج تعليمية وجولات ثقافية في أشهر الجامعات العالمية',
+                category: 'groups',
+                img: 'https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&h=400&fit=crop',
+                details: ['زيارات جامعية', 'برامج تدريبية', 'جولات ثقافية', 'إقامة طلابية'],
+                questions: ['الوجهة', 'نوع البرنامج', 'مدة البرنامج', 'عدد المشاركين'] }
         ];
+
+        // ===== STATE =====
+        let servicesDisplayCount = 12;
+        let filteredServices = [...servicesData];
 
         // ===== GENERATE SERVICES =====
         const servicesGrid = document.getElementById('servicesGrid');
-        servicesData.forEach((s, i) => {
-            const card = document.createElement('div');
-            card.className = 'service-card reveal';
-            card.style.transitionDelay = `${i * 0.05}s`;
-            card.innerHTML = `
-                <div class="simg" style="background-image:url('${s.img}');"></div>
-                <div class="icon">${s.icon}</div>
-                <h4>${s.name}</h4>
-                <p>${s.desc}</p>
-                <span class="service-tag">احجز الآن</span>
-            `;
-            card.addEventListener('click', () => openService(s.id));
-            servicesGrid.appendChild(card);
+
+        function renderServices(count) {
+            const toShow = filteredServices.slice(0, count);
+            servicesGrid.innerHTML = '';
+            if (toShow.length === 0) {
+                servicesGrid.innerHTML =
+                    `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:1.2rem;">
+                        <i class="fas fa-search" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:16px;"></i>
+                        <span id="noResults">لا توجد خدمات مطابقة لبحثك</span>
+                    </div>`;
+                document.getElementById('loadMoreServices').style.display = 'none';
+                return;
+            }
+            toShow.forEach((s, i) => {
+                const card = document.createElement('div');
+                card.className = 'service-card reveal';
+                card.style.transitionDelay = `${i * 0.04}s`;
+                card.dataset.category = s.category;
+                card.dataset.id = s.id;
+                card.innerHTML = `
+                    <div class="simg" style="background-image:url('${s.img}');"></div>
+                    <div class="icon">${s.icon}</div>
+                    <h4>${s.name}</h4>
+                    <p>${s.desc}</p>
+                    <span class="service-tag">احجز الآن</span>
+                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+                `;
+                card.addEventListener('click', () => openService(s.id));
+                servicesGrid.appendChild(card);
+            });
+            document.querySelectorAll('.service-card.reveal').forEach(el => observer.observe(el));
+
+            const loadBtn = document.getElementById('loadMoreServices');
+            if (count >= filteredServices.length) {
+                loadBtn.style.display = 'none';
+            } else {
+                loadBtn.style.display = 'block';
+            }
+        }
+
+        // ===== FILTER SERVICES =====
+        function filterServices() {
+            const search = document.getElementById('serviceSearch').value.toLowerCase().trim();
+            const category = document.getElementById('serviceCategory').value;
+
+            filteredServices = servicesData.filter(s => {
+                if (search && !s.name.toLowerCase().includes(search) && !s.desc.toLowerCase().includes(search)) {
+                    return false;
+                }
+                if (category !== 'all' && s.category !== category) {
+                    return false;
+                }
+                return true;
+            });
+
+            servicesDisplayCount = 12;
+            renderServices(servicesDisplayCount);
+        }
+
+        // ===== RESET FILTERS =====
+        function resetServiceFilters() {
+            document.getElementById('serviceSearch').value = '';
+            document.getElementById('serviceCategory').value = 'all';
+            filterServices();
+        }
+
+        // ===== LOAD MORE =====
+        document.getElementById('loadMoreServices').addEventListener('click', function() {
+            servicesDisplayCount += 12;
+            renderServices(servicesDisplayCount);
         });
+
+        // ===== INITIAL RENDER =====
+        renderServices(servicesDisplayCount);
 
         // ===== OPEN SERVICE MODAL =====
         function openService(serviceId) {
@@ -1187,16 +1467,20 @@
             const modal = document.getElementById('serviceModal');
             const body = document.getElementById('serviceModalBody');
 
-            // All cities for dropdown
+            // All cities for dropdowns
             const cities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'حائل', 'القصيم',
                 'دبي', 'أبوظبي', 'الشارقة', 'الدوحة', 'مسقط', 'المنامة', 'الكويت', 'عمّان', 'بيروت', 'القاهرة',
                 'اسطنبول', 'أنقرة', 'لندن', 'باريس', 'برلين', 'روما', 'مدريد', 'نيويورك', 'لوس أنجلوس', 'شيكاغو',
                 'طوكيو', 'أوساكا', 'سيول', 'بكين', 'شنغهاي', 'سنغافورة', 'كوالالمبور', 'بانكوك', 'دلهي', 'مومباي',
-                'سيدني', 'ملبورن', 'أوكلاند', 'كيب تاون', 'جوهانسبرغ', 'نيروبي', 'القاهرة', 'الدار البيضاء', 'تونس', 'الجزائر'
+                'سيدني', 'ملبورن', 'أوكلاند', 'كيب تاون', 'جوهانسبرغ', 'نيروبي', 'الدار البيضاء', 'تونس', 'الجزائر'
             ];
 
             // Insurance types
             const insuranceTypes = ['تأمين صحي شامل', 'تأمين إلغاء رحلة', 'تأمين أمتعة', 'تأمين شامل (جميع المخاطر)'];
+            const carTypes = ['اقتصادي صغير', 'سيدان', 'SUV', 'فاخر', 'دفع رباعي'];
+            const roomTypes = ['فندق 3 نجوم', 'فندق 4 نجوم', 'فندق 5 نجوم', 'شقة فندقية'];
+            const packageTypes = ['عائلية', 'رومانسية', 'مغامرات', 'استرخاء', 'ثقافية'];
+            const programTypes = ['سياحي', 'تعليمي', 'تطوعي', 'رياضي'];
 
             let formFields = '';
             service.questions.forEach((q, i) => {
@@ -1234,11 +1518,7 @@
                             <label>${q}</label>
                             <select name="${name}" required>
                                 <option value="">اختر...</option>
-                                <option value="اقتصادي صغير">اقتصادي صغير</option>
-                                <option value="سيدان">سيدان</option>
-                                <option value="SUV">SUV</option>
-                                <option value="فاخر">فاخر</option>
-                                <option value="دفع رباعي">دفع رباعي</option>
+                                ${carTypes.map(t => `<option value="${t}">${t}</option>`).join('')}
                             </select>
                         </div>
                     `;
@@ -1248,10 +1528,7 @@
                             <label>${q}</label>
                             <select name="${name}" required>
                                 <option value="">اختر...</option>
-                                <option value="فندق 3 نجوم">فندق 3 نجوم</option>
-                                <option value="فندق 4 نجوم">فندق 4 نجوم</option>
-                                <option value="فندق 5 نجوم">فندق 5 نجوم</option>
-                                <option value="شقة فندقية">شقة فندقية</option>
+                                ${roomTypes.map(t => `<option value="${t}">${t}</option>`).join('')}
                             </select>
                         </div>
                     `;
@@ -1261,11 +1538,7 @@
                             <label>${q}</label>
                             <select name="${name}" required>
                                 <option value="">اختر...</option>
-                                <option value="عائلية">عائلية</option>
-                                <option value="رومانسية">رومانسية</option>
-                                <option value="مغامرات">مغامرات</option>
-                                <option value="استرخاء">استرخاء</option>
-                                <option value="ثقافية">ثقافية</option>
+                                ${packageTypes.map(t => `<option value="${t}">${t}</option>`).join('')}
                             </select>
                         </div>
                     `;
@@ -1275,10 +1548,7 @@
                             <label>${q}</label>
                             <select name="${name}" required>
                                 <option value="">اختر...</option>
-                                <option value="سياحي">سياحي</option>
-                                <option value="تعليمي">تعليمي</option>
-                                <option value="تطوعي">تطوعي</option>
-                                <option value="رياضي">رياضي</option>
+                                ${programTypes.map(t => `<option value="${t}">${t}</option>`).join('')}
                             </select>
                         </div>
                     `;
@@ -1411,7 +1681,7 @@
         const typingIndicator = document.getElementById('aiTyping');
 
         const aiKnowledge = {
-            'مرحبا': '👋 أهلاً بك في وكالة <strong>صعود الطائرة</strong>! كيف يمكنني مساعدتك اليوم؟',
+            'مرحبا': '👋 أهلاً بك! كيف يمكنني مساعدتك اليوم؟ لدينا أكثر من 20 خدمة سياحية.',
             'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟',
             'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، ومواصلات.',
             'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول.',
@@ -1423,43 +1693,35 @@
             'عرض': '🔥 عروض اليوم الوطني: خصم 93% على الفنادق، وخصم 9% باستخدام كود KSA90!',
             'شكرا': '🙏 العفو! سعداء بمساعدتك.',
             'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong> Travel Agency! How can I help you?',
-            'hi': '👋 Hi there! Welcome to Saeed Al-Taayira. How can I assist you?',
-            'umrah': '🕋 Our Umrah packages start from 1,200 SAR and include visa, accommodation near the Haram.',
-            'visa': '🛂 We offer tourist, business, visit, and medical visas for all countries.',
-            'flight': '✈️ We offer the cheapest flight tickets starting from 179 SAR.',
-            'hotel': '🏨 We have over 200 hotels with real prices. Saudi National Day offers up to 93% off!',
-            'car': '🚗 We offer luxury and economy car rentals with comprehensive insurance.',
-            'package': '🌍 We have over 200 travel packages starting from 1,800 SAR.',
-            'train': '🚆 We offer train tickets with SAR starting from 85 SAR.',
-            'offer': '🔥 Special offers: 93% off on hotels for Saudi National Day, 9% off with code KSA90!',
-            'thanks': '🙏 You\'re welcome! Happy to help.'
+            'hi': '👋 Hi there! Welcome to Saeed Al-Taayira.',
+            'umrah': '🕋 Our Umrah packages start from 1,200 SAR.',
+            'visa': '🛂 We offer tourist, business, visit, and medical visas.',
+            'flight': '✈️ We offer cheap flights starting from 179 SAR.',
+            'hotel': '🏨 We have 200+ hotels with real prices. Up to 93% off!',
+            'car': '🚗 Luxury and economy car rentals.',
+            'package': '🌍 200+ travel packages starting from 1,800 SAR.',
+            'train': '🚆 Train tickets starting from 85 SAR with SAR.',
+            'offer': '🔥 National Day offers: 93% off on hotels, 9% off with code KSA90!',
+            'thanks': '🙏 You\'re welcome!'
         };
+        const defaultReplies = [
+            '🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك قريباً.',
+            '📱 يرجى مراسلتنا على واتساب 0555382038.',
+            '🌍 اكتشف عروضنا المميزة في قسم العروض!',
+            '✈️ صعود الطائرة وجهتك الأولى للسفر.'
+        ];
 
         function getAIResponse(text) {
             const lower = text.toLowerCase().trim();
             for (const [key, response] of Object.entries(aiKnowledge)) {
                 if (lower.includes(key)) return response;
             }
-            const hasArabic = /[\u0600-\u06FF]/.test(text);
-            if (hasArabic) {
-                return '🤖 شكراً لسؤالك! سيقوم فريق <strong>صعود الطائرة</strong> بالتواصل معك قريباً. يمكنك أيضاً مراسلتنا على واتساب 0555382038.';
-            } else {
-                return '🤖 Thank you for your question! The <strong>Saeed Al-Taayira</strong> team will contact you soon. You can also message us on WhatsApp at 0555382038.';
-            }
+            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
         }
 
         window.toggleAIChat = function() {
             chatBox.classList.toggle('open');
-            if (chatBox.classList.contains('open')) {
-                chatInput.focus();
-                if (chatMessages.children.length === 1) {
-                    const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-                    const welcome = lang === 'en' ?
-                        '👋 Hello! I\'m the <strong>Saeed Al-Taayira</strong> AI assistant. How can I help you today?' :
-                        '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟';
-                    chatMessages.innerHTML = `<div class="msg bot">${welcome}<span class="time">الآن</span></div>`;
-                }
-            }
+            if (chatBox.classList.contains('open')) chatInput.focus();
         };
 
         function addMessage(type, text) {
@@ -1501,12 +1763,25 @@
                 navAbout: 'من نحن',
                 navContact: 'اتصل بنا',
                 navCta: '📞 احجز الآن',
-                sectionTitle: 'خدماتنا',
-                sectionHighlight: 'المتكاملة',
-                sectionDesc: 'اختر الخدمة التي تحتاجها، واحصل على عرض مخصص – كل خدمة لها نموذج حجز خاص بها مع جميع الخيارات',
+                heroTitle: 'خدماتنا',
+                heroHighlight: 'المتكاملة',
+                heroDesc: 'نقدم لك أكثر من 20 خدمة سياحية متكاملة – اختر الخدمة التي تحتاجها واحصل على عرض مخصص مع نموذج حجز خاص',
+                searchLabel: 'بحث',
+                categoryLabel: 'التصنيف',
+                catAll: 'جميع الخدمات',
+                catTravel: 'سفر وطيران',
+                catUmrah: 'عمرة ودينية',
+                catAccommodation: 'إقامة وفنادق',
+                catTransport: 'مواصلات',
+                catInsurance: 'تأمين',
+                catGroups: 'مجموعات',
+                catBusiness: 'أعمال',
+                resetBtn: 'إعادة تعيين',
+                loadMoreText: 'عرض المزيد من الخدمات',
+                noResults: 'لا توجد خدمات مطابقة لبحثك',
                 aiTitle: 'مساعد صعود الطائرة AI',
-                aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. كيف يمكنني مساعدتك اليوم؟',
-                aiPlaceholder: 'اكتب سؤالك بأي لغة...',
+                aiWelcome: '👋 مرحباً! أنا مساعد صعود الطائرة الذكي. يمكنني مساعدتك في اختيار الخدمة المناسبة والإجابة عن استفساراتك.',
+                aiPlaceholder: 'اسأل عن الخدمات...',
                 waLabel: 'تواصل واتساب',
                 footerBrand: 'صعود الطائرة',
                 footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
@@ -1529,12 +1804,25 @@
                 navAbout: 'About',
                 navContact: 'Contact',
                 navCta: '📞 Book Now',
-                sectionTitle: 'Our',
-                sectionHighlight: 'Services',
-                sectionDesc: 'Choose the service you need and get a customized offer – each service has its own booking form with all options',
+                heroTitle: 'Our',
+                heroHighlight: 'Services',
+                heroDesc: 'We offer 20+ integrated travel services – choose the service you need and get a customized offer with a dedicated booking form.',
+                searchLabel: 'Search',
+                categoryLabel: 'Category',
+                catAll: 'All Services',
+                catTravel: 'Travel & Flights',
+                catUmrah: 'Umrah & Religious',
+                catAccommodation: 'Accommodation & Hotels',
+                catTransport: 'Transportation',
+                catInsurance: 'Insurance',
+                catGroups: 'Groups',
+                catBusiness: 'Business',
+                resetBtn: 'Reset',
+                loadMoreText: 'Show More Services',
+                noResults: 'No services match your search',
                 aiTitle: 'Saeed Al-Taayira AI Assistant',
-                aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. How can I help you today?',
-                aiPlaceholder: 'Type your question in any language...',
+                aiWelcome: '👋 Hello! I\'m Saeed Al-Taayira\'s AI assistant. I can help you choose the right service and answer your questions.',
+                aiPlaceholder: 'Ask about services...',
                 waLabel: 'WhatsApp',
                 footerBrand: 'Saeed Al-Taayira',
                 footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
@@ -1566,9 +1854,19 @@
                 'navAbout': 'navAbout',
                 'navContact': 'navContact',
                 'navCta': 'navCta',
-                'sectionTitle': 'sectionTitle',
-                'sectionHighlight': 'sectionHighlight',
-                'sectionDesc': 'sectionDesc',
+                'searchLabel': 'searchLabel',
+                'categoryLabel': 'categoryLabel',
+                'catAll': 'catAll',
+                'catTravel': 'catTravel',
+                'catUmrah': 'catUmrah',
+                'catAccommodation': 'catAccommodation',
+                'catTransport': 'catTransport',
+                'catInsurance': 'catInsurance',
+                'catGroups': 'catGroups',
+                'catBusiness': 'catBusiness',
+                'resetBtn': 'resetBtn',
+                'loadMoreText': 'loadMoreText',
+                'noResults': 'noResults',
                 'aiTitle': 'aiTitle',
                 'aiWelcome': 'aiWelcome',
                 'aiPlaceholder': 'aiPlaceholder',
@@ -1593,31 +1891,51 @@
                 }
             }
 
-            // Update title
-            document.title = lang === 'ar' ? 'خدماتنا – صعود الطائرة' : 'Our Services – Saeed Al-Taayira';
-
-            // Update section title
-            const titleEl = document.querySelector('.section-title h2');
-            if (titleEl) {
-                const highlight = titleEl.querySelector('.highlight');
+            // Update hero section
+            const heroTitle = document.querySelector('.services-hero h1');
+            if (heroTitle) {
+                const highlight = heroTitle.querySelector('.highlight');
                 if (highlight) {
                     const h1 = document.createElement('span');
-                    h1.textContent = translations[lang]['sectionTitle'];
-                    titleEl.innerHTML = '';
-                    titleEl.appendChild(h1);
+                    h1.textContent = translations[lang]['heroTitle'];
+                    heroTitle.innerHTML = '';
+                    heroTitle.appendChild(h1);
                     const h2 = document.createElement('span');
                     h2.className = 'highlight';
-                    h2.textContent = translations[lang]['sectionHighlight'];
-                    titleEl.appendChild(document.createTextNode(' '));
-                    titleEl.appendChild(h2);
+                    h2.textContent = translations[lang]['heroHighlight'];
+                    heroTitle.appendChild(document.createTextNode(' '));
+                    heroTitle.appendChild(h2);
                 }
             }
-            const descEl = document.querySelector('.section-title p');
-            if (descEl) {
-                descEl.textContent = translations[lang]['sectionDesc'];
+            const heroDesc = document.querySelector('.services-hero p');
+            if (heroDesc) heroDesc.textContent = translations[lang]['heroDesc'];
+
+            // Update search placeholder
+            const searchInput = document.getElementById('serviceSearch');
+            if (searchInput) searchInput.placeholder = lang === 'ar' ? 'ابحث عن خدمة...' : 'Search for a service...';
+
+            // Update select options
+            const categorySelect = document.getElementById('serviceCategory');
+            if (categorySelect) {
+                const opts = categorySelect.options;
+                const keys = ['catAll', 'catTravel', 'catUmrah', 'catAccommodation', 'catTransport', 'catInsurance',
+                    'catGroups', 'catBusiness'
+                ];
+                opts.forEach((opt, i) => {
+                    if (i < keys.length && translations[lang] && translations[lang][keys[i]]) {
+                        opt.textContent = translations[lang][keys[i]];
+                    }
+                });
             }
 
-            // Update AI chat title and welcome
+            // Update load more button
+            const loadBtn = document.getElementById('loadMoreServices');
+            if (loadBtn) {
+                const span = loadBtn.querySelector('span');
+                if (span) span.textContent = translations[lang]['loadMoreText'];
+            }
+
+            // Update AI chat
             const aiTitle = document.querySelector('.ai-chat-header .title span');
             if (aiTitle) {
                 const status = aiTitle.querySelector('.ai-status');
@@ -1628,11 +1946,12 @@
             if (welcomeMsg) {
                 welcomeMsg.innerHTML = translations[lang]['aiWelcome'] + '<span class="time">الآن</span>';
             }
-
             const placeholder = document.getElementById('aiChatInput');
-            if (placeholder) {
-                placeholder.placeholder = translations[lang]['aiPlaceholder'];
-            }
+            if (placeholder) placeholder.placeholder = translations[lang]['aiPlaceholder'];
+
+            // Update no results message
+            const noResults = document.getElementById('noResults');
+            if (noResults) noResults.textContent = translations[lang]['noResults'];
 
             localStorage.setItem('lang', lang);
         }
@@ -1640,6 +1959,8 @@
         langToggle.addEventListener('click', () => {
             const newLang = currentLang === 'ar' ? 'en' : 'ar';
             applyLanguage(newLang);
+            // Re-render services to update any language-dependent text
+            renderServices(servicesDisplayCount);
         });
 
         const savedLang = localStorage.getItem('lang') || 'ar';
@@ -1676,7 +1997,8 @@
 
         console.log('%c✈️ صعود الطائرة – خدمات متكاملة', 'font-size:20px;font-weight:bold;color:#d4af37;');
         console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
-        console.log('%c🌍 13 خدمة سياحية – نماذج حجز متقدمة – AI Chatbot', 'font-size:13px;color:#888;');
+        console.log('%c🌟 20+ خدمة سياحية – فلتر بحث – نماذج حجز متقدمة', 'font-size:13px;color:#888;');
+        console.log('%c✅ Google Search Console Verified', 'font-size:13px;color:#4ade80;');
     </script>
 </body>
 </html>

@@ -33,25 +33,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         /* ===== RESET & BASE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-dark: #061d3a;
             --gold: #d4af37;
             --gold-light: #f0d060;
             --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.06);
-            --text-muted: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.06);
+            --text-muted: rgba(255,255,255,0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
         }
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
             background: var(--primary-dark);
@@ -59,222 +53,91 @@
             overflow-x: hidden;
             line-height: 1.7;
         }
-        body.rtl {
-            direction: rtl;
-            text-align: right;
-        }
-        body.ltr {
-            direction: ltr;
-            text-align: left;
-        }
-        body.ltr .nav-links a {
-            font-family: 'Segoe UI', sans-serif;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        ul {
-            list-style: none;
-        }
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--primary-dark);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
+        body.rtl { direction: rtl; text-align: right; }
+        body.ltr { direction: ltr; text-align: left; }
+        body.ltr .nav-links a { font-family: 'Segoe UI', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         #particles-canvas {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.3;
+            position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
         /* ===== HEADER ===== */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 14px 0;
-            transition: 0.3s;
-            background: rgba(6, 29, 58, 0.94);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 14px 0; transition: 0.3s;
+            background: rgba(6,29,58,0.94);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212,175,55,0.1);
         }
         .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1320px; margin: 0 auto; padding: 0 24px;
         }
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 900;
-            cursor: pointer;
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.5rem; font-weight: 900; cursor: pointer;
         }
         .logo-icon {
-            font-size: 2.2rem;
-            color: var(--gold);
+            font-size: 2.2rem; color: var(--gold);
             animation: logoFloat 3s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-        @keyframes logoFloat {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-4px);
-            }
-        }
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
+        @keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
         .logo-text .main {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;
         }
         .logo-text .sub {
-            font-size: 0.55rem;
-            font-weight: 300;
-            color: var(--text-muted);
-            -webkit-text-fill-color: var(--text-muted);
-            letter-spacing: 2px;
+            font-size: 0.55rem; font-weight: 300; color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted); letter-spacing: 2px;
         }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            flex-wrap: wrap;
-        }
+        .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
         .nav-links a {
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: 0.3s;
-            position: relative;
+            padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-muted); transition: 0.3s; position: relative;
         }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #fff;
-            background: rgba(212, 175, 55, 0.1);
-        }
+        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
         .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 18px;
-            height: 2.5px;
-            background: var(--gold);
-            border-radius: 4px;
+            content: ''; position: absolute; bottom: 4px; left: 50%;
+            transform: translateX(-50%); width: 18px; height: 2.5px;
+            background: var(--gold); border-radius: 4px;
         }
         .nav-cta {
-            background: var(--gold-gradient) !important;
-            color: var(--primary-dark) !important;
-            font-weight: 700 !important;
-            padding: 8px 26px !important;
-            border-radius: 50px !important;
+            background: var(--gold-gradient) !important; color: var(--primary-dark) !important;
+            font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
         }
-        .nav-cta:hover {
-            transform: scale(1.05);
-        }
+        .nav-cta:hover { transform: scale(1.05); }
         .lang-toggle {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: 0.3s;
-            font-family: inherit;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 0.8rem; transition: 0.3s; font-family: inherit;
         }
-        .lang-toggle:hover {
-            background: rgba(212, 175, 55, 0.15);
-            border-color: var(--gold);
-        }
+        .lang-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 6px;
-            z-index: 1001;
+            display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1001;
         }
-        .hamburger span {
-            width: 28px;
-            height: 2.5px;
-            background: #fff;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        @media (max-width: 768px) {
+        .hamburger span { width: 28px; height: 2.5px; background: #fff; border-radius: 4px; transition: 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        @media (max-width:768px) {
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: rgba(6, 29, 58, 0.97);
-                flex-direction: column;
-                padding: 80px 28px 32px;
-                transition: right 0.4s;
-                border-left: 1px solid rgba(255, 255, 255, 0.04);
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: rgba(6,29,58,0.97); flex-direction: column;
+                padding: 80px 28px 32px; transition: right 0.4s;
+                border-left: 1px solid rgba(255,255,255,0.04);
             }
-            .nav-links.open {
-                right: 0;
-            }
-            .nav-links a {
-                width: 100%;
-                padding: 14px 18px;
-                border-radius: 12px;
-            }
-            .nav-links a.active::after {
-                display: none;
-            }
-            .nav-cta {
-                margin-top: 8px;
-            }
-            .hamburger {
-                display: flex;
-            }
+            .nav-links.open { right: 0; }
+            .nav-links a { width: 100%; padding: 14px 18px; border-radius: 12px; }
+            .nav-links a.active::after { display: none; }
+            .nav-cta { margin-top: 8px; }
+            .hamburger { display: flex; }
         }
 
         /* ===== HERO ===== */
@@ -288,1170 +151,480 @@
             overflow: hidden;
         }
         .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.06), transparent 60%),
-                radial-gradient(ellipse at 80% 50%, rgba(108, 60, 224, 0.04), transparent 60%);
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06), transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(108,60,224,0.04), transparent 60%);
             z-index: 0;
         }
         .hero .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1320px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            position: relative; z-index: 1;
+            max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
         }
         .hero-content h1 {
             font-size: clamp(2.6rem, 6vw, 4.8rem);
-            font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 18px;
+            font-weight: 900; line-height: 1.15; margin-bottom: 18px;
         }
         .hero-content h1 .highlight {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .hero-content .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 540px;
-            margin-bottom: 32px;
-            line-height: 1.9;
+            font-size: 1.2rem; color: var(--text-muted);
+            max-width: 540px; margin-bottom: 32px; line-height: 1.9;
         }
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 36px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 36px; border-radius: 60px; font-weight: 700;
+            font-size: 1rem; border: none; cursor: pointer; transition: 0.3s;
             font-family: inherit;
         }
-        .btn-primary {
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-        }
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.35);
-        }
-        .btn-whatsapp {
-            background: #25d366;
-            color: #fff;
-        }
-        .btn-whatsapp:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.35);
-        }
-        .btn-ai {
-            background: linear-gradient(135deg, #6c3ce0, #a855f7);
-            color: #fff;
-        }
-        .btn-ai:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(108, 60, 224, 0.4);
-        }
+        .btn-primary { background: var(--gold-gradient); color: var(--primary-dark); }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(212,175,55,0.35); }
+        .btn-whatsapp { background: #25d366; color: #fff; }
+        .btn-whatsapp:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(37,211,102,0.35); }
+        .btn-ai { background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff; }
+        .btn-ai:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(108,60,224,0.4); }
         .hero-stats {
-            display: flex;
-            gap: 44px;
-            margin-top: 44px;
-            padding-top: 32px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex; gap: 44px; margin-top: 44px;
+            padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .hero-stats .stat h3 {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--gold);
-            direction: ltr;
-        }
-        .hero-stats .stat p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
+        .hero-stats .stat h3 { font-size: 2rem; font-weight: 900; color: var(--gold); direction: ltr; }
+        .hero-stats .stat p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
         .hero-card {
-            max-width: 480px;
-            border-radius: 32px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+            max-width: 480px; border-radius: 32px;
+            background: rgba(255,255,255,0.03); backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 40px; text-align: center;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
             transition: transform 0.5s ease;
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
-        .hero-card:hover {
-            transform: perspective(1000px) rotateY(-3deg) rotateX(3deg) scale(1.02);
-        }
+        .hero-card:hover { transform: perspective(1000px) rotateY(-3deg) rotateX(3deg) scale(1.02); }
         .hero-card .big-icon {
-            font-size: 5.2rem;
-            color: var(--gold);
-            margin-bottom: 16px;
+            font-size: 5.2rem; color: var(--gold); margin-bottom: 16px;
             animation: iconPulse 3s ease-in-out infinite;
         }
-        @keyframes iconPulse {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.06);
-            }
-        }
-        .hero-card h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-        .hero-card p {
-            color: var(--text-muted);
-        }
+        @keyframes iconPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+        .hero-card h3 { font-size: 1.8rem; font-weight: 800; }
+        .hero-card p { color: var(--text-muted); }
         .hero-card .badge-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
+            display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px;
         }
         .hero-card .badge-row span {
-            background: rgba(212, 175, 55, 0.1);
-            padding: 5px 16px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            color: var(--gold-light);
-            border: 1px solid rgba(212, 175, 55, 0.08);
-            transition: 0.3s;
+            background: rgba(212,175,55,0.1); padding: 5px 16px; border-radius: 50px;
+            font-size: 0.75rem; color: var(--gold-light);
+            border: 1px solid rgba(212,175,55,0.08); transition: 0.3s;
         }
-        .hero-card .badge-row span:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: scale(1.05);
-        }
+        .hero-card .badge-row span:hover { background: rgba(212,175,55,0.2); transform: scale(1.05); }
 
         /* ===== SECTIONS ===== */
-        .section {
-            padding: 80px 24px;
-            position: relative;
-            z-index: 1;
-        }
-        .section .container {
-            max-width: 1320px;
-            margin: 0 auto;
-        }
-        .section-alt {
-            background: rgba(255, 255, 255, 0.005);
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 48px;
-        }
+        .section { padding: 80px 24px; position: relative; z-index: 1; }
+        .section .container { max-width: 1320px; margin: 0 auto; }
+        .section-alt { background: rgba(255,255,255,0.005); }
+        .section-title { text-align: center; margin-bottom: 48px; }
         .section-title h2 {
             font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 900;
-            margin-bottom: 8px;
+            font-weight: 900; margin-bottom: 8px;
         }
         .section-title h2 .highlight {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 620px;
-            margin: 0 auto;
-        }
-        .section-divider {
-            width: 60px;
-            height: 3.5px;
-            background: var(--gold-gradient);
-            border-radius: 4px;
-            margin: 14px auto 0;
-        }
+        .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+        .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
 
         /* ===== SERVICES ===== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 24px; }
         .service-card {
-            padding: 28px 20px;
-            border-radius: var(--radius);
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            text-align: center;
-            cursor: pointer;
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
+            padding: 28px 20px; border-radius: var(--radius);
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.04);
+            text-align: center; cursor: pointer; transition: 0.4s;
+            position: relative; overflow: hidden;
         }
         .service-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent 60%);
-            opacity: 0;
-            transition: 0.4s;
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(212,175,55,0.05), transparent 60%);
+            opacity: 0; transition: 0.4s;
         }
-        .service-card:hover::before {
-            opacity: 1;
-        }
+        .service-card:hover::before { opacity: 1; }
         .service-card:hover {
             transform: translateY(-12px);
-            border-color: rgba(212, 175, 55, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212,175,55,0.2);
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
         .service-card .simg {
-            width: 100%;
-            height: 120px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px;
-            margin-bottom: 12px;
+            width: 100%; height: 120px; background-size: cover; background-position: center;
+            border-radius: 12px; margin-bottom: 12px;
         }
-        .service-card .icon {
-            font-size: 2.8rem;
-            color: var(--gold);
-            margin-bottom: 10px;
-            display: inline-block;
-            transition: 0.4s;
-        }
-        .service-card:hover .icon {
-            transform: scale(1.15) rotate(-4deg);
-        }
-        .service-card h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-        }
+        .service-card .icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 10px; display: inline-block; transition: 0.4s; }
+        .service-card:hover .icon { transform: scale(1.15) rotate(-4deg); }
+        .service-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+        .service-card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px; }
         .service-card .service-tag {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 50px;
-            background: rgba(212, 175, 55, 0.08);
-            color: var(--gold-light);
-            font-size: 0.65rem;
-            border: 1px solid rgba(212, 175, 55, 0.06);
+            display: inline-block; padding: 2px 12px; border-radius: 50px;
+            background: rgba(212,175,55,0.08); color: var(--gold-light);
+            font-size: 0.65rem; border: 1px solid rgba(212,175,55,0.06);
         }
         .service-card .click-hint {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-            opacity: 0.4;
-            transition: 0.3s;
+            font-size: 0.6rem; color: var(--text-muted); margin-top: 8px; opacity: 0.4; transition: 0.3s;
         }
-        .service-card:hover .click-hint {
-            opacity: 1;
-        }
+        .service-card:hover .click-hint { opacity: 1; }
 
         /* ===== OFFERS ===== */
-        .offers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 30px;
-        }
+        .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-top: 30px; }
         .offer-card {
-            background: rgba(255, 255, 255, 0.025);
-            border: 2px solid var(--gold);
-            border-radius: var(--radius);
-            padding: 30px 24px;
-            text-align: center;
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
+            background: rgba(255,255,255,0.025); border: 2px solid var(--gold);
+            border-radius: var(--radius); padding: 30px 24px; text-align: center;
+            transition: 0.4s; position: relative; overflow: hidden;
         }
         .offer-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 60%);
-            opacity: 0;
-            transition: 0.4s;
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent 60%);
+            opacity: 0; transition: 0.4s;
         }
-        .offer-card:hover::before {
-            opacity: 1;
-        }
-        .offer-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.1);
-        }
-        .offer-card .offer-icon {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
+        .offer-card:hover::before { opacity: 1; }
+        .offer-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(212,175,55,0.1); }
+        .offer-card .offer-icon { font-size: 3rem; color: var(--gold); margin-bottom: 12px; }
         .offer-card .offer-badge {
-            display: inline-block;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            padding: 2px 16px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            margin-bottom: 8px;
+            display: inline-block; background: var(--gold-gradient); color: var(--primary-dark);
+            padding: 2px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-bottom: 8px;
         }
-        .offer-card h4 {
-            font-size: 1.2rem;
-            font-weight: 800;
-        }
-        .offer-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin: 8px 0;
-        }
-        .offer-card .offer-price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--gold);
-        }
+        .offer-card h4 { font-size: 1.2rem; font-weight: 800; }
+        .offer-card p { color: var(--text-muted); font-size: 0.9rem; margin: 8px 0; }
+        .offer-card .offer-price { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
         .offer-card .btn-sm {
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            margin-top: 12px;
-            transition: 0.3s;
-            font-family: inherit;
+            padding: 8px 24px; border-radius: 50px; font-size: 0.8rem;
+            font-weight: 700; border: none; cursor: pointer;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            margin-top: 12px; transition: 0.3s; font-family: inherit;
         }
-        .offer-card .btn-sm:hover {
-            transform: scale(1.05);
-        }
+        .offer-card .btn-sm:hover { transform: scale(1.05); }
 
         /* ===== HOTELS & PACKAGES ===== */
-        .hotels-grid,
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
+        .hotels-grid, .packages-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 28px;
         }
-        .hotel-card,
-        .package-card {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+        .hotel-card, .package-card {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.04);
             border-radius: var(--radius);
-            overflow: hidden;
-            transition: 0.4s;
+            overflow: hidden; transition: 0.4s;
         }
-        .hotel-card:hover,
-        .package-card:hover {
+        .hotel-card:hover, .package-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(212, 175, 55, 0.15);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            border-color: rgba(212,175,55,0.15);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
         }
-        .hotel-card .img,
-        .package-card .img {
-            height: 170px;
-            background-size: cover;
-            background-position: center;
+        .hotel-card .img, .package-card .img {
+            height: 170px; background-size: cover; background-position: center;
         }
-        .hotel-card .body,
-        .package-card .body {
-            padding: 18px 20px 22px;
+        .hotel-card .body, .package-card .body { padding: 18px 20px 22px; }
+        .hotel-card .body h4, .package-card .body h4 { font-size: 1.1rem; font-weight: 800; }
+        .hotel-card .body .location, .package-card .body .location { color: var(--gold); font-size: 0.8rem; }
+        .hotel-card .body .rating { color: #fbbf24; font-size: 0.85rem; margin: 4px 0; }
+        .hotel-card .body .price, .package-card .body .price {
+            color: var(--gold); font-size: 1.1rem; font-weight: 700;
         }
-        .hotel-card .body h4,
-        .package-card .body h4 {
-            font-size: 1.1rem;
-            font-weight: 800;
+        .hotel-card .body .price small, .package-card .body .price small {
+            font-size: 0.65rem; color: var(--text-muted); font-weight: 400;
         }
-        .hotel-card .body .location,
-        .package-card .body .location {
-            color: var(--gold);
-            font-size: 0.8rem;
+        .hotel-card .body .btn-sm, .package-card .body .btn-sm {
+            padding: 8px 22px; border-radius: 50px; font-size: 0.8rem;
+            font-weight: 700; border: none; cursor: pointer;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            margin-top: 10px; transition: 0.3s; font-family: inherit;
         }
-        .hotel-card .body .rating {
-            color: #fbbf24;
-            font-size: 0.85rem;
-            margin: 4px 0;
-        }
-        .hotel-card .body .price,
-        .package-card .body .price {
-            color: var(--gold);
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-        .hotel-card .body .price small,
-        .package-card .body .price small {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-        .hotel-card .body .btn-sm,
-        .package-card .body .btn-sm {
-            padding: 8px 22px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            margin-top: 10px;
-            transition: 0.3s;
-            font-family: inherit;
-        }
-        .hotel-card .body .btn-sm:hover,
-        .package-card .body .btn-sm:hover {
-            transform: scale(1.05);
-        }
+        .hotel-card .body .btn-sm:hover, .package-card .body .btn-sm:hover { transform: scale(1.05); }
 
         /* ===== RAILWAY ===== */
-        .railway-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+        .railway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; }
         .railway-item {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 20px;
-            border-radius: 14px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: 0.3s;
-            cursor: pointer;
+            background: rgba(255,255,255,0.02); padding: 20px; border-radius: 14px;
+            text-align: center; border: 1px solid rgba(255,255,255,0.04);
+            transition: 0.3s; cursor: pointer;
         }
-        .railway-item:hover {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.04);
-        }
+        .railway-item:hover { border-color: var(--gold); background: rgba(212,175,55,0.04); }
         .railway-item .rimg {
-            width: 100%;
-            height: 100px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            margin-bottom: 10px;
+            width: 100%; height: 100px; background-size: cover; background-position: center;
+            border-radius: 10px; margin-bottom: 10px;
         }
-        .railway-item .icon {
-            font-size: 2.4rem;
-            color: var(--gold);
-        }
-        .railway-item h4 {
-            font-size: 1rem;
-            font-weight: 700;
-        }
-        .railway-item p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
+        .railway-item .icon { font-size: 2.4rem; color: var(--gold); }
+        .railway-item h4 { font-size: 1rem; font-weight: 700; }
+        .railway-item p { font-size: 0.8rem; color: var(--text-muted); }
 
         /* ===== BLOG ===== */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-        }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 28px; }
         .blog-card {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.04);
             border-radius: var(--radius);
-            overflow: hidden;
-            transition: 0.4s;
+            overflow: hidden; transition: 0.4s;
         }
         .blog-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(212, 175, 55, 0.12);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            border-color: rgba(212,175,55,0.12);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
-        .blog-card .img {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-        }
-        .blog-card .body {
-            padding: 18px 20px 22px;
-        }
+        .blog-card .img { height: 180px; background-size: cover; background-position: center; }
+        .blog-card .body { padding: 18px 20px 22px; }
         .blog-card .body .tag {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 50px;
-            background: rgba(212, 175, 55, 0.08);
-            color: var(--gold-light);
-            font-size: 0.6rem;
-            border: 1px solid rgba(212, 175, 55, 0.06);
-            margin-bottom: 6px;
+            display: inline-block; padding: 2px 12px; border-radius: 50px;
+            background: rgba(212,175,55,0.08); color: var(--gold-light);
+            font-size: 0.6rem; border: 1px solid rgba(212,175,55,0.06); margin-bottom: 6px;
         }
-        .blog-card .body h4 {
-            font-size: 1.05rem;
-            font-weight: 800;
-            margin-bottom: 4px;
-        }
-        .blog-card .body p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        .blog-card .body .blog-date {
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            margin-top: 8px;
-            display: block;
-        }
+        .blog-card .body h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+        .blog-card .body p { color: var(--text-muted); font-size: 0.85rem; }
+        .blog-card .body .blog-date { color: var(--text-muted); font-size: 0.7rem; margin-top: 8px; display: block; }
 
         /* ===== FAQ ===== */
-        .faq-grid {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .faq-grid { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
         .faq-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
             border-radius: 14px;
             overflow: hidden;
         }
         .faq-item .faq-q {
-            padding: 16px 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 700;
-            transition: 0.3s;
+            padding: 16px 20px; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 700; transition: 0.3s;
         }
-        .faq-item .faq-q:hover {
-            background: rgba(212, 175, 55, 0.03);
-        }
-        .faq-item .faq-q i {
-            transition: 0.3s;
-        }
-        .faq-item .faq-a {
-            padding: 0 20px 20px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            display: none;
-            line-height: 1.8;
-        }
-        .faq-item.open .faq-a {
-            display: block;
-        }
-        .faq-item.open .faq-q i {
-            transform: rotate(180deg);
-        }
+        .faq-item .faq-q:hover { background: rgba(212,175,55,0.03); }
+        .faq-item .faq-q i { transition: 0.3s; }
+        .faq-item .faq-a { padding: 0 20px 20px; color: var(--text-muted); font-size: 0.95rem; display: none; line-height: 1.8; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-q i { transform: rotate(180deg); }
 
         /* ===== CONTACT ===== */
         .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            max-width: 1000px; margin: 0 auto;
         }
         .info-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
             border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            transition: 0.3s;
+            padding: 20px; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 16px; transition: 0.3s;
         }
-        .info-card:hover {
-            border-color: rgba(212, 175, 55, 0.12);
-            transform: translateX(-4px);
-        }
+        .info-card:hover { border-color: rgba(212,175,55,0.12); transform: translateX(-4px); }
         .info-card .icon-box {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            background: rgba(212, 175, 55, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            width: 44px; height: 44px; border-radius: 14px;
+            background: rgba(212,175,55,0.08);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 1.2rem; flex-shrink: 0;
         }
-        .info-card .label {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .info-card .value {
-            font-size: 1rem;
-            font-weight: 600;
-            direction: ltr;
-            text-align: right;
-        }
+        .info-card .label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .info-card .value { font-size: 1rem; font-weight: 600; direction: ltr; text-align: right; }
         .contact-form {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            padding: 30px;
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 16px; padding: 30px;
         }
-        .contact-form h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
+        .contact-form h3 { font-size: 1.6rem; font-weight: 800; }
+        .contact-form .form-sub { color: var(--text-muted); margin-bottom: 20px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 12px; border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            color: #fff; font-family: inherit; font-size: 0.95rem;
+            outline: none; transition: 0.3s;
         }
-        .contact-form .form-sub {
-            color: var(--text-muted);
-            margin-bottom: 20px;
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--gold); background: rgba(255,255,255,0.06);
         }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-family: inherit;
-            font-size: 0.95rem;
-            outline: none;
-            transition: 0.3s;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.06);
-        }
-        .form-group select option {
-            background: #0a1a2e;
-            color: #fff;
-            padding: 8px;
-        }
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
+        .form-group select option { background: #0a1a2e; color: #fff; padding: 8px; }
+        .form-group textarea { height: 100px; resize: vertical; }
         .btn-submit {
-            width: 100%;
-            padding: 14px;
-            border-radius: 60px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: inherit;
+            width: 100%; padding: 14px; border-radius: 60px;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
+            transition: 0.3s; font-family: inherit;
         }
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
-        }
-        .form-status {
-            margin-top: 12px;
-            text-align: center;
-            font-size: 0.9rem;
-            min-height: 28px;
-        }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3); }
+        .form-status { margin-top: 12px; text-align: center; font-size: 0.9rem; min-height: 28px; }
         .btn-whatsapp-link {
-            flex: 1;
-            justify-content: center;
-            background: #25d366;
-            color: #fff;
-            padding: 12px;
-            border-radius: 50px;
-            text-align: center;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s;
+            flex: 1; justify-content: center; background: #25d366; color: #fff;
+            padding: 12px; border-radius: 50px; text-align: center;
+            display: inline-flex; align-items: center; gap: 8px;
+            font-weight: 700; border: none; cursor: pointer; text-decoration: none; transition: 0.3s;
         }
-        .btn-whatsapp-link:hover {
-            transform: scale(1.02);
-        }
-        .btn-whatsapp-link.work {
-            background: #1ebe5c;
-        }
-
-        /* ===== WHATSAPP FLOAT ===== */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 28px;
-            left: 28px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-        .whatsapp-float .wa-btn {
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            background: #25d366;
-            color: #fff;
-            font-size: 2.4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            animation: waPulse 2.8s ease-in-out infinite;
-        }
-        .whatsapp-float .wa-btn:hover {
-            transform: scale(1.1);
-        }
-        .whatsapp-float .wa-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 3px 14px;
-            border-radius: 50px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        @keyframes waPulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            }
-            50% {
-                box-shadow: 0 8px 60px rgba(37, 211, 102, 0.55), 0 0 0 12px rgba(37, 211, 102, 0.06);
-            }
-        }
-
-        /* ===== AI CHAT (integrated) ===== */
-        .ai-chat-toggle {
-            position: fixed;
-            bottom: 100px;
-            right: 28px;
-            z-index: 9998;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7);
-            color: #fff;
-            font-size: 1.8rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
-            transition: 0.3s;
-            animation: aiPulse 3s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .ai-chat-toggle:hover {
-            transform: scale(1.1);
-        }
-        @keyframes aiPulse {
-            0%,
-            100% {
-                box-shadow: 0 8px 40px rgba(108, 60, 224, 0.35);
-            }
-            50% {
-                box-shadow: 0 8px 60px rgba(108, 60, 224, 0.55), 0 0 0 12px rgba(108, 60, 224, 0.06);
-            }
-        }
-        .ai-chat-box {
-            position: fixed;
-            bottom: 175px;
-            right: 28px;
-            z-index: 9997;
-            width: 400px;
-            max-width: calc(100vw - 56px);
-            max-height: 550px;
-            border-radius: 24px;
-            background: rgba(6, 29, 58, 0.96);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .ai-chat-box.open {
-            display: flex;
-            animation: chatSlideUp 0.4s ease;
-        }
-        @keyframes chatSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        .ai-chat-header {
-            padding: 16px 20px;
-            background: rgba(108, 60, 224, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-shrink: 0;
-        }
-        .ai-chat-header .title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-        }
-        .ai-chat-header .title i {
-            color: #a855f7;
-        }
-        .ai-chat-header .title .ai-status {
-            font-size: 0.6rem;
-            color: #4ade80;
-            font-weight: 400;
-        }
-        .ai-chat-header .close-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.3s;
-            padding: 4px;
-        }
-        .ai-chat-header .close-btn:hover {
-            color: #fff;
-            transform: rotate(90deg);
-        }
-        .ai-chat-messages {
-            flex: 1;
-            padding: 16px 18px;
-            overflow-y: auto;
-            max-height: 350px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .ai-chat-messages .msg {
-            padding: 10px 16px;
-            border-radius: 16px;
-            max-width: 85%;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            animation: msgPop 0.3s ease;
-        }
-        @keyframes msgPop {
-            from {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        .ai-chat-messages .msg.bot {
-            background: rgba(108, 60, 224, 0.12);
-            border: 1px solid rgba(108, 60, 224, 0.08);
-            align-self: flex-start;
-            border-bottom-right-radius: 4px;
-        }
-        .ai-chat-messages .msg.user {
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.06);
-            align-self: flex-end;
-            border-bottom-left-radius: 4px;
-        }
-        .ai-chat-messages .msg .time {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            display: block;
-            opacity: 0.5;
-        }
-        .ai-chat-input {
-            padding: 12px 16px 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            gap: 10px;
-            flex-shrink: 0;
-        }
-        .ai-chat-input input {
-            flex: 1;
-            padding: 10px 16px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-family: inherit;
-            font-size: 0.9rem;
-            outline: none;
-        }
-        .ai-chat-input input:focus {
-            border-color: #a855f7;
-        }
-        .ai-chat-input input::placeholder {
-            color: rgba(255, 255, 255, 0.25);
-        }
-        .ai-chat-input button {
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: none;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7);
-            color: #fff;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: inherit;
-        }
-        .ai-chat-input button:hover {
-            transform: scale(1.04);
-        }
-        .ai-chat-typing {
-            display: none;
-            padding: 8px 16px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-style: italic;
-        }
-        .ai-chat-typing.show {
-            display: block;
-        }
+        .btn-whatsapp-link:hover { transform: scale(1.02); }
+        .btn-whatsapp-link.work { background: #1ebe5c; }
 
         /* ===== LOAD MORE ===== */
         .load-more-btn {
-            display: block;
-            margin: 30px auto 0;
-            padding: 12px 40px;
-            border-radius: 60px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
-            font-family: inherit;
+            display: block; margin: 30px auto 0; padding: 12px 40px;
+            border-radius: 60px; background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; border: none; cursor: pointer; font-size: 1rem;
+            transition: 0.3s; font-family: inherit;
         }
-        .load-more-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+        .load-more-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed; bottom: 28px; left: 28px; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
         }
+        .whatsapp-float .wa-btn {
+            width: 68px; height: 68px; border-radius: 50%; background: #25d366; color: #fff;
+            font-size: 2.4rem; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 40px rgba(37,211,102,0.3); transition: 0.3s; border: none; cursor: pointer;
+            animation: waPulse 2.8s ease-in-out infinite;
+        }
+        .whatsapp-float .wa-btn:hover { transform: scale(1.1); }
+        .whatsapp-float .wa-label {
+            font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
+            padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
+
+        /* ===== AI CHAT ===== */
+        .ai-chat-toggle {
+            position: fixed; bottom: 100px; right: 28px; z-index: 9998;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
+            font-size: 1.8rem; border: none; cursor: pointer;
+            box-shadow: 0 8px 40px rgba(108,60,224,0.35); transition: 0.3s;
+            animation: aiPulse 3s ease-in-out infinite;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .ai-chat-toggle:hover { transform: scale(1.1); }
+        @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35)} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06)} }
+        .ai-chat-box {
+            position: fixed; bottom: 175px; right: 28px; z-index: 9997;
+            width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
+            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            display: none; flex-direction: column; overflow: hidden;
+        }
+        .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
+        @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+        .ai-chat-header {
+            padding: 16px 20px; background: rgba(108,60,224,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+        }
+        .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .ai-chat-header .title i { color: #a855f7; }
+        .ai-chat-header .title .ai-status { font-size: 0.6rem; color: #4ade80; font-weight: 400; }
+        .ai-chat-header .close-btn {
+            background: none; border: none; color: var(--text-muted); font-size: 1.2rem;
+            cursor: pointer; transition: 0.3s; padding: 4px;
+        }
+        .ai-chat-header .close-btn:hover { color: #fff; transform: rotate(90deg); }
+        .ai-chat-messages {
+            flex: 1; padding: 16px 18px; overflow-y: auto; max-height: 350px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .ai-chat-messages .msg {
+            padding: 10px 16px; border-radius: 16px; max-width: 85%; font-size: 0.9rem;
+            line-height: 1.6; animation: msgPop 0.3s ease;
+        }
+        @keyframes msgPop { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
+        .ai-chat-messages .msg.bot {
+            background: rgba(108,60,224,0.12); border: 1px solid rgba(108,60,224,0.08);
+            align-self: flex-start; border-bottom-right-radius: 4px;
+        }
+        .ai-chat-messages .msg.user {
+            background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.06);
+            align-self: flex-end; border-bottom-left-radius: 4px;
+        }
+        .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
+        .ai-chat-input {
+            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
+            display: flex; gap: 10px; flex-shrink: 0;
+        }
+        .ai-chat-input input {
+            flex: 1; padding: 10px 16px; border-radius: 50px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
+        }
+        .ai-chat-input input:focus { border-color: #a855f7; }
+        .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
+        .ai-chat-input button {
+            padding: 10px 20px; border-radius: 50px; border: none;
+            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
+            font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit;
+        }
+        .ai-chat-input button:hover { transform: scale(1.04); }
+        .ai-chat-typing { display: none; padding: 8px 16px; color: var(--text-muted); font-size: 0.8rem; font-style: italic; }
+        .ai-chat-typing.show { display: block; }
 
         /* ===== FOOTER ===== */
         .footer {
             padding: 60px 24px 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            background: rgba(6, 29, 58, 0.5);
+            border-top: 1px solid rgba(255,255,255,0.03);
+            background: rgba(6,29,58,0.5);
             backdrop-filter: blur(12px);
         }
         .footer .container {
-            max-width: 1320px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+            max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
         }
-        .footer .brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            max-width: 340px;
-            margin-top: 8px;
-        }
-        .footer .brand .socials {
-            display: flex;
-            gap: 10px;
-            margin-top: 16px;
-        }
+        .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
+        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
         .footer .brand .socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            transition: 0.3s;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted); transition: 0.3s;
         }
-        .footer .brand .socials a:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: var(--gold);
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-        .footer h5 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 14px;
-            color: #fff;
-        }
-        .footer ul li {
-            margin-bottom: 6px;
-        }
-        .footer ul li a {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .footer ul li a:hover {
-            color: var(--gold);
-            padding-right: 6px;
-        }
+        .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+        .footer ul li { margin-bottom: 6px; }
+        .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
+        .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
         .footer-bottom {
-            max-width: 1320px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
+            max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            text-align: center; color: var(--text-muted); font-size: 0.8rem;
         }
-        .footer-bottom span {
-            color: var(--gold);
-        }
+        .footer-bottom span { color: var(--gold); }
 
         /* ===== REVEAL ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ===== SCROLL TOP ===== */
         .scroll-top {
-            position: fixed;
-            bottom: 100px;
-            left: 28px;
-            z-index: 9998;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            border: none;
-            font-size: 1.4rem;
-            cursor: pointer;
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
-            transition: 0.3s;
-            display: none;
-            align-items: center;
-            justify-content: center;
+            position: fixed; bottom: 100px; left: 28px; z-index: 9998;
+            width: 50px; height: 50px; border-radius: 50%; background: var(--gold-gradient);
+            color: var(--primary-dark); border: none; font-size: 1.4rem; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212,175,55,0.3); transition: 0.3s;
+            display: none; align-items: center; justify-content: center;
         }
-        .scroll-top:hover {
-            transform: scale(1.1);
-        }
-        .scroll-top.show {
-            display: flex;
-        }
+        .scroll-top:hover { transform: scale(1.1); }
+        .scroll-top.show { display: flex; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .hero .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-content .subtitle {
-                margin: 0 auto 32px;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .hero-stats {
-                justify-content: center;
-            }
-            .hero-card {
-                margin: 0 auto;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer .container {
-                grid-template-columns: 1fr 1fr;
-            }
+        @media (max-width:1024px) {
+            .hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content .subtitle { margin: 0 auto 32px; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-card { margin: 0 auto; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer .container { grid-template-columns: 1fr 1fr; }
         }
-        @media (max-width: 768px) {
-            .hotels-grid,
-            .packages-grid,
-            .offers-grid,
-            .blog-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .footer .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer .brand .socials {
-                justify-content: center;
-            }
-            .ai-chat-box {
-                width: calc(100vw - 32px);
-                right: 16px;
-                bottom: 155px;
-                max-height: 450px;
-            }
-            .ai-chat-toggle {
-                right: 16px;
-                bottom: 85px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-            }
-            .railway-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        @media (max-width:768px) {
+            .hotels-grid, .packages-grid, .offers-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
+            .footer .container { grid-template-columns: 1fr; text-align: center; }
+            .footer .brand .socials { justify-content: center; }
+            .ai-chat-box { width: calc(100vw - 32px); right: 16px; bottom: 155px; max-height: 450px; }
+            .ai-chat-toggle { right: 16px; bottom: 85px; width: 50px; height: 50px; font-size: 1.4rem; }
+            .railway-grid { grid-template-columns: 1fr 1fr; }
         }
-        @media (max-width: 480px) {
-            .hotels-grid,
-            .packages-grid,
-            .offers-grid,
-            .blog-grid,
-            .railway-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-stats {
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-            }
-            .hero-buttons .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            .section {
-                padding: 56px 16px;
-            }
-            .contact-form {
-                padding: 24px;
-            }
+        @media (max-width:480px) {
+            .hotels-grid, .packages-grid, .offers-grid, .blog-grid, .railway-grid { grid-template-columns: 1fr; }
+            .hero-stats { flex-direction: column; gap: 10px; align-items: center; }
+            .hero-buttons .btn { width: 100%; justify-content: center; }
+            .section { padding: 56px 16px; }
+            .contact-form { padding: 24px; }
         }
     </style>
 </head>
@@ -1479,6 +652,8 @@
                 <a href="cars.html" id="navCars">سيارات</a>
                 <a href="about.html" id="navAbout">من نحن</a>
                 <a href="contact.html" id="navContact">اتصل بنا</a>
+                <a href="blog.html" id="navBlog">📝 مدونة</a>
+                <a href="chatbot.html" id="navChatbot">🤖 مساعد</a>
                 <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
@@ -1519,6 +694,7 @@
                         <span id="badge5">🚆 قطارات</span>
                         <span id="badge6">🏝️ باقات</span>
                         <span id="badge7">📝 مدونة</span>
+                        <span id="badge8">🤖 مساعد</span>
                     </div>
                 </div>
             </div>
@@ -1667,6 +843,9 @@
                         <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat4">مقالة سياحية</p>
                     </div>
                 </div>
+                <div style="margin-top:30px;">
+                    <a href="about.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> تعرف علينا أكثر</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1704,6 +883,7 @@
                     <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
                         <a href="privacy.html" style="color:var(--gold);font-size:0.85rem;" id="privacyLink"><i class="fas fa-lock"></i> سياسة الخصوصية</a>
                         <a href="terms.html" style="color:var(--gold);font-size:0.85rem;" id="termsLink"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
+                        <a href="chatbot.html" style="color:var(--gold);font-size:0.85rem;"><i class="fas fa-robot"></i> مساعد الذكي</a>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -1751,6 +931,8 @@
                     <li><a href="cars.html" id="fNavCars">سيارات</a></li>
                     <li><a href="about.html" id="fNavAbout">من نحن</a></li>
                     <li><a href="contact.html" id="fNavContact">اتصل بنا</a></li>
+                    <li><a href="blog.html" id="fNavBlog">📝 مدونة</a></li>
+                    <li><a href="chatbot.html" id="fNavChatbot">🤖 مساعد</a></li>
                 </ul>
             </div>
             <div>
@@ -1783,7 +965,7 @@
         <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
     </div>
 
-    <!-- ===== AI CHAT (integrated) ===== -->
+    <!-- ===== AI CHAT ===== -->
     <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-chat-header">
@@ -1819,8 +1001,7 @@
             const particles = [];
             const COUNT = 60;
 
-            function resize() { w = canvas.width = window.innerWidth;
-                h = canvas.height = window.innerHeight; }
+            function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
             window.addEventListener('resize', resize);
             resize();
 
@@ -1869,8 +1050,7 @@
 
             function animate() {
                 ctx.clearRect(0, 0, w, h);
-                particles.forEach(p => { p.update();
-                    p.draw(); });
+                particles.forEach(p => { p.update(); p.draw(); });
                 drawLines();
                 requestAnimationFrame(animate);
             }
@@ -1912,8 +1092,7 @@
             const step = Math.ceil(target / 60);
             const interval = setInterval(() => {
                 current += step;
-                if (current >= target) { current = target;
-                    clearInterval(interval); }
+                if (current >= target) { current = target; clearInterval(interval); }
                 el.textContent = current + suffix;
             }, 20);
         }
@@ -1944,10 +1123,7 @@
             { icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop' },
             { icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop' },
             { icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop' },
-            { icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة', img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop' },
-            { icon: '👥', name: 'رحلات جماعية', desc: 'تنظيم رحلات للمجموعات مع مرشدين سياحيين محترفين', img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop' },
-            { icon: '🚢', name: 'رحلات بحرية', desc: 'كروز فاخر على متن أفضل السفن السياحية العالمية', img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop' },
-            { icon: '💼', name: 'سفر رجال أعمال', desc: 'خدمات مخصصة لرجال الأعمال مع أفضل وسائل الراحة', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop' }
+            { icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة', img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop' }
         ];
 
         const servicesGrid = document.getElementById('servicesGrid');
@@ -1956,13 +1132,13 @@
             card.className = 'service-card reveal';
             card.style.transitionDelay = `${i * 0.05}s`;
             card.innerHTML = `
-                    <div class="simg" style="background-image:url('${s.img}');"></div>
-                    <div class="icon">${s.icon}</div>
-                    <h4>${s.name}</h4>
-                    <p>${s.desc}</p>
-                    <span class="service-tag">احجز الآن</span>
-                    <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
-                `;
+                <div class="simg" style="background-image:url('${s.img}');"></div>
+                <div class="icon">${s.icon}</div>
+                <h4>${s.name}</h4>
+                <p>${s.desc}</p>
+                <span class="service-tag">احجز الآن</span>
+                <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
+            `;
             card.addEventListener('click', () => {
                 window.open(`https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمة%20${encodeURIComponent(s.name)}`, '_blank');
             });
@@ -1971,18 +1147,12 @@
 
         // ===== OFFERS DATA =====
         const offersData = [
-            { icon: '🇸🇦', badge: 'عرض اليوم الوطني', title: 'خصم 93% على الفنادق', desc: 'احتفل باليوم الوطني السعودي مع خصم فوري يصل إلى 93% على حجز الفنادق',
-                price: 'ابتداءً من 435 ر.س' },
-            { icon: '🕌', badge: 'عمرة رمضان', title: 'باقات عمرة رمضان', desc: 'باقات عمرة متكاملة في رمضان تشمل تأشيرة، سكن قريب من الحرم، ومواصلات',
-                price: 'ابتداءً من 1,700 درهم' },
-            { icon: '🏨', badge: 'خصم فنادق', title: 'خصم 9% على الفنادق', desc: 'احصل على خصم 9% على جميع الفنادق باستخدام الكود KSA90',
-                price: 'خصم 9% + 900 نقطة' },
-            { icon: '🚆', badge: 'عروض القطارات', title: 'تذاكر قطار بأسعار مخفضة', desc: 'رحلة مريحة بين المدن السعودية بأسعار تبدأ من 85 ريال فقط',
-                price: 'ابتداءً من 85 ريال' },
-            { icon: '🏖️', badge: 'عرض العطلات', title: 'إقامة في مكة بأسعار مميزة', desc: 'فندق أم مكة من ميلينيوم – إقامة ليلتين أو ثلاث بأسعار مخفضة',
-                price: 'ابتداءً من 435 ر.س' },
-            { icon: '✈️', badge: 'عرض الطيران', title: 'تذاكر طيران بأسعار تنافسية', desc: 'أرخص أسعار تذاكر الطيران مع فلاي ناس وطيران أديل',
-                price: 'ابتداءً من 179 ريال' }
+            { icon: '🇸🇦', badge: 'عرض اليوم الوطني', title: 'خصم 93% على الفنادق', desc: 'احتفل باليوم الوطني السعودي مع خصم فوري يصل إلى 93% على حجز الفنادق', price: 'ابتداءً من 435 ر.س' },
+            { icon: '🕌', badge: 'عمرة رمضان', title: 'باقات عمرة رمضان', desc: 'باقات عمرة متكاملة في رمضان تشمل تأشيرة، سكن قريب من الحرم، ومواصلات', price: 'ابتداءً من 1,700 درهم' },
+            { icon: '🏨', badge: 'خصم فنادق', title: 'خصم 9% على الفنادق', desc: 'احصل على خصم 9% على جميع الفنادق باستخدام الكود KSA90', price: 'خصم 9% + 900 نقطة' },
+            { icon: '🚆', badge: 'عروض القطارات', title: 'تذاكر قطار بأسعار مخفضة', desc: 'رحلة مريحة بين المدن السعودية بأسعار تبدأ من 85 ريال فقط', price: 'ابتداءً من 85 ريال' },
+            { icon: '🏖️', badge: 'عرض العطلات', title: 'إقامة في مكة بأسعار مميزة', desc: 'فندق أم مكة من ميلينيوم – إقامة ليلتين أو ثلاث بأسعار مخفضة', price: 'ابتداءً من 435 ر.س' },
+            { icon: '✈️', badge: 'عرض الطيران', title: 'تذاكر طيران بأسعار تنافسية', desc: 'أرخص أسعار تذاكر الطيران مع فلاي ناس وطيران أديل', price: 'ابتداءً من 179 ريال' }
         ];
 
         const offersGrid = document.getElementById('offersGrid');
@@ -1991,13 +1161,13 @@
             card.className = 'offer-card reveal';
             card.style.transitionDelay = `${i * 0.1}s`;
             card.innerHTML = `
-                    <div class="offer-icon">${offer.icon}</div>
-                    <div class="offer-badge">${offer.badge}</div>
-                    <h4>${offer.title}</h4>
-                    <p>${offer.desc}</p>
-                    <div class="offer-price">${offer.price}</div>
-                    <button class="btn-sm" onclick="bookOffer('${offer.title}')"><i class="fab fa-whatsapp"></i> استفد من العرض</button>
-                `;
+                <div class="offer-icon">${offer.icon}</div>
+                <div class="offer-badge">${offer.badge}</div>
+                <h4>${offer.title}</h4>
+                <p>${offer.desc}</p>
+                <div class="offer-price">${offer.price}</div>
+                <button class="btn-sm" onclick="bookOffer('${offer.title}')"><i class="fab fa-whatsapp"></i> استفد من العرض</button>
+            `;
             offersGrid.appendChild(card);
         });
 
@@ -2007,12 +1177,8 @@
         };
 
         // ===== HOTELS DATA =====
-        const hotelNames = ['فندق الفيرمونت', 'الريتز كارلتون', 'فور سيزونز', 'هيلتون', 'شيراتون', 'ماريوت', 'كيمبنسكي', 'ريتز باريس',
-            'جراند حياة', 'إنتركونتيننتال', 'ويستن', 'لو ميريديان', 'سوفيتيل', 'نوفوتيل', 'إيبيس', 'موفنبيك'
-        ];
-        const hotelCities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'دبي', 'أبوظبي', 'الدوحة', 'مسقط',
-            'الكويت', 'عمّان', 'القاهرة', 'اسطنبول'
-        ];
+        const hotelNames = ['فندق الفيرمونت', 'الريتز كارلتون', 'فور سيزونز', 'هيلتون', 'شيراتون', 'ماريوت', 'كيمبنسكي', 'ريتز باريس', 'جراند حياة', 'إنتركونتيننتال', 'ويستن', 'لو ميريديان', 'سوفيتيل', 'نوفوتيل', 'إيبيس', 'موفنبيك'];
+        const hotelCities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'دبي', 'أبوظبي', 'الدوحة', 'مسقط', 'الكويت', 'عمّان', 'القاهرة', 'اسطنبول'];
         const hotelImages = [
             'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=250&fit=crop',
             'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=250&fit=crop',
@@ -2021,15 +1187,11 @@
             'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=250&fit=crop',
             'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=250&fit=crop'
         ];
-        const cityPriceBase = { 'الرياض': 1477, 'جدة': 758, 'مكة': 627, 'المدينة': 550, 'الدمام': 650, 'الخبر': 600,
-            'أبها': 500, 'تبوك': 450, 'دبي': 800, 'أبوظبي': 750, 'الدوحة': 700, 'مسقط': 600, 'الكويت': 500, 'عمّان': 480,
-            'القاهرة': 400, 'اسطنبول': 450
-        };
+        const cityPriceBase = { 'الرياض': 1477, 'جدة': 758, 'مكة': 627, 'المدينة': 550, 'الدمام': 650, 'الخبر': 600, 'أبها': 500, 'تبوك': 450, 'دبي': 800, 'أبوظبي': 750, 'الدوحة': 700, 'مسقط': 600, 'الكويت': 500, 'عمّان': 480, 'القاهرة': 400, 'اسطنبول': 450 };
 
         let allHotels = [];
         for (let i = 0; i < 220; i++) {
-            const name = hotelNames[i % hotelNames.length] + (Math.floor(i / hotelNames.length) > 0 ? ` ${Math.floor(i / hotelNames
-                    .length) + 1}` : '');
+            const name = hotelNames[i % hotelNames.length] + (Math.floor(i / hotelNames.length) > 0 ? ` ${Math.floor(i / hotelNames.length) + 1}` : '');
             const city = hotelCities[i % hotelCities.length];
             const basePrice = cityPriceBase[city] || 700;
             const price = Math.round((basePrice * (0.7 + Math.random() * 0.6)) / 5) * 5;
@@ -2047,15 +1209,15 @@
                 const card = document.createElement('div');
                 card.className = 'hotel-card reveal';
                 card.innerHTML = `
-                        <div class="img" style="background-image:url('${h.img}');"></div>
-                        <div class="body">
-                            <h4>${h.name}</h4>
-                            <div class="location"><i class="fas fa-map-marker-alt"></i> ${h.city}</div>
-                            <div class="rating">${'★'.repeat(Math.floor(h.rating))}${h.rating % 1 >= 0.5 ? '½' : ''} (${h.rating}) <i class="fas fa-star"></i></div>
-                            <div class="price">${h.price} ر.س <small>/ ليلة</small></div>
-                            <button class="btn-sm" onclick="bookHotel('${h.name}','${h.city}',${h.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
-                        </div>
-                    `;
+                    <div class="img" style="background-image:url('${h.img}');"></div>
+                    <div class="body">
+                        <h4>${h.name}</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> ${h.city}</div>
+                        <div class="rating">${'★'.repeat(Math.floor(h.rating))}${h.rating % 1 >= 0.5 ? '½' : ''} (${h.rating}) <i class="fas fa-star"></i></div>
+                        <div class="price">${h.price} ر.س <small>/ ليلة</small></div>
+                        <button class="btn-sm" onclick="bookHotel('${h.name}','${h.city}',${h.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
+                    </div>
+                `;
                 hotelsGrid.appendChild(card);
             });
             document.querySelectorAll('.hotel-card.reveal').forEach(el => observer.observe(el));
@@ -2070,16 +1232,12 @@
         });
 
         window.bookHotel = function(name, city, price) {
-            const msg =
-                `🏨 حجز فندق\nالفندق: ${name}\nالمدينة: ${city}\nالسعر: ${price} ر.س/ليلة\nأرغب في الحصول على عرض سعر مفصل`;
+            const msg = `🏨 حجز فندق\nالفندق: ${name}\nالمدينة: ${city}\nالسعر: ${price} ر.س/ليلة\nأرغب في الحصول على عرض سعر مفصل`;
             window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
         };
 
         // ===== PACKAGES DATA =====
-        const packageNames = ['عمرة رمضان', 'عطلة دبي الفاخرة', 'رحلة باريس الرومانسية', 'استكشاف اسطنبول',
-            'عطلة شاطئية في جدة', 'رحلة سياحية إلى لندن', 'سفر رجال أعمال إلى نيويورك',
-            'رحلة عائلية إلى كوالالمبور', 'سفاري في كينيا', 'رحلة شتوية إلى سويسرا'
-        ];
+        const packageNames = ['عمرة رمضان', 'عطلة دبي الفاخرة', 'رحلة باريس الرومانسية', 'استكشاف اسطنبول', 'عطلة شاطئية في جدة', 'رحلة سياحية إلى لندن', 'سفر رجال أعمال إلى نيويورك', 'رحلة عائلية إلى كوالالمبور', 'سفاري في كينيا', 'رحلة شتوية إلى سويسرا'];
         const packageCities = ['مكة', 'دبي', 'باريس', 'اسطنبول', 'جدة', 'لندن', 'نيويورك', 'كوالالمبور', 'نيروبي', 'زيرمات'];
         const packageImages = [
             'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
@@ -2093,14 +1251,11 @@
             'https://images.unsplash.com/photo-1535139267832-7e3a5b2f6ae7?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&h=400&fit=crop'
         ];
-        const packagePriceBase = { 'مكة': 2500, 'دبي': 3800, 'باريس': 4200, 'اسطنبول': 2200, 'جدة': 1800,
-            'لندن': 4500, 'نيويورك': 5500, 'كوالالمبور': 3200, 'نيروبي': 4800, 'زيرمات': 5200
-        };
+        const packagePriceBase = { 'مكة': 2500, 'دبي': 3800, 'باريس': 4200, 'اسطنبول': 2200, 'جدة': 1800, 'لندن': 4500, 'نيويورك': 5500, 'كوالالمبور': 3200, 'نيروبي': 4800, 'زيرمات': 5200 };
 
         let allPackages = [];
         for (let i = 0; i < 220; i++) {
-            const name = packageNames[i % packageNames.length] + (Math.floor(i / packageNames.length) > 0 ? ` ${Math.floor(i /
-                    packageNames.length) + 1}` : '');
+            const name = packageNames[i % packageNames.length] + (Math.floor(i / packageNames.length) > 0 ? ` ${Math.floor(i / packageNames.length) + 1}` : '');
             const city = packageCities[i % packageCities.length];
             const basePrice = packagePriceBase[city] || 3000;
             const price = Math.round((basePrice * (0.85 + Math.random() * 0.3)) / 50) * 50;
@@ -2118,14 +1273,14 @@
                 const card = document.createElement('div');
                 card.className = 'package-card reveal';
                 card.innerHTML = `
-                        <div class="img" style="background-image:url('${p.img}');"></div>
-                        <div class="body">
-                            <h4>${p.name}</h4>
-                            <div class="location"><i class="fas fa-map-pin"></i> ${p.city}</div>
-                            <div class="price">${p.price} ر.س <small>/ ${p.days} ليالي</small></div>
-                            <button class="btn-sm" onclick="bookPackage('${p.name}','${p.city}',${p.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
-                        </div>
-                    `;
+                    <div class="img" style="background-image:url('${p.img}');"></div>
+                    <div class="body">
+                        <h4>${p.name}</h4>
+                        <div class="location"><i class="fas fa-map-pin"></i> ${p.city}</div>
+                        <div class="price">${p.price} ر.س <small>/ ${p.days} ليالي</small></div>
+                        <button class="btn-sm" onclick="bookPackage('${p.name}','${p.city}',${p.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
+                    </div>
+                `;
                 packagesGrid.appendChild(card);
             });
             document.querySelectorAll('.package-card.reveal').forEach(el => observer.observe(el));
@@ -2140,25 +1295,18 @@
         });
 
         window.bookPackage = function(name, city, price) {
-            const msg =
-                `🏝️ حجز باقة سياحية\nالباقة: ${name}\nالوجهة: ${city}\nالسعر: ${price} ر.س\nأرغب في الحصول على عرض سعر مفصل`;
+            const msg = `🏝️ حجز باقة سياحية\nالباقة: ${name}\nالوجهة: ${city}\nالسعر: ${price} ر.س\nأرغب في الحصول على عرض سعر مفصل`;
             window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
         };
 
         // ===== RAILWAY DATA =====
         const railwayRoutes = [
-            { from: 'الرياض', to: 'الدمام', duration: '3-4 ساعات', price: '85-145 ر.س',
-                detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الدمام', to: 'الرياض', duration: '3-4 ساعات', price: '85-145 ر.س',
-                detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'الهفوف', duration: '2.5 ساعة', price: '60-100 ر.س', detail: 'أسعار تنافسية حسب الدرجة',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الدمام', to: 'الهفوف', duration: '1.5 ساعة', price: '40-70 ر.س', detail: 'رحلة قصيرة ومريحة',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'القصيم', duration: '2.5 ساعة', price: '90-140 ر.س', detail: 'خط الشمال الغربي',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'حائل', duration: '4 ساعات', price: '120-180 ر.س', detail: 'خط الشمال',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' }
+            { from: 'الرياض', to: 'الدمام', duration: '3-4 ساعات', price: '85-145 ر.س', detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الدمام', to: 'الرياض', duration: '3-4 ساعات', price: '85-145 ر.س', detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الرياض', to: 'الهفوف', duration: '2.5 ساعة', price: '60-100 ر.س', detail: 'أسعار تنافسية حسب الدرجة', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الدمام', to: 'الهفوف', duration: '1.5 ساعة', price: '40-70 ر.س', detail: 'رحلة قصيرة ومريحة', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الرياض', to: 'القصيم', duration: '2.5 ساعة', price: '90-140 ر.س', detail: 'خط الشمال الغربي', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
+            { from: 'الرياض', to: 'حائل', duration: '4 ساعات', price: '120-180 ر.س', detail: 'خط الشمال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' }
         ];
 
         const railwayGrid = document.getElementById('railwayGrid');
@@ -2167,16 +1315,15 @@
             item.className = 'railway-item reveal';
             item.style.transitionDelay = `${i * 0.1}s`;
             item.innerHTML = `
-                    <div class="rimg" style="background-image:url('${r.img}');"></div>
-                    <div class="icon">🚆</div>
-                    <h4>${r.from} → ${r.to}</h4>
-                    <p>⏱ ${r.duration}</p>
-                    <p style="color:var(--gold);font-weight:700;">${r.price}</p>
-                    <p style="font-size:0.7rem;color:var(--text-muted);">${r.detail}</p>
-                `;
+                <div class="rimg" style="background-image:url('${r.img}');"></div>
+                <div class="icon">🚆</div>
+                <h4>${r.from} → ${r.to}</h4>
+                <p>⏱ ${r.duration}</p>
+                <p style="color:var(--gold);font-weight:700;">${r.price}</p>
+                <p style="font-size:0.7rem;color:var(--text-muted);">${r.detail}</p>
+            `;
             item.addEventListener('click', () => {
-                const msg =
-                    `🚆 حجز تذكرة قطار\nمن: ${r.from}\nإلى: ${r.to}\nالمدة: ${r.duration}\nالسعر: ${r.price}\nأرغب في الحجز`;
+                const msg = `🚆 حجز تذكرة قطار\nمن: ${r.from}\nإلى: ${r.to}\nالمدة: ${r.duration}\nالسعر: ${r.price}\nأرغب في الحجز`;
                 window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
             });
             railwayGrid.appendChild(item);
@@ -2184,30 +1331,12 @@
 
         // ===== BLOG DATA =====
         const blogPosts = [
-            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم', tag: 'وجهات سياحية',
-                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '1 أغسطس 2026' },
-            { title: 'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc: 'نصائح وإرشادات لرحلة مثالية إلى دبي', tag: 'دليل سفر',
-                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', date: '29 يوليو 2026' },
-            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة لحجز عمرة مميزة ومريحة', tag: 'عمرة',
-                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', date: '25 يوليو 2026' },
-            { title: 'أفضل فنادق مكة قرب الحرم', desc: 'دليل شامل لأفضل الفنادق القريبة من الحرم المكي', tag: 'فنادق',
-                img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop', date: '20 يوليو 2026' },
-            { title: 'رحلة إلى باريس – مدينة النور', desc: 'استكشف أجمل معالم باريس مع نصائح السفر', tag: 'سفر',
-                img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop', date: '15 يوليو 2026' },
-            { title: 'تأشيرة السياحة إلى أوروبا – دليل كامل', desc: 'كل ما تحتاج معرفته عن تأشيرة شنغن', tag: 'تأشيرات',
-                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', date: '10 يوليو 2026' },
-            { title: 'السفر إلى اسطنبول – عبق التاريخ', desc: 'اكتشف جمال اسطنبول بين الماضي والحاضر', tag: 'سياحة',
-                img: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&h=400&fit=crop', date: '5 يوليو 2026' },
-            { title: 'نصائح لتوفير المال أثناء السفر', desc: 'طرق ذكية لتوفير المال دون التأثير على متعة الرحلة', tag: 'نصائح سفر',
-                img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop', date: '28 يونيو 2026' },
-            { title: 'أفضل الوجهات للعطلات العائلية', desc: 'وجهات مناسبة للعائلات مع أنشطة للأطفال', tag: 'عائلات',
-                img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop', date: '20 يونيو 2026' },
-            { title: 'رحلات بحرية – تجربة لا تُنسى', desc: 'استمتع برحلة بحرية فاخرة مع أجمل المناظر', tag: 'رحلات بحرية',
-                img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop', date: '15 يونيو 2026' },
-            { title: 'دليل السفر إلى لندن', desc: 'كل ما تحتاج معرفته عن العاصمة البريطانية', tag: 'دليل سفر',
-                img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop', date: '10 يونيو 2026' },
-            { title: 'السياحة في نيويورك – المدينة التي لا تنام', desc: 'استكشف معالم نيويورك الشهيرة', tag: 'سياحة',
-                img: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop', date: '5 يونيو 2026' }
+            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم', tag: 'وجهات سياحية', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '1 أغسطس 2026' },
+            { title: 'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc: 'نصائح وإرشادات لرحلة مثالية إلى دبي', tag: 'دليل سفر', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', date: '29 يوليو 2026' },
+            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة لحجز عمرة مميزة ومريحة', tag: 'عمرة', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', date: '25 يوليو 2026' },
+            { title: 'أفضل فنادق مكة قرب الحرم', desc: 'دليل شامل لأفضل الفنادق القريبة من الحرم المكي', tag: 'فنادق', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop', date: '20 يوليو 2026' },
+            { title: 'رحلة إلى باريس – مدينة النور', desc: 'استكشف أجمل معالم باريس مع نصائح السفر', tag: 'سفر', img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop', date: '15 يوليو 2026' },
+            { title: 'تأشيرة السياحة إلى أوروبا – دليل كامل', desc: 'كل ما تحتاج معرفته عن تأشيرة شنغن', tag: 'تأشيرات', img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', date: '10 يوليو 2026' }
         ];
 
         let blogDisplayCount = 6;
@@ -2221,14 +1350,14 @@
                 card.className = 'blog-card reveal';
                 card.style.transitionDelay = `${i * 0.04}s`;
                 card.innerHTML = `
-                        <div class="img" style="background-image:url('${post.img}');"></div>
-                        <div class="body">
-                            <span class="tag">${post.tag}</span>
-                            <h4>${post.title}</h4>
-                            <p>${post.desc}</p>
-                            <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
-                        </div>
-                    `;
+                    <div class="img" style="background-image:url('${post.img}');"></div>
+                    <div class="body">
+                        <span class="tag">${post.tag}</span>
+                        <h4>${post.title}</h4>
+                        <p>${post.desc}</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                    </div>
+                `;
                 blogGrid.appendChild(card);
             });
             document.querySelectorAll('.blog-card.reveal').forEach(el => observer.observe(el));
@@ -2253,9 +1382,7 @@
             { q: 'هل تقدمون تأمين سفر؟', a: 'نعم، نوفر تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة، مع دعم 24/7.' },
             { q: 'كم عدد الباقات السياحية المتاحة؟', a: 'لدينا أكثر من 200 باقة سياحية تشمل وجهات مثل دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.' },
             { q: 'هل تقدمون حجز قطارات؟', a: 'نعم، نوفر حجز تذاكر القطارات (سار) بأسعار تبدأ من 85 ريال للدرجة الاقتصادية، و145 ريال لدرجة الأعمال.' },
-            { q: 'هل تدعمون اللغة الإنجليزية؟', a: 'نعم، يمكنك تغيير لغة الموقع إلى الإنجليزية عن طريق زر "English" في الأعلى، وسيتم ترجمة جميع المحتويات.' },
-            { q: 'كيف أستفيد من خصم اليوم الوطني؟', a: 'استخدم الكود SND93 عند حجز الفنادق للحصول على خصم يصل إلى 93% على إقامتك.' },
-            { q: 'هل تقدمون خدمة نقل المطار؟', a: 'نعم، لدينا خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة مع سائقين محترفين.' }
+            { q: 'هل تدعمون اللغة الإنجليزية؟', a: 'نعم، يمكنك تغيير لغة الموقع إلى الإنجليزية عن طريق زر "English" في الأعلى، وسيتم ترجمة جميع المحتويات.' }
         ];
 
         const faqGrid = document.getElementById('faqGrid');
@@ -2264,12 +1391,12 @@
             div.className = 'faq-item reveal';
             div.style.transitionDelay = `${i * 0.05}s`;
             div.innerHTML = `
-                    <div class="faq-q" onclick="toggleFaq(this)">
-                        <span>${item.q}</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-a">${item.a}</div>
-                `;
+                <div class="faq-q" onclick="toggleFaq(this)">
+                    <span>${item.q}</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-a">${item.a}</div>
+            `;
             faqGrid.appendChild(div);
         });
 
@@ -2278,7 +1405,7 @@
             parent.classList.toggle('open');
         };
 
-        // ===== CONTACT FORM - SEND TO 0554126832 =====
+        // ===== CONTACT FORM - SEND TO WORK NUMBER 0554126832 =====
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('contactName').value.trim();
@@ -2291,15 +1418,14 @@
                 status.style.color = '#f87171';
                 return;
             }
-            // Send to 0554126832 (work number) as requested
-            const fullMsg =
-                `📩 رسالة جديدة من موقع صعود الطائرة\n\n👤 الاسم: ${name}\n📱 الجوال: ${phone}\n📧 البريد: ${email || 'غير مدخل'}\n\n💬 الرسالة:\n${message}`;
+            const fullMsg = `📩 رسالة جديدة من موقع صعود الطائرة\n\n👤 الاسم: ${name}\n📱 الجوال: ${phone}\n📧 البريد: ${email || 'غير مدخل'}\n\n💬 الرسالة:\n${message}`;
             status.textContent = '✅ جاري التحويل إلى واتساب ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
+                // WORK NUMBER 0554126832
                 window.open(`https://wa.me/966554126832?text=${encodeURIComponent(fullMsg)}`, '_blank');
                 this.reset();
-                status.textContent = '✅ تم إرسال رسالتك بنجاح!';
+                status.textContent = '✅ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.';
                 setTimeout(() => status.textContent = '', 5000);
             }, 700);
         });
@@ -2310,153 +1436,43 @@
         const chatInput = document.getElementById('aiChatInput');
         const typingIndicator = document.getElementById('aiTyping');
 
-        // Extended AI knowledge base with more responses and multi-language support
         const aiKnowledge = {
-            // Arabic
             'مرحبا': '👋 أهلاً بك في وكالة <strong>صعود الطائرة</strong>! كيف يمكنني مساعدتك اليوم؟ يمكنك سؤالي عن الخدمات، العروض، أو بدء حجز.',
-            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟ أخبرني ما الذي تبحث عنه.',
-            'اهلا': '👋 أهلاً وسهلاً! أنا هنا لمساعدتك في كل ما يخص السفر والسياحة.',
-            'كيف حالك': '🙂 أنا بخير، شكراً للسؤال! كيف يمكنني مساعدتك؟',
-            'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، مواصلات، ووجبات فاخرة. هل ترغب في حجز باقة؟',
-            'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول. نضمن معالجة سريعة وأسعار تنافسية. أخبرني الدولة التي تريدها.',
-            'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس، طيران أديل، وشركات عالمية. الأسعار تبدأ من ١٧٩ ريال للرحلات الداخلية.',
-            'طيران': '✈️ نقدم حجز تذاكر الطيران الداخلية والدولية بأسعار تنافسية. يمكننا مقارنة أسعار أكثر من 500 شركة طيران.',
-            'فندق': '🏨 لدينا أكثر من 200 فندق حول العالم بأسعار حقيقية من Booking.com. عروض اليوم الوطني تصل إلى 93% خصم! أخبرني المدينة وتواريخ الإقامة.',
-            'فنادق': '🏨 نقدم حجز فنادق فاخرة واقتصادية في جميع المدن الرئيسية. لدينا عروض حصرية لعملائنا.',
-            'سيارة': '🚗 تأجير سيارات بجميع الفئات: اقتصادي، سيدان، SUV، فاخر. يشمل تأمين شامل ضد الغير، مع خيار تأمين شامل كامل.',
-            'سيارات': '🚗 جميع أنواع السيارات متوفرة للإيجار اليومي أو الأسبوعي. احصل على خصم 15% للإيجار لمدة أسبوع أو أكثر.',
-            'باقة': '🏝️ لدينا أكثر من 200 باقة سياحية إلى أجمل وجهات العالم: دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.',
-            'باقات': '🏝️ باقاتنا تشمل الطيران، الإقامة، الجولات السياحية، والوجبات. اختر الباقة التي تناسب ميزانيتك.',
-            'قطار': '🚆 نوفر حجز تذاكر القطارات (سار) بأسعار تبدأ من ٨٥ ريال للدرجة الاقتصادية، و١٤٥ ريال لدرجة الأعمال.',
-            'قطارات': '🚆 حجز تذاكر القطارات بين المدن السعودية بأسعار مخفضة. رحلات مريحة وآمنة.',
-            'تأمين': '🛡️ تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة. نوفر خيارات متعددة تناسب احتياجاتك.',
-            'نقل مطار': '✈️ خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة مع سائقين محترفين. أسعار ثابتة.',
-            'جماعية': '👥 ننظم رحلات جماعية مع مرشدين سياحيين محترفين. أسعار خاصة للمجموعات.',
-            'بحرية': '🚢 رحلات كروز فاخرة على أفضل السفن السياحية. وجهات مميزة وبرامج ترفيهية.',
-            'أعمال': '💼 خدمات سفر مخصصة لرجال الأعمال: درجة الأعمال، فنادق تنفيذية، استقبال في المطار، وخدمة الكونسيرج.',
-            'عرض': '🔥 لدينا عروض رائعة: خصم 93% على الفنادق بمناسبة اليوم الوطني (كود SND93)، وخصم 9% باستخدام كود KSA90، وعروض عمرة رمضان، وتذاكر قطار بأسعار مخفضة.',
-            'خصم': '💸 الخصومات المتاحة: 93% على الفنادق، 9% باستخدام كود KSA90، 20% على باقات العمرة، 30% على القطارات.',
-            'كود': '📱 كود الخصم KSA90 يمنحك 9% على جميع الفنادق + 900 نقطة في محفظتك. كود SND93 لخصم 93% بمناسبة اليوم الوطني.',
-            'سعر': '💰 أسعارنا تنافسية ومأخوذة من مصادر موثوقة. يرجى تحديد الخدمة التي تريدها للحصول على عرض دقيق.',
-            'حجز': '📝 يمكنك الحجز عبر هذا المساعد الذكي. سأطلب منك بعض المعلومات ثم سأرسل طلبك مباشرة إلى فريقنا عبر واتساب. هل تريد البدء؟',
-            'اتصال': '📞 يمكنك التواصل معنا عبر واتساب 0555382038 أو الاتصال على 0554126832.',
-            'العنوان': '📍 عنواننا: طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية.',
-            'وقت العمل': '🕐 نعمل من السبت إلى الخميس ٩ ص – ١١ م. الجمعة مغلق (خدمة طوارئ متاحة عبر واتساب).',
-            'مساعدة': '🤖 أنا هنا لمساعدتك! يمكنك سؤالي عن أي من خدماتنا، أو طلب حجز، أو الاستفسار عن العروض.',
-            'الخدمات': '🛫 نقدم أكثر من 20 خدمة سياحية: طيران، عمرة، تأشيرات، فنادق، سيارات، قطارات، باصات، نقل مطار، تأمين، رحلات جماعية، بحرية، وأعمال.',
-            'من نحن': '🏢 نحن <strong>صعود الطائرة للسفر والسياحة</strong>، وكالة سفر رائدة في المملكة العربية السعودية منذ عام 2020.',
-            'تقييم': '⭐ معدل رضا العملاء لدينا 98% – نحن نفخر بثقة عملائنا.',
-            'شكوى': '📩 إذا كان لديك أي استفسار أو اقتراح، يرجى التواصل معنا عبر واتساب وسنقوم بالرد في أقرب وقت.',
-            'شكرا': '🙏 العفو! سعداء بمساعدتك. هل هناك شيء آخر تريد معرفته؟',
-            'اريد حجز': '📝 رائع! سأقوم بمساعدتك في الحجز. سأطلب منك بعض المعلومات وسنرسل طلبك مباشرة إلى فريقنا. هل أنت مستعد؟ (أجب بـ "نعم" للبدء)',
-            'نعم': '👍 ممتاز! لنبدأ. سأسألك عدة أسئلة. يرجى الإجابة عليها بدقة.',
-
-            // English
-            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong> Travel Agency! I\'m your smart assistant. How can I help you today? You can ask about our services, offers, or start a booking.',
-            'hi': '👋 Hi there! How can I assist you?',
-            'umrah': '🕋 Our Umrah packages start from 1,200 SAR including visa, accommodation near Haram, transportation, and meals.',
-            'visa': '🛂 We offer tourist, business, visit, and medical visas for all countries.',
-            'flight': '✈️ We offer cheap flights starting from 179 SAR. Tell me your destination and travel dates.',
-            'hotel': '🏨 We have 200+ hotels with real prices from Booking.com. Up to 93% off for National Day!',
-            'car': '🚗 Luxury and economy car rentals with comprehensive insurance. 15% off for weekly rentals!',
-            'package': '🏝️ 200+ travel packages to Dubai, Paris, Istanbul, London, New York, Kuala Lumpur, and more.',
-            'train': '🚆 Train tickets starting from 85 SAR with SAR. Business class available from 145 SAR.',
-            'offer': '🔥 Special offers: 93% off on hotels (code SND93), 9% off with code KSA90.',
-            'price': '💰 Our prices are competitive. Tell me the service you need for a detailed quote.',
-            'booking': '📝 I can help you book. I\'ll ask for some details and send your request to our team via WhatsApp. Ready? (reply "yes")',
-            'yes': '👍 Great! Let\'s start. I\'ll ask you a few questions.',
-            'contact': '📞 You can reach us via WhatsApp at 0555382038 or call 0554126832.',
-            'address': '📍 King Abdulaziz Road, Arar, Saudi Arabia.',
-            'thanks': '🙏 You\'re welcome! Happy to help.',
-            'thank you': '🙏 You\'re welcome! Happy to help.',
-            'about': '🏢 We are <strong>Saeed Al-Taayira Travel & Tourism</strong>, a leading travel agency in Saudi Arabia since 2020.',
-            'services': '🛫 We offer 20+ travel services: flights, Umrah, visas, hotels, cars, trains, buses, airport transfer, insurance, group tours, cruises, and business travel.',
-            'discount': '💸 Available discounts: 93% on hotels (National Day), 9% with code KSA90, 20% on Umrah packages, 30% on trains.'
+            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟',
+            'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، ومواصلات.',
+            'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول.',
+            'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس وطيران أديل بأسعار تبدأ من 179 ريال.',
+            'فندق': '🏨 لدينا أكثر من 200 فندق بأسعار حقيقية. عروض اليوم الوطني تصل إلى 93% خصم!',
+            'سيارة': '🚗 تأجير سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل.',
+            'باقة': '🌍 لدينا أكثر من 200 باقة سياحية بأسعار تبدأ من 1800 ريال.',
+            'قطار': '🚆 نوفر حجز تذاكر القطارات بأسعار تبدأ من 85 ريال مع سار.',
+            'عرض': '🔥 عروض اليوم الوطني: خصم 93% على الفنادق، وخصم 9% باستخدام كود KSA90!',
+            'شكرا': '🙏 العفو! سعداء بمساعدتك.',
+            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong> Travel Agency! How can I help you?',
+            'hi': '👋 Hi there! Welcome to Saeed Al-Taayira.',
+            'umrah': '🕋 Our Umrah packages start from 1,200 SAR.',
+            'visa': '🛂 We offer tourist, business, visit, and medical visas.',
+            'flight': '✈️ We offer cheap flights starting from 179 SAR.',
+            'hotel': '🏨 We have 200+ hotels with real prices. Up to 93% off!',
+            'car': '🚗 Luxury and economy car rentals.',
+            'package': '🌍 200+ travel packages starting from 1,800 SAR.',
+            'train': '🚆 Train tickets starting from 85 SAR with SAR.',
+            'offer': '🔥 National Day offers: 93% off on hotels, 9% off with code KSA90!',
+            'thanks': '🙏 You\'re welcome!'
         };
-
-        // Default responses for unknown queries
-        const defaultReplies = {
-            ar: [
-                '🤖 شكراً لسؤالك! سيقوم فريق <strong>صعود الطائرة</strong> بالتواصل معك قريباً. يمكنك أيضاً مراسلتنا على واتساب 0555382038.',
-                '📱 يرجى مراسلتنا على واتساب 0555382038 للحصول على مساعدة فورية.',
-                '🌍 اكتشف عروضنا المميزة في قسم العروض!',
-                '✈️ صعود الطائرة وجهتك الأولى للسفر. تواصل معنا الآن!',
-                '🏨 لدينا أكثر من 200 فندق بأسعار مميزة. أخبرني المدينة التي تبحث عنها.',
-                '🚗 تأجير السيارات بجميع الفئات بأسعار تنافسية مع تأمين شامل.'
-            ],
-            en: [
-                '🤖 Thank you for your question! The <strong>Saeed Al-Taayira</strong> team will contact you soon. You can also message us on WhatsApp at 0555382038.',
-                '📱 Please message us on WhatsApp at 0555382038 for immediate assistance.',
-                '🌍 Discover our special offers in the offers section!',
-                '✈️ Saeed Al-Taayira is your first destination for travel. Contact us now!',
-                '🏨 We have 200+ hotels at great prices. Tell me the city you\'re looking for.',
-                '🚗 Car rentals in all categories at competitive prices with comprehensive insurance.'
-            ]
-        };
-
-        // Booking state
-        let bookingState = 'idle'; // idle, collecting
-        let bookingData = {};
-        let bookingQuestions = [];
-        let bookingIndex = 0;
+        const defaultReplies = [
+            '🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك قريباً.',
+            '📱 يرجى مراسلتنا على واتساب 0555382038.',
+            '🌍 اكتشف عروضنا المميزة في قسم العروض!',
+            '✈️ صعود الطائرة وجهتك الأولى للسفر.'
+        ];
 
         function getAIResponse(text) {
             const lower = text.toLowerCase().trim();
-            const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-
-            // Check if user wants to start booking
-            if (lower.includes('حجز') || lower.includes('book') || lower.includes('اريد حجز') || lower.includes('i want to book') ||
-                lower.includes('بدء حجز') || lower.includes('start booking')) {
-                bookingState = 'collecting';
-                bookingData = {};
-                bookingIndex = 0;
-                bookingQuestions = lang === 'ar' ?
-                    [
-                        { key: 'fullname', label: 'الاسم الكامل' },
-                        { key: 'phone', label: 'رقم الجوال' },
-                        { key: 'email', label: 'البريد الإلكتروني' },
-                        { key: 'service', label: 'الخدمة المطلوبة (طيران، عمرة، فندق، سيارة، باقة، قطار)' },
-                        { key: 'details', label: 'تفاصيل الرحلة (التواريخ، الوجهة، عدد الأشخاص)' }
-                    ] :
-                    [
-                        { key: 'fullname', label: 'Full Name' },
-                        { key: 'phone', label: 'Phone Number' },
-                        { key: 'email', label: 'Email Address' },
-                        { key: 'service', label: 'Service needed (Flight, Umrah, Hotel, Car, Package, Train)' },
-                        { key: 'details', label: 'Trip details (dates, destination, number of people)' }
-                    ];
-                return '📝 رائع! سأساعدك في الحجز. سأطرح عليك بعض الأسئلة. أجب على كل سؤال وسنرسل طلبك مباشرة إلى فريقنا.\n\n' +
-                    `❓ ${bookingQuestions[0].label}:`;
-            }
-
-            // If in booking state, handle the input
-            if (bookingState === 'collecting') {
-                const q = bookingQuestions[bookingIndex];
-                if (q) {
-                    bookingData[q.key] = text;
-                    bookingIndex++;
-                    if (bookingIndex < bookingQuestions.length) {
-                        return `❓ ${bookingQuestions[bookingIndex].label}:`;
-                    } else {
-                        // All questions answered - send to WhatsApp
-                        const msg = `📩 طلب حجز جديد من المساعد الذكي\n\n` +
-                            Object.entries(bookingData).map(([k, v]) => `${k}: ${v}`).join('\n');
-                        bookingState = 'idle';
-                        // Send to work number 0554126832
-                        window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
-                        return `✅ تم استلام جميع المعلومات! سيتم إرسال طلبك إلى فريقنا عبر واتساب. سنتواصل معك قريباً.\n\n📌 ملخص طلبك:\n${Object.entries(bookingData).map(([k, v]) => `• ${k}: ${v}`).join('\n')}`;
-                    }
-                }
-            }
-
-            // Check knowledge base
             for (const [key, response] of Object.entries(aiKnowledge)) {
                 if (lower.includes(key)) return response;
             }
-
-            // Default response
-            const replies = lang === 'ar' ? defaultReplies.ar : defaultReplies.en;
-            return replies[Math.floor(Math.random() * replies.length)];
+            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
         }
 
         window.toggleAIChat = function() {
@@ -2481,8 +1497,7 @@
             typingIndicator.classList.add('show');
             setTimeout(() => {
                 typingIndicator.classList.remove('show');
-                const response = getAIResponse(text);
-                addMessage('bot', response);
+                addMessage('bot', getAIResponse(text));
             }, 500 + Math.random() * 800);
         };
 
@@ -2503,6 +1518,8 @@
                 navCars: 'سيارات',
                 navAbout: 'من نحن',
                 navContact: 'اتصل بنا',
+                navBlog: '📝 مدونة',
+                navChatbot: '🤖 مساعد',
                 navCta: '📞 احجز الآن',
                 heroTitle1: 'اكتشف العالم مع',
                 heroTitle2: 'صعود الطائرة',
@@ -2523,6 +1540,7 @@
                 badge5: 'قطارات',
                 badge6: 'باقات',
                 badge7: 'مدونة',
+                badge8: 'مساعد',
                 servicesTitle1: 'خدماتنا',
                 servicesTitle2: 'المتكاملة',
                 servicesSub: 'اختر الخدمة التي تحتاجها، واحصل على عرض مخصص',
@@ -2588,6 +1606,8 @@
                 fNavCars: 'سيارات',
                 fNavAbout: 'من نحن',
                 fNavContact: 'اتصل بنا',
+                fNavBlog: '📝 مدونة',
+                fNavChatbot: '🤖 مساعد',
                 fServFlights: 'تذاكر طيران',
                 fServUmrah: 'باقات العمرة',
                 fServVisa: 'تأشيرات',
@@ -2620,6 +1640,8 @@
                 navCars: 'Cars',
                 navAbout: 'About',
                 navContact: 'Contact',
+                navBlog: '📝 Blog',
+                navChatbot: '🤖 Assistant',
                 navCta: '📞 Book Now',
                 heroTitle1: 'Discover the World with',
                 heroTitle2: 'Saeed Al-Taayira',
@@ -2640,6 +1662,7 @@
                 badge5: 'Trains',
                 badge6: 'Packages',
                 badge7: 'Blog',
+                badge8: 'Assistant',
                 servicesTitle1: 'Our',
                 servicesTitle2: 'Services',
                 servicesSub: 'Choose the service you need and get a customized offer',
@@ -2705,6 +1728,8 @@
                 fNavCars: 'Cars',
                 fNavAbout: 'About',
                 fNavContact: 'Contact',
+                fNavBlog: '📝 Blog',
+                fNavChatbot: '🤖 Assistant',
                 fServFlights: 'Flights',
                 fServUmrah: 'Umrah',
                 fServVisa: 'Visas',
@@ -2734,171 +1759,69 @@
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
-            // Update all translatable elements
             const map = {
-                'logoMain': 'logoMain',
-                'logoSub': 'logoSub',
-                'navHome': 'navHome',
-                'navServices': 'navServices',
-                'navOffers': 'navOffers',
-                'navHotels': 'navHotels',
-                'navPackages': 'navPackages',
-                'navRailway': 'navRailway',
-                'navCars': 'navCars',
-                'navAbout': 'navAbout',
-                'navContact': 'navContact',
-                'navCta': 'navCta',
-                'heroTitle1': 'heroTitle1',
-                'heroTitle2': 'heroTitle2',
-                'heroSub': 'heroSub',
-                'heroBtn1': 'heroBtn1',
-                'heroBtn2': 'heroBtn2',
-                'heroBtn3': 'heroBtn3',
-                'stat1': 'stat1',
-                'stat2': 'stat2',
-                'stat3': 'stat3',
-                'stat4': 'stat4',
-                'heroCardTitle': 'heroCardTitle',
-                'heroCardSub': 'heroCardSub',
-                'badge1': 'badge1',
-                'badge2': 'badge2',
-                'badge3': 'badge3',
-                'badge4': 'badge4',
-                'badge5': 'badge5',
-                'badge6': 'badge6',
-                'badge7': 'badge7',
-                'servicesTitle1': 'servicesTitle1',
-                'servicesTitle2': 'servicesTitle2',
-                'servicesSub': 'servicesSub',
+                'logoMain': 'logoMain', 'logoSub': 'logoSub',
+                'navHome': 'navHome', 'navServices': 'navServices', 'navOffers': 'navOffers', 'navHotels': 'navHotels',
+                'navPackages': 'navPackages', 'navRailway': 'navRailway', 'navCars': 'navCars', 'navAbout': 'navAbout',
+                'navContact': 'navContact', 'navBlog': 'navBlog', 'navChatbot': 'navChatbot', 'navCta': 'navCta',
+                'heroTitle1': 'heroTitle1', 'heroTitle2': 'heroTitle2', 'heroSub': 'heroSub',
+                'heroBtn1': 'heroBtn1', 'heroBtn2': 'heroBtn2', 'heroBtn3': 'heroBtn3',
+                'stat1': 'stat1', 'stat2': 'stat2', 'stat3': 'stat3', 'stat4': 'stat4',
+                'heroCardTitle': 'heroCardTitle', 'heroCardSub': 'heroCardSub',
+                'badge1': 'badge1', 'badge2': 'badge2', 'badge3': 'badge3', 'badge4': 'badge4',
+                'badge5': 'badge5', 'badge6': 'badge6', 'badge7': 'badge7', 'badge8': 'badge8',
+                'servicesTitle1': 'servicesTitle1', 'servicesTitle2': 'servicesTitle2', 'servicesSub': 'servicesSub',
                 'servicesAllBtn': 'servicesAllBtn',
-                'offersTitle1': 'offersTitle1',
-                'offersTitle2': 'offersTitle2',
-                'offersSub': 'offersSub',
+                'offersTitle1': 'offersTitle1', 'offersTitle2': 'offersTitle2', 'offersSub': 'offersSub',
                 'offersAllBtn': 'offersAllBtn',
-                'hotelsTitle1': 'hotelsTitle1',
-                'hotelsTitle2': 'hotelsTitle2',
-                'hotelsSub': 'hotelsSub',
+                'hotelsTitle1': 'hotelsTitle1', 'hotelsTitle2': 'hotelsTitle2', 'hotelsSub': 'hotelsSub',
                 'hotelsAllBtn': 'hotelsAllBtn',
-                'packagesTitle1': 'packagesTitle1',
-                'packagesTitle2': 'packagesTitle2',
-                'packagesSub': 'packagesSub',
+                'packagesTitle1': 'packagesTitle1', 'packagesTitle2': 'packagesTitle2', 'packagesSub': 'packagesSub',
                 'packagesAllBtn': 'packagesAllBtn',
-                'railwayTitle1': 'railwayTitle1',
-                'railwayTitle2': 'railwayTitle2',
-                'railwaySub': 'railwaySub',
+                'railwayTitle1': 'railwayTitle1', 'railwayTitle2': 'railwayTitle2', 'railwaySub': 'railwaySub',
                 'railwayAllBtn': 'railwayAllBtn',
-                'blogTitle1': 'blogTitle1',
-                'blogTitle2': 'blogTitle2',
-                'blogSub': 'blogSub',
+                'blogTitle1': 'blogTitle1', 'blogTitle2': 'blogTitle2', 'blogSub': 'blogSub',
                 'blogAllBtn': 'blogAllBtn',
-                'faqTitle1': 'faqTitle1',
-                'faqTitle2': 'faqTitle2',
-                'faqSub': 'faqSub',
-                'aboutTitle1': 'aboutTitle1',
-                'aboutTitle2': 'aboutTitle2',
-                'aboutSub': 'aboutSub',
-                'aboutP1': 'aboutP1',
-                'aboutP2': 'aboutP2',
-                'aboutStat1': 'aboutStat1',
-                'aboutStat2': 'aboutStat2',
-                'aboutStat3': 'aboutStat3',
-                'aboutStat4': 'aboutStat4',
-                'contactTitle1': 'contactTitle1',
-                'contactTitle2': 'contactTitle2',
-                'contactSub': 'contactSub',
-                'labelWorkPhone': 'labelWorkPhone',
-                'labelOwnerPhone': 'labelOwnerPhone',
-                'labelEmail': 'labelEmail',
-                'labelAddress': 'labelAddress',
-                'addressText': 'addressText',
-                'waOwnerBtn': 'waOwnerBtn',
-                'waWorkBtn': 'waWorkBtn',
-                'privacyLink': 'privacyLink',
-                'termsLink': 'termsLink',
-                'formTitle': 'formTitle',
-                'formSub': 'formSub',
-                'submitBtn': 'submitBtn',
-                'footerBrand': 'footerBrand',
-                'footerDesc': 'footerDesc',
-                'footerLinksTitle': 'footerLinksTitle',
-                'footerServicesTitle': 'footerServicesTitle',
-                'footerInfoTitle': 'footerInfoTitle',
-                'fNavHome': 'fNavHome',
-                'fNavServices': 'fNavServices',
-                'fNavOffers': 'fNavOffers',
-                'fNavHotels': 'fNavHotels',
-                'fNavPackages': 'fNavPackages',
-                'fNavRailway': 'fNavRailway',
-                'fNavCars': 'fNavCars',
-                'fNavAbout': 'fNavAbout',
-                'fNavContact': 'fNavContact',
-                'fServFlights': 'fServFlights',
-                'fServUmrah': 'fServUmrah',
-                'fServVisa': 'fServVisa',
-                'fServHotels': 'fServHotels',
-                'fServCars': 'fServCars',
-                'fServRailway': 'fServRailway',
-                'fInfoAbout': 'fInfoAbout',
-                'fInfoContact': 'fInfoContact',
-                'fInfoPrivacy': 'fInfoPrivacy',
-                'fInfoTerms': 'fInfoTerms',
+                'faqTitle1': 'faqTitle1', 'faqTitle2': 'faqTitle2', 'faqSub': 'faqSub',
+                'aboutTitle1': 'aboutTitle1', 'aboutTitle2': 'aboutTitle2', 'aboutSub': 'aboutSub',
+                'aboutP1': 'aboutP1', 'aboutP2': 'aboutP2',
+                'aboutStat1': 'aboutStat1', 'aboutStat2': 'aboutStat2', 'aboutStat3': 'aboutStat3', 'aboutStat4': 'aboutStat4',
+                'contactTitle1': 'contactTitle1', 'contactTitle2': 'contactTitle2', 'contactSub': 'contactSub',
+                'labelWorkPhone': 'labelWorkPhone', 'labelOwnerPhone': 'labelOwnerPhone', 'labelEmail': 'labelEmail',
+                'labelAddress': 'labelAddress', 'addressText': 'addressText',
+                'waOwnerBtn': 'waOwnerBtn', 'waWorkBtn': 'waWorkBtn',
+                'privacyLink': 'privacyLink', 'termsLink': 'termsLink',
+                'formTitle': 'formTitle', 'formSub': 'formSub', 'submitBtn': 'submitBtn',
+                'footerBrand': 'footerBrand', 'footerDesc': 'footerDesc',
+                'footerLinksTitle': 'footerLinksTitle', 'footerServicesTitle': 'footerServicesTitle', 'footerInfoTitle': 'footerInfoTitle',
+                'fNavHome': 'fNavHome', 'fNavServices': 'fNavServices', 'fNavOffers': 'fNavOffers', 'fNavHotels': 'fNavHotels',
+                'fNavPackages': 'fNavPackages', 'fNavRailway': 'fNavRailway', 'fNavCars': 'fNavCars', 'fNavAbout': 'fNavAbout',
+                'fNavContact': 'fNavContact', 'fNavBlog': 'fNavBlog', 'fNavChatbot': 'fNavChatbot',
+                'fServFlights': 'fServFlights', 'fServUmrah': 'fServUmrah', 'fServVisa': 'fServVisa',
+                'fServHotels': 'fServHotels', 'fServCars': 'fServCars', 'fServRailway': 'fServRailway',
+                'fInfoAbout': 'fInfoAbout', 'fInfoContact': 'fInfoContact', 'fInfoPrivacy': 'fInfoPrivacy', 'fInfoTerms': 'fInfoTerms',
                 'waFloatLabel': 'waFloatLabel',
-                'aiChatTitle': 'aiChatTitle',
-                'aiWelcomeMsg': 'aiWelcomeMsg',
-                'aiPlaceholder': 'aiPlaceholder',
-                'loadMoreHotels': 'loadMoreHotels',
-                'loadMorePackages': 'loadMorePackages',
-                'loadMoreBlog': 'loadMoreBlog',
-                'footerRights': 'footerRights',
-                'footerCredit': 'footerCredit'
+                'aiChatTitle': 'aiChatTitle', 'aiWelcomeMsg': 'aiWelcomeMsg', 'aiPlaceholder': 'aiPlaceholder',
+                'loadMoreHotels': 'loadMoreHotels', 'loadMorePackages': 'loadMorePackages', 'loadMoreBlog': 'loadMoreBlog',
+                'footerRights': 'footerRights', 'footerCredit': 'footerCredit'
             };
 
             for (const [id, key] of Object.entries(map)) {
                 const el = document.getElementById(id);
                 if (el && translations[lang] && translations[lang][key] !== undefined) {
-                    if (id === 'aboutP1' || id === 'aboutP2' || id === 'logoMain' || id === 'logoSub' || id ===
-                        'footerBrand') {
-                        // For these, we need to preserve HTML
-                        if (id === 'logoMain') {
-                            el.textContent = translations[lang][key];
-                        } else if (id === 'logoSub') {
-                            el.textContent = translations[lang][key];
-                        } else if (id === 'footerBrand') {
-                            el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
-                        } else {
-                            el.innerHTML = translations[lang][key];
-                        }
+                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand') {
+                        if (id === 'logoMain') el.textContent = translations[lang][key];
+                        else if (id === 'logoSub') el.textContent = translations[lang][key];
+                        else if (id === 'footerBrand') el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
+                    } else if (id === 'aboutP1' || id === 'aboutP2') {
+                        el.innerHTML = translations[lang][key];
                     } else {
                         el.textContent = translations[lang][key];
                     }
                 }
             }
 
-            // Update placeholder for AI chat
-            const aiInput = document.getElementById('aiChatInput');
-            if (aiInput) {
-                aiInput.placeholder = translations[lang]['aiPlaceholder'];
-            }
-
-            // Update placeholders for contact form
-            const nameInput = document.getElementById('contactName');
-            if (nameInput) nameInput.placeholder = lang === 'ar' ? 'الاسم الكامل' : 'Full Name';
-            const phoneInput = document.getElementById('contactPhone');
-            if (phoneInput) phoneInput.placeholder = lang === 'ar' ? 'رقم الجوال' : 'Phone Number';
-            const emailInput = document.getElementById('contactEmail');
-            if (emailInput) emailInput.placeholder = lang === 'ar' ? 'البريد الإلكتروني' : 'Email Address';
-            const msgInput = document.getElementById('contactMessage');
-            if (msgInput) msgInput.placeholder = lang === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...';
-
-            // Update load more buttons
-            const loadHotels = document.getElementById('loadMoreHotels');
-            if (loadHotels) loadHotels.textContent = translations[lang]['loadMoreHotels'];
-            const loadPackages = document.getElementById('loadMorePackages');
-            if (loadPackages) loadPackages.textContent = translations[lang]['loadMorePackages'];
-            const loadBlog = document.getElementById('loadMoreBlog');
-            if (loadBlog) loadBlog.textContent = translations[lang]['loadMoreBlog'];
-
-            // Update hero title with highlight
+            // Hero title with highlight
             const heroTitle1 = document.getElementById('heroTitle1');
             const heroTitle2 = document.getElementById('heroTitle2');
             if (heroTitle1 && heroTitle2) {
@@ -2908,19 +1831,36 @@
                 heroTitle2.textContent = t2;
             }
 
-            // Update AI chat title
-            const aiChatTitle = document.querySelector('.ai-chat-header .title span');
-            if (aiChatTitle) {
-                const status = aiChatTitle.querySelector('.ai-status');
-                aiChatTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ?
-                    ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
-            }
+            // Load more buttons
+            const loadHotels = document.getElementById('loadMoreHotels');
+            if (loadHotels) loadHotels.textContent = translations[lang]['loadMoreHotels'];
+            const loadPackages = document.getElementById('loadMorePackages');
+            if (loadPackages) loadPackages.textContent = translations[lang]['loadMorePackages'];
+            const loadBlog = document.getElementById('loadMoreBlog');
+            if (loadBlog) loadBlog.textContent = translations[lang]['loadMoreBlog'];
 
-            // Update welcome message in AI chat
+            // AI Chat
+            const aiTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiTitle) {
+                const status = aiTitle.querySelector('.ai-status');
+                aiTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
+            }
             const welcomeMsg = document.querySelector('#aiChatMessages .msg.bot');
             if (welcomeMsg) {
                 welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
             }
+            const aiInput = document.getElementById('aiChatInput');
+            if (aiInput) aiInput.placeholder = translations[lang]['aiPlaceholder'];
+
+            // Placeholders
+            const nameInput = document.getElementById('contactName');
+            if (nameInput) nameInput.placeholder = lang === 'ar' ? 'الاسم الكامل' : 'Full Name';
+            const phoneInput = document.getElementById('contactPhone');
+            if (phoneInput) phoneInput.placeholder = lang === 'ar' ? 'رقم الجوال' : 'Phone Number';
+            const emailInput = document.getElementById('contactEmail');
+            if (emailInput) emailInput.placeholder = lang === 'ar' ? 'البريد الإلكتروني' : 'Email Address';
+            const msgInput = document.getElementById('contactMessage');
+            if (msgInput) msgInput.placeholder = lang === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...';
 
             localStorage.setItem('lang', lang);
         }
@@ -2942,8 +1882,7 @@
                 if (target) {
                     e.preventDefault();
                     const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset,
-                        behavior: 'smooth' });
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('open');
                 }
@@ -2964,8 +1903,9 @@
         console.log('%c✈️ صعود الطائرة – وكالة سفر متقدمة', 'font-size:20px;font-weight:bold;color:#d4af37;');
         console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
         console.log('%c🌍 Multi-language | AI Chatbot | Real Prices | All Services', 'font-size:13px;color:#888;');
-        console.log('%c✅ Google Search Console Verified', 'font-size:13px;color:#4ade80;');
         console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
+        console.log('%c✅ Google Search Console Verified', 'font-size:13px;color:#4ade80;');
+        console.log('%c📚 جميع الصفحات: index | about | services | offers | hotels | packages | railway | cars | contact | privacy | terms | chatbot | blog', 'font-size:12px;color:#888;');
     </script>
 </body>
 </html>

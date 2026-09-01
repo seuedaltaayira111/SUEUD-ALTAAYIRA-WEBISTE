@@ -12,20 +12,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sueud-altayira-website.vercel.app/blog.html" />
     <meta name="keywords" content="مدونة سفر, مقالات سياحية, نصائح سفر, وجهات سياحية, صعود الطائرة" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Blog",
-            "name": "مدونة السفر – صعود الطائرة",
-            "description": "أحدث المقالات والنصائح حول السفر والسياحة",
-            "url": "https://sueud-altayira-website.vercel.app/blog.html",
-            "isPartOf": {
-                "@type": "WebSite",
-                "name": "صعود الطائرة للسفر والسياحة",
-                "url": "https://sueud-altayira-website.vercel.app"
-            }
-        }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -42,14 +28,29 @@
             --text-muted: rgba(255,255,255,0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
+            --bg-body: var(--primary-dark);
+            --text-color: #f0f4ff;
+            --card-bg: rgba(255,255,255,0.025);
+            --border-color: rgba(255,255,255,0.04);
+            --header-bg: rgba(6,29,58,0.94);
+            --footer-bg: rgba(6,29,58,0.5);
+        }
+        [data-theme="dark"] {
+            --bg-body: #0a0a0a;
+            --text-color: #e0e0e0;
+            --card-bg: rgba(255,255,255,0.04);
+            --border-color: rgba(255,255,255,0.06);
+            --header-bg: rgba(10,10,10,0.96);
+            --footer-bg: rgba(10,10,10,0.6);
         }
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
-            background: var(--primary-dark);
-            color: #f0f4ff;
+            background: var(--bg-body);
+            color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
         }
         body.rtl { direction: rtl; text-align: right; }
         body.ltr { direction: ltr; text-align: left; }
@@ -57,18 +58,23 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         ::-webkit-scrollbar { width: 7px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         #particles-canvas {
             position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
+            background: var(--gold-gradient); width: 0%; transition: width 0.1s;
+        }
+
         /* ===== HEADER ===== */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             padding: 14px 0; transition: 0.3s;
-            background: rgba(6,29,58,0.94);
+            background: var(--header-bg);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(212,175,55,0.1);
         }
@@ -111,6 +117,13 @@
             font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
         }
         .nav-cta:hover { transform: scale(1.05); }
+        .theme-toggle {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 12px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 1rem; transition: 0.3s; font-family: inherit;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .theme-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .lang-toggle {
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
             color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
@@ -127,7 +140,7 @@
         @media (max-width:768px) {
             .nav-links {
                 position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(6,29,58,0.97); flex-direction: column;
+                background: var(--header-bg); flex-direction: column;
                 padding: 80px 28px 32px; transition: right 0.4s;
                 border-left: 1px solid rgba(255,255,255,0.04);
             }
@@ -141,7 +154,7 @@
         /* ===== HERO ===== */
         .blog-hero {
             padding: 150px 24px 60px;
-            position: relative; overflow: hidden; background: var(--primary-dark); text-align: center;
+            position: relative; overflow: hidden; background: var(--bg-body); text-align: center;
         }
         .blog-hero::before {
             content: ''; position: absolute; inset: 0;
@@ -187,10 +200,10 @@
 
         /* ===== FILTERS ===== */
         .filters-section {
-            background: rgba(255,255,255,0.02);
+            background: var(--card-bg);
             border-radius: var(--radius);
             padding: 24px 28px;
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
             margin-bottom: 40px;
         }
         .filters-row {
@@ -217,8 +230,8 @@
             padding: 10px 14px;
             border-radius: 12px;
             background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.06);
-            color: #fff;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
             font-family: inherit;
             font-size: 0.9rem;
             outline: none;
@@ -239,8 +252,8 @@
             gap: 28px;
         }
         .blog-card {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius);
             overflow: hidden;
             transition: 0.4s;
@@ -316,7 +329,7 @@
         @keyframes modalFade { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
         .blog-modal .modal-content {
             background: #0a1a2e; border-radius: 24px; max-width: 800px; width: 100%;
-            max-height: 90vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.08);
+            max-height: 90vh; overflow-y: auto; border: 1px solid var(--border-color);
             box-shadow: 0 30px 80px rgba(0,0,0,0.6); padding: 0; position: relative;
         }
         .blog-modal .modal-content .close-btn {
@@ -361,8 +374,8 @@
 
         /* ===== NEWSLETTER ===== */
         .newsletter-section {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius);
             padding: 40px;
             text-align: center;
@@ -375,8 +388,8 @@
         }
         .newsletter-section .newsletter-form input {
             flex: 1; padding: 12px 18px; border-radius: 50px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
             min-width: 200px;
         }
         .newsletter-section .newsletter-form input:focus { border-color: var(--gold); background: rgba(255,255,255,0.06); }
@@ -403,7 +416,7 @@
         .whatsapp-float .wa-label {
             font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
             padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
         }
         @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
 
@@ -422,15 +435,15 @@
         .ai-chat-box {
             position: fixed; bottom: 175px; right: 28px; z-index: 9997;
             width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
-            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
-            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            border-radius: 24px; background: var(--header-bg); backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
             display: none; flex-direction: column; overflow: hidden;
         }
         .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
         @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
         .ai-chat-header {
             padding: 16px 20px; background: rgba(108,60,224,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
         }
         .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
@@ -460,13 +473,13 @@
         }
         .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
         .ai-chat-input {
-            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
+            padding: 12px 16px 16px; border-top: 1px solid var(--border-color);
             display: flex; gap: 10px; flex-shrink: 0;
         }
         .ai-chat-input input {
             flex: 1; padding: 10px 16px; border-radius: 50px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.9rem; outline: none;
         }
         .ai-chat-input input:focus { border-color: #a855f7; }
         .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
@@ -482,9 +495,10 @@
         /* ===== FOOTER ===== */
         .footer {
             padding: 60px 24px 30px;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            background: rgba(6,29,58,0.5);
+            border-top: 1px solid var(--border-color);
+            background: var(--footer-bg);
             backdrop-filter: blur(12px);
+            position: relative;
         }
         .footer .container {
             max-width: 1320px; margin: 0 auto;
@@ -494,25 +508,40 @@
         .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
         .footer .brand .socials a {
             width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            background: var(--card-bg); border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center;
             color: var(--text-muted); transition: 0.3s;
         }
         .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--text-color); }
         .footer ul li { margin-bottom: 6px; }
         .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
         .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
         .footer-bottom {
             max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.03);
+            border-top: 1px solid var(--border-color);
             text-align: center; color: var(--text-muted); font-size: 0.8rem;
         }
         .footer-bottom span { color: var(--gold); }
 
-        /* ===== REVEAL ===== */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        /* ===== WATERMARK ===== */
+        .watermark {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+        .watermark a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .watermark a:hover {
+            text-decoration: underline;
+        }
 
         /* ===== SCROLL TOP ===== */
         .scroll-top {
@@ -524,6 +553,10 @@
         }
         .scroll-top:hover { transform: scale(1.1); }
         .scroll-top.show { display: flex; }
+
+        /* ===== REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width:768px) {
@@ -549,6 +582,9 @@
     </style>
 </head>
 <body>
+    <!-- ===== PROGRESS BAR ===== -->
+    <div id="progress-bar"></div>
+
     <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
 
@@ -576,6 +612,7 @@
                 <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
                 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             </div>
@@ -613,7 +650,7 @@
                         </select>
                     </div>
                     <div class="filter-group" style="flex:0.5;display:flex;align-items:flex-end;">
-                        <button onclick="resetBlogFilters()" style="padding:10px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
+                        <button onclick="resetBlogFilters()" style="padding:10px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid var(--border-color);color:var(--text-color);cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
                             <i class="fas fa-undo"></i> <span id="resetBtn">إعادة تعيين</span>
                         </button>
                     </div>
@@ -639,7 +676,7 @@
 
             <!-- ===== BACK TO HOME ===== -->
             <div style="text-align:center;margin-top:30px;">
-                <a href="index.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
+                <a href="index.html" class="btn" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
                     <i class="fas fa-arrow-right"></i> <span id="backHomeBtn">العودة إلى الرئيسية</span>
                 </a>
             </div>
@@ -660,7 +697,7 @@
             <div class="brand">
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
                     <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
-                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="footerBrand"><strong>صعود الطائرة</strong></span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" id="footerBrand"><strong>صعود الطائرة</strong></span>
                 </div>
                 <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
                 <div class="socials">
@@ -707,7 +744,10 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة</div>
+        <div class="watermark">
+            Developed by <a href="#" target="_blank">Hamdan</a> ✦
+        </div>
     </footer>
 
     <!-- ===== WHATSAPP FLOAT ===== -->
@@ -720,7 +760,10 @@
     <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-chat-header">
-            <div class="title"><i class="fas fa-robot"></i> <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span></div>
+            <div class="title">
+                <i class="fas fa-robot"></i>
+                <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
+            </div>
             <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-chat-messages" id="aiChatMessages">
@@ -805,6 +848,29 @@
             animate();
         })();
 
+        // ===== PROGRESS BAR =====
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // ===== DARK MODE =====
+        const themeToggle = document.getElementById('themeToggle');
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
+            localStorage.setItem('theme', theme);
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        setTheme(currentTheme);
+        themeToggle.addEventListener('click', () => {
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            currentTheme = newTheme;
+            setTheme(newTheme);
+        });
+
         // ===== HAMBURGER =====
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -835,64 +901,64 @@
 
         // ===== BLOG DATA =====
         const blogData = [
-            { id:1, title:'أفضل 10 وجهات سياحية في العالم', desc:'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم – من باريس إلى بالي، ودبي إلى كيب تاون.', 
-              tag:'وجهات سياحية', category:'destinations', 
-              img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', 
+            { id:1, title:'أفضل 10 وجهات سياحية في العالم', desc:'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم – من باريس إلى بالي، ودبي إلى كيب تاون.',
+              tag:'وجهات سياحية', category:'destinations',
+              img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop',
               date:'1 أغسطس 2026', author:'فريق صعود الطائرة',
               content:'<p>السفر هو أحد أجمل التجارب في الحياة، واكتشاف أماكن جديدة يمنحنا ذكريات لا تُنسى. في هذا المقال، نستعرض أفضل 10 وجهات سياحية حول العالم التي يجب عليك زيارتها في 2026.</p><p>من شواطئ بالي الخلابة إلى معالم باريس الرومانسية، ومن ناطحات سحاب دبي إلى جمال كيب تاون الطبيعي، هناك وجهة تناسب كل الأذواق. سواء كنت تبحث عن مغامرة، استرخاء، أو استكشاف ثقافي، هذه الوجهات تقدم لك كل ذلك.</p><p>لا تنسَ التخطيط لرحلتك مع <strong>صعود الطائرة</strong> للحصول على أفضل العروض والخدمات السياحية المتكاملة.</p>' },
-            { id:2, title:'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc:'نصائح وإرشادات لرحلة مثالية إلى دبي – من الفنادق إلى المعالم السياحية والمطاعم.', 
-              tag:'دليل سفر', category:'destinations', 
-              img:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', 
+            { id:2, title:'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc:'نصائح وإرشادات لرحلة مثالية إلى دبي – من الفنادق إلى المعالم السياحية والمطاعم.',
+              tag:'دليل سفر', category:'destinations',
+              img:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop',
               date:'29 يوليو 2026', author:'فريق صعود الطائرة',
               content:'<p>دبي هي واحدة من أكثر المدن جذباً للسياح في العالم. في هذا الدليل الشامل، نقدم لك كل ما تحتاج معرفته قبل السفر إلى دبي.</p><p>من أفضل الفنادق في المدينة، إلى المعالم السياحية الأكثر شهرة مثل برج خليفة ونافورة دبي، بالإضافة إلى المطاعم الشهيرة ووجهات التسوق. سوف نقدم لك أيضاً نصائح عملية حول التنقل في المدينة وأفضل أوقات الزيارة.</p><p>احجز رحلتك مع <strong>صعود الطائرة</strong> واستمتع بعطلة لا تُنسى في دبي.</p>' },
-            { id:3, title:'كيف تحجز عمرة بسهولة؟', desc:'خطوات بسيطة لحجز عمرة مميزة ومريحة – من التأشيرة إلى السكن والمواصلات.', 
-              tag:'عمرة', category:'umrah', 
-              img:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', 
+            { id:3, title:'كيف تحجز عمرة بسهولة؟', desc:'خطوات بسيطة لحجز عمرة مميزة ومريحة – من التأشيرة إلى السكن والمواصلات.',
+              tag:'عمرة', category:'umrah',
+              img:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
               date:'25 يوليو 2026', author:'فريق صعود الطائرة',
               content:'<p>أداء العمرة هو حلم لكل مسلم. في هذا المقال، نقدم لك دليلاً شاملاً حول كيفية حجز عمرة بسهولة وبأفضل الأسعار.</p><p>الخطوات تشمل: اختيار الباقة المناسبة، التأكد من صلاحية جواز السفر، حجز التأشيرة، اختيار السكن القريب من الحرم، والمواصلات الداخلية. كما نقدم لك نصائح حول أفضل الأوقات لأداء العمرة.</p><p>تواصل مع <strong>صعود الطائرة</strong> للحصول على أفضل باقات العمرة بأسعار تنافسية.</p>' },
-            { id:4, title:'أفضل فنادق مكة قرب الحرم', desc:'دليل شامل لأفضل الفنادق القريبة من الحرم المكي – فاخرة واقتصادية.', 
-              tag:'فنادق', category:'hotels', 
-              img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop', 
+            { id:4, title:'أفضل فنادق مكة قرب الحرم', desc:'دليل شامل لأفضل الفنادق القريبة من الحرم المكي – فاخرة واقتصادية.',
+              tag:'فنادق', category:'hotels',
+              img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop',
               date:'20 يوليو 2026', author:'فريق صعود الطائرة',
               content:'<p>مكة المكرمة هي وجهة الحج والعمرة لكل مسلم. اختيار فندق قريب من الحرم المكي يسهل أداء المناسك ويوفر الوقت والجهد.</p><p>في هذا الدليل، نستعرض أفضل الفنادق القريبة من الحرم، من الفاخرة إلى الاقتصادية، مع مقارنة الأسعار والخدمات. كما نقدم نصائح حول كيفية الحجز المسبق للحصول على أفضل العروض.</p><p>احجز فندقك مع <strong>صعود الطائرة</strong> واستمتع بإقامة مريحة قرب الحرم.</p>' },
-            { id:5, title:'رحلة إلى باريس – مدينة النور', desc:'استكشف أجمل معالم باريس مع نصائح السفر – من برج إيفل إلى متحف اللوفر.', 
-              tag:'سفر', category:'destinations', 
-              img:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop', 
+            { id:5, title:'رحلة إلى باريس – مدينة النور', desc:'استكشف أجمل معالم باريس مع نصائح السفر – من برج إيفل إلى متحف اللوفر.',
+              tag:'سفر', category:'destinations',
+              img:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop',
               date:'15 يوليو 2026', author:'فريق صعود الطائرة',
               content:'<p>باريس، مدينة النور والحب، هي واحدة من أكثر المدن زيارة في العالم. في هذا المقال، نأخذك في جولة إلى أهم معالم باريس.</p><p>من برج إيفل الشهير، إلى متحف اللوفر الذي يضم لوحة الموناليزا، ومن كاتدرائية نوتردام إلى شارع الشانزليزيه، هناك الكثير لاكتشافه. نقدم لك أيضاً نصائح حول أفضل المطاعم والمقاهي في المدينة.</p><p>خطط لرحلتك إلى باريس مع <strong>صعود الطائرة</strong> واستمتع بتجربة لا تُنسى.</p>' },
-            { id:6, title:'تأشيرة السياحة إلى أوروبا – دليل كامل', desc:'كل ما تحتاج معرفته عن تأشيرة شنغن – المستندات، الإجراءات، والنصائح.', 
-              tag:'تأشيرات', category:'flights', 
-              img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', 
+            { id:6, title:'تأشيرة السياحة إلى أوروبا – دليل كامل', desc:'كل ما تحتاج معرفته عن تأشيرة شنغن – المستندات، الإجراءات، والنصائح.',
+              tag:'تأشيرات', category:'flights',
+              img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop',
               date:'10 يوليو 2026', author:'فريق صعود الطائرة',
               content:'<p>السفر إلى أوروبا يتطلب الحصول على تأشيرة شنغن في معظم الحالات. في هذا الدليل، نقدم لك كل ما تحتاج معرفته عن تأشيرة شنغن.</p><p>نستعرض المستندات المطلوبة، إجراءات التقديم، الرسوم، ونصائح لتجنب رفض التأشيرة. كما نقدم معلومات حول مدة المعالجة وأفضل وقت للتقديم.</p><p>تواصل مع <strong>صعود الطائرة</strong> للحصول على مساعدة في إجراءات التأشيرة.</p>' },
-            { id:7, title:'السفر إلى اسطنبول – عبق التاريخ', desc:'اكتشف جمال اسطنبول بين الماضي والحاضر – من آيا صوفيا إلى البازار الكبير.', 
-              tag:'سياحة', category:'destinations', 
-              img:'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&h=400&fit=crop', 
+            { id:7, title:'السفر إلى اسطنبول – عبق التاريخ', desc:'اكتشف جمال اسطنبول بين الماضي والحاضر – من آيا صوفيا إلى البازار الكبير.',
+              tag:'سياحة', category:'destinations',
+              img:'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&h=400&fit=crop',
               date:'5 يوليو 2026', author:'فريق صعود الطائرة',
               content:'<p>اسطنبول هي المدينة التي تجمع بين الشرق والغرب، التاريخ والحداثة. في هذا المقال، نستعرض أجمل معالم اسطنبول.</p><p>من آيا صوفيا والمسجد الأزرق، إلى البازار الكبير وقصر توبكابي، هناك الكثير لاكتشافه. نقدم لك أيضاً نصائح حول أفضل المطاعم والفنادق في المدينة.</p><p>احجز رحلتك إلى اسطنبول مع <strong>صعود الطائرة</strong> واستمتع بتجربة فريدة.</p>' },
-            { id:8, title:'نصائح لتوفير المال أثناء السفر', desc:'طرق ذكية لتوفير المال دون التأثير على متعة الرحلة – من الحجز إلى الإقامة.', 
-              tag:'نصائح سفر', category:'tips', 
-              img:'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop', 
+            { id:8, title:'نصائح لتوفير المال أثناء السفر', desc:'طرق ذكية لتوفير المال دون التأثير على متعة الرحلة – من الحجز إلى الإقامة.',
+              tag:'نصائح سفر', category:'tips',
+              img:'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop',
               date:'28 يونيو 2026', author:'فريق صعود الطائرة',
               content:'<p>السفر لا يجب أن يكون مكلفاً. في هذا المقال، نقدم لك نصائح ذكية لتوفير المال أثناء السفر دون التضحية بالمتعة.</p><p>من الحجز المبكر، إلى اختيار الفنادق الاقتصادية، إلى استخدام وسائل النقل العامة، هناك العديد من الطرق لتوفير المال. كما نقدم نصائح حول العروض والخصومات المتاحة.</p><p>استفد من خدمات <strong>صعود الطائرة</strong> للحصول على أفضل العروض والأسعار.</p>' },
-            { id:9, title:'أفضل الوجهات للعطلات العائلية', desc:'وجهات مناسبة للعائلات مع أنشطة للأطفال – من أورلاندو إلى أنطاليا.', 
-              tag:'عائلات', category:'destinations', 
-              img:'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop', 
+            { id:9, title:'أفضل الوجهات للعطلات العائلية', desc:'وجهات مناسبة للعائلات مع أنشطة للأطفال – من أورلاندو إلى أنطاليا.',
+              tag:'عائلات', category:'destinations',
+              img:'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop',
               date:'20 يونيو 2026', author:'فريق صعود الطائرة',
               content:'<p>العطلات العائلية هي فرصة رائعة لخلق ذكريات لا تُنسى. في هذا المقال، نستعرض أفضل الوجهات المناسبة للعائلات.</p><p>من أورلاندو في الولايات المتحدة، إلى أنطاليا في تركيا، إلى دبي في الإمارات، هناك العديد من الوجهات التي تقدم أنشطة ممتعة للأطفال والكبار على حد سواء.</p><p>خطط لعطلتك العائلية مع <strong>صعود الطائرة</strong> واحصل على أفضل العروض.</p>' },
-            { id:10, title:'رحلات بحرية – تجربة لا تُنسى', desc:'استمتع برحلة بحرية فاخرة مع أجمل المناظر – من الكاريبي إلى البحر الأبيض المتوسط.', 
-              tag:'رحلات بحرية', category:'culture', 
-              img:'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop', 
+            { id:10, title:'رحلات بحرية – تجربة لا تُنسى', desc:'استمتع برحلة بحرية فاخرة مع أجمل المناظر – من الكاريبي إلى البحر الأبيض المتوسط.',
+              tag:'رحلات بحرية', category:'culture',
+              img:'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop',
               date:'15 يونيو 2026', author:'فريق صعود الطائرة',
               content:'<p>الرحلات البحرية هي واحدة من أروع تجارب السفر. في هذا المقال، نستعرض أفضل وجهات الرحلات البحرية حول العالم.</p><p>من جزر الكاريبي الاستوائية، إلى البحر الأبيض المتوسط الجميل، إلى المضايق النرويجية الخلابة، هناك رحلة بحرية تناسب كل الأذواق. نقدم لك أيضاً نصائح حول اختيار السفينة والرحلات البرية.</p><p>احجز رحلتك البحرية مع <strong>صعود الطائرة</strong> واستمتع بتجربة فاخرة.</p>' },
-            { id:11, title:'دليل السفر إلى لندن – العاصمة البريطانية', desc:'كل ما تحتاج معرفته عن لندن – المعالم، الفنادق، المطاعم، ووسائل النقل.', 
-              tag:'دليل سفر', category:'destinations', 
-              img:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop', 
+            { id:11, title:'دليل السفر إلى لندن – العاصمة البريطانية', desc:'كل ما تحتاج معرفته عن لندن – المعالم، الفنادق، المطاعم، ووسائل النقل.',
+              tag:'دليل سفر', category:'destinations',
+              img:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop',
               date:'10 يونيو 2026', author:'فريق صعود الطائرة',
               content:'<p>لندن هي واحدة من أكثر المدن تنوعاً في العالم. في هذا الدليل، نقدم لك كل ما تحتاج معرفته عن العاصمة البريطانية.</p><p>من بيغ بن وبرج لندن، إلى متحف التاريخ الطبيعي وقصر باكنغهام، هناك الكثير لاكتشافه. كما نقدم لك نصائح حول أفضل الفنادق والمطاعم ووسائل النقل في المدينة.</p><p>خطط لرحلتك إلى لندن مع <strong>صعود الطائرة</strong> واستمتع بتجربة لا تُنسى.</p>' },
-            { id:12, title:'السياحة في نيويورك – المدينة التي لا تنام', desc:'استكشف معالم نيويورك الشهيرة – من تمثال الحرية إلى سنترال بارك.', 
-              tag:'سياحة', category:'destinations', 
-              img:'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop', 
+            { id:12, title:'السياحة في نيويورك – المدينة التي لا تنام', desc:'استكشف معالم نيويورك الشهيرة – من تمثال الحرية إلى سنترال بارك.',
+              tag:'سياحة', category:'destinations',
+              img:'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop',
               date:'5 يونيو 2026', author:'فريق صعود الطائرة',
               content:'<p>نيويورك هي المدينة التي لا تنام، وتقدم تجربة فريدة لكل زائر. في هذا المقال، نستعرض أهم معالم نيويورك.</p><p>من تمثال الحرية وشارع الخامس، إلى سنترال بارك وبرج إمباير ستيت، هناك الكثير لاكتشافه. نقدم لك أيضاً نصائح حول أفضل المطاعم والمتاحف في المدينة.</p><p>احجز رحلتك إلى نيويورك مع <strong>صعود الطائرة</strong> واستمتع بتجربة لا تُنسى.</p>' }
         ];
@@ -1112,8 +1178,7 @@
 
         // ===== LANGUAGE TOGGLE =====
         const langToggle = document.getElementById('langToggle');
-        let currentLang = 'ar';
-
+        let currentLang = localStorage.getItem('lang') || 'ar';
         const translations = {
             ar: {
                 logoMain:'صعود الطائرة', logoSub:'للسفر والسياحة',
@@ -1128,17 +1193,22 @@
                 backHomeBtn:'العودة إلى الرئيسية',
                 newsletterTitle:'📬 اشترك في النشرة البريدية', newsletterDesc:'احصل على أحدث المقالات والعروض الحصرية مباشرة إلى بريدك الإلكتروني',
                 newsletterBtn:'اشترك الآن',
-                aiChatTitle:'مساعد صعود الطائرة AI', aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل المقالات والنصائح للسفر!',
-                aiPlaceholder:'اسأل عن السفر...', waFloatLabel:'تواصل واتساب',
-                footerBrand:'صعود الطائرة', footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
-                footerLinksTitle:'روابط سريعة', footerServicesTitle:'خدماتنا', footerInfoTitle:'معلومات',
+                waFloatLabel:'تواصل واتساب',
+                aiChatTitle:'مساعد صعود الطائرة AI',
+                aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل المقالات والنصائح للسفر!',
+                aiPlaceholder:'اسأل عن السفر...',
+                footerBrand:'صعود الطائرة',
+                footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle:'روابط سريعة',
+                footerServicesTitle:'خدماتنا',
+                footerInfoTitle:'معلومات',
                 fNavHome:'الرئيسية', fNavServices:'خدماتنا', fNavOffers:'عروض', fNavHotels:'فنادق',
                 fNavPackages:'باقات', fNavRailway:'قطارات', fNavCars:'سيارات', fNavAbout:'من نحن',
                 fNavContact:'اتصل بنا', fNavBlog:'📝 مدونة',
                 fServFlights:'تذاكر طيران', fServUmrah:'باقات العمرة', fServVisa:'تأشيرات', fServHotels:'فنادق',
                 fServCars:'تأجير سيارات', fServRailway:'قطارات',
                 fInfoAbout:'عن الوكالة', fInfoContact:'اتصل بنا', fInfoPrivacy:'سياسة الخصوصية', fInfoTerms:'الشروط والأحكام',
-                footerRights:'جميع الحقوق محفوظة', footerCredit:'تصميم وتطوير ✧ برؤية عصرية'
+                footerRights:'جميع الحقوق محفوظة'
             },
             en: {
                 logoMain:'Saeed Al-Taayira', logoSub:'Travel & Tourism',
@@ -1153,24 +1223,29 @@
                 backHomeBtn:'Back to Home',
                 newsletterTitle:'📬 Subscribe to Newsletter', newsletterDesc:'Get the latest articles and exclusive offers directly to your email',
                 newsletterBtn:'Subscribe Now',
-                aiChatTitle:'Saeed Al-Taayira AI Assistant', aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I can help you find the best travel articles and tips!',
-                aiPlaceholder:'Ask about travel...', waFloatLabel:'WhatsApp',
-                footerBrand:'Saeed Al-Taayira', footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
-                footerLinksTitle:'Quick Links', footerServicesTitle:'Services', footerInfoTitle:'Info',
+                waFloatLabel:'WhatsApp',
+                aiChatTitle:'Saeed Al-Taayira AI Assistant',
+                aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I can help you find the best travel articles and tips!',
+                aiPlaceholder:'Ask about travel...',
+                footerBrand:'Saeed Al-Taayira',
+                footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle:'Quick Links',
+                footerServicesTitle:'Services',
+                footerInfoTitle:'Info',
                 fNavHome:'Home', fNavServices:'Services', fNavOffers:'Offers', fNavHotels:'Hotels',
                 fNavPackages:'Packages', fNavRailway:'Railway', fNavCars:'Cars', fNavAbout:'About',
                 fNavContact:'Contact', fNavBlog:'📝 Blog',
                 fServFlights:'Flights', fServUmrah:'Umrah', fServVisa:'Visas', fServHotels:'Hotels',
                 fServCars:'Car Rentals', fServRailway:'Trains',
                 fInfoAbout:'About Us', fInfoContact:'Contact', fInfoPrivacy:'Privacy Policy', fInfoTerms:'Terms & Conditions',
-                footerRights:'All Rights Reserved', footerCredit:'Designed & Developed ✧ with Vision'
+                footerRights:'All Rights Reserved'
             }
         };
 
         function applyLanguage(lang) {
             currentLang = lang;
             document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+            document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
@@ -1184,8 +1259,8 @@
                 'catUmrah':'catUmrah','catHotels':'catHotels','catFlights':'catFlights','catCulture':'catCulture',
                 'resetBtn':'resetBtn','loadMoreText':'loadMoreText','noBlogs':'noBlogs','backHomeBtn':'backHomeBtn',
                 'newsletterTitle':'newsletterTitle','newsletterDesc':'newsletterDesc','newsletterBtn':'newsletterBtn',
-                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
                 'waFloatLabel':'waFloatLabel',
+                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
                 'footerBrand':'footerBrand','footerDesc':'footerDesc',
                 'footerLinksTitle':'footerLinksTitle','footerServicesTitle':'footerServicesTitle','footerInfoTitle':'footerInfoTitle',
                 'fNavHome':'fNavHome','fNavServices':'fNavServices','fNavOffers':'fNavOffers','fNavHotels':'fNavHotels',
@@ -1194,7 +1269,7 @@
                 'fServFlights':'fServFlights','fServUmrah':'fServUmrah','fServVisa':'fServVisa','fServHotels':'fServHotels',
                 'fServCars':'fServCars','fServRailway':'fServRailway',
                 'fInfoAbout':'fInfoAbout','fInfoContact':'fInfoContact','fInfoPrivacy':'fInfoPrivacy','fInfoTerms':'fInfoTerms',
-                'footerRights':'footerRights','footerCredit':'footerCredit'
+                'footerRights':'footerRights'
             };
 
             for (const [id, key] of Object.entries(map)) {
@@ -1285,41 +1360,14 @@
             renderBlogs(blogDisplayCount);
         });
 
-        const savedLang = localStorage.getItem('lang') || 'ar';
-        applyLanguage(savedLang);
+        applyLanguage(currentLang);
 
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('open');
-                }
-            });
-        });
-
-        // ===== KEYBOARD SHORTCUTS =====
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (chatBox.classList.contains('open')) chatBox.classList.remove('open');
-                if (document.getElementById('blogModal').classList.contains('open')) closeBlogModal();
-            }
-        });
-
-        // ===== DYNAMIC FOOTER YEAR =====
+        // ===== FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('%c📝 صعود الطائرة – مدونة السفر', 'font-size:20px;font-weight:bold;color:#d4af37;');
-        console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
-        console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
-        console.log('%c🌟 12 مقالة سياحية – فلتر بحث – نشرات بريدية', 'font-size:13px;color:#888;');
+        console.log('✅ blog.html – फिक्स्ड, डार्क मोड, प्रोग्रेस बार, वॉटरमार्क');
+        console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
     </script>
 </body>
 </html>

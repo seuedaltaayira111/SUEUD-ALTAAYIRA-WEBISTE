@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <style>
+        /* ===== RESET & BASE (same as before) ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-dark: #061d3a;
@@ -524,7 +525,7 @@
                 </div>
             </div>
 
-            <!-- ===== RAILWAY GRID (with fixed train images) ===== -->
+            <!-- ===== RAILWAY GRID ===== -->
             <div class="railway-grid" id="railwayGrid"></div>
 
             <!-- ===== BACK TO HOME ===== -->
@@ -646,7 +647,7 @@
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
     <!-- ============================================================
-    JAVASCRIPT (Correct Train Images Fixed)
+    JAVASCRIPT (MULTIPLE TRAIN IMAGES – CLEARLY DIFFERENT)
     ============================================================ -->
     <script>
         // ===== PARTICLES =====
@@ -765,54 +766,60 @@
             scrollBtn.classList.toggle('show', window.pageYOffset > 300);
         });
 
-        // ===== RAILWAY DATA WITH CORRECT TRAIN IMAGES =====
+        // ===== RAILWAY DATA WITH 4 DIFFERENT TRAIN IMAGES =====
+        // 4 different train images from Unsplash
+        const trainImg1 = 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format';
+        const trainImg2 = 'https://images.unsplash.com/photo-1574102860584-2aff68c8b1f3?w=600&h=400&fit=crop&auto=format';
+        const trainImg3 = 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&h=400&fit=crop&auto=format';
+        const trainImg4 = 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=400&fit=crop&auto=format';
+
         const railwayData = [
             { id:1, from:'الرياض', to:'الدمام', duration:'3-4 ساعات', price:85, priceBusiness:145,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg1,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات','كافتيريا'],
                 detail:'الدرجة الاقتصادية 85 ريال، درجة الأعمال 145 ريال' },
             { id:2, from:'الدمام', to:'الرياض', duration:'3-4 ساعات', price:85, priceBusiness:145,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg2,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات','كافتيريا'],
                 detail:'الدرجة الاقتصادية 85 ريال، درجة الأعمال 145 ريال' },
             { id:3, from:'الرياض', to:'الهفوف', duration:'2.5 ساعة', price:60, priceBusiness:100,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg3,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات'],
                 detail:'الدرجة الاقتصادية 60 ريال، درجة الأعمال 100 ريال' },
             { id:4, from:'الدمام', to:'الهفوف', duration:'1.5 ساعة', price:40, priceBusiness:70,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg4,
                 features:['مقاعد مريحة','مكيفات','رحلة قصيرة'],
                 detail:'الدرجة الاقتصادية 40 ريال، درجة الأعمال 70 ريال' },
             { id:5, from:'الرياض', to:'القصيم', duration:'2.5 ساعة', price:90, priceBusiness:140,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg1,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات','كافتيريا'],
                 detail:'الدرجة الاقتصادية 90 ريال، درجة الأعمال 140 ريال' },
             { id:6, from:'الرياض', to:'حائل', duration:'4 ساعات', price:120, priceBusiness:180,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg2,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات','كافتيريا','مناظر طبيعية'],
                 detail:'الدرجة الاقتصادية 120 ريال، درجة الأعمال 180 ريال' },
             { id:7, from:'الرياض', to:'الجوف', duration:'5 ساعات', price:150, priceBusiness:220,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg3,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات','كافتيريا','مناظر طبيعية'],
                 detail:'الدرجة الاقتصادية 150 ريال، درجة الأعمال 220 ريال' },
             { id:8, from:'الدمام', to:'بقيق', duration:'1 ساعة', price:30, priceBusiness:50,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg4,
                 features:['مقاعد مريحة','مكيفات','رحلة قصيرة'],
                 detail:'الدرجة الاقتصادية 30 ريال، درجة الأعمال 50 ريال' },
             { id:9, from:'الرياض', to:'بقيق', duration:'3 ساعات', price:70, priceBusiness:110,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg1,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات'],
                 detail:'الدرجة الاقتصادية 70 ريال، درجة الأعمال 110 ريال' },
             { id:10, from:'جدة', to:'مكة', duration:'1.5 ساعة', price:55, priceBusiness:85,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg2,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات','مناظر جبلية'],
                 detail:'الدرجة الاقتصادية 55 ريال، درجة الأعمال 85 ريال' },
             { id:11, from:'مكة', to:'جدة', duration:'1.5 ساعة', price:55, priceBusiness:85,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg3,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات','مناظر جبلية'],
                 detail:'الدرجة الاقتصادية 55 ريال، درجة الأعمال 85 ريال' },
             { id:12, from:'مكة', to:'المدينة', duration:'4 ساعات', price:110, priceBusiness:160,
-                img:'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
+                img: trainImg4,
                 features:['واي فاي مجاني','مقاعد مريحة','مكيفات','كافتيريا','مناظر طبيعية'],
                 detail:'الدرجة الاقتصادية 110 ريال، درجة الأعمال 160 ريال' }
         ];
@@ -1190,7 +1197,7 @@
         document.querySelector('.footer-bottom').innerHTML =
             `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('✅ railway.html – फिक्स्ड, train images are now relevant');
+        console.log('✅ railway.html – अब 4 अलग-अलग train images हैं!');
         console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
     </script>
 </body>

@@ -64,7 +64,6 @@
             position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
-        /* ===== PROGRESS BAR ===== */
         #progress-bar {
             position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
             background: var(--gold-gradient); width: 0%; transition: width 0.1s;
@@ -247,7 +246,6 @@
         }
         .view-all:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
 
-        /* ===== FEATURED GRIDS ===== */
         .featured-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;
         }
@@ -311,6 +309,7 @@
             border-top: 1px solid var(--border-color);
             background: var(--footer-bg);
             backdrop-filter: blur(12px);
+            position: relative;
         }
         .footer .container {
             max-width: 1320px; margin: 0 auto;
@@ -335,6 +334,25 @@
             text-align: center; color: var(--text-muted); font-size: 0.8rem;
         }
         .footer-bottom span { color: var(--gold); }
+
+        /* ===== WATERMARK ===== */
+        .watermark {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+        .watermark a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .watermark a:hover {
+            text-decoration: underline;
+        }
 
         /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
@@ -722,7 +740,10 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة</div>
+        <div class="watermark">
+            Developed by <a href="#" target="_blank">Hamdan</a> ✦
+        </div>
     </footer>
 
     <!-- ===== WHATSAPP FLOAT ===== -->
@@ -901,17 +922,17 @@
         // ===== DATA =====
         const servicesData = [
             { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران',
-            img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop' },
             { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة',
-            img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
             { icon: '🛂', name: 'التأشيرات', desc: 'جميع أنواع التأشيرات',
-            img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop' },
             { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق',
-            img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
             { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية',
-            img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop' },
             { icon: '🚆', name: 'حجز القطارات', desc: 'تذاكر قطار بأسعار مخفضة',
-            img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop' }
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop' }
         ];
         const offersData = [
             { icon: '🇸🇦', title: 'خصم 93% على الفنادق', desc: 'بمناسبة اليوم الوطني',
@@ -923,27 +944,27 @@
         ];
         const hotelsData = [
             { name: 'فندق الفيرمونت', city: 'الرياض', price: 750,
-            img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop' },
             { name: 'الريتز كارلتون', city: 'جدة', price: 980,
-            img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
             { name: 'فور سيزونز', city: 'مكة', price: 1200,
-            img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop' }
+                img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop' }
         ];
         const packagesData = [
             { name: 'عمرة رمضان', city: 'مكة', price: 2500, days: 5,
-            img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
             { name: 'عطلة دبي الفاخرة', city: 'دبي', price: 3800, days: 7,
-            img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
             { name: 'رحلة باريس الرومانسية', city: 'باريس', price: 4200, days: 6,
-            img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop' }
+                img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop' }
         ];
         const blogData = [
             { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن',
-            img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop' },
             { title: 'دليل السفر إلى دبي', desc: 'نصائح وإرشادات',
-            img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
             { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة',
-            img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' }
+                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' }
         ];
 
         function renderFeatured(containerId, items, template) {
@@ -1005,10 +1026,12 @@
                 status.style.color = '#f87171';
                 return;
             }
-            const fullMsg = `📩 رسالة جديدة من الموقع\n\n👤 ${name}\n📱 ${phone}\n📧 ${email || 'غير مدخل'}\n\n💬 ${message}`;
+            const fullMsg =
+            `📩 رسالة جديدة من الموقع\n\n👤 ${name}\n📱 ${phone}\n📧 ${email || 'غير مدخل'}\n\n💬 ${message}`;
             status.textContent = '✅ جاري التحويل ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
+                // WORK NUMBER 0554126832
                 window.open(`https://wa.me/966554126832?text=${encodeURIComponent(fullMsg)}`, '_blank');
                 this.reset();
                 status.textContent = '✅ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.';
@@ -1036,7 +1059,7 @@
             'شكرا': '🙏 العفو! سعداء بمساعدتك.',
             'hello': '👋 Welcome! How can I help?',
             'hi': '👋 Hi there!',
-            'umrah': '🕋 Umrah packages start from 1,200 SAR.',
+            'umrah': '🕋 Umrah packages from 1,200 SAR.',
             'visa': '🛂 We offer all types of visas.',
             'flight': '✈️ Cheap flights from 179 SAR.',
             'hotel': '🏨 200+ hotels with real prices.',
@@ -1145,8 +1168,7 @@
                 aiChatTitle: 'مساعد صعود الطائرة AI',
                 aiWelcomeMsg: '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.',
                 aiPlaceholder: 'اكتب سؤالك بأي لغة...',
-                footerRights: 'جميع الحقوق محفوظة',
-                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية'
+                footerRights: 'جميع الحقوق محفوظة'
             },
             en: {
                 logoMain: 'Saeed Al-Taayira',
@@ -1203,8 +1225,7 @@
                 aiChatTitle: 'Saeed Al-Taayira AI Assistant',
                 aiWelcomeMsg: '👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. How can I help you today? I can answer in any language you choose.',
                 aiPlaceholder: 'Type your question in any language...',
-                footerRights: 'All Rights Reserved',
-                footerCredit: 'Designed & Developed ✧ with Vision'
+                footerRights: 'All Rights Reserved'
             }
         };
 
@@ -1267,8 +1288,7 @@
                 'aiChatTitle': 'aiChatTitle',
                 'aiWelcomeMsg': 'aiWelcomeMsg',
                 'aiPlaceholder': 'aiPlaceholder',
-                'footerRights': 'footerRights',
-                'footerCredit': 'footerCredit'
+                'footerRights': 'footerRights'
             };
 
             for (const [id, key] of Object.entries(map)) {
@@ -1302,7 +1322,6 @@
             const heroSub = document.getElementById('heroSub');
             if (heroSub) heroSub.textContent = translations[lang]['heroSub'];
 
-            // AI chat
             const aiTitle = document.querySelector('.ai-chat-header .title span');
             if (aiTitle) {
                 const status = aiTitle.querySelector('.ai-status');
@@ -1325,10 +1344,12 @@
 
         // ===== FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('✅ صعود الطائرة – لاندينج بيدج (फिक्स्ड)');
-        console.log('🌟 नए फीचर्स: डार्क मोड, प्रोग्रेस बार, फीचर्ड कंटेंट');
+        console.log('✅ index.html – फुली फिक्स्ड विथ ऑल एडवांस फीचर्स');
+        console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
+        console.log('💧 वॉटरमार्क: Developed by Hamdan');
+        console.log('🌙 डार्क मोड, 📊 प्रोग्रेस बार, ✨ एनिमेटेड काउंटर्स');
     </script>
 </body>
 </html>

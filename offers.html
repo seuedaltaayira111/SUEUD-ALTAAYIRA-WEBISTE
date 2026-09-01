@@ -184,6 +184,19 @@
         /* ===== SECTION ===== */
         .section { padding: 60px 24px 80px; position: relative; z-index: 1; }
         .section .container { max-width: 1320px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 48px; }
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+        .section-title h2 .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+        .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
 
         /* ===== FILTERS ===== */
         .filters-section {
@@ -194,25 +207,40 @@
             margin-bottom: 40px;
         }
         .filters-row {
-            display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
         }
         .filters-row .filter-group {
-            flex: 1; min-width: 160px;
+            flex: 1;
+            min-width: 160px;
         }
         .filters-row .filter-group label {
-            display: block; font-size: 0.7rem; color: var(--text-muted);
-            margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px;
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .filters-row .filter-group input,
         .filters-row .filter-group select {
-            width: 100%; padding: 10px 14px; border-radius: 12px;
-            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
-            color: var(--text-color); font-family: inherit; font-size: 0.9rem;
-            outline: none; transition: 0.3s;
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
         }
         .filters-row .filter-group input:focus,
         .filters-row .filter-group select:focus {
-            border-color: var(--gold); background: rgba(255,255,255,0.06);
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.06);
         }
         .filters-row .filter-group select option { background: #0a1a2e; color: #fff; }
         .filters-row .filter-group input::placeholder { color: rgba(255,255,255,0.25); }
@@ -285,7 +313,8 @@
         }
         .offer-card .offer-body .offer-features span {
             font-size: 0.7rem; color: var(--text-muted);
-            background: rgba(255,255,255,0.04); padding: 3px 12px; border-radius: 50px;
+            background: rgba(255,255,255,0.04);
+            padding: 3px 12px; border-radius: 50px;
             border: 1px solid var(--border-color);
         }
         .offer-card .offer-body .btn-sm {
@@ -431,6 +460,7 @@
         }
         .footer-bottom span { color: var(--gold); }
 
+        /* ===== WATERMARK ===== */
         .watermark {
             text-align: center;
             color: var(--text-muted);
@@ -918,7 +948,7 @@
         // ===== BOOK OFFER =====
         window.bookOffer = function(title, discount) {
             const msg = `🎁 عرض خاص: ${title}\nالخصم: ${discount}\nأرغب في الاستفادة من هذا العرض`;
-            // Send to WORK NUMBER 0554126832
+            // WORK NUMBER 0554126832
             window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
         };
 
@@ -1010,10 +1040,15 @@
                 catTrains:'قطارات', catPackages:'باقات سياحية', catCar:'سيارات', catInsurance:'تأمين',
                 resetBtn:'إعادة تعيين', loadMoreText:'عرض المزيد من العروض', noOffers:'لا توجد عروض مطابقة لبحثك',
                 backHomeBtn:'العودة إلى الرئيسية',
-                aiChatTitle:'مساعد صعود الطائرة AI', aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. لدي معلومات عن جميع عروضنا الحصرية – اسألني عن أي عرض!',
-                aiPlaceholder:'اسأل عن العروض...', waFloatLabel:'تواصل واتساب',
-                footerBrand:'صعود الطائرة', footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
-                footerLinksTitle:'روابط سريعة', footerServicesTitle:'خدماتنا', footerInfoTitle:'معلومات',
+                waFloatLabel:'تواصل واتساب',
+                aiChatTitle:'مساعد صعود الطائرة AI',
+                aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. لدي معلومات عن جميع عروضنا الحصرية – اسألني عن أي عرض!',
+                aiPlaceholder:'اسأل عن العروض...',
+                footerBrand:'صعود الطائرة',
+                footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle:'روابط سريعة',
+                footerServicesTitle:'خدماتنا',
+                footerInfoTitle:'معلومات',
                 fNavHome:'الرئيسية', fNavServices:'خدماتنا', fNavOffers:'عروض', fNavHotels:'فنادق',
                 fNavPackages:'باقات', fNavRailway:'قطارات', fNavCars:'سيارات', fNavAbout:'من نحن', fNavContact:'اتصل بنا',
                 fServFlights:'تذاكر طيران', fServUmrah:'باقات العمرة', fServVisa:'تأشيرات', fServHotels:'فنادق',
@@ -1032,10 +1067,15 @@
                 catTrains:'Trains', catPackages:'Packages', catCar:'Cars', catInsurance:'Insurance',
                 resetBtn:'Reset', loadMoreText:'Show More Offers', noOffers:'No offers match your search',
                 backHomeBtn:'Back to Home',
-                aiChatTitle:'Saeed Al-Taayira AI Assistant', aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I have information about all our exclusive offers – ask me about any offer!',
-                aiPlaceholder:'Ask about offers...', waFloatLabel:'WhatsApp',
-                footerBrand:'Saeed Al-Taayira', footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
-                footerLinksTitle:'Quick Links', footerServicesTitle:'Services', footerInfoTitle:'Info',
+                waFloatLabel:'WhatsApp',
+                aiChatTitle:'Saeed Al-Taayira AI Assistant',
+                aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I have information about all our exclusive offers – ask me about any offer!',
+                aiPlaceholder:'Ask about offers...',
+                footerBrand:'Saeed Al-Taayira',
+                footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle:'Quick Links',
+                footerServicesTitle:'Services',
+                footerInfoTitle:'Info',
                 fNavHome:'Home', fNavServices:'Services', fNavOffers:'Offers', fNavHotels:'Hotels',
                 fNavPackages:'Packages', fNavRailway:'Railway', fNavCars:'Cars', fNavAbout:'About', fNavContact:'Contact',
                 fServFlights:'Flights', fServUmrah:'Umrah', fServVisa:'Visas', fServHotels:'Hotels',
@@ -1061,8 +1101,8 @@
                 'catAll':'catAll','catHotels':'catHotels','catUmrah':'catUmrah','catFlights':'catFlights',
                 'catTrains':'catTrains','catPackages':'catPackages','catCar':'catCar','catInsurance':'catInsurance',
                 'resetBtn':'resetBtn','loadMoreText':'loadMoreText','noOffers':'noOffers','backHomeBtn':'backHomeBtn',
-                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
                 'waFloatLabel':'waFloatLabel',
+                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
                 'footerBrand':'footerBrand','footerDesc':'footerDesc',
                 'footerLinksTitle':'footerLinksTitle','footerServicesTitle':'footerServicesTitle','footerInfoTitle':'footerInfoTitle',
                 'fNavHome':'fNavHome','fNavServices':'fNavServices','fNavOffers':'fNavOffers','fNavHotels':'fNavHotels',
@@ -1122,14 +1162,18 @@
                 });
             }
 
-            // Load more button
+            // Load more button text
             const loadBtn = document.getElementById('loadMoreOffers');
             if (loadBtn) {
                 const span = loadBtn.querySelector('span');
                 if (span) span.textContent = translations[lang]['loadMoreText'];
             }
+
+            // No offers
             const noOffers = document.getElementById('noOffers');
             if (noOffers) noOffers.textContent = translations[lang]['noOffers'];
+
+            // Back home button
             const backBtn = document.getElementById('backHomeBtn');
             if (backBtn) backBtn.textContent = translations[lang]['backHomeBtn'];
 
@@ -1159,8 +1203,8 @@
         document.querySelector('.footer-bottom').innerHTML =
             `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('✅ offers.html – फुली फिक्स्ड, डार्क मोड, प्रोग्रेस बार, वॉटरमार्क');
-        console.log('📩 सभी बुकिंग 0554126832 पर जाती हैं');
+        console.log('✅ offers.html – फिक्स्ड, डार्क मोड, प्रोग्रेस बार, वॉटरमार्क');
+        console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
     </script>
 </body>
 </html>

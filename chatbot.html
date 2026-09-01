@@ -12,20 +12,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sueud-altayira-website.vercel.app/chatbot.html" />
     <meta name="keywords" content="مساعد ذكي, شات بوت, حجز السفر, صعود الطائرة, AI Chatbot" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "مساعد صعود الطائرة الذكي",
-            "description": "مساعد ذكي متقدم لخدمات السفر",
-            "url": "https://sueud-altayira-website.vercel.app/chatbot.html",
-            "isPartOf": {
-                "@type": "WebSite",
-                "name": "صعود الطائرة للسفر والسياحة",
-                "url": "https://sueud-altayira-website.vercel.app"
-            }
-        }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -42,14 +28,29 @@
             --text-muted: rgba(255,255,255,0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
+            --bg-body: var(--primary-dark);
+            --text-color: #f0f4ff;
+            --card-bg: rgba(255,255,255,0.025);
+            --border-color: rgba(255,255,255,0.04);
+            --header-bg: rgba(6,29,58,0.94);
+            --footer-bg: rgba(6,29,58,0.5);
+        }
+        [data-theme="dark"] {
+            --bg-body: #0a0a0a;
+            --text-color: #e0e0e0;
+            --card-bg: rgba(255,255,255,0.04);
+            --border-color: rgba(255,255,255,0.06);
+            --header-bg: rgba(10,10,10,0.96);
+            --footer-bg: rgba(10,10,10,0.6);
         }
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
-            background: var(--primary-dark);
-            color: #f0f4ff;
+            background: var(--bg-body);
+            color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -60,18 +61,23 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         ::-webkit-scrollbar { width: 7px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         #particles-canvas {
             position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
+            background: var(--gold-gradient); width: 0%; transition: width 0.1s;
+        }
+
         /* ===== HEADER ===== */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             padding: 14px 0; transition: 0.3s;
-            background: rgba(6,29,58,0.94);
+            background: var(--header-bg);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(212,175,55,0.1);
         }
@@ -114,6 +120,13 @@
             font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
         }
         .nav-cta:hover { transform: scale(1.05); }
+        .theme-toggle {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 12px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 1rem; transition: 0.3s; font-family: inherit;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .theme-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .lang-toggle {
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
             color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
@@ -130,7 +143,7 @@
         @media (max-width:768px) {
             .nav-links {
                 position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(6,29,58,0.97); flex-direction: column;
+                background: var(--header-bg); flex-direction: column;
                 padding: 80px 28px 32px; transition: right 0.4s;
                 border-left: 1px solid rgba(255,255,255,0.04);
             }
@@ -156,13 +169,13 @@
 
         /* ===== CHAT HEADER ===== */
         .chat-header {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius) var(--radius) 0 0;
             padding: 16px 24px;
             display: flex; align-items: center; justify-content: space-between;
             flex-shrink: 0;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid var(--border-color);
         }
         .chat-header .title {
             display: flex; align-items: center; gap: 12px;
@@ -180,9 +193,9 @@
         /* ===== CHAT MESSAGES ===== */
         .chat-messages {
             flex: 1;
-            background: rgba(255,255,255,0.015);
-            border-left: 1px solid rgba(255,255,255,0.04);
-            border-right: 1px solid rgba(255,255,255,0.04);
+            background: var(--card-bg);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
             padding: 20px 24px;
             overflow-y: auto;
             display: flex;
@@ -245,23 +258,24 @@
         .chat-messages .msg .booking-summary .label {
             color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;
         }
-        .chat-messages .msg .booking-summary .value { font-weight: 600; color: #f0f4ff; }
+        .chat-messages .msg .booking-summary .value { font-weight: 600; color: var(--text-color); }
 
         /* ===== CHAT INPUT ===== */
         .chat-input {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 0 0 var(--radius) var(--radius);
             padding: 16px 24px;
             display: flex; gap: 12px; align-items: center;
             flex-shrink: 0;
-            border-top: 1px solid rgba(255,255,255,0.04);
+            border-top: 1px solid var(--border-color);
         }
         .chat-input input {
             flex: 1; padding: 12px 18px; border-radius: 50px;
             background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-family: inherit; font-size: 0.95rem;
             outline: none; transition: 0.3s;
         }
         .chat-input input:focus { border-color: var(--gold); background: rgba(255,255,255,0.06); }
@@ -295,18 +309,19 @@
         .whatsapp-float .wa-label {
             font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
             padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
         }
         @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
 
         /* ===== FOOTER ===== */
         .footer {
             padding: 60px 24px 30px;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            background: rgba(6,29,58,0.5);
+            border-top: 1px solid var(--border-color);
+            background: var(--footer-bg);
             backdrop-filter: blur(12px);
             margin-top: auto;
             flex-shrink: 0;
+            position: relative;
         }
         .footer .container {
             max-width: 1320px; margin: 0 auto;
@@ -316,21 +331,40 @@
         .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
         .footer .brand .socials a {
             width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            background: var(--card-bg); border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center;
             color: var(--text-muted); transition: 0.3s;
         }
         .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--text-color); }
         .footer ul li { margin-bottom: 6px; }
         .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
         .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
         .footer-bottom {
             max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.03);
+            border-top: 1px solid var(--border-color);
             text-align: center; color: var(--text-muted); font-size: 0.8rem;
         }
         .footer-bottom span { color: var(--gold); }
+
+        /* ===== WATERMARK ===== */
+        .watermark {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+        .watermark a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .watermark a:hover {
+            text-decoration: underline;
+        }
 
         /* ===== SCROLL TOP ===== */
         .scroll-top {
@@ -366,6 +400,9 @@
     </style>
 </head>
 <body>
+    <!-- ===== PROGRESS BAR ===== -->
+    <div id="progress-bar"></div>
+
     <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
 
@@ -393,6 +430,7 @@
                 <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
                 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             </div>
@@ -427,22 +465,13 @@
         </div>
     </div>
 
-    <!-- ===== WHATSAPP FLOAT ===== -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
-        <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
-    </div>
-
-    <!-- ===== SCROLL TOP ===== -->
-    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
-
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="brand">
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
                     <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
-                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="footerBrand"><strong>صعود الطائرة</strong></span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" id="footerBrand"><strong>صعود الطائرة</strong></span>
                 </div>
                 <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
                 <div class="socials">
@@ -489,8 +518,20 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة</div>
+        <div class="watermark">
+            Developed by <a href="#" target="_blank">Hamdan</a> ✦
+        </div>
     </footer>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+        <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
+    </div>
+
+    <!-- ===== SCROLL TOP ===== -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
     <!-- ============================================================
     JAVASCRIPT – CHATBOT ENGINE (ADVANCED)
@@ -561,6 +602,29 @@
             animate();
         })();
 
+        // ===== PROGRESS BAR =====
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // ===== DARK MODE =====
+        const themeToggle = document.getElementById('themeToggle');
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
+            localStorage.setItem('theme', theme);
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        setTheme(currentTheme);
+        themeToggle.addEventListener('click', () => {
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            currentTheme = newTheme;
+            setTheme(newTheme);
+        });
+
         // ===== HAMBURGER =====
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -583,36 +647,25 @@
             scrollBtn.classList.toggle('show', window.pageYOffset > 300);
         });
 
-        // ===== LANGUAGE TOGGLE (global) =====
-        const langToggle = document.getElementById('langToggle');
-        let currentLang = 'ar';
-
         // ===== CHATBOT CORE =====
-
-        // DOM elements
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const typingIndicator = document.getElementById('typingIndicator');
         const sendBtnText = document.getElementById('sendBtnText');
 
-        // State
-        let conversationState = 'idle'; // idle, booking, collecting
+        let conversationState = 'idle';
         let bookingData = {};
         let currentQuestionIndex = 0;
         const bookingQuestions = [
             { key: 'fullname', label: 'الاسم الكامل', type: 'text' },
             { key: 'phone', label: 'رقم الجوال', type: 'tel' },
             { key: 'email', label: 'البريد الإلكتروني', type: 'email' },
-            { key: 'service', label: 'الخدمة المطلوبة', type: 'select', options: ['تذاكر طيران', 'باقات العمرة', 'التأشيرات',
-                    'حجز الفنادق', 'تأجير السيارات', 'حجز القطارات', 'باقات سياحية', 'تأمين السفر', 'نقل المطار'
-                ] },
+            { key: 'service', label: 'الخدمة المطلوبة', type: 'select', options: ['تذاكر طيران', 'باقات العمرة', 'التأشيرات', 'حجز الفنادق', 'تأجير السيارات', 'حجز القطارات', 'باقات سياحية', 'تأمين السفر', 'نقل المطار'] },
             { key: 'details', label: 'تفاصيل إضافية (التواريخ، عدد الأشخاص، الوجهة، إلخ)', type: 'textarea' }
         ];
 
-        // Advanced Knowledge Base (Multi-language)
         const knowledgeBase = {
             ar: {
-                // Greetings
                 'مرحبا': '👋 أهلاً بك! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنك سؤالي عن أي من خدماتنا، أو طلب حجز.',
                 'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟',
                 'اهلا': '👋 أهلاً وسهلاً! أنا هنا لمساعدتك في كل ما يخص السفر والسياحة.',
@@ -620,8 +673,6 @@
                 'مساء الخير': '🌙 مساء الخير! أنا جاهز لخدمتك.',
                 'كيف حالك': '🙂 أنا بخير، شكراً للسؤال! كيف يمكنني مساعدتك؟',
                 'شكرا': '🙏 العفو! سعداء بمساعدتك. هل هناك شيء آخر تريد معرفته؟',
-
-                // Services
                 'عمرة': '🕋 لدينا باقات عمرة متكاملة تبدأ من ١٢٠٠ ريال وتشمل: تأشيرة، سكن قريب من الحرم، مواصلات داخلية، وجبات فاخرة، ومرشد سياحي. هل ترغب في حجز باقة؟',
                 'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول. نضمن معالجة سريعة وأسعار تنافسية. أخبرني الدولة التي تريدها.',
                 'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس، طيران أديل، وشركات عالمية. الأسعار تبدأ من ١٧٩ ريال للرحلات الداخلية. أخبرني وجهتك وتواريخ السفر.',
@@ -639,13 +690,9 @@
                 'جماعية': '👥 ننظم رحلات جماعية مع مرشدين سياحيين محترفين. أسعار خاصة للمجموعات.',
                 'بحرية': '🚢 رحلات كروز فاخرة على أفضل السفن السياحية. وجهات مميزة وبرامج ترفيهية.',
                 'أعمال': '💼 خدمات سفر مخصصة لرجال الأعمال: درجة الأعمال، فنادق تنفيذية، استقبال في المطار، وخدمة الكونسيرج.',
-
-                // Offers
                 'عرض': '🔥 لدينا عروض رائعة: خصم 93% على الفنادق بمناسبة اليوم الوطني (كود SND93)، وخصم 9% باستخدام كود KSA90، وعروض عمرة رمضان، وتذاكر قطار بأسعار مخفضة.',
                 'خصم': '💸 الخصومات المتاحة: 93% على الفنادق، 9% باستخدام كود KSA90، 20% على باقات العمرة، 30% على القطارات.',
                 'كود': '📱 كود الخصم KSA90 يمنحك 9% على جميع الفنادق + 900 نقطة في محفظتك. كود SND93 لخصم 93% بمناسبة اليوم الوطني.',
-
-                // General
                 'سعر': '💰 أسعارنا تنافسية ومأخوذة من مصادر موثوقة. يرجى تحديد الخدمة التي تريدها للحصول على عرض دقيق.',
                 'حجز': '📝 يمكنك الحجز عبر هذا المساعد الذكي. سأطلب منك بعض المعلومات ثم سأرسل طلبك مباشرة إلى فريقنا عبر واتساب. هل تريد البدء؟',
                 'اتصال': '📞 يمكنك التواصل معنا عبر واتساب 0555382038 أو الاتصال على 0554126832.',
@@ -656,12 +703,8 @@
                 'من نحن': '🏢 نحن <strong>صعود الطائرة للسفر والسياحة</strong>، وكالة سفر رائدة في المملكة العربية السعودية منذ عام 2020.',
                 'تقييم': '⭐ معدل رضا العملاء لدينا 98% – نحن نفخر بثقة عملائنا.',
                 'شكوى': '📩 إذا كان لديك أي استفسار أو اقتراح، يرجى التواصل معنا عبر واتساب وسنقوم بالرد في أقرب وقت.',
-
-                // Booking
                 'اريد حجز': '📝 رائع! سأقوم بمساعدتك في الحجز. سأطلب منك بعض المعلومات وسنرسل طلبك مباشرة إلى فريقنا. هل أنت مستعد؟ (أجب بـ "نعم" للبدء)',
                 'نعم': '👍 ممتاز! لنبدأ. سأسألك عدة أسئلة. يرجى الإجابة عليها بدقة.',
-
-                // English responses
                 'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong>! I\'m your smart assistant. How can I help you today? You can ask about our services, offers, or start a booking.',
                 'hi': '👋 Hi there! How can I assist you?',
                 'umrah': '🕋 We have Umrah packages starting from 1,200 SAR including visa, accommodation near Haram, transportation, and meals.',
@@ -709,44 +752,29 @@
             const lower = text.toLowerCase().trim();
             const kb = knowledgeBase[lang] || knowledgeBase.ar;
 
-            // Check for booking intent
             if (lower.includes('حجز') || lower.includes('book') || lower.includes('اريد حجز') || lower.includes('i want to book')) {
-                return {
-                    type: 'booking_start',
-                    text: kb['حجز'] || kb['booking'] ||
-                        '📝 يمكنني مساعدتك في الحجز. سأطلب منك بعض المعلومات وسنرسل طلبك مباشرة إلى فريقنا عبر واتساب. هل أنت مستعد؟ (أجب بـ "نعم" للبدء)'
-                };
+                return { type: 'booking_start', text: kb['حجز'] || kb['booking'] || '📝 يمكنني مساعدتك في الحجز. سأطلب منك بعض المعلومات وسنرسل طلبك مباشرة إلى فريقنا عبر واتساب. هل أنت مستعد؟ (أجب بـ "نعم" للبدء)' };
             }
 
-            // Check for yes response to start booking
             if ((lower === 'نعم' || lower === 'yes' || lower === 'y') && conversationState === 'idle') {
                 return { type: 'booking_start', text: kb['نعم'] || kb['yes'] || '👍 ممتاز! لنبدأ. سأسألك عدة أسئلة. يرجى الإجابة عليها بدقة.' };
             }
 
-            // Check knowledge base
             for (const [key, response] of Object.entries(kb)) {
                 if (lower.includes(key)) {
                     return { type: 'text', text: response };
                 }
             }
 
-            // Default fallback
             const hasArabic = /[\u0600-\u06FF]/.test(text);
             if (hasArabic) {
-                return {
-                    type: 'text',
-                    text: '🤖 شكراً لسؤالك! سيقوم فريق <strong>صعود الطائرة</strong> بالتواصل معك قريباً. يمكنك أيضاً مراسلتنا على واتساب 0555382038.'
-                };
+                return { type: 'text', text: '🤖 شكراً لسؤالك! سيقوم فريق <strong>صعود الطائرة</strong> بالتواصل معك قريباً. يمكنك أيضاً مراسلتنا على واتساب 0555382038.' };
             } else {
-                return {
-                    type: 'text',
-                    text: '🤖 Thank you for your question! The <strong>Saeed Al-Taayira</strong> team will contact you soon. You can also message us on WhatsApp at 0555382038.'
-                };
+                return { type: 'text', text: '🤖 Thank you for your question! The <strong>Saeed Al-Taayira</strong> team will contact you soon. You can also message us on WhatsApp at 0555382038.' };
             }
         }
 
         // ===== CHAT UI FUNCTIONS =====
-
         function addMessage(type, content, quickReplies = null) {
             const msgDiv = document.createElement('div');
             msgDiv.className = `msg ${type}`;
@@ -770,23 +798,15 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function showTyping() {
-            typingIndicator.classList.add('show');
-        }
-
-        function hideTyping() {
-            typingIndicator.classList.remove('show');
-        }
+        function showTyping() { typingIndicator.classList.add('show'); }
+        function hideTyping() { typingIndicator.classList.remove('show'); }
 
         function sendMessage() {
             const text = chatInput.value.trim();
             if (!text) return;
             chatInput.value = '';
-
-            // Add user message
             addMessage('user', text);
 
-            // Process response
             showTyping();
             setTimeout(() => {
                 hideTyping();
@@ -801,7 +821,6 @@
                     handleBookingInput(text);
                 } else {
                     addMessage('bot', response.text);
-                    // Quick replies for common actions
                     const lang = currentLang;
                     if (response.text.includes('حجز') || response.text.includes('book')) {
                         const quickReplies = lang === 'ar' ? ['نعم', 'لا'] : ['Yes', 'No'];
@@ -847,8 +866,7 @@
 
         function finishBooking() {
             const lang = currentLang;
-            let summary = lang === 'ar' ? '✅ تم استلام معلوماتك. شكراً! إليك ملخص طلبك:\n\n' :
-                '✅ Your information has been received. Thank you! Here is a summary of your request:\n\n';
+            let summary = lang === 'ar' ? '✅ تم استلام معلوماتك. شكراً! إليك ملخص طلبك:\n\n' : '✅ Your information has been received. Thank you! Here is a summary of your request:\n\n';
             for (const [key, value] of Object.entries(bookingData)) {
                 const label = bookingQuestions.find(q => q.key === key)?.label || key;
                 summary += `📌 ${label}: ${value}\n`;
@@ -864,9 +882,7 @@
             const quickReplies = [sendBtnLabel];
             addMessage('bot', lang === 'ar' ? 'اضغط على الزر لإرسال الطلب الآن' : 'Click the button to send the request now', quickReplies);
 
-            setTimeout(() => {
-                window.open(waUrl, '_blank');
-            }, 1000);
+            setTimeout(() => { window.open(waUrl, '_blank'); }, 1000);
 
             conversationState = 'idle';
             bookingData = {};
@@ -900,33 +916,165 @@
             }
         }
 
-        // ===== INIT =====
-        function initChat() {
-            clearChat();
-        }
+        function initChat() { clearChat(); }
 
         // ===== LANGUAGE TOGGLE =====
+        const langToggle = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'ar';
+
+        const translations = {
+            ar: {
+                logoMain: 'صعود الطائرة',
+                logoSub: 'للسفر والسياحة',
+                navHome: 'الرئيسية',
+                navServices: 'خدماتنا',
+                navOffers: 'عروض',
+                navHotels: 'فنادق',
+                navPackages: 'باقات',
+                navRailway: 'قطارات',
+                navCars: 'سيارات',
+                navAbout: 'من نحن',
+                navContact: 'اتصل بنا',
+                navChatbot: '🤖 مساعد',
+                navCta: '📞 احجز الآن',
+                chatTitle: 'مساعد صعود الطائرة الذكي',
+                chatStatus: '● متصل',
+                clearBtnTitle: 'مسح المحادثة',
+                fullscreenBtnTitle: 'ملء الشاشة',
+                sendBtnText: 'إرسال',
+                aiPlaceholder: 'اكتب رسالتك هنا...',
+                waFloatLabel: 'تواصل واتساب',
+                footerBrand: 'صعود الطائرة',
+                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle: 'روابط سريعة',
+                footerServicesTitle: 'خدماتنا',
+                footerInfoTitle: 'معلومات',
+                fNavHome: 'الرئيسية',
+                fNavServices: 'خدماتنا',
+                fNavOffers: 'عروض',
+                fNavHotels: 'فنادق',
+                fNavPackages: 'باقات',
+                fNavRailway: 'قطارات',
+                fNavCars: 'سيارات',
+                fNavAbout: 'من نحن',
+                fNavContact: 'اتصل بنا',
+                fNavChatbot: '🤖 مساعد',
+                fServFlights: 'تذاكر طيران',
+                fServUmrah: 'باقات العمرة',
+                fServVisa: 'تأشيرات',
+                fServHotels: 'فنادق',
+                fServCars: 'تأجير سيارات',
+                fServRailway: 'قطارات',
+                fInfoAbout: 'عن الوكالة',
+                fInfoContact: 'اتصل بنا',
+                fInfoPrivacy: 'سياسة الخصوصية',
+                fInfoTerms: 'الشروط والأحكام',
+                footerRights: 'جميع الحقوق محفوظة'
+            },
+            en: {
+                logoMain: 'Saeed Al-Taayira',
+                logoSub: 'Travel & Tourism',
+                navHome: 'Home',
+                navServices: 'Services',
+                navOffers: 'Offers',
+                navHotels: 'Hotels',
+                navPackages: 'Packages',
+                navRailway: 'Railway',
+                navCars: 'Cars',
+                navAbout: 'About',
+                navContact: 'Contact',
+                navChatbot: '🤖 Assistant',
+                navCta: '📞 Book Now',
+                chatTitle: 'Saeed Al-Taayira Smart Assistant',
+                chatStatus: '● Online',
+                clearBtnTitle: 'Clear chat',
+                fullscreenBtnTitle: 'Fullscreen',
+                sendBtnText: 'Send',
+                aiPlaceholder: 'Type your message here...',
+                waFloatLabel: 'WhatsApp',
+                footerBrand: 'Saeed Al-Taayira',
+                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle: 'Quick Links',
+                footerServicesTitle: 'Services',
+                footerInfoTitle: 'Info',
+                fNavHome: 'Home',
+                fNavServices: 'Services',
+                fNavOffers: 'Offers',
+                fNavHotels: 'Hotels',
+                fNavPackages: 'Packages',
+                fNavRailway: 'Railway',
+                fNavCars: 'Cars',
+                fNavAbout: 'About',
+                fNavContact: 'Contact',
+                fNavChatbot: '🤖 Assistant',
+                fServFlights: 'Flights',
+                fServUmrah: 'Umrah',
+                fServVisa: 'Visas',
+                fServHotels: 'Hotels',
+                fServCars: 'Car Rentals',
+                fServRailway: 'Trains',
+                fInfoAbout: 'About Us',
+                fInfoContact: 'Contact',
+                fInfoPrivacy: 'Privacy Policy',
+                fInfoTerms: 'Terms & Conditions',
+                footerRights: 'All Rights Reserved'
+            }
+        };
+
         function applyLanguage(lang) {
             currentLang = lang;
             document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+            document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
             const map = {
-                'logoMain':'logoMain','logoSub':'logoSub',
-                'navHome':'navHome','navServices':'navServices','navOffers':'navOffers','navHotels':'navHotels',
-                'navPackages':'navPackages','navRailway':'navRailway','navCars':'navCars','navAbout':'navAbout',
-                'navContact':'navContact','navChatbot':'navChatbot','navCta':'navCta',
-                'fNavHome':'fNavHome','fNavServices':'fNavServices','fNavOffers':'fNavOffers','fNavHotels':'fNavHotels',
-                'fNavPackages':'fNavPackages','fNavRailway':'fNavRailway','fNavCars':'fNavCars','fNavAbout':'fNavAbout',
-                'fNavContact':'fNavContact','fNavChatbot':'fNavChatbot',
-                'fServFlights':'fServFlights','fServUmrah':'fServUmrah','fServVisa':'fServVisa',
-                'fServHotels':'fServHotels','fServCars':'fServCars','fServRailway':'fServRailway',
-                'fInfoAbout':'fInfoAbout','fInfoContact':'fInfoContact','fInfoPrivacy':'fInfoPrivacy','fInfoTerms':'fInfoTerms',
-                'footerBrand':'footerBrand','footerDesc':'footerDesc',
-                'footerLinksTitle':'footerLinksTitle','footerServicesTitle':'footerServicesTitle','footerInfoTitle':'footerInfoTitle',
-                'waFloatLabel':'waFloatLabel','footerRights':'footerRights','footerCredit':'footerCredit'
+                'logoMain': 'logoMain',
+                'logoSub': 'logoSub',
+                'navHome': 'navHome',
+                'navServices': 'navServices',
+                'navOffers': 'navOffers',
+                'navHotels': 'navHotels',
+                'navPackages': 'navPackages',
+                'navRailway': 'navRailway',
+                'navCars': 'navCars',
+                'navAbout': 'navAbout',
+                'navContact': 'navContact',
+                'navChatbot': 'navChatbot',
+                'navCta': 'navCta',
+                'chatTitle': 'chatTitle',
+                'chatStatus': 'chatStatus',
+                'clearBtnTitle': 'clearBtnTitle',
+                'fullscreenBtnTitle': 'fullscreenBtnTitle',
+                'sendBtnText': 'sendBtnText',
+                'aiPlaceholder': 'aiPlaceholder',
+                'waFloatLabel': 'waFloatLabel',
+                'footerBrand': 'footerBrand',
+                'footerDesc': 'footerDesc',
+                'footerLinksTitle': 'footerLinksTitle',
+                'footerServicesTitle': 'footerServicesTitle',
+                'footerInfoTitle': 'footerInfoTitle',
+                'fNavHome': 'fNavHome',
+                'fNavServices': 'fNavServices',
+                'fNavOffers': 'fNavOffers',
+                'fNavHotels': 'fNavHotels',
+                'fNavPackages': 'fNavPackages',
+                'fNavRailway': 'fNavRailway',
+                'fNavCars': 'fNavCars',
+                'fNavAbout': 'fNavAbout',
+                'fNavContact': 'fNavContact',
+                'fNavChatbot': 'fNavChatbot',
+                'fServFlights': 'fServFlights',
+                'fServUmrah': 'fServUmrah',
+                'fServVisa': 'fServVisa',
+                'fServHotels': 'fServHotels',
+                'fServCars': 'fServCars',
+                'fServRailway': 'fServRailway',
+                'fInfoAbout': 'fInfoAbout',
+                'fInfoContact': 'fInfoContact',
+                'fInfoPrivacy': 'fInfoPrivacy',
+                'fInfoTerms': 'fInfoTerms',
+                'footerRights': 'footerRights'
             };
 
             for (const [id, key] of Object.entries(map)) {
@@ -942,91 +1090,43 @@
                 }
             }
 
-            // Update chat UI
-            document.getElementById('chatTitle').textContent = lang === 'ar' ? 'مساعد صعود الطائرة الذكي' :
-                'Saeed Al-Taayira Smart Assistant';
-            document.getElementById('chatStatus').textContent = lang === 'ar' ? '● متصل' : '● Online';
-            document.getElementById('clearBtn').title = lang === 'ar' ? 'مسح المحادثة' : 'Clear chat';
-            document.getElementById('sendBtnText').textContent = lang === 'ar' ? 'إرسال' : 'Send';
-            chatInput.placeholder = lang === 'ar' ? 'اكتب رسالتك هنا...' : 'Type your message...';
+            // Update chat status
+            const chatStatus = document.getElementById('chatStatus');
+            if (chatStatus) chatStatus.textContent = translations[lang]['chatStatus'];
 
-            // Update hero title
-            const heroH1 = document.querySelector('.hero h1');
-            // Not needed for chatbot page
+            // Update placeholder
+            const input = document.getElementById('chatInput');
+            if (input) input.placeholder = translations[lang]['aiPlaceholder'];
 
-            // Update AI chat welcome message
-            const welcomeMsg = document.querySelector('#chatMessages .msg.bot');
-            if (welcomeMsg) {
-                const langText = lang === 'ar' ?
-                    '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنك سؤالي عن أي من خدماتنا، أو طلب حجز.' :
-                    '👋 Hello! I\'m the <strong>Saeed Al-Taayira</strong> AI assistant. How can I help you today? You can ask about our services or start a booking.';
-                const time = new Date().toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' });
-                welcomeMsg.innerHTML = `${langText}<span class="time">${time}</span>`;
-            }
+            // Update clear button title
+            const clearBtn = document.getElementById('clearBtn');
+            if (clearBtn) clearBtn.title = translations[lang]['clearBtnTitle'];
+
+            // Update fullscreen button title
+            const fsBtn = document.getElementById('fullscreenBtn');
+            if (fsBtn) fsBtn.title = translations[lang]['fullscreenBtnTitle'];
+
+            // Update send button text
+            const sendBtn = document.getElementById('sendBtnText');
+            if (sendBtn) sendBtn.textContent = translations[lang]['sendBtnText'];
+
+            // Update chat title
+            const chatTitle = document.getElementById('chatTitle');
+            if (chatTitle) chatTitle.textContent = translations[lang]['chatTitle'];
 
             localStorage.setItem('lang', lang);
         }
 
-        // Translations for UI
-        const translations = {
-            ar: {
-                logoMain:'صعود الطائرة', logoSub:'للسفر والسياحة',
-                navHome:'الرئيسية', navServices:'خدماتنا', navOffers:'عروض', navHotels:'فنادق',
-                navPackages:'باقات', navRailway:'قطارات', navCars:'سيارات', navAbout:'من نحن',
-                navContact:'اتصل بنا', navChatbot:'🤖 مساعد', navCta:'📞 احجز الآن',
-                fNavHome:'الرئيسية', fNavServices:'خدماتنا', fNavOffers:'عروض', fNavHotels:'فنادق',
-                fNavPackages:'باقات', fNavRailway:'قطارات', fNavCars:'سيارات', fNavAbout:'من نحن',
-                fNavContact:'اتصل بنا', fNavChatbot:'🤖 مساعد',
-                fServFlights:'تذاكر طيران', fServUmrah:'باقات العمرة', fServVisa:'تأشيرات',
-                fServHotels:'فنادق', fServCars:'تأجير سيارات', fServRailway:'قطارات',
-                fInfoAbout:'عن الوكالة', fInfoContact:'اتصل بنا', fInfoPrivacy:'سياسة الخصوصية', fInfoTerms:'الشروط والأحكام',
-                footerBrand:'صعود الطائرة', footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
-                footerLinksTitle:'روابط سريعة', footerServicesTitle:'خدماتنا', footerInfoTitle:'معلومات',
-                waFloatLabel:'تواصل واتساب', footerRights:'جميع الحقوق محفوظة', footerCredit:'تصميم وتطوير ✧ برؤية عصرية'
-            },
-            en: {
-                logoMain:'Saeed Al-Taayira', logoSub:'Travel & Tourism',
-                navHome:'Home', navServices:'Services', navOffers:'Offers', navHotels:'Hotels',
-                navPackages:'Packages', navRailway:'Railway', navCars:'Cars', navAbout:'About',
-                navContact:'Contact', navChatbot:'🤖 Assistant', navCta:'📞 Book Now',
-                fNavHome:'Home', fNavServices:'Services', fNavOffers:'Offers', fNavHotels:'Hotels',
-                fNavPackages:'Packages', fNavRailway:'Railway', fNavCars:'Cars', fNavAbout:'About',
-                fNavContact:'Contact', fNavChatbot:'🤖 Assistant',
-                fServFlights:'Flights', fServUmrah:'Umrah', fServVisa:'Visas',
-                fServHotels:'Hotels', fServCars:'Car Rentals', fServRailway:'Trains',
-                fInfoAbout:'About Us', fInfoContact:'Contact', fInfoPrivacy:'Privacy Policy', fInfoTerms:'Terms & Conditions',
-                footerBrand:'Saeed Al-Taayira', footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
-                footerLinksTitle:'Quick Links', footerServicesTitle:'Services', footerInfoTitle:'Info',
-                waFloatLabel:'WhatsApp', footerRights:'All Rights Reserved', footerCredit:'Designed & Developed ✧ with Vision'
-            }
-        };
-
         langToggle.addEventListener('click', () => {
             const newLang = currentLang === 'ar' ? 'en' : 'ar';
             applyLanguage(newLang);
-            // Reinitialize chat with new language
             clearChat();
         });
 
-        // Load saved language
-        const savedLang = localStorage.getItem('lang') || 'ar';
-        applyLanguage(savedLang);
+        applyLanguage(currentLang);
 
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('open');
-                }
-            });
-        });
+        // ===== INITIALIZE CHAT =====
+        initChat();
 
         // ===== KEYBOARD SHORTCUTS =====
         document.addEventListener('keydown', (e) => {
@@ -1035,17 +1135,13 @@
             }
         });
 
-        // ===== DYNAMIC FOOTER YEAR =====
+        // ===== FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('%c🤖 صعود الطائرة – مساعد ذكي متقدم', 'font-size:20px;font-weight:bold;color:#d4af37;');
-        console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
-        console.log('%c💬 محادثة ذكية – حجز متكامل – إرسال إلى واتساب (0554126832)', 'font-size:13px;color:#888;');
-        console.log('%c✅ Google Search Console Verified', 'font-size:13px;color:#4ade80;');
-
-        // Initialize chat
-        initChat();
+        console.log('✅ chatbot.html – फिक्स्ड, डार्क मोड, प्रोग्रेस बार, वॉटरमार्क');
+        console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
+        console.log('🤖 एडवांस चैटबोट – बुकिंग फ्लो, मल्टी-लैंग्वेज, क्विक रिप्लाइज');
     </script>
 </body>
 </html>

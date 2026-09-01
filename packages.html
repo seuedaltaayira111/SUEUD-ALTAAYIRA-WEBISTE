@@ -12,20 +12,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sueud-altayira-website.vercel.app/packages.html" />
     <meta name="keywords" content="باقات سياحية, باقات عمرة, عطلات, مغامرات, رحلات عائلية, صعود الطائرة" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "باقات السفر – صعود الطائرة",
-            "description": "أكثر من 200 باقة سياحية حول العالم",
-            "url": "https://sueud-altayira-website.vercel.app/packages.html",
-            "isPartOf": {
-                "@type": "WebSite",
-                "name": "صعود الطائرة للسفر والسياحة",
-                "url": "https://sueud-altayira-website.vercel.app"
-            }
-        }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -42,14 +28,29 @@
             --text-muted: rgba(255,255,255,0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
+            --bg-body: var(--primary-dark);
+            --text-color: #f0f4ff;
+            --card-bg: rgba(255,255,255,0.025);
+            --border-color: rgba(255,255,255,0.04);
+            --header-bg: rgba(6,29,58,0.94);
+            --footer-bg: rgba(6,29,58,0.5);
+        }
+        [data-theme="dark"] {
+            --bg-body: #0a0a0a;
+            --text-color: #e0e0e0;
+            --card-bg: rgba(255,255,255,0.04);
+            --border-color: rgba(255,255,255,0.06);
+            --header-bg: rgba(10,10,10,0.96);
+            --footer-bg: rgba(10,10,10,0.6);
         }
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
-            background: var(--primary-dark);
-            color: #f0f4ff;
+            background: var(--bg-body);
+            color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
         }
         body.rtl { direction: rtl; text-align: right; }
         body.ltr { direction: ltr; text-align: left; }
@@ -57,18 +58,23 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         ::-webkit-scrollbar { width: 7px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         #particles-canvas {
             position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
+            background: var(--gold-gradient); width: 0%; transition: width 0.1s;
+        }
+
         /* ===== HEADER ===== */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             padding: 14px 0; transition: 0.3s;
-            background: rgba(6,29,58,0.94);
+            background: var(--header-bg);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(212,175,55,0.1);
         }
@@ -111,6 +117,13 @@
             font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
         }
         .nav-cta:hover { transform: scale(1.05); }
+        .theme-toggle {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 12px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 1rem; transition: 0.3s; font-family: inherit;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .theme-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .lang-toggle {
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
             color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
@@ -127,7 +140,7 @@
         @media (max-width:768px) {
             .nav-links {
                 position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(6,29,58,0.97); flex-direction: column;
+                background: var(--header-bg); flex-direction: column;
                 padding: 80px 28px 32px; transition: right 0.4s;
                 border-left: 1px solid rgba(255,255,255,0.04);
             }
@@ -141,7 +154,7 @@
         /* ===== HERO ===== */
         .packages-hero {
             padding: 150px 24px 60px;
-            position: relative; overflow: hidden; background: var(--primary-dark); text-align: center;
+            position: relative; overflow: hidden; background: var(--bg-body); text-align: center;
         }
         .packages-hero::before {
             content: ''; position: absolute; inset: 0;
@@ -187,10 +200,10 @@
 
         /* ===== FILTERS ===== */
         .filters-section {
-            background: rgba(255,255,255,0.02);
+            background: var(--card-bg);
             border-radius: var(--radius);
             padding: 24px 28px;
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
             margin-bottom: 40px;
         }
         .filters-row {
@@ -217,8 +230,8 @@
             padding: 10px 14px;
             border-radius: 12px;
             background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.06);
-            color: #fff;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
             font-family: inherit;
             font-size: 0.9rem;
             outline: none;
@@ -267,8 +280,8 @@
             gap: 28px;
         }
         .package-card {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius);
             overflow: hidden;
             transition: 0.4s;
@@ -313,7 +326,7 @@
         .package-card .body .pkg-includes span {
             font-size: 0.65rem; color: var(--text-muted);
             background: rgba(255,255,255,0.04); padding: 3px 12px; border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
         }
         .package-card .body .pkg-includes span i { color: var(--gold); margin-left: 4px; }
         .package-card .body .btn-sm {
@@ -343,7 +356,7 @@
         @keyframes modalFade { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
         .pkg-modal .modal-content {
             background: #0a1a2e; border-radius: 24px; max-width: 550px; width: 100%;
-            max-height: 90vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.08);
+            max-height: 90vh; overflow-y: auto; border: 1px solid var(--border-color);
             box-shadow: 0 30px 80px rgba(0,0,0,0.6); padding: 30px; position: relative;
         }
         .pkg-modal .modal-content .close-btn {
@@ -363,8 +376,8 @@
         .pkg-modal .modal-content .form-group select,
         .pkg-modal .modal-content .form-group textarea {
             width: 100%; padding: 12px; border-radius: 12px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
         }
         .pkg-modal .modal-content .form-group input:focus,
         .pkg-modal .modal-content .form-group select:focus,
@@ -399,7 +412,7 @@
         .whatsapp-float .wa-label {
             font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
             padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
         }
         @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
 
@@ -418,15 +431,15 @@
         .ai-chat-box {
             position: fixed; bottom: 175px; right: 28px; z-index: 9997;
             width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
-            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
-            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            border-radius: 24px; background: var(--header-bg); backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
             display: none; flex-direction: column; overflow: hidden;
         }
         .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
         @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
         .ai-chat-header {
             padding: 16px 20px; background: rgba(108,60,224,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
         }
         .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
@@ -456,13 +469,13 @@
         }
         .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
         .ai-chat-input {
-            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
+            padding: 12px 16px 16px; border-top: 1px solid var(--border-color);
             display: flex; gap: 10px; flex-shrink: 0;
         }
         .ai-chat-input input {
             flex: 1; padding: 10px 16px; border-radius: 50px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.9rem; outline: none;
         }
         .ai-chat-input input:focus { border-color: #a855f7; }
         .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
@@ -478,9 +491,10 @@
         /* ===== FOOTER ===== */
         .footer {
             padding: 60px 24px 30px;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            background: rgba(6,29,58,0.5);
+            border-top: 1px solid var(--border-color);
+            background: var(--footer-bg);
             backdrop-filter: blur(12px);
+            position: relative;
         }
         .footer .container {
             max-width: 1320px; margin: 0 auto;
@@ -490,25 +504,40 @@
         .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
         .footer .brand .socials a {
             width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            background: var(--card-bg); border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center;
             color: var(--text-muted); transition: 0.3s;
         }
         .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--text-color); }
         .footer ul li { margin-bottom: 6px; }
         .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
         .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
         .footer-bottom {
             max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.03);
+            border-top: 1px solid var(--border-color);
             text-align: center; color: var(--text-muted); font-size: 0.8rem;
         }
         .footer-bottom span { color: var(--gold); }
 
-        /* ===== REVEAL ===== */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        /* ===== WATERMARK ===== */
+        .watermark {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+        .watermark a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .watermark a:hover {
+            text-decoration: underline;
+        }
 
         /* ===== SCROLL TOP ===== */
         .scroll-top {
@@ -520,6 +549,10 @@
         }
         .scroll-top:hover { transform: scale(1.1); }
         .scroll-top.show { display: flex; }
+
+        /* ===== REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width:1024px) { .packages-grid { grid-template-columns: 1fr 1fr; } }
@@ -545,6 +578,9 @@
     </style>
 </head>
 <body>
+    <!-- ===== PROGRESS BAR ===== -->
+    <div id="progress-bar"></div>
+
     <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
 
@@ -571,6 +607,7 @@
                 <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
                 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             </div>
@@ -638,7 +675,7 @@
                         </div>
                     </div>
                     <div class="filter-group" style="flex:1;display:flex;align-items:flex-end;">
-                        <button onclick="resetPkgFilters()" style="padding:10px 24px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
+                        <button onclick="resetPkgFilters()" style="padding:10px 24px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid var(--border-color);color:var(--text-color);cursor:pointer;font-family:inherit;transition:0.3s;width:100%;">
                             <i class="fas fa-undo"></i> <span id="resetBtn">إعادة تعيين</span>
                         </button>
                     </div>
@@ -653,7 +690,7 @@
 
             <!-- ===== BACK TO HOME ===== -->
             <div style="text-align:center;margin-top:20px;">
-                <a href="index.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
+                <a href="index.html" class="btn" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
                     <i class="fas fa-arrow-right"></i> <span id="backHomeBtn">العودة إلى الرئيسية</span>
                 </a>
             </div>
@@ -687,7 +724,7 @@
             <div class="brand">
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
                     <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
-                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="footerBrand"><strong>صعود الطائرة</strong></span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" id="footerBrand"><strong>صعود الطائرة</strong></span>
                 </div>
                 <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
                 <div class="socials">
@@ -733,7 +770,10 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة</div>
+        <div class="watermark">
+            Developed by <a href="#" target="_blank">Hamdan</a> ✦
+        </div>
     </footer>
 
     <!-- ===== WHATSAPP FLOAT ===== -->
@@ -746,7 +786,10 @@
     <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-chat-header">
-            <div class="title"><i class="fas fa-robot"></i> <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span></div>
+            <div class="title">
+                <i class="fas fa-robot"></i>
+                <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
+            </div>
             <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-chat-messages" id="aiChatMessages">
@@ -830,6 +873,29 @@
             }
             animate();
         })();
+
+        // ===== PROGRESS BAR =====
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // ===== DARK MODE =====
+        const themeToggle = document.getElementById('themeToggle');
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
+            localStorage.setItem('theme', theme);
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        setTheme(currentTheme);
+        themeToggle.addEventListener('click', () => {
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            currentTheme = newTheme;
+            setTheme(newTheme);
+        });
 
         // ===== HAMBURGER =====
         const hamburger = document.getElementById('hamburger');
@@ -1167,8 +1233,7 @@
 
         // ===== LANGUAGE TOGGLE =====
         const langToggle = document.getElementById('langToggle');
-        let currentLang = 'ar';
-
+        let currentLang = localStorage.getItem('lang') || 'ar';
         const translations = {
             ar: {
                 logoMain:'صعود الطائرة', logoSub:'للسفر والسياحة',
@@ -1183,16 +1248,21 @@
                 priceLabel:'نطاق السعر', fromLabel:'من', toLabel:'إلى', resetBtn:'إعادة تعيين',
                 loadMoreText:'عرض المزيد من الباقات', noPackages:'لا توجد باقات مطابقة لبحثك', backHomeBtn:'العودة إلى الرئيسية',
                 bookNowText:'احجز الآن',
-                aiChatTitle:'مساعد صعود الطائرة AI', aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل باقات السفر حسب رغبتك!',
-                aiPlaceholder:'اسأل عن الباقات...', waFloatLabel:'تواصل واتساب',
-                footerBrand:'صعود الطائرة', footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
-                footerLinksTitle:'روابط سريعة', footerServicesTitle:'خدماتنا', footerInfoTitle:'معلومات',
+                waFloatLabel:'تواصل واتساب',
+                aiChatTitle:'مساعد صعود الطائرة AI',
+                aiWelcomeMsg:'👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. يمكنني مساعدتك في العثور على أفضل باقات السفر حسب رغبتك!',
+                aiPlaceholder:'اسأل عن الباقات...',
+                footerBrand:'صعود الطائرة',
+                footerDesc:'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle:'روابط سريعة',
+                footerServicesTitle:'خدماتنا',
+                footerInfoTitle:'معلومات',
                 fNavHome:'الرئيسية', fNavServices:'خدماتنا', fNavOffers:'عروض', fNavHotels:'فنادق',
                 fNavPackages:'باقات', fNavRailway:'قطارات', fNavCars:'سيارات', fNavAbout:'من نحن', fNavContact:'اتصل بنا',
                 fServFlights:'تذاكر طيران', fServUmrah:'باقات العمرة', fServVisa:'تأشيرات', fServHotels:'فنادق',
                 fServCars:'تأجير سيارات', fServRailway:'قطارات',
                 fInfoAbout:'عن الوكالة', fInfoContact:'اتصل بنا', fInfoPrivacy:'سياسة الخصوصية', fInfoTerms:'الشروط والأحكام',
-                footerRights:'جميع الحقوق محفوظة', footerCredit:'تصميم وتطوير ✧ برؤية عصرية'
+                footerRights:'جميع الحقوق محفوظة'
             },
             en: {
                 logoMain:'Saeed Al-Taayira', logoSub:'Travel & Tourism',
@@ -1207,23 +1277,28 @@
                 priceLabel:'Price Range', fromLabel:'From', toLabel:'To', resetBtn:'Reset',
                 loadMoreText:'Show More Packages', noPackages:'No packages match your search', backHomeBtn:'Back to Home',
                 bookNowText:'Book Now',
-                aiChatTitle:'Saeed Al-Taayira AI Assistant', aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I can help you find the best travel packages based on your preferences!',
-                aiPlaceholder:'Ask about packages...', waFloatLabel:'WhatsApp',
-                footerBrand:'Saeed Al-Taayira', footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
-                footerLinksTitle:'Quick Links', footerServicesTitle:'Services', footerInfoTitle:'Info',
+                waFloatLabel:'WhatsApp',
+                aiChatTitle:'Saeed Al-Taayira AI Assistant',
+                aiWelcomeMsg:'👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. I can help you find the best travel packages based on your preferences!',
+                aiPlaceholder:'Ask about packages...',
+                footerBrand:'Saeed Al-Taayira',
+                footerDesc:'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle:'Quick Links',
+                footerServicesTitle:'Services',
+                footerInfoTitle:'Info',
                 fNavHome:'Home', fNavServices:'Services', fNavOffers:'Offers', fNavHotels:'Hotels',
                 fNavPackages:'Packages', fNavRailway:'Railway', fNavCars:'Cars', fNavAbout:'About', fNavContact:'Contact',
                 fServFlights:'Flights', fServUmrah:'Umrah', fServVisa:'Visas', fServHotels:'Hotels',
                 fServCars:'Car Rentals', fServRailway:'Trains',
                 fInfoAbout:'About Us', fInfoContact:'Contact', fInfoPrivacy:'Privacy Policy', fInfoTerms:'Terms & Conditions',
-                footerRights:'All Rights Reserved', footerCredit:'Designed & Developed ✧ with Vision'
+                footerRights:'All Rights Reserved'
             }
         };
 
         function applyLanguage(lang) {
             currentLang = lang;
             document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+            document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
@@ -1238,8 +1313,8 @@
                 'sortPrice':'sortPrice','sortPriceDesc':'sortPriceDesc','sortDuration':'sortDuration','sortName':'sortName',
                 'priceLabel':'priceLabel','fromLabel':'fromLabel','toLabel':'toLabel','resetBtn':'resetBtn',
                 'loadMoreText':'loadMoreText','noPackages':'noPackages','backHomeBtn':'backHomeBtn',
-                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
                 'waFloatLabel':'waFloatLabel',
+                'aiChatTitle':'aiChatTitle','aiWelcomeMsg':'aiWelcomeMsg','aiPlaceholder':'aiPlaceholder',
                 'footerBrand':'footerBrand','footerDesc':'footerDesc',
                 'footerLinksTitle':'footerLinksTitle','footerServicesTitle':'footerServicesTitle','footerInfoTitle':'footerInfoTitle',
                 'fNavHome':'fNavHome','fNavServices':'fNavServices','fNavOffers':'fNavOffers','fNavHotels':'fNavHotels',
@@ -1248,7 +1323,7 @@
                 'fServFlights':'fServFlights','fServUmrah':'fServUmrah','fServVisa':'fServVisa','fServHotels':'fServHotels',
                 'fServCars':'fServCars','fServRailway':'fServRailway',
                 'fInfoAbout':'fInfoAbout','fInfoContact':'fInfoContact','fInfoPrivacy':'fInfoPrivacy','fInfoTerms':'fInfoTerms',
-                'footerRights':'footerRights','footerCredit':'footerCredit'
+                'footerRights':'footerRights'
             };
 
             for (const [id, key] of Object.entries(map)) {
@@ -1340,40 +1415,14 @@
             renderPackages();
         });
 
-        const savedLang = localStorage.getItem('lang') || 'ar';
-        applyLanguage(savedLang);
+        applyLanguage(currentLang);
 
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('open');
-                }
-            });
-        });
-
-        // ===== KEYBOARD SHORTCUTS =====
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (chatBox.classList.contains('open')) chatBox.classList.remove('open');
-                if (document.getElementById('pkgModal').classList.contains('open')) closePkgModal();
-            }
-        });
-
-        // ===== DYNAMIC FOOTER YEAR =====
+        // ===== FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('%c🏝️ صعود الطائرة – باقات 200+', 'font-size:20px;font-weight:bold;color:#d4af37;');
-        console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
-        console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
+        console.log('✅ packages.html – फिक्स्ड, डार्क मोड, प्रोग्रेस बार, वॉटरमार्क');
+        console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
     </script>
 </body>
 </html>

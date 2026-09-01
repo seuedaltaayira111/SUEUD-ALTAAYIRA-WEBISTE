@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>خدماتنا – صعود الطائرة للسفر والسياحة</title>
     <meta name="description" content="جميع خدمات السفر في وكالة صعود الطائرة – تذاكر، عمرة، تأشيرات، فنادق، سيارات، قطارات، باصات، نقل مطار، تأمين، رحلات جماعية، بحرية، رجال أعمال." />
-    <link rel="canonical" href="https://sueud-altayira-website.vercel.app/services.html" />
+    <link rel="canonical" href="https://sueud-altaayira-webiste.vercel.app/services.html" />
+    <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="NUXJFyGqpEREN03eh19P0DeJ5hVYHo8qtaXTvsfuAI4" />
     <meta property="og:title" content="خدماتنا – صعود الطائرة" />
     <meta property="og:description" content="جميع خدمات السفر في مكان واحد – احجز الآن بأفضل الأسعار." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sueud-altayira-website.vercel.app/services.html" />
+    <meta property="og:url" content="https://sueud-altaayira-webiste.vercel.app/services.html" />
     <meta name="keywords" content="خدمات سفر, عمرة, تأشيرات, فنادق, سيارات, قطارات, باقات سياحية, حجز طيران, صعود الطائرة" />
+
+    <!-- Schema: Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://sueud-altaayira-webiste.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "خدماتنا", "item": "https://sueud-altaayira-webiste.vercel.app/services.html" }
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -61,14 +76,8 @@
         ::-webkit-scrollbar-track { background: var(--bg-body); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-        #particles-canvas {
-            position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
-        }
-
-        #progress-bar {
-            position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
-            background: var(--gold-gradient); width: 0%; transition: width 0.1s;
-        }
+        #particles-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3; }
+        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; z-index: 10000; background: var(--gold-gradient); width: 0%; transition: width 0.1s; }
 
         /* ===== HEADER ===== */
         .header {
@@ -82,68 +91,29 @@
             display: flex; align-items: center; justify-content: space-between;
             max-width: 1320px; margin: 0 auto; padding: 0 24px;
         }
-        .logo {
-            display: flex; align-items: center; gap: 12px;
-            font-size: 1.5rem; font-weight: 900; cursor: pointer;
-        }
-        .logo-icon {
-            font-size: 2.2rem; color: var(--gold);
-            animation: logoFloat 3s ease-in-out infinite;
-            display: flex; align-items: center; justify-content: center;
-        }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.5rem; font-weight: 900; cursor: pointer; }
+        .logo-icon { font-size: 2.2rem; color: var(--gold); animation: logoFloat 3s ease-in-out infinite; display: flex; align-items: center; justify-content: center; }
         @keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
         .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
-        .logo-text .main {
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;
-        }
-        .logo-text .sub {
-            font-size: 0.55rem; font-weight: 300; color: var(--text-muted);
-            -webkit-text-fill-color: var(--text-muted); letter-spacing: 2px;
-        }
+        .logo-text .main { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; font-size: 1.5rem; letter-spacing: 1px; }
+        .logo-text .sub { font-size: 0.55rem; font-weight: 300; color: var(--text-muted); -webkit-text-fill-color: var(--text-muted); letter-spacing: 2px; }
         .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
-        .nav-links a {
-            padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500;
-            color: var(--text-muted); transition: 0.3s; position: relative;
-        }
+        .nav-links a { padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: var(--text-muted); transition: 0.3s; position: relative; }
         .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
-        .nav-links a.active::after {
-            content: ''; position: absolute; bottom: 4px; left: 50%;
-            transform: translateX(-50%); width: 18px; height: 2.5px;
-            background: var(--gold); border-radius: 4px;
-        }
-        .nav-cta {
-            background: var(--gold-gradient) !important; color: var(--primary-dark) !important;
-            font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
-        }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 18px; height: 2.5px; background: var(--gold); border-radius: 4px; }
+        .nav-cta { background: var(--gold-gradient) !important; color: var(--primary-dark) !important; font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important; }
         .nav-cta:hover { transform: scale(1.05); }
-        .theme-toggle {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-            color: #fff; padding: 6px 12px; border-radius: 50px; font-weight: 600;
-            cursor: pointer; font-size: 1rem; transition: 0.3s; font-family: inherit;
-            display: flex; align-items: center; gap: 6px;
-        }
+        .theme-toggle { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 6px 12px; border-radius: 50px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.3s; font-family: inherit; display: flex; align-items: center; gap: 6px; }
         .theme-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
-        .lang-toggle {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-            color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
-            cursor: pointer; font-size: 0.8rem; transition: 0.3s; font-family: inherit;
-        }
+        .lang-toggle { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600; cursor: pointer; font-size: 0.8rem; transition: 0.3s; font-family: inherit; }
         .lang-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
-        .hamburger {
-            display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1001;
-        }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1001; }
         .hamburger span { width: 28px; height: 2.5px; background: #fff; border-radius: 4px; transition: 0.3s; }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
         @media (max-width:768px) {
-            .nav-links {
-                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: var(--header-bg); flex-direction: column;
-                padding: 80px 28px 32px; transition: right 0.4s;
-                border-left: 1px solid rgba(255,255,255,0.04);
-            }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: var(--header-bg); flex-direction: column; padding: 80px 28px 32px; transition: right 0.4s; border-left: 1px solid rgba(255,255,255,0.04); }
             .nav-links.open { right: 0; }
             .nav-links a { width: 100%; padding: 14px 18px; border-radius: 12px; }
             .nav-links a.active::after { display: none; }
@@ -163,38 +133,16 @@
             z-index: 0;
         }
         .services-hero .container { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; }
-        .services-hero h1 {
-            font-size: clamp(2.8rem, 5vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 16px;
-        }
-        .services-hero h1 .highlight {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .services-hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.9;
-        }
+        .services-hero h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; margin-bottom: 16px; }
+        .services-hero h1 .highlight { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .services-hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.9; }
 
         /* ===== SECTION ===== */
         .section { padding: 60px 24px 80px; position: relative; z-index: 1; }
         .section .container { max-width: 1320px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 48px; }
-        .section-title h2 {
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 900;
-            margin-bottom: 8px;
-        }
-        .section-title h2 .highlight {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .section-title h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; margin-bottom: 8px; }
+        .section-title h2 .highlight { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
         .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
 
@@ -206,42 +154,16 @@
             border: 1px solid var(--border-color);
             margin-bottom: 40px;
         }
-        .filters-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            align-items: center;
+        .filters-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+        .filters-row .filter-group { flex: 1; min-width: 160px; }
+        .filters-row .filter-group label { display: block; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px; }
+        .filters-row .filter-group input, .filters-row .filter-group select {
+            width: 100%; padding: 10px 14px; border-radius: 12px;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.9rem;
+            outline: none; transition: 0.3s;
         }
-        .filters-row .filter-group {
-            flex: 1;
-            min-width: 160px;
-        }
-        .filters-row .filter-group label {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-bottom: 2px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .filters-row .filter-group input,
-        .filters-row .filter-group select {
-            width: 100%;
-            padding: 10px 14px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            font-family: inherit;
-            font-size: 0.9rem;
-            outline: none;
-            transition: 0.3s;
-        }
-        .filters-row .filter-group input:focus,
-        .filters-row .filter-group select:focus {
-            border-color: var(--gold);
-            background: rgba(255,255,255,0.06);
-        }
+        .filters-row .filter-group input:focus, .filters-row .filter-group select:focus { border-color: var(--gold); background: rgba(255,255,255,0.06); }
         .filters-row .filter-group select option { background: #0a1a2e; color: #fff; }
         .filters-row .filter-group input::placeholder { color: rgba(255,255,255,0.25); }
 
@@ -262,31 +184,17 @@
             position: relative;
             overflow: hidden;
         }
-        .service-card::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(212,175,55,0.05), transparent 60%);
-            opacity: 0; transition: 0.4s;
-        }
+        .service-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(212,175,55,0.05), transparent 60%); opacity: 0; transition: 0.4s; }
         .service-card:hover::before { opacity: 1; }
-        .service-card:hover {
-            transform: translateY(-12px);
-            border-color: rgba(212,175,55,0.2);
-            background: rgba(255,255,255,0.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-        .service-card .simg {
-            width: 100%; height: 120px; background-size: cover; background-position: center;
-            border-radius: 12px; margin-bottom: 12px;
-        }
+        .service-card:hover { transform: translateY(-12px); border-color: rgba(212,175,55,0.2); background: rgba(255,255,255,0.05); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .service-card .img-wrapper { width: 100%; height: 120px; overflow: hidden; border-radius: 12px; margin-bottom: 12px; }
+        .service-card .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .service-card:hover .img-wrapper img { transform: scale(1.05); }
         .service-card .icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 10px; display: inline-block; transition: 0.4s; }
         .service-card:hover .icon { transform: scale(1.15) rotate(-4deg); }
         .service-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
         .service-card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px; }
-        .service-card .service-tag {
-            display: inline-block; padding: 2px 12px; border-radius: 50px;
-            background: rgba(212,175,55,0.08); color: var(--gold-light);
-            font-size: 0.65rem; border: 1px solid rgba(212,175,55,0.06);
-        }
+        .service-card .service-tag { display: inline-block; padding: 2px 12px; border-radius: 50px; background: rgba(212,175,55,0.08); color: var(--gold-light); font-size: 0.65rem; border: 1px solid rgba(212,175,55,0.06); }
         .service-card .click-hint { font-size: 0.6rem; color: var(--text-muted); margin-top: 8px; opacity: 0.4; transition: 0.3s; }
         .service-card:hover .click-hint { opacity: 1; }
 
@@ -313,33 +221,21 @@
         }
         .service-modal .modal-content .close-btn:hover { background: rgba(255,0,0,0.2); border-color: #ff4444; transform: rotate(90deg); }
         .service-modal .modal-body { padding: 0 30px 30px; }
-        .service-modal .modal-body .service-img {
-            width: 100%; height: 200px; background-size: cover; background-position: center;
-            border-radius: 16px; margin-bottom: 20px;
-        }
+        .service-modal .modal-body .service-img { width: 100%; height: 200px; background-size: cover; background-position: center; border-radius: 16px; margin-bottom: 20px; }
         .service-modal .modal-body h2 { font-size: 1.8rem; font-weight: 800; color: var(--gold); margin-bottom: 8px; }
         .service-modal .modal-body .service-desc { color: var(--text-muted); font-size: 1rem; margin-bottom: 16px; line-height: 1.8; }
-        .service-modal .modal-body .service-details {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;
-        }
-        .service-modal .modal-body .service-details .detail-item {
-            background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
+        .service-modal .modal-body .service-details { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .service-modal .modal-body .service-details .detail-item { background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border-color); }
         .service-modal .modal-body .service-details .detail-item span { color: var(--gold); font-weight: 600; display: block; font-size: 0.8rem; }
         .service-modal .modal-body .service-details .detail-item p { color: var(--text-muted); font-size: 0.9rem; }
         .service-modal .modal-body .form-group { margin-bottom: 16px; }
         .service-modal .modal-body .form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px; }
-        .service-modal .modal-body .form-group input,
-        .service-modal .modal-body .form-group select,
-        .service-modal .modal-body .form-group textarea {
+        .service-modal .modal-body .form-group input, .service-modal .modal-body .form-group select, .service-modal .modal-body .form-group textarea {
             width: 100%; padding: 12px; border-radius: 12px;
             background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
             color: var(--text-color); font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
         }
-        .service-modal .modal-body .form-group input:focus,
-        .service-modal .modal-body .form-group select:focus,
-        .service-modal .modal-body .form-group textarea:focus {
+        .service-modal .modal-body .form-group input:focus, .service-modal .modal-body .form-group select:focus, .service-modal .modal-body .form-group textarea:focus {
             border-color: var(--gold); background: rgba(255,255,255,0.06);
         }
         .service-modal .modal-body .form-group select option { background: #0a1a2e; color: #fff; }
@@ -350,9 +246,7 @@
             font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
             transition: 0.3s; font-family: inherit;
         }
-        .service-modal .modal-body .btn-submit-service:hover {
-            transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3);
-        }
+        .service-modal .modal-body .btn-submit-service:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3); }
         .service-modal .modal-body .form-status { margin-top: 12px; text-align: center; font-size: 0.9rem; min-height: 28px; }
 
         /* ===== LOAD MORE ===== */
@@ -369,19 +263,22 @@
             position: fixed; bottom: 28px; left: 28px; z-index: 9999;
             display: flex; flex-direction: column; align-items: center; gap: 6px;
         }
-        .whatsapp-float .wa-btn {
-            width: 68px; height: 68px; border-radius: 50%; background: #25d366; color: #fff;
-            font-size: 2.4rem; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 8px 40px rgba(37,211,102,0.3); transition: 0.3s; border: none; cursor: pointer;
-            animation: waPulse 2.8s ease-in-out infinite;
-        }
+        .whatsapp-float .wa-btn { width: 68px; height: 68px; border-radius: 50%; background: #25d366; color: #fff; font-size: 2.4rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 40px rgba(37,211,102,0.3); transition: 0.3s; border: none; cursor: pointer; animation: waPulse 2.8s ease-in-out infinite; }
         .whatsapp-float .wa-btn:hover { transform: scale(1.1); }
-        .whatsapp-float .wa-label {
-            font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
-            padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
-            border: 1px solid var(--border-color);
-        }
+        .whatsapp-float .wa-label { font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5); padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px); border: 1px solid var(--border-color); }
         @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
+
+        /* ===== CALL FLOAT ===== */
+        .call-float {
+            position: fixed; bottom: 110px; right: 28px; z-index: 9998;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: #34b7f1; color: #fff; font-size: 1.8rem;
+            border: none; cursor: pointer; box-shadow: 0 8px 40px rgba(52,183,241,0.35);
+            transition: 0.3s; display: flex; align-items: center; justify-content: center;
+            animation: callPulse 3s ease-in-out infinite;
+        }
+        .call-float:hover { transform: scale(1.1); }
+        @keyframes callPulse { 0%,100%{box-shadow:0 8px 40px rgba(52,183,241,0.35)} 50%{box-shadow:0 8px 60px rgba(52,183,241,0.55),0 0 0 12px rgba(52,183,241,0.06)} }
 
         /* ===== AI CHAT ===== */
         .ai-chat-toggle {
@@ -404,53 +301,23 @@
         }
         .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
         @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
-        .ai-chat-header {
-            padding: 16px 20px; background: rgba(108,60,224,0.1);
-            border-bottom: 1px solid var(--border-color);
-            display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
-        }
+        .ai-chat-header { padding: 16px 20px; background: rgba(108,60,224,0.1); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
         .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
         .ai-chat-header .title i { color: #a855f7; }
         .ai-chat-header .title .ai-status { font-size: 0.6rem; color: #4ade80; font-weight: 400; }
-        .ai-chat-header .close-btn {
-            background: none; border: none; color: var(--text-muted); font-size: 1.2rem;
-            cursor: pointer; transition: 0.3s; padding: 4px;
-        }
+        .ai-chat-header .close-btn { background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; transition: 0.3s; padding: 4px; }
         .ai-chat-header .close-btn:hover { color: #fff; transform: rotate(90deg); }
-        .ai-chat-messages {
-            flex: 1; padding: 16px 18px; overflow-y: auto; max-height: 350px;
-            display: flex; flex-direction: column; gap: 10px;
-        }
-        .ai-chat-messages .msg {
-            padding: 10px 16px; border-radius: 16px; max-width: 85%; font-size: 0.9rem;
-            line-height: 1.6; animation: msgPop 0.3s ease;
-        }
+        .ai-chat-messages { flex: 1; padding: 16px 18px; overflow-y: auto; max-height: 350px; display: flex; flex-direction: column; gap: 10px; }
+        .ai-chat-messages .msg { padding: 10px 16px; border-radius: 16px; max-width: 85%; font-size: 0.9rem; line-height: 1.6; animation: msgPop 0.3s ease; }
         @keyframes msgPop { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
-        .ai-chat-messages .msg.bot {
-            background: rgba(108,60,224,0.12); border: 1px solid rgba(108,60,224,0.08);
-            align-self: flex-start; border-bottom-right-radius: 4px;
-        }
-        .ai-chat-messages .msg.user {
-            background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.06);
-            align-self: flex-end; border-bottom-left-radius: 4px;
-        }
+        .ai-chat-messages .msg.bot { background: rgba(108,60,224,0.12); border: 1px solid rgba(108,60,224,0.08); align-self: flex-start; border-bottom-right-radius: 4px; }
+        .ai-chat-messages .msg.user { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.06); align-self: flex-end; border-bottom-left-radius: 4px; }
         .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
-        .ai-chat-input {
-            padding: 12px 16px 16px; border-top: 1px solid var(--border-color);
-            display: flex; gap: 10px; flex-shrink: 0;
-        }
-        .ai-chat-input input {
-            flex: 1; padding: 10px 16px; border-radius: 50px;
-            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
-            color: var(--text-color); font-family: inherit; font-size: 0.9rem; outline: none;
-        }
+        .ai-chat-input { padding: 12px 16px 16px; border-top: 1px solid var(--border-color); display: flex; gap: 10px; flex-shrink: 0; }
+        .ai-chat-input input { flex: 1; padding: 10px 16px; border-radius: 50px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); color: var(--text-color); font-family: inherit; font-size: 0.9rem; outline: none; }
         .ai-chat-input input:focus { border-color: #a855f7; }
         .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
-        .ai-chat-input button {
-            padding: 10px 20px; border-radius: 50px; border: none;
-            background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff;
-            font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit;
-        }
+        .ai-chat-input button { padding: 10px 20px; border-radius: 50px; border: none; background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff; font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit; }
         .ai-chat-input button:hover { transform: scale(1.04); }
         .ai-chat-typing { display: none; padding: 8px 16px; color: var(--text-muted); font-size: 0.8rem; font-style: italic; }
         .ai-chat-typing.show { display: block; }
@@ -463,57 +330,23 @@
             backdrop-filter: blur(12px);
             position: relative;
         }
-        .footer .container {
-            max-width: 1320px; margin: 0 auto;
-            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
-        }
+        .footer .container { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
         .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
-        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
-        .footer .brand .socials a {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: var(--card-bg); border: 1px solid var(--border-color);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--text-muted); transition: 0.3s;
-        }
+        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+        .footer .brand .socials a { width: 40px; height: 40px; border-radius: 50%; background: var(--card-bg); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: 0.3s; font-size: 1.2rem; }
         .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
         .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--text-color); }
         .footer ul li { margin-bottom: 6px; }
         .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
         .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
-        .footer-bottom {
-            max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            text-align: center; color: var(--text-muted); font-size: 0.8rem;
-        }
+        .footer-bottom { max-width: 1320px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.8rem; }
         .footer-bottom span { color: var(--gold); }
-
-        /* ===== WATERMARK ===== */
-        .watermark {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            opacity: 0.5;
-            margin-top: 20px;
-            letter-spacing: 1px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 15px;
-        }
-        .watermark a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-        .watermark a:hover {
-            text-decoration: underline;
-        }
+        .watermark { text-align: center; color: var(--text-muted); font-size: 0.7rem; opacity: 0.5; margin-top: 20px; letter-spacing: 1px; border-top: 1px solid var(--border-color); padding-top: 15px; }
+        .watermark a { color: var(--gold); text-decoration: none; }
+        .watermark a:hover { text-decoration: underline; }
 
         /* ===== SCROLL TOP ===== */
-        .scroll-top {
-            position: fixed; bottom: 100px; left: 28px; z-index: 9998;
-            width: 50px; height: 50px; border-radius: 50%; background: var(--gold-gradient);
-            color: var(--primary-dark); border: none; font-size: 1.4rem; cursor: pointer;
-            box-shadow: 0 8px 30px rgba(212,175,55,0.3); transition: 0.3s;
-            display: none; align-items: center; justify-content: center;
-        }
+        .scroll-top { position: fixed; bottom: 100px; left: 28px; z-index: 9998; width: 50px; height: 50px; border-radius: 50%; background: var(--gold-gradient); color: var(--primary-dark); border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 8px 30px rgba(212,175,55,0.3); transition: 0.3s; display: none; align-items: center; justify-content: center; }
         .scroll-top:hover { transform: scale(1.1); }
         .scroll-top.show { display: flex; }
 
@@ -533,6 +366,7 @@
             .services-hero { padding: 120px 16px 40px; }
             .footer .container { grid-template-columns: 1fr; text-align: center; }
             .footer .brand .socials { justify-content: center; }
+            .call-float { right: 16px; bottom: 95px; width: 50px; height: 50px; font-size: 1.4rem; }
         }
         @media (max-width:480px) {
             .services-grid { grid-template-columns: 1fr; }
@@ -573,7 +407,7 @@
                 <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
                 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             </div>
@@ -601,14 +435,14 @@
                     <div class="filter-group">
                         <label><i class="fas fa-tag"></i> <span id="categoryLabel">التصنيف</span></label>
                         <select id="serviceCategory" onchange="filterServices()">
-                            <option value="all" id="catAll">جميع الخدمات</option>
-                            <option value="travel" id="catTravel">سفر وطيران</option>
-                            <option value="umrah" id="catUmrah">عمرة ودينية</option>
-                            <option value="accommodation" id="catAccommodation">إقامة وفنادق</option>
-                            <option value="transport" id="catTransport">مواصلات</option>
-                            <option value="insurance" id="catInsurance">تأمين</option>
-                            <option value="groups" id="catGroups">مجموعات</option>
-                            <option value="business" id="catBusiness">أعمال</option>
+                            <option value="all">جميع الخدمات</option>
+                            <option value="travel">سفر وطيران</option>
+                            <option value="umrah">عمرة ودينية</option>
+                            <option value="accommodation">إقامة وفنادق</option>
+                            <option value="transport">مواصلات</option>
+                            <option value="insurance">تأمين</option>
+                            <option value="groups">مجموعات</option>
+                            <option value="business">أعمال</option>
                         </select>
                     </div>
                     <div class="filter-group" style="flex:0.5;display:flex;align-items:flex-end;">
@@ -619,7 +453,7 @@
                 </div>
             </div>
 
-            <!-- ===== SERVICES GRID ===== -->
+            <!-- ===== SERVICES GRID (WITH FIXED IMAGES) ===== -->
             <div class="services-grid" id="servicesGrid"></div>
 
             <!-- ===== LOAD MORE ===== -->
@@ -662,49 +496,50 @@
             <div>
                 <h5 id="footerLinksTitle">روابط سريعة</h5>
                 <ul>
-                    <li><a href="index.html" id="fNavHome">الرئيسية</a></li>
-                    <li><a href="services.html" id="fNavServices">خدماتنا</a></li>
-                    <li><a href="offers.html" id="fNavOffers">عروض</a></li>
-                    <li><a href="hotels.html" id="fNavHotels">فنادق</a></li>
-                    <li><a href="packages.html" id="fNavPackages">باقات</a></li>
-                    <li><a href="railway.html" id="fNavRailway">قطارات</a></li>
-                    <li><a href="cars.html" id="fNavCars">سيارات</a></li>
-                    <li><a href="about.html" id="fNavAbout">من نحن</a></li>
-                    <li><a href="contact.html" id="fNavContact">اتصل بنا</a></li>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="offers.html">عروض</a></li>
+                    <li><a href="hotels.html">فنادق</a></li>
+                    <li><a href="packages.html">باقات</a></li>
+                    <li><a href="railway.html">قطارات</a></li>
+                    <li><a href="cars.html">سيارات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
             </div>
             <div>
                 <h5 id="footerServicesTitle">خدماتنا</h5>
                 <ul>
-                    <li><a href="services.html" id="fServFlights">تذاكر طيران</a></li>
-                    <li><a href="services.html" id="fServUmrah">باقات العمرة</a></li>
-                    <li><a href="services.html" id="fServVisa">تأشيرات</a></li>
-                    <li><a href="hotels.html" id="fServHotels">فنادق</a></li>
-                    <li><a href="cars.html" id="fServCars">تأجير سيارات</a></li>
-                    <li><a href="railway.html" id="fServRailway">قطارات</a></li>
+                    <li><a href="services.html">تذاكر طيران</a></li>
+                    <li><a href="services.html">باقات العمرة</a></li>
+                    <li><a href="services.html">تأشيرات</a></li>
+                    <li><a href="hotels.html">فنادق</a></li>
+                    <li><a href="cars.html">تأجير سيارات</a></li>
+                    <li><a href="railway.html">قطارات</a></li>
                 </ul>
             </div>
             <div>
                 <h5 id="footerInfoTitle">معلومات</h5>
                 <ul>
-                    <li><a href="about.html" id="fInfoAbout">عن الوكالة</a></li>
-                    <li><a href="contact.html" id="fInfoContact">اتصل بنا</a></li>
-                    <li><a href="privacy.html" id="fInfoPrivacy">سياسة الخصوصية</a></li>
-                    <li><a href="terms.html" id="fInfoTerms">الشروط والأحكام</a></li>
+                    <li><a href="about.html">عن الوكالة</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                    <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                    <li><a href="terms.html">الشروط والأحكام</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة</div>
-        <div class="watermark">
-            Developed by <a href="#" target="_blank">Hamdan</a> ✦
-        </div>
+        <div class="footer-bottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة</div>
+        <div class="watermark">Developed by <a href="#" target="_blank">Hamdan</a> ✦</div>
     </footer>
 
     <!-- ===== WHATSAPP FLOAT ===== -->
     <div class="whatsapp-float">
         <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
-        <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
+        <span class="wa-label">تواصل واتساب</span>
     </div>
+
+    <!-- ===== CALL FLOAT ===== -->
+    <a href="tel:0554126832" class="call-float" aria-label="اتصل بنا"><i class="fas fa-phone"></i></a>
 
     <!-- ===== AI CHAT ===== -->
     <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
@@ -730,7 +565,7 @@
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
     <!-- ============================================================
-    JAVASCRIPT
+    JAVASCRIPT (FIXED IMAGES)
     ============================================================ -->
     <script>
         // ===== PARTICLES =====
@@ -849,86 +684,86 @@
             scrollBtn.classList.toggle('show', window.pageYOffset > 300);
         });
 
-        // ===== SERVICES DATA =====
+        // ===== SERVICES DATA WITH FIXED RELEVANT IMAGES =====
         const servicesData = [
             { id: 'flights', icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية',
                 category: 'travel',
-                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop&auto=format',
                 details: ['أكثر من 500 شركة طيران', 'أسعار مخفضة تصل إلى 40%', 'حجز سريع وآمن', 'إلغاء وتعديل مجاني'],
                 questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين', 'درجة السفر'] },
             { id: 'umrah', icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة',
                 category: 'umrah',
-                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop&auto=format',
                 details: ['تأشيرة عمرة', 'سكن قريب من الحرم', 'مواصلات داخلية', 'وجبات فاخرة', 'مرشد سياحي'],
                 questions: ['عدد الأشخاص', 'مدة الإقامة', 'نوع السكن', 'هل تريد مرشد سياحي؟'] },
             { id: 'visa', icon: '🛂', name: 'التأشيرات', desc: 'تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول',
                 category: 'travel',
-                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop&auto=format',
                 details: ['جميع أنواع التأشيرات', 'معالجة سريعة', 'أسعار تنافسية', 'دعم كامل'],
                 questions: ['نوع التأشيرة', 'الدولة المطلوبة', 'مدة الإقامة', 'عدد الأشخاص'] },
             { id: 'hotels', icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم',
                 category: 'accommodation',
-                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop&auto=format',
                 details: ['أكثر من 200 فندق', 'عروض حصرية', 'إلغاء مجاني', 'تقييمات العملاء'],
                 questions: ['المدينة', 'عدد الليالي', 'عدد الغرف', 'عدد الأشخاص'] },
             { id: 'cars', icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل',
                 category: 'transport',
-                img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop&auto=format',
                 details: ['جميع فئات السيارات', 'تأمين شامل', 'توصيل للمطار', 'أسعار تنافسية'],
                 questions: ['المدينة', 'نوع السيارة', 'مدة التأجير', 'هل تريد توصيل للمطار؟'] },
             { id: 'railway', icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة',
                 category: 'transport',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
                 details: ['جميع خطوط القطارات', 'أسعار مخفضة', 'حجز سريع', 'إلغاء مرن'],
                 questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين'] },
             { id: 'bus', icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات',
                 category: 'transport',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format',
                 details: ['جميع خطوط الباصات', 'أسعار تنافسية', 'حجز سريع'],
                 questions: ['مدينة المغادرة', 'مدينة الوصول', 'تاريخ السفر', 'عدد المسافرين'] },
             { id: 'airport', icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة',
                 category: 'transport',
-                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop&auto=format',
                 details: ['سيارات حديثة', 'سائقين محترفين', 'تتبع الرحلة', 'أسعار ثابتة'],
                 questions: ['المطار', 'نوع السيارة', 'عدد الركاب', 'وقت الاستقبال'] },
             { id: 'insurance', icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة',
                 category: 'insurance',
-                img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop&auto=format',
                 details: ['تغطية طبية شاملة', 'تعويض إلغاء الرحلات', 'تأمين الأمتعة', 'دعم 24/7'],
                 questions: ['نوع التأمين', 'مدة السفر', 'الوجهة', 'عدد المسافرين'] },
             { id: 'group', icon: '👥', name: 'رحلات جماعية', desc: 'تنظيم رحلات للمجموعات مع مرشدين سياحيين محترفين',
                 category: 'groups',
-                img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&h=400&fit=crop&auto=format',
                 details: ['مرشدين سياحيين', 'برامج مخصصة', 'أسعار جماعية', 'تنظيم كامل'],
                 questions: ['الوجهة', 'عدد الأشخاص', 'مدة الرحلة', 'نوع البرنامج'] },
             { id: 'cruise', icon: '🚢', name: 'رحلات بحرية', desc: 'كروز فاخر على متن أفضل السفن السياحية العالمية',
                 category: 'groups',
-                img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop&auto=format',
                 details: ['أفضل السفن', 'برامج ترفيهية', 'وجبات فاخرة', 'وجهات مميزة'],
                 questions: ['الوجهة', 'عدد الليالي', 'نوع الكابينة', 'عدد الأشخاص'] },
             { id: 'business', icon: '💼', name: 'سفر رجال أعمال', desc: 'خدمات مخصصة لرجال الأعمال مع أفضل وسائل الراحة',
                 category: 'business',
-                img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop&auto=format',
                 details: ['درجة الأعمال', 'فنادق تنفيذية', 'استقبال في المطار', 'خدمة الكونسيرج'],
                 questions: ['الوجهة', 'مدة الرحلة', 'عدد الأشخاص', 'خدمات إضافية'] },
             { id: 'packages', icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم',
                 category: 'travel',
-                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop&auto=format',
                 details: ['أكثر من 200 باقة', 'وجهات عالمية', 'شاملة الطيران والفندق', 'عروض خاصة'],
                 questions: ['الوجهة', 'عدد الأشخاص', 'مدة الرحلة', 'نوع الباقة'] },
             { id: 'adventure', icon: '🏔️', name: 'رحلات مغامرات', desc: 'رحلات مغامرات مثيرة في أجمل مناطق العالم',
                 category: 'groups',
-                img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop&auto=format',
                 details: ['أنشطة مثيرة', 'مرشدين محترفين', 'معدات حديثة', 'برامج مخصصة'],
                 questions: ['الوجهة', 'نوع المغامرة', 'عدد الأشخاص', 'مدة الرحلة'] },
             { id: 'medical', icon: '🏥', name: 'السياحة العلاجية', desc: 'رحلات علاجية في أفضل المراكز الطبية العالمية',
                 category: 'travel',
-                img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop&auto=format',
                 details: ['مراكز طبية معتمدة', 'برامج علاجية', 'ترجمة طبية', 'إقامة فندقية'],
                 questions: ['الوجهة', 'نوع العلاج', 'مدة البرنامج', 'عدد المرافقين'] },
             { id: 'education', icon: '🎓', name: 'السياحة التعليمية', desc: 'برامج تعليمية وجولات ثقافية في أشهر الجامعات العالمية',
                 category: 'groups',
-                img: 'https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&h=400&fit=crop',
+                img: 'https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&h=400&fit=crop&auto=format',
                 details: ['زيارات جامعية', 'برامج تدريبية', 'جولات ثقافية', 'إقامة طلابية'],
                 questions: ['الوجهة', 'نوع البرنامج', 'مدة البرنامج', 'عدد المشاركين'] }
         ];
@@ -959,7 +794,7 @@
                 card.dataset.category = s.category;
                 card.dataset.id = s.id;
                 card.innerHTML = `
-                    <div class="simg" style="background-image:url('${s.img}');"></div>
+                    <div class="img-wrapper"><img src="${s.img}" alt="${s.name}" loading="lazy" /></div>
                     <div class="icon">${s.icon}</div>
                     <h4>${s.name}</h4>
                     <p>${s.desc}</p>
@@ -972,11 +807,8 @@
             document.querySelectorAll('.service-card.reveal').forEach(el => observer.observe(el));
 
             const loadBtn = document.getElementById('loadMoreServices');
-            if (count >= filteredServices.length) {
-                loadBtn.style.display = 'none';
-            } else {
-                loadBtn.style.display = 'block';
-            }
+            if (count >= filteredServices.length) loadBtn.style.display = 'none';
+            else loadBtn.style.display = 'block';
         }
 
         // ===== FILTER SERVICES =====
@@ -985,12 +817,8 @@
             const category = document.getElementById('serviceCategory').value;
 
             filteredServices = servicesData.filter(s => {
-                if (search && !s.name.toLowerCase().includes(search) && !s.desc.toLowerCase().includes(search)) {
-                    return false;
-                }
-                if (category !== 'all' && s.category !== category) {
-                    return false;
-                }
+                if (search && !s.name.toLowerCase().includes(search) && !s.desc.toLowerCase().includes(search)) return false;
+                if (category !== 'all' && s.category !== category) return false;
                 return true;
             });
 
@@ -1207,7 +1035,6 @@
                 status.textContent = '✅ جاري التحويل إلى واتساب ...';
                 status.style.color = '#4ade80';
                 setTimeout(() => {
-                    // WORK NUMBER 0554126832
                     window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
                     status.textContent = '✅ تم إرسال الطلب بنجاح عبر واتساب!';
                     setTimeout(() => { closeServiceModal(); }, 1500);
@@ -1315,14 +1142,6 @@
                 navCta: '📞 احجز الآن',
                 searchLabel: 'بحث',
                 categoryLabel: 'التصنيف',
-                catAll: 'جميع الخدمات',
-                catTravel: 'سفر وطيران',
-                catUmrah: 'عمرة ودينية',
-                catAccommodation: 'إقامة وفنادق',
-                catTransport: 'مواصلات',
-                catInsurance: 'تأمين',
-                catGroups: 'مجموعات',
-                catBusiness: 'أعمال',
                 resetBtn: 'إعادة تعيين',
                 loadMoreText: 'عرض المزيد من الخدمات',
                 backHomeBtn: 'العودة إلى الرئيسية',
@@ -1372,14 +1191,6 @@
                 navCta: '📞 Book Now',
                 searchLabel: 'Search',
                 categoryLabel: 'Category',
-                catAll: 'All Services',
-                catTravel: 'Travel & Flights',
-                catUmrah: 'Umrah & Religious',
-                catAccommodation: 'Accommodation & Hotels',
-                catTransport: 'Transportation',
-                catInsurance: 'Insurance',
-                catGroups: 'Groups',
-                catBusiness: 'Business',
                 resetBtn: 'Reset',
                 loadMoreText: 'Show More Services',
                 backHomeBtn: 'Back to Home',
@@ -1438,14 +1249,6 @@
                 'navCta': 'navCta',
                 'searchLabel': 'searchLabel',
                 'categoryLabel': 'categoryLabel',
-                'catAll': 'catAll',
-                'catTravel': 'catTravel',
-                'catUmrah': 'catUmrah',
-                'catAccommodation': 'catAccommodation',
-                'catTransport': 'catTransport',
-                'catInsurance': 'catInsurance',
-                'catGroups': 'catGroups',
-                'catBusiness': 'catBusiness',
                 'resetBtn': 'resetBtn',
                 'loadMoreText': 'loadMoreText',
                 'backHomeBtn': 'backHomeBtn',
@@ -1493,9 +1296,32 @@
                     }
                 }
             }
-            // Update search placeholder
+
+            // Search placeholder
             const searchInput = document.getElementById('serviceSearch');
             if (searchInput) searchInput.placeholder = lang === 'ar' ? 'ابحث عن خدمة...' : 'Search for a service...';
+
+            // Category select options
+            const catSelect = document.getElementById('serviceCategory');
+            if (catSelect) {
+                const opts = catSelect.options;
+                const keys = ['جميع الخدمات','سفر وطيران','عمرة ودينية','إقامة وفنادق','مواصلات','تأمين','مجموعات','أعمال'];
+                opts.forEach((opt, i) => {
+                    if (i < keys.length) opt.textContent = translations[lang][keys[i]] || keys[i];
+                });
+            }
+
+            // AI chat
+            const aiTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiTitle) {
+                const status = aiTitle.querySelector('.ai-status');
+                aiTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
+            }
+            const welcomeMsg = chatMessages.querySelector('.msg.bot');
+            if (welcomeMsg) welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
+            const aiInput = document.getElementById('aiChatInput');
+            if (aiInput) aiInput.placeholder = translations[lang]['aiPlaceholder'];
+
             localStorage.setItem('lang', lang);
         }
 
@@ -1511,7 +1337,7 @@
         document.querySelector('.footer-bottom').innerHTML =
             `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('✅ services.html – फिक्स्ड, डार्क मोड, प्रोग्रेस बार, वॉटरमार्क');
+        console.log('✅ services.html – फिक्स्ड, सभी images relevant हैं');
         console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
     </script>
 </body>

@@ -16,31 +16,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-dark: #061d3a;
             --gold: #d4af37;
             --gold-light: #f0d060;
             --gold-gradient: linear-gradient(135deg, #d4af37, #f5e56b);
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.06);
-            --text-muted: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.06);
+            --text-muted: rgba(255,255,255,0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
+            --bg-body: var(--primary-dark);
+            --text-color: #f0f4ff;
+            --card-bg: rgba(255,255,255,0.025);
+            --border-color: rgba(255,255,255,0.04);
+            --header-bg: rgba(6,29,58,0.94);
+            --footer-bg: rgba(6,29,58,0.5);
         }
-        html {
-            scroll-behavior: smooth;
+        [data-theme="dark"] {
+            --bg-body: #0a0a0a;
+            --text-color: #e0e0e0;
+            --card-bg: rgba(255,255,255,0.04);
+            --border-color: rgba(255,255,255,0.06);
+            --header-bg: rgba(10,10,10,0.96);
+            --footer-bg: rgba(10,10,10,0.6);
         }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
-            background: var(--primary-dark);
-            color: #f0f4ff;
+            background: var(--bg-body);
+            color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
         }
         body.rtl { direction: rtl; text-align: right; }
         body.ltr { direction: ltr; text-align: left; }
@@ -48,34 +57,40 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         ::-webkit-scrollbar { width: 7px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         #particles-canvas {
             position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
+            background: var(--gold-gradient); width: 0%; transition: width 0.1s;
+        }
+
         /* ===== HEADER ===== */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             padding: 14px 0; transition: 0.3s;
-            background: rgba(6, 29, 58, 0.94);
+            background: var(--header-bg);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212,175,55,0.1);
         }
         .header .container {
             display: flex; align-items: center; justify-content: space-between;
             max-width: 1320px; margin: 0 auto; padding: 0 24px;
         }
         .logo {
-            display: flex; align-items: center; gap: 12px; font-size: 1.5rem; font-weight: 900; cursor: pointer;
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.5rem; font-weight: 900; cursor: pointer;
         }
         .logo-icon {
             font-size: 2.2rem; color: var(--gold);
             animation: logoFloat 3s ease-in-out infinite;
             display: flex; align-items: center; justify-content: center;
         }
-        @keyframes logoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        @keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
         .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
         .logo-text .main {
             background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -90,7 +105,7 @@
             padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 500;
             color: var(--text-muted); transition: 0.3s; position: relative;
         }
-        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212, 175, 55, 0.1); }
+        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(212,175,55,0.1); }
         .nav-links a.active::after {
             content: ''; position: absolute; bottom: 4px; left: 50%;
             transform: translateX(-50%); width: 18px; height: 2.5px;
@@ -101,23 +116,30 @@
             font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
         }
         .nav-cta:hover { transform: scale(1.05); }
+        .theme-toggle {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 12px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 1rem; transition: 0.3s; font-family: inherit;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .theme-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .lang-toggle {
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
             color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
             cursor: pointer; font-size: 0.8rem; transition: 0.3s; font-family: inherit;
         }
-        .lang-toggle:hover { background: rgba(212, 175, 55, 0.15); border-color: var(--gold); }
+        .lang-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .hamburger {
             display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1001;
         }
         .hamburger span { width: 28px; height: 2.5px; background: #fff; border-radius: 4px; transition: 0.3s; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-        @media (max-width: 768px) {
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        @media (max-width:768px) {
             .nav-links {
                 position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(6, 29, 58, 0.97); flex-direction: column;
+                background: var(--header-bg); flex-direction: column;
                 padding: 80px 28px 32px; transition: right 0.4s;
                 border-left: 1px solid rgba(255,255,255,0.04);
             }
@@ -131,134 +153,237 @@
         /* ===== ABOUT HERO ===== */
         .about-hero {
             padding: 150px 24px 60px;
-            position: relative; overflow: hidden; background: var(--primary-dark); text-align: center;
+            position: relative; overflow: hidden; background: var(--bg-body); text-align: center;
         }
         .about-hero::before {
             content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.06), transparent 60%),
-                        radial-gradient(ellipse at 80% 50%, rgba(108, 60, 224, 0.04), transparent 60%);
+            background: radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06), transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(108,60,224,0.04), transparent 60%);
             z-index: 0;
         }
         .about-hero .container { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; }
         .about-hero h1 {
-            font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; margin-bottom: 16px;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
         }
         .about-hero h1 .highlight {
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .about-hero p {
-            font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.9;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
         }
 
         /* ===== SECTION ===== */
         .section { padding: 60px 24px 80px; position: relative; z-index: 1; }
         .section .container { max-width: 1320px; margin: 0 auto; }
-        .section-alt { background: rgba(255,255,255,0.005); }
+        .section-alt { background: var(--card-bg); }
         .section-title { text-align: center; margin-bottom: 48px; }
         .section-title h2 {
-            font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; margin-bottom: 8px;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 8px;
         }
         .section-title h2 .highlight {
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
         .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
 
         /* ===== ABOUT GRID ===== */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-        .about-image .about-card {
-            padding: 40px; border-radius: var(--radius); background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04); text-align: center; transition: 0.4s;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
         }
-        .about-image .about-card:hover { border-color: rgba(212,175,55,0.15); box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+        .about-image .about-card {
+            padding: 40px;
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: 0.4s;
+        }
+        .about-image .about-card:hover {
+            border-color: rgba(212,175,55,0.15);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
         .about-image .about-card .owner-avatar {
-            width: 140px; height: 140px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), #b8960f);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
-            font-size: 4.5rem; color: var(--primary-dark);
-            box-shadow: 0 8px 50px rgba(212,175,55,0.2); transition: 0.4s;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 4.5rem;
+            color: var(--primary-dark);
+            box-shadow: 0 8px 50px rgba(212,175,55,0.2);
+            transition: 0.4s;
         }
         .about-image .about-card .owner-avatar:hover { transform: scale(1.05); }
         .about-image .about-card h3 { font-size: 1.4rem; font-weight: 800; }
         .about-image .about-card .owner-title { color: var(--gold); font-size: 0.9rem; font-weight: 500; }
         .about-image .about-card .owner-detail { color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
         .about-image .about-card .badge-container {
-            display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 16px;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 16px;
         }
         .about-image .about-card .badge-container span {
-            background: rgba(212,175,55,0.06); padding: 4px 16px; border-radius: 50px;
-            font-size: 0.75rem; color: var(--gold-light); border: 1px solid rgba(212,175,55,0.06);
+            background: rgba(212,175,55,0.06);
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            border: 1px solid rgba(212,175,55,0.06);
             transition: 0.3s;
         }
-        .about-image .about-card .badge-container span:hover { background: rgba(212,175,55,0.12); transform: translateY(-2px); }
-        .about-text h2 { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 900; margin-bottom: 12px; }
+        .about-image .about-card .badge-container span:hover {
+            background: rgba(212,175,55,0.12);
+            transform: translateY(-2px);
+        }
+        .about-text h2 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
         .about-text h2 .highlight {
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .about-text p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 18px; line-height: 1.9; }
         .about-text .about-info-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; margin-top: 22px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 24px;
+            margin-top: 22px;
         }
         .about-text .about-info-grid .info-item {
-            display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
         .about-text .about-info-grid .info-item i { color: var(--gold); width: 20px; }
-        .btn-primary {
-            display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px;
-            border-radius: 60px; font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
-            transition: 0.3s; background: var(--gold-gradient); color: var(--primary-dark); font-family: inherit;
-            text-decoration: none;
-        }
-        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(212,175,55,0.35); }
 
         /* ===== STATS ===== */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 28px; margin-top: 20px; }
-        .stat-item {
-            background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius); padding: 30px 20px; text-align: center; transition: 0.4s;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
         }
-        .stat-item:hover { transform: translateY(-6px); border-color: rgba(212,175,55,0.12); background: rgba(255,255,255,0.035); }
-        .stat-item .number { font-size: 2.8rem; font-weight: 900; color: var(--gold); direction: ltr; }
+        .stat-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .stat-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212,175,55,0.12);
+            background: rgba(255,255,255,0.035);
+        }
+        .stat-item .number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            direction: ltr;
+        }
         .stat-item .label { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
 
         /* ===== MISSION & VISION ===== */
-        .mission-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
-        .mission-card {
-            background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius); padding: 36px 28px; text-align: center; transition: 0.4s;
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 28px;
         }
-        .mission-card:hover { transform: translateY(-6px); border-color: rgba(212,175,55,0.12); background: rgba(255,255,255,0.035); }
+        .mission-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .mission-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212,175,55,0.12);
+            background: rgba(255,255,255,0.035);
+        }
         .mission-card .icon { font-size: 3rem; color: var(--gold); margin-bottom: 12px; display: block; }
         .mission-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
         .mission-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
 
         /* ===== TIMELINE ===== */
-        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0; }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
         .timeline::before {
-            content: ''; position: absolute; right: 50%; transform: translateX(50%);
-            width: 3px; height: 100%; background: var(--gold-gradient); opacity: 0.2;
+            content: '';
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 3px;
+            height: 100%;
+            background: var(--gold-gradient);
+            opacity: 0.2;
         }
         .timeline-item {
-            display: flex; justify-content: flex-end; padding: 20px 30px; position: relative; width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 30px;
+            position: relative;
+            width: 50%;
         }
         .timeline-item:nth-child(odd) { justify-content: flex-start; padding-right: 30px; padding-left: 0; }
         .timeline-item:nth-child(even) { justify-content: flex-end; padding-left: 30px; padding-right: 0; }
         .timeline-item .content {
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 14px; padding: 20px 24px; max-width: 320px; transition: 0.3s;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px 24px;
+            max-width: 320px;
+            transition: 0.3s;
         }
         .timeline-item .content:hover { border-color: rgba(212,175,55,0.15); }
         .timeline-item .content .year { color: var(--gold); font-size: 0.8rem; font-weight: 700; }
         .timeline-item .content h4 { font-size: 1rem; font-weight: 700; margin: 4px 0; }
         .timeline-item .content p { color: var(--text-muted); font-size: 0.85rem; }
         .timeline-item .dot {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 14px; height: 14px; border-radius: 50%; background: var(--gold-gradient);
-            box-shadow: 0 0 30px rgba(212,175,55,0.3); border: 2px solid var(--primary-dark);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            box-shadow: 0 0 30px rgba(212,175,55,0.3);
+            border: 2px solid var(--bg-body);
         }
         .timeline-item:nth-child(odd) .dot { right: -7px; }
         .timeline-item:nth-child(even) .dot { left: -7px; }
-        @media (max-width: 768px) {
+        @media (max-width:768px) {
             .timeline::before { right: 20px; transform: none; }
             .timeline-item { width: 100%; justify-content: flex-start !important; padding-right: 50px !important; padding-left: 0 !important; }
             .timeline-item .dot { right: 13px !important; left: auto !important; }
@@ -266,53 +391,108 @@
         }
 
         /* ===== TEAM ===== */
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
-        .team-card {
-            background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius); padding: 28px 20px; text-align: center; transition: 0.4s;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
         }
-        .team-card:hover { transform: translateY(-6px); border-color: rgba(212,175,55,0.12); background: rgba(255,255,255,0.035); }
+        .team-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px 20px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212,175,55,0.12);
+            background: rgba(255,255,255,0.035);
+        }
         .team-card .avatar {
-            width: 80px; height: 80px; border-radius: 50%; background: var(--gold-gradient);
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
-            font-size: 2.4rem; color: var(--primary-dark);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 2.4rem;
+            color: var(--primary-dark);
         }
         .team-card h4 { font-size: 1.05rem; font-weight: 700; }
         .team-card .role { color: var(--gold); font-size: 0.8rem; font-weight: 500; }
         .team-card p { color: var(--text-muted); font-size: 0.85rem; margin-top: 6px; }
 
         /* ===== WHY CHOOSE US ===== */
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-        .why-item {
-            background: rgba(255,255,255,0.02); padding: 28px 20px; border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.04); text-align: center; transition: 0.3s;
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
         }
-        .why-item:hover { border-color: rgba(212,175,55,0.12); transform: translateY(-5px); }
+        .why-item {
+            background: var(--card-bg);
+            padding: 28px 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .why-item:hover {
+            border-color: rgba(212,175,55,0.12);
+            transform: translateY(-5px);
+        }
         .why-item .wi-icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 12px; }
         .why-item h4 { font-size: 1.1rem; font-weight: 700; }
         .why-item p { color: var(--text-muted); font-size: 0.9rem; }
 
         /* ===== CONTACT FORM (Mini) ===== */
         .mini-form-box {
-            background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius); padding: 30px; max-width: 600px; margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .mini-form-box .form-group { margin-bottom: 16px; }
-        .mini-form-box .form-group input, .mini-form-box .form-group textarea {
-            width: 100%; padding: 12px; border-radius: 12px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.95rem; outline: none; transition: 0.3s;
+        .mini-form-box .form-group input,
+        .mini-form-box .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
         }
-        .mini-form-box .form-group input:focus, .mini-form-box .form-group textarea:focus {
-            border-color: var(--gold); background: rgba(255,255,255,0.06);
+        .mini-form-box .form-group input:focus,
+        .mini-form-box .form-group textarea:focus {
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.06);
         }
         .mini-form-box .form-group textarea { height: 80px; resize: vertical; }
         .btn-submit {
-            width: 100%; padding: 14px; border-radius: 60px;
-            background: var(--gold-gradient); color: var(--primary-dark); font-weight: 700;
-            font-size: 1rem; border: none; cursor: pointer; transition: 0.3s; font-family: inherit;
+            width: 100%;
+            padding: 14px;
+            border-radius: 60px;
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
         }
-        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3); }
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212,175,55,0.3);
+        }
         .form-status { margin-top: 12px; text-align: center; font-size: 0.9rem; min-height: 28px; }
 
         /* ===== WHATSAPP FLOAT ===== */
@@ -330,9 +510,9 @@
         .whatsapp-float .wa-label {
             font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
             padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
         }
-        @keyframes waPulse { 0%,100% { box-shadow: 0 8px 40px rgba(37,211,102,0.3); } 50% { box-shadow: 0 8px 60px rgba(37,211,102,0.55), 0 0 0 12px rgba(37,211,102,0.06); } }
+        @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
 
         /* ===== AI CHAT ===== */
         .ai-chat-toggle {
@@ -345,19 +525,19 @@
             display: flex; align-items: center; justify-content: center;
         }
         .ai-chat-toggle:hover { transform: scale(1.1); }
-        @keyframes aiPulse { 0%,100% { box-shadow: 0 8px 40px rgba(108,60,224,0.35); } 50% { box-shadow: 0 8px 60px rgba(108,60,224,0.55), 0 0 0 12px rgba(108,60,224,0.06); } }
+        @keyframes aiPulse { 0%,100%{box-shadow:0 8px 40px rgba(108,60,224,0.35)} 50%{box-shadow:0 8px 60px rgba(108,60,224,0.55),0 0 0 12px rgba(108,60,224,0.06)} }
         .ai-chat-box {
             position: fixed; bottom: 175px; right: 28px; z-index: 9997;
             width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
-            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
-            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            border-radius: 24px; background: var(--header-bg); backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
             display: none; flex-direction: column; overflow: hidden;
         }
         .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
-        @keyframes chatSlideUp { from { opacity: 0; transform: translateY(30px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
         .ai-chat-header {
             padding: 16px 20px; background: rgba(108,60,224,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
         }
         .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
@@ -376,7 +556,7 @@
             padding: 10px 16px; border-radius: 16px; max-width: 85%; font-size: 0.9rem;
             line-height: 1.6; animation: msgPop 0.3s ease;
         }
-        @keyframes msgPop { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+        @keyframes msgPop { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
         .ai-chat-messages .msg.bot {
             background: rgba(108,60,224,0.12); border: 1px solid rgba(108,60,224,0.08);
             align-self: flex-start; border-bottom-right-radius: 4px;
@@ -387,13 +567,13 @@
         }
         .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
         .ai-chat-input {
-            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
+            padding: 12px 16px 16px; border-top: 1px solid var(--border-color);
             display: flex; gap: 10px; flex-shrink: 0;
         }
         .ai-chat-input input {
             flex: 1; padding: 10px 16px; border-radius: 50px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.9rem; outline: none;
         }
         .ai-chat-input input:focus { border-color: #a855f7; }
         .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
@@ -408,35 +588,54 @@
 
         /* ===== FOOTER ===== */
         .footer {
-            padding: 60px 24px 30px; border-top: 1px solid rgba(255,255,255,0.03);
-            background: rgba(6,29,58,0.5); backdrop-filter: blur(12px);
+            padding: 60px 24px 30px;
+            border-top: 1px solid var(--border-color);
+            background: var(--footer-bg);
+            backdrop-filter: blur(12px);
+            position: relative;
         }
         .footer .container {
-            max-width: 1320px; margin: 0 auto; display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+            max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
         }
         .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
         .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
         .footer .brand .socials a {
-            width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center;
             color: var(--text-muted); transition: 0.3s;
         }
         .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--text-color); }
         .footer ul li { margin-bottom: 6px; }
         .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
         .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
         .footer-bottom {
             max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.03); text-align: center;
-            color: var(--text-muted); font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center; color: var(--text-muted); font-size: 0.8rem;
         }
         .footer-bottom span { color: var(--gold); }
 
-        /* ===== REVEAL ===== */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        /* ===== WATERMARK ===== */
+        .watermark {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+        .watermark a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .watermark a:hover {
+            text-decoration: underline;
+        }
 
         /* ===== SCROLL TOP ===== */
         .scroll-top {
@@ -449,13 +648,17 @@
         .scroll-top:hover { transform: scale(1.1); }
         .scroll-top.show { display: flex; }
 
+        /* ===== REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
+        @media (max-width:1024px) {
             .about-grid { grid-template-columns: 1fr; text-align: center; }
             .mission-grid { grid-template-columns: 1fr 1fr; }
             .about-text .about-info-grid { justify-items: center; grid-template-columns: 1fr 1fr; }
         }
-        @media (max-width: 768px) {
+        @media (max-width:768px) {
             .about-grid { grid-template-columns: 1fr; text-align: center; }
             .mission-grid { grid-template-columns: 1fr; }
             .about-text .about-info-grid { grid-template-columns: 1fr; justify-items: center; }
@@ -467,7 +670,7 @@
             .footer .container { grid-template-columns: 1fr; text-align: center; }
             .footer .brand .socials { justify-content: center; }
         }
-        @media (max-width: 480px) {
+        @media (max-width:480px) {
             .stats-grid { grid-template-columns: 1fr; }
             .team-grid { grid-template-columns: 1fr; }
             .section { padding: 40px 16px 60px; }
@@ -478,6 +681,9 @@
     </style>
 </head>
 <body>
+    <!-- ===== PROGRESS BAR ===== -->
+    <div id="progress-bar"></div>
+
     <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
 
@@ -504,6 +710,7 @@
                 <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
                 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             </div>
@@ -516,9 +723,15 @@
             <h1><span id="aboutHeroTitle">من نحن</span> <span class="highlight" id="aboutHeroHighlight">في صعود الطائرة</span></h1>
             <p id="aboutHeroDesc">وكالة سفر رائدة في المملكة العربية السعودية، نقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات. أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
             <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-                <a href="#mission" class="btn-primary" style="padding:12px 32px;border-radius:60px;"><i class="fas fa-bullseye"></i> <span id="heroBtn1">رؤيتنا</span></a>
-                <a href="#team" class="btn-primary" style="padding:12px 32px;border-radius:60px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.1);"><i class="fas fa-users"></i> <span id="heroBtn2">فريقنا</span></a>
-                <a href="#contact" class="btn-primary" style="padding:12px 32px;border-radius:60px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.1);"><i class="fas fa-phone"></i> <span id="heroBtn3">تواصل معنا</span></a>
+                <a href="#mission" class="btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 32px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;">
+                    <i class="fas fa-bullseye"></i> <span id="heroBtn1">رؤيتنا</span>
+                </a>
+                <a href="#team" class="btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 32px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:rgba(255,255,255,0.05);color:var(--text-color);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">
+                    <i class="fas fa-users"></i> <span id="heroBtn2">فريقنا</span>
+                </a>
+                <a href="#contact" class="btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 32px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:rgba(255,255,255,0.05);color:var(--text-color);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">
+                    <i class="fas fa-phone"></i> <span id="heroBtn3">تواصل معنا</span>
+                </a>
             </div>
         </div>
     </section>
@@ -555,7 +768,9 @@
                         <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span id="address1">طريق ملك عبدالعزيز، عرعر</span></div>
                         <div class="info-item"><i class="fas fa-flag"></i> <span id="address2">المملكة العربية السعودية</span></div>
                     </div>
-                    <a href="contact.html" class="btn-primary" id="contactBtn" style="display:inline-flex;margin-top:28px;"><i class="fas fa-paper-plane"></i> تواصل معنا</a>
+                    <a href="contact.html" class="btn" id="contactBtn" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:60px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:0.3s;font-family:inherit;background:var(--gold-gradient);color:var(--primary-dark);text-decoration:none;margin-top:28px;">
+                        <i class="fas fa-paper-plane"></i> <span id="contactBtnText">تواصل معنا</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -575,7 +790,7 @@
                 <div class="stat-item reveal"><div class="number" id="statHotels">200+</div><div class="label" id="statHotelsLabel">فندق</div></div>
                 <div class="stat-item reveal"><div class="number" id="statPackages">200+</div><div class="label" id="statPkgLabel">باقة سياحية</div></div>
                 <div class="stat-item reveal"><div class="number" id="statServices">20+</div><div class="label" id="statServLabel">خدمة سياحية</div></div>
-                <div class="stat-item reveal"><div class="number" id="statSatisfaction">98%</div><div class="label" id="statSatLabel">رضا العملاء</div></div>
+                <class="stat-item reveal"><div class="number" id="statSatisfaction">98%</div><div class="label" id="statSatLabel">رضا العملاء</div></div>
             </div>
         </div>
     </section>
@@ -682,7 +897,7 @@
             <div class="brand">
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
                     <span style="font-size:2.2rem;color:var(--gold);">✈️</span>
-                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="footerBrand"><strong>صعود الطائرة</strong></span>
+                    <span style="font-size:1.4rem;font-weight:900;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" id="footerBrand"><strong>صعود الطائرة</strong></span>
                 </div>
                 <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
                 <div class="socials">
@@ -728,7 +943,10 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة<br style="display:block;margin-top:4px;" />تصميم وتطوير ✧ برؤية عصرية</div>
+        <div class="footer-bottom" id="footerBottom">&copy; 2026 <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — جميع الحقوق محفوظة</div>
+        <div class="watermark">
+            Developed by <a href="#" target="_blank">Hamdan</a> ✦
+        </div>
     </footer>
 
     <!-- ===== WHATSAPP FLOAT ===== -->
@@ -741,7 +959,10 @@
     <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-chat-header">
-            <div class="title"><i class="fas fa-robot"></i> <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span></div>
+            <div class="title">
+                <i class="fas fa-robot"></i>
+                <span id="aiChatTitle">مساعد صعود الطائرة AI <span class="ai-status">● متصل</span></span>
+            </div>
             <button class="close-btn" onclick="toggleAIChat()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-chat-messages" id="aiChatMessages">
@@ -826,6 +1047,29 @@
             animate();
         })();
 
+        // ===== PROGRESS BAR =====
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // ===== DARK MODE =====
+        const themeToggle = document.getElementById('themeToggle');
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
+            localStorage.setItem('theme', theme);
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        setTheme(currentTheme);
+        themeToggle.addEventListener('click', () => {
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            currentTheme = newTheme;
+            setTheme(newTheme);
+        });
+
         // ===== HAMBURGER =====
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -871,7 +1115,7 @@
             status.textContent = '✅ جاري التحويل إلى واتساب ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
-                // WORK NUMBER
+                // WORK NUMBER 0554126832
                 window.open(`https://wa.me/966554126832?text=${encodeURIComponent(fullMsg)}`, '_blank');
                 this.reset();
                 status.textContent = '✅ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.';
@@ -886,20 +1130,20 @@
         const typingIndicator = document.getElementById('aiTyping');
 
         const aiKnowledge = {
-            'مرحبا': '👋 أهلاً بك في وكالة صعود الطائرة! كيف يمكنني مساعدتك اليوم؟',
-            'السلام عليكم': 'وعليكم السلام ورحمة الله! كيف يمكنني خدمتك؟',
-            'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، ومواصلات.',
-            'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول.',
-            'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس وطيران أديل بأسعار تبدأ من 179 ريال.',
-            'فندق': '🏨 لدينا أكثر من 200 فندق بأسعار حقيقية. عروض اليوم الوطني تصل إلى 93% خصم!',
-            'سيارة': '🚗 تأجير سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل.',
-            'باقة': '🌍 لدينا أكثر من 200 باقة سياحية بأسعار تبدأ من 1800 ريال.',
-            'قطار': '🚆 نوفر حجز تذاكر القطارات بأسعار تبدأ من 85 ريال مع سار.',
-            'عرض': '🔥 عروض اليوم الوطني: خصم 93% على الفنادق، وخصم 9% باستخدام كود KSA90!',
-            'شكرا': '🙏 العفو! سعداء بمساعدتك.',
-            'hello': '👋 Welcome to Saeed Al-Taayira! How can I help?',
-            'hi': '👋 Hi there!',
-            'thanks': '🙏 You\'re welcome!'
+            'مرحبا':'👋 أهلاً بك في وكالة صعود الطائرة! كيف يمكنني مساعدتك اليوم؟',
+            'السلام عليكم':'وعليكم السلام ورحمة الله! كيف يمكنني خدمتك؟',
+            'عمرة':'🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، ومواصلات.',
+            'تأشيرة':'🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول.',
+            'تذكرة':'✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس وطيران أديل بأسعار تبدأ من 179 ريال.',
+            'فندق':'🏨 لدينا أكثر من 200 فندق بأسعار حقيقية. عروض اليوم الوطني تصل إلى 93% خصم!',
+            'سيارة':'🚗 تأجير سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل.',
+            'باقة':'🌍 لدينا أكثر من 200 باقة سياحية بأسعار تبدأ من 1800 ريال.',
+            'قطار':'🚆 نوفر حجز تذاكر القطارات بأسعار تبدأ من 85 ريال مع سار.',
+            'عرض':'🔥 عروض اليوم الوطني: خصم 93% على الفنادق، وخصم 9% باستخدام كود KSA90!',
+            'شكرا':'🙏 العفو! سعداء بمساعدتك.',
+            'hello':'👋 Welcome to Saeed Al-Taayira! How can I help?',
+            'hi':'👋 Hi there!',
+            'thanks':'🙏 You\'re welcome!'
         };
         const defaultReplies = ['🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك قريباً.', '📱 يرجى مراسلتنا على واتساب 0555382038.', '🌍 اكتشف عروضنا المميزة في قسم العروض!'];
 
@@ -939,8 +1183,7 @@
 
         // ===== LANGUAGE TOGGLE =====
         const langToggle = document.getElementById('langToggle');
-        let currentLang = 'ar';
-
+        let currentLang = localStorage.getItem('lang') || 'ar';
         const translations = {
             ar: {
                 logoMain: 'صعود الطائرة',
@@ -974,7 +1217,7 @@
                 aboutP2: 'فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا، مع أسعار تنافسية وخدمات متميزة. نسعى لأن نكون شريكك الموثوق في كل رحلة.',
                 address1: 'طريق ملك عبدالعزيز، عرعر',
                 address2: 'المملكة العربية السعودية',
-                contactBtn: 'تواصل معنا',
+                contactBtnText: 'تواصل معنا',
                 statsTitle1: 'إنجازاتنا',
                 statsTitle2: 'بالأرقام',
                 statsDesc: 'أرقام تعكس ثقة عملائنا وجودة خدماتنا',
@@ -1051,10 +1294,10 @@
                 contDesc: 'نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز',
                 miniFormTitle: '📩 أرسل لنا رسالة',
                 aboutSubmitBtn: 'إرسال عبر واتساب',
+                waFloatLabel: 'تواصل واتساب',
                 aiChatTitle: 'مساعد صعود الطائرة AI',
                 aiWelcomeMsg: '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟',
                 aiPlaceholder: 'اكتب سؤالك...',
-                waFloatLabel: 'تواصل واتساب',
                 footerBrand: 'صعود الطائرة',
                 footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
                 footerLinksTitle: 'روابط سريعة',
@@ -1079,8 +1322,7 @@
                 fInfoContact: 'اتصل بنا',
                 fInfoPrivacy: 'سياسة الخصوصية',
                 fInfoTerms: 'الشروط والأحكام',
-                footerRights: 'جميع الحقوق محفوظة',
-                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية'
+                footerRights: 'جميع الحقوق محفوظة'
             },
             en: {
                 logoMain: 'Saeed Al-Taayira',
@@ -1114,7 +1356,7 @@
                 aboutP2: 'Our specialized team works around the clock to ensure a smooth and enjoyable trip for our clients, with competitive prices and outstanding service. We aim to be your trusted partner in every journey.',
                 address1: 'King Abdulaziz Road, Arar',
                 address2: 'Saudi Arabia',
-                contactBtn: 'Contact Us',
+                contactBtnText: 'Contact Us',
                 statsTitle1: 'Our',
                 statsTitle2: 'Achievements',
                 statsDesc: 'Numbers reflecting our clients\' trust and service quality',
@@ -1191,10 +1433,10 @@
                 contDesc: 'We are here to serve you — contact us for any inquiry or booking',
                 miniFormTitle: '📩 Send us a Message',
                 aboutSubmitBtn: 'Send via WhatsApp',
+                waFloatLabel: 'WhatsApp',
                 aiChatTitle: 'Saeed Al-Taayira AI Assistant',
                 aiWelcomeMsg: '👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. How can I help you today?',
                 aiPlaceholder: 'Type your question...',
-                waFloatLabel: 'WhatsApp',
                 footerBrand: 'Saeed Al-Taayira',
                 footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
                 footerLinksTitle: 'Quick Links',
@@ -1219,79 +1461,158 @@
                 fInfoContact: 'Contact',
                 fInfoPrivacy: 'Privacy Policy',
                 fInfoTerms: 'Terms & Conditions',
-                footerRights: 'All Rights Reserved',
-                footerCredit: 'Designed & Developed ✧ with Vision'
+                footerRights: 'All Rights Reserved'
             }
         };
 
         function applyLanguage(lang) {
             currentLang = lang;
             document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+            document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
 
             const map = {
-                'logoMain': 'logoMain', 'logoSub': 'logoSub',
-                'navHome': 'navHome', 'navServices': 'navServices', 'navOffers': 'navOffers', 'navHotels': 'navHotels',
-                'navPackages': 'navPackages', 'navRailway': 'navRailway', 'navCars': 'navCars', 'navAbout': 'navAbout',
-                'navContact': 'navContact', 'navCta': 'navCta',
-                'ownerName': 'ownerName', 'ownerTitle': 'ownerTitle',
-                'badgeExpert': 'badgeExpert', 'badgeUmrah': 'badgeUmrah', 'badgeTourism': 'badgeTourism',
-                'badgeHotels': 'badgeHotels', 'badgeCars': 'badgeCars',
-                'aboutTitle1': 'aboutTitle1', 'aboutTitle2': 'aboutTitle2',
-                'address1': 'address1', 'address2': 'address2',
-                'contactBtn': 'contactBtn',
-                'statsTitle1': 'statsTitle1', 'statsTitle2': 'statsTitle2', 'statsDesc': 'statsDesc',
-                'statClientsLabel': 'statClientsLabel', 'statDestLabel': 'statDestLabel', 'statHotelsLabel': 'statHotelsLabel',
-                'statPkgLabel': 'statPkgLabel', 'statServLabel': 'statServLabel', 'statSatLabel': 'statSatLabel',
-                'missionTitle1': 'missionTitle1', 'missionTitle2': 'missionTitle2', 'missionDesc': 'missionDesc',
-                'm1Title': 'm1Title', 'm1Desc': 'm1Desc', 'm2Title': 'm2Title', 'm2Desc': 'm2Desc', 'm3Title': 'm3Title', 'm3Desc': 'm3Desc',
-                'tlTitle1': 'tlTitle1', 'tlTitle2': 'tlTitle2', 'tlDesc': 'tlDesc',
-                'tl2020Title': 'tl2020Title', 'tl2020Desc': 'tl2020Desc',
-                'tl2021Title': 'tl2021Title', 'tl2021Desc': 'tl2021Desc',
-                'tl2022Title': 'tl2022Title', 'tl2022Desc': 'tl2022Desc',
-                'tl2023Title': 'tl2023Title', 'tl2023Desc': 'tl2023Desc',
-                'tl2024Title': 'tl2024Title', 'tl2024Desc': 'tl2024Desc',
-                'tl2025Title': 'tl2025Title', 'tl2025Desc': 'tl2025Desc',
-                'tl2026Title': 'tl2026Title', 'tl2026Desc': 'tl2026Desc',
-                'teamTitle1': 'teamTitle1', 'teamTitle2': 'teamTitle2', 'teamDesc': 'teamDesc',
-                'tm1Name': 'tm1Name', 'tm1Role': 'tm1Role', 'tm1Desc': 'tm1Desc',
-                'tm2Name': 'tm2Name', 'tm2Role': 'tm2Role', 'tm2Desc': 'tm2Desc',
-                'tm3Name': 'tm3Name', 'tm3Role': 'tm3Role', 'tm3Desc': 'tm3Desc',
-                'tm4Name': 'tm4Name', 'tm4Role': 'tm4Role', 'tm4Desc': 'tm4Desc',
-                'tm5Name': 'tm5Name', 'tm5Role': 'tm5Role', 'tm5Desc': 'tm5Desc',
-                'tm6Name': 'tm6Name', 'tm6Role': 'tm6Role', 'tm6Desc': 'tm6Desc',
-                'whyTitle1': 'whyTitle1', 'whyTitle2': 'whyTitle2', 'whyDesc': 'whyDesc',
-                'why1Title': 'why1Title', 'why1Desc': 'why1Desc',
-                'why2Title': 'why2Title', 'why2Desc': 'why2Desc',
-                'why3Title': 'why3Title', 'why3Desc': 'why3Desc',
-                'why4Title': 'why4Title', 'why4Desc': 'why4Desc',
-                'why5Title': 'why5Title', 'why5Desc': 'why5Desc',
-                'why6Title': 'why6Title', 'why6Desc': 'why6Desc',
-                'contTitle1': 'contTitle1', 'contTitle2': 'contTitle2', 'contDesc': 'contDesc',
-                'miniFormTitle': 'miniFormTitle', 'aboutSubmitBtn': 'aboutSubmitBtn',
-                'aiChatTitle': 'aiChatTitle', 'aiWelcomeMsg': 'aiWelcomeMsg', 'aiPlaceholder': 'aiPlaceholder',
+                'logoMain': 'logoMain',
+                'logoSub': 'logoSub',
+                'navHome': 'navHome',
+                'navServices': 'navServices',
+                'navOffers': 'navOffers',
+                'navHotels': 'navHotels',
+                'navPackages': 'navPackages',
+                'navRailway': 'navRailway',
+                'navCars': 'navCars',
+                'navAbout': 'navAbout',
+                'navContact': 'navContact',
+                'navCta': 'navCta',
+                'ownerName': 'ownerName',
+                'ownerTitle': 'ownerTitle',
+                'badgeExpert': 'badgeExpert',
+                'badgeUmrah': 'badgeUmrah',
+                'badgeTourism': 'badgeTourism',
+                'badgeHotels': 'badgeHotels',
+                'badgeCars': 'badgeCars',
+                'aboutTitle1': 'aboutTitle1',
+                'aboutTitle2': 'aboutTitle2',
+                'address1': 'address1',
+                'address2': 'address2',
+                'contactBtnText': 'contactBtnText',
+                'statsTitle1': 'statsTitle1',
+                'statsTitle2': 'statsTitle2',
+                'statsDesc': 'statsDesc',
+                'statClientsLabel': 'statClientsLabel',
+                'statDestLabel': 'statDestLabel',
+                'statHotelsLabel': 'statHotelsLabel',
+                'statPkgLabel': 'statPkgLabel',
+                'statServLabel': 'statServLabel',
+                'statSatLabel': 'statSatLabel',
+                'missionTitle1': 'missionTitle1',
+                'missionTitle2': 'missionTitle2',
+                'missionDesc': 'missionDesc',
+                'm1Title': 'm1Title',
+                'm1Desc': 'm1Desc',
+                'm2Title': 'm2Title',
+                'm2Desc': 'm2Desc',
+                'm3Title': 'm3Title',
+                'm3Desc': 'm3Desc',
+                'tlTitle1': 'tlTitle1',
+                'tlTitle2': 'tlTitle2',
+                'tlDesc': 'tlDesc',
+                'tl2020Title': 'tl2020Title',
+                'tl2020Desc': 'tl2020Desc',
+                'tl2021Title': 'tl2021Title',
+                'tl2021Desc': 'tl2021Desc',
+                'tl2022Title': 'tl2022Title',
+                'tl2022Desc': 'tl2022Desc',
+                'tl2023Title': 'tl2023Title',
+                'tl2023Desc': 'tl2023Desc',
+                'tl2024Title': 'tl2024Title',
+                'tl2024Desc': 'tl2024Desc',
+                'tl2025Title': 'tl2025Title',
+                'tl2025Desc': 'tl2025Desc',
+                'tl2026Title': 'tl2026Title',
+                'tl2026Desc': 'tl2026Desc',
+                'teamTitle1': 'teamTitle1',
+                'teamTitle2': 'teamTitle2',
+                'teamDesc': 'teamDesc',
+                'tm1Name': 'tm1Name',
+                'tm1Role': 'tm1Role',
+                'tm1Desc': 'tm1Desc',
+                'tm2Name': 'tm2Name',
+                'tm2Role': 'tm2Role',
+                'tm2Desc': 'tm2Desc',
+                'tm3Name': 'tm3Name',
+                'tm3Role': 'tm3Role',
+                'tm3Desc': 'tm3Desc',
+                'tm4Name': 'tm4Name',
+                'tm4Role': 'tm4Role',
+                'tm4Desc': 'tm4Desc',
+                'tm5Name': 'tm5Name',
+                'tm5Role': 'tm5Role',
+                'tm5Desc': 'tm5Desc',
+                'tm6Name': 'tm6Name',
+                'tm6Role': 'tm6Role',
+                'tm6Desc': 'tm6Desc',
+                'whyTitle1': 'whyTitle1',
+                'whyTitle2': 'whyTitle2',
+                'whyDesc': 'whyDesc',
+                'why1Title': 'why1Title',
+                'why1Desc': 'why1Desc',
+                'why2Title': 'why2Title',
+                'why2Desc': 'why2Desc',
+                'why3Title': 'why3Title',
+                'why3Desc': 'why3Desc',
+                'why4Title': 'why4Title',
+                'why4Desc': 'why4Desc',
+                'why5Title': 'why5Title',
+                'why5Desc': 'why5Desc',
+                'why6Title': 'why6Title',
+                'why6Desc': 'why6Desc',
+                'contTitle1': 'contTitle1',
+                'contTitle2': 'contTitle2',
+                'contDesc': 'contDesc',
+                'miniFormTitle': 'miniFormTitle',
+                'aboutSubmitBtn': 'aboutSubmitBtn',
                 'waFloatLabel': 'waFloatLabel',
-                'footerBrand': 'footerBrand', 'footerDesc': 'footerDesc',
-                'footerLinksTitle': 'footerLinksTitle', 'footerServicesTitle': 'footerServicesTitle', 'footerInfoTitle': 'footerInfoTitle',
-                'fNavHome': 'fNavHome', 'fNavServices': 'fNavServices', 'fNavOffers': 'fNavOffers', 'fNavHotels': 'fNavHotels',
-                'fNavPackages': 'fNavPackages', 'fNavRailway': 'fNavRailway', 'fNavCars': 'fNavCars',
-                'fNavAbout': 'fNavAbout', 'fNavContact': 'fNavContact',
-                'fServFlights': 'fServFlights', 'fServUmrah': 'fServUmrah', 'fServVisa': 'fServVisa',
-                'fServHotels': 'fServHotels', 'fServCars': 'fServCars', 'fServRailway': 'fServRailway',
-                'fInfoAbout': 'fInfoAbout', 'fInfoContact': 'fInfoContact', 'fInfoPrivacy': 'fInfoPrivacy', 'fInfoTerms': 'fInfoTerms',
-                'footerRights': 'footerRights', 'footerCredit': 'footerCredit'
+                'aiChatTitle': 'aiChatTitle',
+                'aiWelcomeMsg': 'aiWelcomeMsg',
+                'aiPlaceholder': 'aiPlaceholder',
+                'footerBrand': 'footerBrand',
+                'footerDesc': 'footerDesc',
+                'footerLinksTitle': 'footerLinksTitle',
+                'footerServicesTitle': 'footerServicesTitle',
+                'footerInfoTitle': 'footerInfoTitle',
+                'fNavHome': 'fNavHome',
+                'fNavServices': 'fNavServices',
+                'fNavOffers': 'fNavOffers',
+                'fNavHotels': 'fNavHotels',
+                'fNavPackages': 'fNavPackages',
+                'fNavRailway': 'fNavRailway',
+                'fNavCars': 'fNavCars',
+                'fNavAbout': 'fNavAbout',
+                'fNavContact': 'fNavContact',
+                'fServFlights': 'fServFlights',
+                'fServUmrah': 'fServUmrah',
+                'fServVisa': 'fServVisa',
+                'fServHotels': 'fServHotels',
+                'fServCars': 'fServCars',
+                'fServRailway': 'fServRailway',
+                'fInfoAbout': 'fInfoAbout',
+                'fInfoContact': 'fInfoContact',
+                'fInfoPrivacy': 'fInfoPrivacy',
+                'fInfoTerms': 'fInfoTerms',
+                'footerRights': 'footerRights'
             };
 
             for (const [id, key] of Object.entries(map)) {
                 const el = document.getElementById(id);
                 if (el && translations[lang] && translations[lang][key] !== undefined) {
-                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand' || id === 'aboutP1' || id === 'aboutP2') {
+                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand') {
                         if (id === 'logoMain') el.textContent = translations[lang][key];
                         else if (id === 'logoSub') el.textContent = translations[lang][key];
                         else if (id === 'footerBrand') el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
-                        else el.innerHTML = translations[lang][key];
+                    } else if (id === 'aboutP1' || id === 'aboutP2') {
+                        el.innerHTML = translations[lang][key];
                     } else {
                         el.textContent = translations[lang][key];
                     }
@@ -1316,7 +1637,7 @@
             }
             const heroDesc = document.querySelector('.about-hero p');
             if (heroDesc) heroDesc.textContent = translations[lang]['aboutHeroDesc'];
-            const heroBtns = document.querySelectorAll('.about-hero .btn-primary span');
+            const heroBtns = document.querySelectorAll('.about-hero .btn span');
             if (heroBtns.length >= 3) {
                 heroBtns[0].textContent = translations[lang]['heroBtn1'];
                 heroBtns[1].textContent = translations[lang]['heroBtn2'];
@@ -1344,8 +1665,6 @@
             const msgInput = document.getElementById('aboutMessage');
             if (msgInput) msgInput.placeholder = lang === 'ar' ? 'رسالتك...' : 'Your message...';
 
-            // Stats numbers are static in HTML, we keep them as is.
-
             localStorage.setItem('lang', lang);
         }
 
@@ -1354,39 +1673,14 @@
             applyLanguage(newLang);
         });
 
-        const savedLang = localStorage.getItem('lang') || 'ar';
-        applyLanguage(savedLang);
+        applyLanguage(currentLang);
 
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    const offset = 80;
-                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('open');
-                }
-            });
-        });
-
-        // ===== KEYBOARD SHORTCUTS =====
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (chatBox.classList.contains('open')) chatBox.classList.remove('open');
-            }
-        });
-
-        // ===== DYNAMIC FOOTER YEAR =====
+        // ===== FOOTER YEAR =====
         document.querySelector('.footer-bottom').innerHTML =
-            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('%c👤 صعود الطائرة – من نحن', 'font-size:20px;font-weight:bold;color:#d4af37;');
-        console.log('%c📞 0555382038 | 0554126832', 'font-size:14px;color:#aaa;');
-        console.log('%c📩 جميع نماذج الاتصال ترسل إلى 0554126832', 'font-size:13px;color:#4ade80;');
+        console.log('✅ about.html – फिक्स्ड, डार्क मोड, प्रोग्रेस बार, वॉटरमार्क');
+        console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
     </script>
 </body>
 </html>

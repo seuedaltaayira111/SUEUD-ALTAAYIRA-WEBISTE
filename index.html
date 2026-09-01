@@ -327,7 +327,8 @@
         .featured-item {
             background: var(--card-bg); border: 1px solid var(--border-color);
             border-radius: var(--radius); padding: 24px; text-align: center;
-            transition: 0.4s; cursor: pointer;
+            transition: 0.4s;
+            cursor: pointer;
         }
         .featured-item:hover {
             transform: translateY(-8px); border-color: rgba(212,175,55,0.2);
@@ -337,11 +338,27 @@
         .featured-item h4 { font-size: 1.1rem; font-weight: 700; }
         .featured-item p { color: var(--text-muted); font-size: 0.85rem; }
         .featured-item .price { color: var(--gold); font-weight: 700; font-size: 1.1rem; }
-        .featured-item .img {
-            width: 100%; height: 140px; background-size: cover; background-position: center;
-            border-radius: 12px; margin-bottom: 12px;
+        .featured-item .img-wrapper {
+            width: 100%; height: 140px; overflow: hidden; border-radius: 12px; margin-bottom: 12px;
         }
-        .featured-item .img img { display: none; } /* using background-image */
+        .featured-item .img-wrapper img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;
+        }
+        .featured-item:hover .img-wrapper img { transform: scale(1.05); }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;
+        }
+        .testimonial-card {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: var(--radius); padding: 24px; text-align: center;
+            transition: 0.4s;
+        }
+        .testimonial-card:hover { transform: translateY(-5px); border-color: rgba(212,175,55,0.15); }
+        .testimonial-card .stars { color: #fbbf24; font-size: 1.2rem; margin-bottom: 8px; }
+        .testimonial-card .text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+        .testimonial-card .author { color: var(--gold); font-weight: 700; margin-top: 10px; }
 
         /* ===== ABOUT PREVIEW ===== */
         .about-preview { text-align: center; max-width: 800px; margin: 0 auto; }
@@ -395,6 +412,56 @@
             border: none;
             filter: invert(0.9) hue-rotate(180deg) saturate(0.5);
         }
+
+        /* ===== NEWSLETTER POPUP ===== */
+        .newsletter-popup {
+            position: fixed; inset: 0; z-index: 10001; background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center;
+            padding: 20px; animation: fadeIn 0.4s ease;
+        }
+        .newsletter-popup.open { display: flex; }
+        @keyframes fadeIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+        .newsletter-popup .popup-content {
+            background: var(--bg-body); border: 1px solid var(--border-color);
+            border-radius: 24px; padding: 40px; max-width: 450px; width: 100%;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5); position: relative; text-align: center;
+        }
+        .newsletter-popup .popup-content .close-popup {
+            position: absolute; top: 12px; left: 16px;
+            background: none; border: none; color: var(--text-muted); font-size: 1.4rem;
+            cursor: pointer; transition: 0.3s;
+        }
+        .newsletter-popup .popup-content .close-popup:hover { color: #fff; transform: rotate(90deg); }
+        .newsletter-popup .popup-content h3 { font-size: 1.5rem; font-weight: 800; color: var(--gold); }
+        .newsletter-popup .popup-content p { color: var(--text-muted); margin: 12px 0 20px; }
+        .newsletter-popup .popup-content input {
+            width: 100%; padding: 12px; border-radius: 12px;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.95rem;
+            outline: none; transition: 0.3s; margin-bottom: 14px;
+        }
+        .newsletter-popup .popup-content input:focus { border-color: var(--gold); }
+        .newsletter-popup .popup-content .popup-btn {
+            width: 100%; padding: 14px; border-radius: 60px;
+            background: var(--gold-gradient); color: var(--primary-dark);
+            font-weight: 700; border: none; cursor: pointer; transition: 0.3s;
+            font-family: inherit;
+        }
+        .newsletter-popup .popup-content .popup-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
+        .newsletter-popup .popup-content .popup-status { margin-top: 12px; font-size: 0.9rem; min-height: 28px; }
+
+        /* ===== FLOATING CALL BUTTON ===== */
+        .call-float {
+            position: fixed; bottom: 110px; right: 28px; z-index: 9998;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: #34b7f1; color: #fff;
+            font-size: 1.8rem; border: none; cursor: pointer;
+            box-shadow: 0 8px 40px rgba(52,183,241,0.35); transition: 0.3s;
+            display: flex; align-items: center; justify-content: center;
+            animation: callPulse 3s ease-in-out infinite;
+        }
+        .call-float:hover { transform: scale(1.1); }
+        @keyframes callPulse { 0%,100%{box-shadow:0 8px 40px rgba(52,183,241,0.35)} 50%{box-shadow:0 8px 60px rgba(52,183,241,0.55),0 0 0 12px rgba(52,183,241,0.06)} }
 
         /* ===== FOOTER ===== */
         .footer {
@@ -563,6 +630,7 @@
         }
         @media (max-width:768px) {
             .featured-grid { grid-template-columns: 1fr 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr 1fr; }
             .footer .container { grid-template-columns: 1fr; text-align: center; }
             .footer .brand .socials { justify-content: center; }
             .ai-chat-box { width: calc(100vw - 32px); right: 16px; bottom: 155px; max-height: 450px; }
@@ -571,11 +639,14 @@
             .hero-buttons .btn { width: 100%; justify-content: center; }
             .contact-preview .info .item { flex-wrap: wrap; }
             .map-container iframe { height: 220px; }
+            .call-float { right: 16px; bottom: 95px; width: 50px; height: 50px; font-size: 1.4rem; }
         }
         @media (max-width:480px) {
             .featured-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
             .section { padding: 40px 16px; }
             .hero { padding: 110px 16px 60px; }
+            .newsletter-popup .popup-content { padding: 24px; }
         }
     </style>
 </head>
@@ -585,6 +656,20 @@
 
     <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
+
+    <!-- ===== NEWSLETTER POPUP ===== -->
+    <div class="newsletter-popup" id="newsletterPopup">
+        <div class="popup-content">
+            <button class="close-popup" onclick="closeNewsletter()">&times;</button>
+            <h3>📬 اشترك في النشرة البريدية</h3>
+            <p>احصل على أحدث العروض والخصومات الحصرية أول بأول!</p>
+            <form id="popupForm">
+                <input type="email" id="popupEmail" placeholder="أدخل بريدك الإلكتروني..." required />
+                <button type="submit" class="popup-btn">اشترك الآن</button>
+                <div class="popup-status" id="popupStatus"></div>
+            </form>
+        </div>
+    </div>
 
     <!-- ===== HEADER ===== -->
     <header class="header">
@@ -711,6 +796,18 @@
             <div style="text-align:center;margin-top:30px;">
                 <a href="packages.html" class="view-all">عرض جميع الباقات <i class="fas fa-arrow-left"></i></a>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section section-alt" id="testimonials">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>آراء <span class="highlight">عملائنا</span></h2>
+                <p>ما يقوله عملاؤنا عن خدماتنا</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="testimonials-grid" id="testimonialsGrid"></div>
         </div>
     </section>
 
@@ -866,6 +963,9 @@
         <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
     </div>
 
+    <!-- ===== FLOATING CALL BUTTON ===== -->
+    <a href="tel:0554126832" class="call-float" aria-label="اتصل بنا"><i class="fas fa-phone"></i></a>
+
     <!-- ===== AI CHAT ===== -->
     <button class="ai-chat-toggle" onclick="toggleAIChat()"><i class="fas fa-robot"></i></button>
     <div class="ai-chat-box" id="aiChatBox">
@@ -999,7 +1099,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal, .featured-item').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal, .featured-item, .testimonial-card').forEach(el => observer.observe(el));
 
         // ===== SCROLL TOP =====
         const scrollBtn = document.getElementById('scrollTop');
@@ -1033,54 +1133,126 @@
         }, { threshold: 0.5 });
         document.querySelector('.hero-stats') && counterObserver.observe(document.querySelector('.hero-stats'));
 
-        // ===== DATA WITH ALT TAGS FOR IMAGES =====
+        // ===== DATA WITH OPTIMIZED IMAGES =====
         const servicesData = [
             { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران', alt: 'خدمة حجز تذاكر الطيران من صعود الطائرة',
-                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop&auto=format' },
             { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة', alt: 'باقات العمرة المقدمة من صعود الطائرة',
-                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop&auto=format' },
             { icon: '🛂', name: 'التأشيرات', desc: 'جميع أنواع التأشيرات', alt: 'خدمات التأشيرات من صعود الطائرة',
-                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&auto=format' },
             { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق', alt: 'حجز الفنادق من صعود الطائرة',
-                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop&auto=format' },
             { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية', alt: 'تأجير السيارات من صعود الطائرة',
-                img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop' },
+                img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop&auto=format' },
             { icon: '🚆', name: 'حجز القطارات', desc: 'تذاكر قطار بأسعار مخفضة', alt: 'حجز القطارات من صعود الطائرة',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop' }
-        ];
-        const offersData = [
-            { icon: '🇸🇦', title: 'خصم 93% على الفنادق', desc: 'بمناسبة اليوم الوطني', alt: 'عرض خصم 93% على الفنادق',
-                price: 'ابتداءً من 435 ر.س', img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop' },
-            { icon: '🕌', title: 'باقات عمرة رمضان', desc: 'عمرة متكاملة في رمضان', alt: 'باقات عمرة رمضان',
-                price: 'ابتداءً من 1,700 درهم', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
-            { icon: '🚆', title: 'تذاكر قطار مخفضة', desc: 'أسعار تبدأ من 85 ريال', alt: 'عروض تذاكر القطارات',
-                price: 'ابتداءً من 85 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop' }
-        ];
-        const hotelsData = [
-            { name: 'فندق الفيرمونت', city: 'الرياض', price: 750, alt: 'فندق الفيرمونت في الرياض',
-                img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop' },
-            { name: 'الريتز كارلتون', city: 'جدة', price: 980, alt: 'فندق الريتز كارلتون في جدة',
-                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
-            { name: 'فور سيزونز', city: 'مكة', price: 1200, alt: 'فندق فور سيزونز في مكة',
-                img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop' }
-        ];
-        const packagesData = [
-            { name: 'عمرة رمضان', city: 'مكة', price: 2500, days: 5, alt: 'باقة عمرة رمضان في مكة',
-                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
-            { name: 'عطلة دبي الفاخرة', city: 'دبي', price: 3800, days: 7, alt: 'باقة عطلة دبي الفاخرة',
-                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
-            { name: 'رحلة باريس الرومانسية', city: 'باريس', price: 4200, days: 6, alt: 'باقة رحلة باريس الرومانسية',
-                img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop' }
-        ];
-        const blogData = [
-            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن', alt: 'أفضل وجهات سياحية',
-                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop' },
-            { title: 'دليل السفر إلى دبي', desc: 'نصائح وإرشادات', alt: 'دليل السفر إلى دبي',
-                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
-            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة', alt: 'كيفية حجز العمرة',
-                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' }
+                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop&auto=format' }
         ];
 
+        const offersData = [
+            { icon: '🇸🇦', title: 'خصم 93% على الفنادق', desc: 'بمناسبة اليوم الوطني', alt: 'عرض خصم 93% على الفنادق',
+                price: 'ابتداءً من 435 ر.س', img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop&auto=format' },
+            { icon: '🕌', title: 'باقات عمرة رمضان', desc: 'عمرة متكاملة في رمضان', alt: 'باقات عمرة رمضان',
+                price: 'ابتداءً من 1,700 درهم', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop&auto=format' },
+            { icon: '🚆', title: 'تذاكر قطار مخفضة', desc: 'أسعار تبدأ من 85 ريال', alt: 'عروض تذاكر القطارات',
+                price: 'ابتداءً من 85 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop&auto=format' }
+        ];
+
+        const hotelsData = [
+            { name: 'فندق الفيرمونت', city: 'الرياض', price: 750, alt: 'فندق الفيرمونت في الرياض',
+                img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop&auto=format' },
+            { name: 'الريتز كارلتون', city: 'جدة', price: 980, alt: 'فندق الريتز كارلتون في جدة',
+                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop&auto=format' },
+            { name: 'فور سيزونز', city: 'مكة', price: 1200, alt: 'فندق فور سيزونز في مكة',
+                img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&auto=format' }
+        ];
+
+        const packagesData = [
+            { name: 'عمرة رمضان', city: 'مكة', price: 2500, days: 5, alt: 'باقة عمرة رمضان في مكة',
+                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop&auto=format' },
+            { name: 'عطلة دبي الفاخرة', city: 'دبي', price: 3800, days: 7, alt: 'باقة عطلة دبي الفاخرة',
+                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop&auto=format' },
+            { name: 'رحلة باريس الرومانسية', city: 'باريس', price: 4200, days: 6, alt: 'باقة رحلة باريس الرومانسية',
+                img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop&auto=format' }
+        ];
+
+        // ===== 30+ BLOG POSTS =====
+        const blogData = [
+            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن', alt: 'أفضل وجهات سياحية',
+                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop&auto=format' },
+            { title: 'دليل السفر إلى دبي', desc: 'نصائح وإرشادات', alt: 'دليل السفر إلى دبي',
+                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop&auto=format' },
+            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة', alt: 'كيفية حجز العمرة',
+                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop&auto=format' },
+            { title: 'أفضل فنادق مكة قرب الحرم', desc: 'إقامة مريحة', alt: 'فنادق مكة',
+                img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&auto=format' },
+            { title: 'رحلة إلى باريس – مدينة النور', desc: 'استكشف معالم باريس', alt: 'رحلة باريس',
+                img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop&auto=format' },
+            { title: 'تأشيرة شنغن – دليل كامل', desc: 'كل ما تحتاج معرفته', alt: 'تأشيرة شنغن',
+                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السفر إلى اسطنبول – عبق التاريخ', desc: 'استكشف اسطنبول', alt: 'السفر إلى اسطنبول',
+                img: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400&h=300&fit=crop&auto=format' },
+            { title: 'نصائح لتوفير المال أثناء السفر', desc: 'طرق ذكية لتوفير المال', alt: 'توفير المال أثناء السفر',
+                img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=300&fit=crop&auto=format' },
+            { title: 'أفضل الوجهات للعطلات العائلية', desc: 'وجهات مناسبة للعائلات', alt: 'عطلات عائلية',
+                img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=400&h=300&fit=crop&auto=format' },
+            { title: 'رحلات بحرية – تجربة لا تُنسى', desc: 'استمتع برحلة بحرية', alt: 'رحلات بحرية',
+                img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=400&h=300&fit=crop&auto=format' },
+            { title: 'دليل السفر إلى لندن', desc: 'كل ما تحتاج معرفته عن لندن', alt: 'دليل لندن',
+                img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السياحة في نيويورك', desc: 'استكشف نيويورك', alt: 'نيويورك',
+                img: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السفر إلى كوالالمبور', desc: 'اكتشف جمال ماليزيا', alt: 'كوالالمبور',
+                img: 'https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=400&h=300&fit=crop&auto=format' },
+            { title: 'رحلة إلى جنوب أفريقيا', desc: 'سفاري ومغامرات', alt: 'جنوب أفريقيا',
+                img: 'https://images.unsplash.com/photo-1535139267832-7e3a5b2f6ae7?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السفر إلى سويسرا', desc: 'جبال الألب والتزلج', alt: 'سويسرا',
+                img: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=400&h=300&fit=crop&auto=format' },
+            { title: 'عطلة في جزر المالديف', desc: 'استرخاء في الجنة', alt: 'المالديف',
+                img: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=300&fit=crop&auto=format' },
+            { title: 'رحلة إلى اليابان', desc: 'ثقافة وتكنولوجيا', alt: 'اليابان',
+                img: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السفر إلى أستراليا', desc: 'مغامرات في الطبيعة', alt: 'أستراليا',
+                img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=300&fit=crop&auto=format' },
+            { title: 'رحلات سفاري في كينيا', desc: 'الحياة البرية', alt: 'سفاري كينيا',
+                img: 'https://images.unsplash.com/photo-1535139267832-7e3a5b2f6ae7?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السياحة في مصر', desc: 'أهرامات وحضارة', alt: 'مصر',
+                img: 'https://images.unsplash.com/photo-1572252009286-2682ab5abf4b?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السفر إلى تركيا', desc: 'تاريخ وطبيعة', alt: 'تركيا',
+                img: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400&h=300&fit=crop&auto=format' },
+            { title: 'أفضل الفنادق في دبي', desc: 'فنادق فاخرة', alt: 'فنادق دبي',
+                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop&auto=format' },
+            { title: 'نصائح السفر للمبتدئين', desc: 'خطوات أولى', alt: 'نصائح سفر',
+                img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السفر إلى الأردن', desc: 'البتراء ووادي رم', alt: 'الأردن',
+                img: 'https://images.unsplash.com/photo-1572708077183-9f0147a5f3e7?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السياحة في اسبانيا', desc: 'شواطئ وثقافة', alt: 'اسبانيا',
+                img: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=400&h=300&fit=crop&auto=format' },
+            { title: 'رحلة إلى إيطاليا', desc: 'فن وطعام', alt: 'إيطاليا',
+                img: 'https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السفر إلى تايلاند', desc: 'شواطئ وطبيعة', alt: 'تايلاند',
+                img: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السياحة في المغرب', desc: 'سحر الشرق', alt: 'المغرب',
+                img: 'https://images.unsplash.com/photo-1580395706770-78a9b65f6aa1?w=400&h=300&fit=crop&auto=format' },
+            { title: 'رحلات بحرية في الكاريبي', desc: 'استرخاء مطلق', alt: 'الكاريبي',
+                img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=400&h=300&fit=crop&auto=format' },
+            { title: 'السفر إلى النمسا', desc: 'جبال الألب', alt: 'النمسا',
+                img: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=400&h=300&fit=crop&auto=format' },
+            { title: 'دليل السفر إلى هولندا', desc: 'طواحين الهواء', alt: 'هولندا',
+                img: 'https://images.unsplash.com/photo-1534351450181-ea9f78427fe8?w=400&h=300&fit=crop&auto=format' }
+        ];
+
+        // ===== TESTIMONIALS =====
+        const testimonials = [
+            { name: 'أحمد محمد', text: 'خدمة ممتازة جداً! حجزت عمرة وكان كل شيء منظم ومريح. أنصح الجميع بالتعامل مع صعود الطائرة.', stars: 5 },
+            { name: 'سارة خالد', text: 'فريق محترف وسريع في الرد. حجزت فندق في دبي بأسعار رائعة. شكراً لكم!', stars: 5 },
+            { name: 'خالد العتيبي', text: 'أفضل وكالة سفر تعاملت معها. الأسعار تنافسية والخدمات متكاملة. خمس نجوم.', stars: 5 },
+            { name: 'نورة علي', text: 'ساعدوني في الحصول على تأشيرة شنغن بسهولة. إجراءات سريعة وواضحة.', stars: 4 },
+            { name: 'محمد السليمان', text: 'باقات سياحية رائعة بأسعار مميزة. استمتعت برحلة إلى تركيا.', stars: 5 },
+            { name: 'هند عبدالله', text: 'خدمة العملاء ممتازة والمتابعة مستمرة. شكراً صعود الطائرة.', stars: 5 }
+        ];
+
+        // ===== RENDER FUNCTIONS =====
         function renderFeatured(containerId, items, template) {
             const container = document.getElementById(containerId);
             container.innerHTML = items.map((item, i) => {
@@ -1093,14 +1265,14 @@
         }
 
         renderFeatured('featuredServices', servicesData, item => `
-            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
+            <div class="img-wrapper"><img src="${item.img}" alt="${item.alt}" loading="lazy" /></div>
             <span class="icon">${item.icon}</span>
             <h4>${item.name}</h4>
             <p>${item.desc}</p>
         `);
 
         renderFeatured('featuredOffers', offersData, item => `
-            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
+            <div class="img-wrapper"><img src="${item.img}" alt="${item.alt}" loading="lazy" /></div>
             <span class="icon">${item.icon}</span>
             <h4>${item.title}</h4>
             <p>${item.desc}</p>
@@ -1108,24 +1280,74 @@
         `);
 
         renderFeatured('featuredHotels', hotelsData, item => `
-            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
+            <div class="img-wrapper"><img src="${item.img}" alt="${item.alt}" loading="lazy" /></div>
             <h4>${item.name}</h4>
             <p>${item.city}</p>
             <div class="price">${item.price} ر.س/ليلة</div>
         `);
 
         renderFeatured('featuredPackages', packagesData, item => `
-            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
+            <div class="img-wrapper"><img src="${item.img}" alt="${item.alt}" loading="lazy" /></div>
             <h4>${item.name}</h4>
             <p>${item.city} - ${item.days} ليالي</p>
             <div class="price">${item.price} ر.س</div>
         `);
 
-        renderFeatured('featuredBlog', blogData, item => `
-            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
+        // Render 6 latest blog posts for homepage
+        const featuredBlogItems = blogData.slice(0, 6);
+        renderFeatured('featuredBlog', featuredBlogItems, item => `
+            <div class="img-wrapper"><img src="${item.img}" alt="${item.alt}" loading="lazy" /></div>
             <h4>${item.title}</h4>
             <p>${item.desc}</p>
         `);
+
+        // ===== RENDER TESTIMONIALS =====
+        const testimonialsGrid = document.getElementById('testimonialsGrid');
+        testimonialsGrid.innerHTML = testimonials.map((t, i) => {
+            const stars = '★'.repeat(t.stars) + '☆'.repeat(5 - t.stars);
+            return `<div class="testimonial-card reveal" style="transition-delay:${i*0.1}s">
+                <div class="stars">${stars}</div>
+                <p class="text">"${t.text}"</p>
+                <div class="author">- ${t.name}</div>
+            </div>`;
+        }).join('');
+        document.querySelectorAll('.testimonial-card.reveal').forEach(el => observer.observe(el));
+
+        // ===== NEWSLETTER POPUP =====
+        let popupShown = false;
+        setTimeout(() => {
+            if (!localStorage.getItem('newsletterClosed')) {
+                document.getElementById('newsletterPopup').classList.add('open');
+                popupShown = true;
+            }
+        }, 3000);
+
+        window.closeNewsletter = function() {
+            document.getElementById('newsletterPopup').classList.remove('open');
+            localStorage.setItem('newsletterClosed', 'true');
+        };
+
+        document.getElementById('popupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('popupEmail').value.trim();
+            const status = document.getElementById('popupStatus');
+            if (!email) {
+                status.textContent = '⚠️ الرجاء إدخال بريد إلكتروني صحيح';
+                status.style.color = '#f87171';
+                return;
+            }
+            status.textContent = '✅ جاري الاشتراك...';
+            status.style.color = '#4ade80';
+            setTimeout(() => {
+                const msg = `📬 اشتراك في النشرة البريدية\nالبريد الإلكتروني: ${email}`;
+                window.open(`https://wa.me/966554126832?text=${encodeURIComponent(msg)}`, '_blank');
+                status.textContent = '✅ تم الاشتراك بنجاح! سنرسل لك أحدث العروض.';
+                setTimeout(() => {
+                    document.getElementById('newsletterPopup').classList.remove('open');
+                    localStorage.setItem('newsletterClosed', 'true');
+                }, 2000);
+            }, 700);
+        });
 
         // ===== CONTACT FORM =====
         document.getElementById('homeContactForm').addEventListener('submit', function(e) {
@@ -1152,7 +1374,7 @@
             }, 700);
         });
 
-        // ===== AI CHAT (same as before) =====
+        // ===== AI CHAT =====
         const chatBox = document.getElementById('aiChatBox');
         const chatMessages = document.getElementById('aiChatMessages');
         const chatInput = document.getElementById('aiChatInput');
@@ -1459,10 +1681,8 @@
         document.querySelector('.footer-bottom').innerHTML =
             `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('✅ index.html – पूरी तरह से SEO फिक्स्ड!');
-        console.log('✅ Google My Business & Maps links added');
-        console.log('✅ FAQ & Breadcrumb Schema added');
-        console.log('✅ Alt tags added to all images');
+        console.log('✅ index.html – पूरी तरह से अपडेटेड!');
+        console.log('✅ Lazy Loading, Testimonials, Call Button, Newsletter Popup, Google Business/Maps, 30+ Blog Posts');
         console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
     </script>
 </body>

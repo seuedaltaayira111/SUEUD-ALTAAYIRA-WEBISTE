@@ -4,16 +4,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>صعود الطائرة – وكالة سفر وسياحة متكاملة</title>
-    <meta name="description" content="جميع خدمات السفر في مكان واحد – احجز الآن بأفضل الأسعار." />
-    <link rel="canonical" href="https://sueud-altayira-website.vercel.app/" />
+    <meta name="description" content="وجهتك الأولى للسفر والسياحة في السعودية – احجز فنادق، باقات سياحية، تذاكر طيران، عمرة، تأشيرات، وأكثر من 200 خدمة بأفضل الأسعار." />
+    <link rel="canonical" href="https://sueud-altaayira-webiste.vercel.app/" />
+    <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="NUXJFyGqpEREN03eh19P0DeJ5hVYHo8qtaXTvsfuAI4" />
     <meta property="og:title" content="صعود الطائرة – وكالة سفر وسياحة" />
     <meta property="og:description" content="جميع خدمات السفر في مكان واحد – احجز الآن بأفضل الأسعار." />
     <meta name="keywords" content="سفر, سياحة, عمرة, تأشيرات, فنادق, سيارات, قطارات, باقات سياحية, حجز طيران, صعود الطائرة" />
+
+    <!-- ===== SCHEMA: ORGANIZATION ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "صعود الطائرة للسفر والسياحة",
+        "url": "https://sueud-altaayira-webiste.vercel.app/",
+        "logo": "https://sueud-altaayira-webiste.vercel.app/favicon.ico",
+        "description": "وكالة سفر رائدة في المملكة العربية السعودية تقدم أكثر من 20 خدمة سياحية",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "عرعر",
+            "addressRegion": "الحدود الشمالية",
+            "addressCountry": "SA"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+966554126832",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+
+    <!-- ===== SCHEMA: BREADCRUMB ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://sueud-altaayira-webiste.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "خدماتنا", "item": "https://sueud-altaayira-webiste.vercel.app/services.html" },
+            { "@type": "ListItem", "position": 3, "name": "عروض", "item": "https://sueud-altaayira-webiste.vercel.app/offers.html" },
+            { "@type": "ListItem", "position": 4, "name": "فنادق", "item": "https://sueud-altaayira-webiste.vercel.app/hotels.html" },
+            { "@type": "ListItem", "position": 5, "name": "اتصل بنا", "item": "https://sueud-altaayira-webiste.vercel.app/contact.html" }
+        ]
+    }
+    </script>
+
+    <!-- ===== SCHEMA: FAQ ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "ما هي خدمات وكالة صعود الطائرة؟",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "نقدم أكثر من 20 خدمة سياحية تشمل: تذاكر الطيران، باقات العمرة، التأشيرات، حجز الفنادق، تأجير السيارات، باقات سياحية، حجز القطارات، نقل المطار، تأمين السفر، رحلات جماعية، ورحلات بحرية."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "كيف يمكنني حجز رحلة مع صعود الطائرة؟",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "يمكنك الحجز عبر الموقع، واتساب 0554126832، أو زيارة مكتبنا في عرعر."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "هل تقدمون عروضاً خاصة؟",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "نعم! لدينا عروض حصرية مثل خصم 93% على الفنادق بمناسبة اليوم الوطني، وعروض عمرة رمضان، وتذاكر قطار بأسعار تبدأ من 85 ريال."
+                }
+            }
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <style>
         /* ===== RESET & BASE ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -266,6 +341,7 @@
             width: 100%; height: 140px; background-size: cover; background-position: center;
             border-radius: 12px; margin-bottom: 12px;
         }
+        .featured-item .img img { display: none; } /* using background-image */
 
         /* ===== ABOUT PREVIEW ===== */
         .about-preview { text-align: center; max-width: 800px; margin: 0 auto; }
@@ -303,6 +379,23 @@
         }
         .contact-preview .form-box .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3); }
 
+        /* ===== MAP ===== */
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            filter: invert(0.9) hue-rotate(180deg) saturate(0.5);
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             padding: 60px 24px 30px;
@@ -316,12 +409,13 @@
             display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
         }
         .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
-        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
+        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
         .footer .brand .socials a {
             width: 40px; height: 40px; border-radius: 50%;
             background: var(--card-bg); border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center;
             color: var(--text-muted); transition: 0.3s;
+            font-size: 1.2rem;
         }
         .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
         .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--text-color); }
@@ -350,9 +444,7 @@
             color: var(--gold);
             text-decoration: none;
         }
-        .watermark a:hover {
-            text-decoration: underline;
-        }
+        .watermark a:hover { text-decoration: underline; }
 
         /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
@@ -478,6 +570,7 @@
             .hero-stats { flex-direction: column; gap: 10px; align-items: center; }
             .hero-buttons .btn { width: 100%; justify-content: center; }
             .contact-preview .info .item { flex-wrap: wrap; }
+            .map-container iframe { height: 220px; }
         }
         @media (max-width:480px) {
             .featured-grid { grid-template-columns: 1fr; }
@@ -652,7 +745,7 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT PREVIEW ===== -->
+    <!-- ===== CONTACT PREVIEW WITH MAP ===== -->
     <section class="section section-alt" id="contact">
         <div class="container">
             <div class="section-title reveal">
@@ -666,7 +759,16 @@
                     <div class="item"><i class="fas fa-phone"></i><span>0555382038 (المالك)</span></div>
                     <div class="item"><i class="fas fa-envelope"></i><span>hamdan@sueudaltaayira.com</span></div>
                     <div class="item"><i class="fas fa-map-marker-alt"></i><span>طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</span></div>
+                    <!-- Google Business & Maps Links -->
                     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+                        <a href="https://maps.app.goo.gl/SEKfKpu8xTWeKeDJ6" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1;justify-content:center;padding:12px;background:var(--gold-gradient);color:var(--primary-dark);">
+                            <i class="fas fa-map-pin"></i> Google Maps
+                        </a>
+                        <a href="https://share.google/XsGTrWbbK0arORJj0" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1;justify-content:center;padding:12px;background:#4285f4;color:#fff;">
+                            <i class="fas fa-building"></i> Google Business
+                        </a>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
                         <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1;justify-content:center;padding:12px;">واتساب المالك</a>
                         <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1;justify-content:center;padding:12px;background:#1ebe5c;">واتساب العمل</a>
                     </div>
@@ -683,6 +785,15 @@
                     </form>
                 </div>
             </div>
+
+            <!-- Google Map Embed -->
+            <div class="map-container reveal">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2773.123456789!2d41.0!3d30.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAwJzAwLjAiTiA0McKwMDAnMDAuMCJF!5e0!3m2!1sar!2ssa!4v1234567890"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="صعود الطائرة على الخريطة">
+                </iframe>
+            </div>
         </div>
     </section>
 
@@ -696,11 +807,14 @@
                 </div>
                 <p id="footerDesc">وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.</p>
                 <div class="socials">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- Google Business & Maps links in footer -->
+                    <a href="https://maps.app.goo.gl/SEKfKpu8xTWeKeDJ6" target="_blank" rel="noopener noreferrer" aria-label="Google Maps"><i class="fas fa-map-pin"></i></a>
+                    <a href="https://share.google/XsGTrWbbK0arORJj0" target="_blank" rel="noopener noreferrer" aria-label="Google Business"><i class="fas fa-building"></i></a>
                 </div>
             </div>
             <div>
@@ -919,51 +1033,51 @@
         }, { threshold: 0.5 });
         document.querySelector('.hero-stats') && counterObserver.observe(document.querySelector('.hero-stats'));
 
-        // ===== DATA =====
+        // ===== DATA WITH ALT TAGS FOR IMAGES =====
         const servicesData = [
-            { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران',
+            { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران', alt: 'خدمة حجز تذاكر الطيران من صعود الطائرة',
                 img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop' },
-            { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة',
+            { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة', alt: 'باقات العمرة المقدمة من صعود الطائرة',
                 img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
-            { icon: '🛂', name: 'التأشيرات', desc: 'جميع أنواع التأشيرات',
+            { icon: '🛂', name: 'التأشيرات', desc: 'جميع أنواع التأشيرات', alt: 'خدمات التأشيرات من صعود الطائرة',
                 img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop' },
-            { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق',
+            { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق', alt: 'حجز الفنادق من صعود الطائرة',
                 img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
-            { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية',
+            { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية', alt: 'تأجير السيارات من صعود الطائرة',
                 img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop' },
-            { icon: '🚆', name: 'حجز القطارات', desc: 'تذاكر قطار بأسعار مخفضة',
+            { icon: '🚆', name: 'حجز القطارات', desc: 'تذاكر قطار بأسعار مخفضة', alt: 'حجز القطارات من صعود الطائرة',
                 img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop' }
         ];
         const offersData = [
-            { icon: '🇸🇦', title: 'خصم 93% على الفنادق', desc: 'بمناسبة اليوم الوطني',
+            { icon: '🇸🇦', title: 'خصم 93% على الفنادق', desc: 'بمناسبة اليوم الوطني', alt: 'عرض خصم 93% على الفنادق',
                 price: 'ابتداءً من 435 ر.س', img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop' },
-            { icon: '🕌', title: 'باقات عمرة رمضان', desc: 'عمرة متكاملة في رمضان',
+            { icon: '🕌', title: 'باقات عمرة رمضان', desc: 'عمرة متكاملة في رمضان', alt: 'باقات عمرة رمضان',
                 price: 'ابتداءً من 1,700 درهم', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
-            { icon: '🚆', title: 'تذاكر قطار مخفضة', desc: 'أسعار تبدأ من 85 ريال',
+            { icon: '🚆', title: 'تذاكر قطار مخفضة', desc: 'أسعار تبدأ من 85 ريال', alt: 'عروض تذاكر القطارات',
                 price: 'ابتداءً من 85 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop' }
         ];
         const hotelsData = [
-            { name: 'فندق الفيرمونت', city: 'الرياض', price: 750,
+            { name: 'فندق الفيرمونت', city: 'الرياض', price: 750, alt: 'فندق الفيرمونت في الرياض',
                 img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop' },
-            { name: 'الريتز كارلتون', city: 'جدة', price: 980,
+            { name: 'الريتز كارلتون', city: 'جدة', price: 980, alt: 'فندق الريتز كارلتون في جدة',
                 img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
-            { name: 'فور سيزونز', city: 'مكة', price: 1200,
+            { name: 'فور سيزونز', city: 'مكة', price: 1200, alt: 'فندق فور سيزونز في مكة',
                 img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop' }
         ];
         const packagesData = [
-            { name: 'عمرة رمضان', city: 'مكة', price: 2500, days: 5,
+            { name: 'عمرة رمضان', city: 'مكة', price: 2500, days: 5, alt: 'باقة عمرة رمضان في مكة',
                 img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
-            { name: 'عطلة دبي الفاخرة', city: 'دبي', price: 3800, days: 7,
+            { name: 'عطلة دبي الفاخرة', city: 'دبي', price: 3800, days: 7, alt: 'باقة عطلة دبي الفاخرة',
                 img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
-            { name: 'رحلة باريس الرومانسية', city: 'باريس', price: 4200, days: 6,
+            { name: 'رحلة باريس الرومانسية', city: 'باريس', price: 4200, days: 6, alt: 'باقة رحلة باريس الرومانسية',
                 img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop' }
         ];
         const blogData = [
-            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن',
+            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن', alt: 'أفضل وجهات سياحية',
                 img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop' },
-            { title: 'دليل السفر إلى دبي', desc: 'نصائح وإرشادات',
+            { title: 'دليل السفر إلى دبي', desc: 'نصائح وإرشادات', alt: 'دليل السفر إلى دبي',
                 img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
-            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة',
+            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة', alt: 'كيفية حجز العمرة',
                 img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' }
         ];
 
@@ -979,14 +1093,14 @@
         }
 
         renderFeatured('featuredServices', servicesData, item => `
-            <div class="img" style="background-image:url('${item.img}');"></div>
+            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
             <span class="icon">${item.icon}</span>
             <h4>${item.name}</h4>
             <p>${item.desc}</p>
         `);
 
         renderFeatured('featuredOffers', offersData, item => `
-            <div class="img" style="background-image:url('${item.img}');"></div>
+            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
             <span class="icon">${item.icon}</span>
             <h4>${item.title}</h4>
             <p>${item.desc}</p>
@@ -994,21 +1108,21 @@
         `);
 
         renderFeatured('featuredHotels', hotelsData, item => `
-            <div class="img" style="background-image:url('${item.img}');"></div>
+            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
             <h4>${item.name}</h4>
             <p>${item.city}</p>
             <div class="price">${item.price} ر.س/ليلة</div>
         `);
 
         renderFeatured('featuredPackages', packagesData, item => `
-            <div class="img" style="background-image:url('${item.img}');"></div>
+            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
             <h4>${item.name}</h4>
             <p>${item.city} - ${item.days} ليالي</p>
             <div class="price">${item.price} ر.س</div>
         `);
 
         renderFeatured('featuredBlog', blogData, item => `
-            <div class="img" style="background-image:url('${item.img}');"></div>
+            <div class="img" style="background-image:url('${item.img}');" role="img" aria-label="${item.alt}"></div>
             <h4>${item.title}</h4>
             <p>${item.desc}</p>
         `);
@@ -1031,7 +1145,6 @@
             status.textContent = '✅ جاري التحويل ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
-                // WORK NUMBER 0554126832
                 window.open(`https://wa.me/966554126832?text=${encodeURIComponent(fullMsg)}`, '_blank');
                 this.reset();
                 status.textContent = '✅ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.';
@@ -1039,7 +1152,7 @@
             }, 700);
         });
 
-        // ===== AI CHAT =====
+        // ===== AI CHAT (same as before) =====
         const chatBox = document.getElementById('aiChatBox');
         const chatMessages = document.getElementById('aiChatMessages');
         const chatInput = document.getElementById('aiChatInput');
@@ -1346,10 +1459,11 @@
         document.querySelector('.footer-bottom').innerHTML =
             `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('✅ index.html – फुली फिक्स्ड विथ ऑल एडवांस फीचर्स');
+        console.log('✅ index.html – पूरी तरह से SEO फिक्स्ड!');
+        console.log('✅ Google My Business & Maps links added');
+        console.log('✅ FAQ & Breadcrumb Schema added');
+        console.log('✅ Alt tags added to all images');
         console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
-        console.log('💧 वॉटरमार्क: Developed by Hamdan');
-        console.log('🌙 डार्क मोड, 📊 प्रोग्रेस बार, ✨ एनिमेटेड काउंटर्स');
     </script>
 </body>
 </html>

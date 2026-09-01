@@ -1,3 +1,31 @@
+# Robots.txt for Saeed Al-Taayira Travel & Tourism
+# Website: https://sueud-altaayira-website.vercel.app/
+
 User-agent: *
 Allow: /
-Sitemap: https://sueud-altayira-website.vercel.app/sitemap.xml
+
+# Allow all important pages to be crawled
+Allow: /$
+Allow: /services.html$
+Allow: /offers.html$
+Allow: /hotels.html$
+Allow: /packages.html$
+Allow: /railway.html$
+Allow: /cars.html$
+Allow: /about.html$
+Allow: /contact.html$
+Allow: /blog.html$
+Allow: /chatbot.html$
+Allow: /privacy.html$
+Allow: /terms.html$
+
+# Block any admin/private pages (if they exist)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /internal/
+
+# Sitemap location
+Sitemap: https://sueud-altaayira-website.vercel.app/sitemap.xml

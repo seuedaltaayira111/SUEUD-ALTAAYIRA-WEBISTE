@@ -4,15 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>صعود الطائرة – وكالة سفر وسياحة متكاملة</title>
-    <!-- Meta tags, canonical, etc. -->
+    <meta name="description" content="جميع خدمات السفر في مكان واحد – احجز الآن بأفضل الأسعار." />
     <link rel="canonical" href="https://sueud-altayira-website.vercel.app/" />
     <meta name="google-site-verification" content="NUXJFyGqpEREN03eh19P0DeJ5hVYHo8qtaXTvsfuAI4" />
     <meta property="og:title" content="صعود الطائرة – وكالة سفر وسياحة" />
     <meta property="og:description" content="جميع خدمات السفر في مكان واحد – احجز الآن بأفضل الأسعار." />
     <meta name="keywords" content="سفر, سياحة, عمرة, تأشيرات, فنادق, سيارات, قطارات, باقات سياحية, حجز طيران, صعود الطائرة" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -30,14 +27,29 @@
             --text-muted: rgba(255,255,255,0.6);
             --radius: 20px;
             --font: 'Tajawal', sans-serif;
+            --bg-body: var(--primary-dark);
+            --text-color: #f0f4ff;
+            --card-bg: rgba(255,255,255,0.025);
+            --border-color: rgba(255,255,255,0.04);
+            --header-bg: rgba(6,29,58,0.94);
+            --footer-bg: rgba(6,29,58,0.5);
+        }
+        [data-theme="dark"] {
+            --bg-body: #0a0a0a;
+            --text-color: #e0e0e0;
+            --card-bg: rgba(255,255,255,0.04);
+            --border-color: rgba(255,255,255,0.06);
+            --header-bg: rgba(10,10,10,0.96);
+            --footer-bg: rgba(10,10,10,0.6);
         }
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font);
-            background: var(--primary-dark);
-            color: #f0f4ff;
+            background: var(--bg-body);
+            color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
         }
         body.rtl { direction: rtl; text-align: right; }
         body.ltr { direction: ltr; text-align: left; }
@@ -45,18 +57,24 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         ::-webkit-scrollbar { width: 7px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         #particles-canvas {
             position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3;
         }
 
+        /* ===== PROGRESS BAR ===== */
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
+            background: var(--gold-gradient); width: 0%; transition: width 0.1s;
+        }
+
         /* ===== HEADER ===== */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             padding: 14px 0; transition: 0.3s;
-            background: rgba(6,29,58,0.94);
+            background: var(--header-bg);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(212,175,55,0.1);
         }
@@ -99,6 +117,13 @@
             font-weight: 700 !important; padding: 8px 26px !important; border-radius: 50px !important;
         }
         .nav-cta:hover { transform: scale(1.05); }
+        .theme-toggle {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 6px 12px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; font-size: 1rem; transition: 0.3s; font-family: inherit;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .theme-toggle:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
         .lang-toggle {
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
             color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 600;
@@ -115,7 +140,7 @@
         @media (max-width:768px) {
             .nav-links {
                 position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(6,29,58,0.97); flex-direction: column;
+                background: var(--header-bg); flex-direction: column;
                 padding: 80px 28px 32px; transition: right 0.4s;
                 border-left: 1px solid rgba(255,255,255,0.04);
             }
@@ -132,7 +157,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: var(--primary-dark);
+            background: var(--bg-body);
             position: relative;
             overflow: hidden;
         }
@@ -169,8 +194,8 @@
         .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(212,175,55,0.35); }
         .btn-whatsapp { background: #25d366; color: #fff; }
         .btn-whatsapp:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(37,211,102,0.35); }
-        .btn-ai { background: linear-gradient(135deg, #6c3ce0, #a855f7); color: #fff; }
-        .btn-ai:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(108,60,224,0.4); }
+        .btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
+        .btn-outline:hover { background: var(--gold); color: var(--primary-dark); transform: translateY(-4px); }
         .hero-stats {
             display: flex; gap: 44px; margin-top: 44px;
             padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.05);
@@ -179,18 +204,15 @@
         .hero-stats .stat p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
         .hero-card {
             max-width: 480px; border-radius: 32px;
-            background: rgba(255,255,255,0.03); backdrop-filter: blur(14px);
-            border: 1px solid rgba(255,255,255,0.06);
+            background: var(--card-bg); backdrop-filter: blur(14px);
+            border: 1px solid var(--border-color);
             padding: 40px; text-align: center;
             box-shadow: 0 40px 80px rgba(0,0,0,0.4);
             transition: transform 0.5s ease;
             position: relative; overflow: hidden;
         }
         .hero-card:hover { transform: perspective(1000px) rotateY(-3deg) rotateX(3deg) scale(1.02); }
-        .hero-card .big-icon {
-            font-size: 5.2rem; color: var(--gold); margin-bottom: 16px;
-            animation: iconPulse 3s ease-in-out infinite;
-        }
+        .hero-card .big-icon { font-size: 5.2rem; color: var(--gold); margin-bottom: 16px; animation: iconPulse 3s ease-in-out infinite; }
         @keyframes iconPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
         .hero-card h3 { font-size: 1.8rem; font-weight: 800; }
         .hero-card p { color: var(--text-muted); }
@@ -207,7 +229,7 @@
         /* ===== SECTIONS ===== */
         .section { padding: 80px 24px; position: relative; z-index: 1; }
         .section .container { max-width: 1320px; margin: 0 auto; }
-        .section-alt { background: rgba(255,255,255,0.005); }
+        .section-alt { background: var(--card-bg); }
         .section-title { text-align: center; margin-bottom: 48px; }
         .section-title h2 {
             font-size: clamp(2rem, 4vw, 3.2rem);
@@ -218,256 +240,101 @@
         }
         .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
         .section-divider { width: 60px; height: 3.5px; background: var(--gold-gradient); border-radius: 4px; margin: 14px auto 0; }
-
-        /* ===== SERVICES ===== */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 24px; }
-        .service-card {
-            padding: 28px 20px; border-radius: var(--radius);
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
-            text-align: center; cursor: pointer; transition: 0.4s;
-            position: relative; overflow: hidden;
-        }
-        .service-card::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(212,175,55,0.05), transparent 60%);
-            opacity: 0; transition: 0.4s;
-        }
-        .service-card:hover::before { opacity: 1; }
-        .service-card:hover {
-            transform: translateY(-12px);
-            border-color: rgba(212,175,55,0.2);
-            background: rgba(255,255,255,0.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-        .service-card .simg {
-            width: 100%; height: 120px; background-size: cover; background-position: center;
-            border-radius: 12px; margin-bottom: 12px;
-        }
-        .service-card .icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 10px; display: inline-block; transition: 0.4s; }
-        .service-card:hover .icon { transform: scale(1.15) rotate(-4deg); }
-        .service-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-        .service-card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px; }
-        .service-card .service-tag {
-            display: inline-block; padding: 2px 12px; border-radius: 50px;
-            background: rgba(212,175,55,0.08); color: var(--gold-light);
-            font-size: 0.65rem; border: 1px solid rgba(212,175,55,0.06);
-        }
-        .service-card .click-hint {
-            font-size: 0.6rem; color: var(--text-muted); margin-top: 8px; opacity: 0.4; transition: 0.3s;
-        }
-        .service-card:hover .click-hint { opacity: 1; }
-
-        /* ===== OFFERS ===== */
-        .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-top: 30px; }
-        .offer-card {
-            background: rgba(255,255,255,0.025); border: 2px solid var(--gold);
-            border-radius: var(--radius); padding: 30px 24px; text-align: center;
-            transition: 0.4s; position: relative; overflow: hidden;
-        }
-        .offer-card::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent 60%);
-            opacity: 0; transition: 0.4s;
-        }
-        .offer-card:hover::before { opacity: 1; }
-        .offer-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(212,175,55,0.1); }
-        .offer-card .offer-icon { font-size: 3rem; color: var(--gold); margin-bottom: 12px; }
-        .offer-card .offer-badge {
-            display: inline-block; background: var(--gold-gradient); color: var(--primary-dark);
-            padding: 2px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-bottom: 8px;
-        }
-        .offer-card h4 { font-size: 1.2rem; font-weight: 800; }
-        .offer-card p { color: var(--text-muted); font-size: 0.9rem; margin: 8px 0; }
-        .offer-card .offer-price { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
-        .offer-card .btn-sm {
-            padding: 8px 24px; border-radius: 50px; font-size: 0.8rem;
-            font-weight: 700; border: none; cursor: pointer;
-            background: var(--gold-gradient); color: var(--primary-dark);
-            margin-top: 12px; transition: 0.3s; font-family: inherit;
-        }
-        .offer-card .btn-sm:hover { transform: scale(1.05); }
-
-        /* ===== HOTELS ===== */
-        .hotels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 28px; }
-        .hotel-card {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius);
-            overflow: hidden; transition: 0.4s;
-        }
-        .hotel-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(212,175,55,0.15);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-        }
-        .hotel-card .img { height: 170px; background-size: cover; background-position: center; }
-        .hotel-card .body { padding: 18px 20px 22px; }
-        .hotel-card .body h4 { font-size: 1.1rem; font-weight: 800; }
-        .hotel-card .body .location { color: var(--gold); font-size: 0.8rem; }
-        .hotel-card .body .rating { color: #fbbf24; font-size: 0.85rem; margin: 4px 0; }
-        .hotel-card .body .price { color: var(--gold); font-size: 1.1rem; font-weight: 700; }
-        .hotel-card .body .price small { font-size: 0.65rem; color: var(--text-muted); font-weight: 400; }
-        .hotel-card .body .btn-sm {
-            padding: 8px 22px; border-radius: 50px; font-size: 0.8rem;
-            font-weight: 700; border: none; cursor: pointer;
-            background: var(--gold-gradient); color: var(--primary-dark);
-            margin-top: 10px; transition: 0.3s; font-family: inherit;
-        }
-        .hotel-card .body .btn-sm:hover { transform: scale(1.05); }
-
-        /* ===== PACKAGES ===== */
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 28px; }
-        .package-card {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius);
-            overflow: hidden; transition: 0.4s;
-        }
-        .package-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(212,175,55,0.15);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-        }
-        .package-card .img { height: 170px; background-size: cover; background-position: center; }
-        .package-card .body { padding: 18px 20px 22px; }
-        .package-card .body h4 { font-size: 1.1rem; font-weight: 800; }
-        .package-card .body .location { color: var(--gold); font-size: 0.8rem; }
-        .package-card .body .price { color: var(--gold); font-size: 1.1rem; font-weight: 700; }
-        .package-card .body .price small { font-size: 0.65rem; color: var(--text-muted); font-weight: 400; }
-        .package-card .body .btn-sm {
-            padding: 8px 22px; border-radius: 50px; font-size: 0.8rem;
-            font-weight: 700; border: none; cursor: pointer;
-            background: var(--gold-gradient); color: var(--primary-dark);
-            margin-top: 10px; transition: 0.3s; font-family: inherit;
-        }
-        .package-card .body .btn-sm:hover { transform: scale(1.05); }
-
-        /* ===== RAILWAY ===== */
-        .railway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; }
-        .railway-item {
-            background: rgba(255,255,255,0.02); padding: 20px; border-radius: 14px;
-            text-align: center; border: 1px solid rgba(255,255,255,0.04);
-            transition: 0.3s; cursor: pointer;
-        }
-        .railway-item:hover { border-color: var(--gold); background: rgba(212,175,55,0.04); }
-        .railway-item .rimg {
-            width: 100%; height: 100px; background-size: cover; background-position: center;
-            border-radius: 10px; margin-bottom: 10px;
-        }
-        .railway-item .icon { font-size: 2.4rem; color: var(--gold); }
-        .railway-item h4 { font-size: 1rem; font-weight: 700; }
-        .railway-item p { font-size: 0.8rem; color: var(--text-muted); }
-
-        /* ===== BLOG ===== */
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 28px; }
-        .blog-card {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius);
-            overflow: hidden; transition: 0.4s;
-        }
-        .blog-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(212,175,55,0.12);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-        }
-        .blog-card .img { height: 180px; background-size: cover; background-position: center; }
-        .blog-card .body { padding: 18px 20px 22px; }
-        .blog-card .body .tag {
-            display: inline-block; padding: 2px 12px; border-radius: 50px;
-            background: rgba(212,175,55,0.08); color: var(--gold-light);
-            font-size: 0.6rem; border: 1px solid rgba(212,175,55,0.06); margin-bottom: 6px;
-        }
-        .blog-card .body h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
-        .blog-card .body p { color: var(--text-muted); font-size: 0.85rem; }
-        .blog-card .body .blog-date { color: var(--text-muted); font-size: 0.7rem; margin-top: 8px; display: block; }
-
-        /* ===== FAQ ===== */
-        .faq-grid { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-        .faq-item {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-        .faq-item .faq-q {
-            padding: 16px 20px; cursor: pointer;
-            display: flex; justify-content: space-between; align-items: center;
+        .view-all {
+            display: inline-block; margin-top: 20px; padding: 10px 30px;
+            border-radius: 50px; background: var(--gold-gradient); color: var(--primary-dark);
             font-weight: 700; transition: 0.3s;
         }
-        .faq-item .faq-q:hover { background: rgba(212,175,55,0.03); }
-        .faq-item .faq-q i { transition: 0.3s; }
-        .faq-item .faq-a { padding: 0 20px 20px; color: var(--text-muted); font-size: 0.95rem; display: none; line-height: 1.8; }
-        .faq-item.open .faq-a { display: block; }
-        .faq-item.open .faq-q i { transform: rotate(180deg); }
+        .view-all:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
 
-        /* ===== CONTACT ===== */
-        .contact-grid {
+        /* ===== FEATURED GRIDS ===== */
+        .featured-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;
+        }
+        .featured-item {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: var(--radius); padding: 24px; text-align: center;
+            transition: 0.4s; cursor: pointer;
+        }
+        .featured-item:hover {
+            transform: translateY(-8px); border-color: rgba(212,175,55,0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+        .featured-item .icon { font-size: 2.8rem; color: var(--gold); margin-bottom: 10px; display: block; }
+        .featured-item h4 { font-size: 1.1rem; font-weight: 700; }
+        .featured-item p { color: var(--text-muted); font-size: 0.85rem; }
+        .featured-item .price { color: var(--gold); font-weight: 700; font-size: 1.1rem; }
+        .featured-item .img {
+            width: 100%; height: 140px; background-size: cover; background-position: center;
+            border-radius: 12px; margin-bottom: 12px;
+        }
+
+        /* ===== ABOUT PREVIEW ===== */
+        .about-preview { text-align: center; max-width: 800px; margin: 0 auto; }
+        .about-preview p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.9; }
+
+        /* ===== CONTACT PREVIEW ===== */
+        .contact-preview {
             display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
             max-width: 1000px; margin: 0 auto;
         }
-        .info-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 16px;
-            padding: 20px; margin-bottom: 14px;
-            display: flex; align-items: center; gap: 16px; transition: 0.3s;
+        .contact-preview .info { display: flex; flex-direction: column; gap: 12px; }
+        .contact-preview .info .item {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 14px;
         }
-        .info-card:hover { border-color: rgba(212,175,55,0.12); transform: translateX(-4px); }
-        .info-card .icon-box {
-            width: 44px; height: 44px; border-radius: 14px;
-            background: rgba(212,175,55,0.08);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--gold); font-size: 1.2rem; flex-shrink: 0;
+        .contact-preview .info .item i { color: var(--gold); font-size: 1.2rem; width: 30px; }
+        .contact-preview .form-box {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: var(--radius); padding: 30px;
         }
-        .info-card .label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-        .info-card .value { font-size: 1rem; font-weight: 600; direction: ltr; text-align: right; }
-        .contact-form {
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 16px; padding: 30px;
-        }
-        .contact-form h3 { font-size: 1.6rem; font-weight: 800; }
-        .contact-form .form-sub { color: var(--text-muted); margin-bottom: 20px; }
-        .form-group { margin-bottom: 16px; }
-        .form-group input, .form-group textarea, .form-group select {
+        .contact-preview .form-box input, .contact-preview .form-box textarea {
             width: 100%; padding: 12px; border-radius: 12px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.95rem;
-            outline: none; transition: 0.3s;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.95rem;
+            outline: none; transition: 0.3s; margin-bottom: 12px;
         }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+        .contact-preview .form-box input:focus, .contact-preview .form-box textarea:focus {
             border-color: var(--gold); background: rgba(255,255,255,0.06);
         }
-        .form-group select option { background: #0a1a2e; color: #fff; padding: 8px; }
-        .form-group textarea { height: 100px; resize: vertical; }
-        .btn-submit {
+        .contact-preview .form-box textarea { height: 100px; resize: vertical; }
+        .contact-preview .form-box .btn-submit {
             width: 100%; padding: 14px; border-radius: 60px;
             background: var(--gold-gradient); color: var(--primary-dark);
-            font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
-            transition: 0.3s; font-family: inherit;
+            font-weight: 700; border: none; cursor: pointer; transition: 0.3s;
         }
-        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3); }
-        .form-status { margin-top: 12px; text-align: center; font-size: 0.9rem; min-height: 28px; }
-        .btn-whatsapp-link {
-            flex: 1; justify-content: center; background: #25d366; color: #fff;
-            padding: 12px; border-radius: 50px; text-align: center;
-            display: inline-flex; align-items: center; gap: 8px;
-            font-weight: 700; border: none; cursor: pointer; text-decoration: none; transition: 0.3s;
-        }
-        .btn-whatsapp-link:hover { transform: scale(1.02); }
-        .btn-whatsapp-link.work { background: #1ebe5c; }
+        .contact-preview .form-box .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(212,175,55,0.3); }
 
-        /* ===== LOAD MORE ===== */
-        .load-more-btn {
-            display: block; margin: 30px auto 0; padding: 12px 40px;
-            border-radius: 60px; background: var(--gold-gradient); color: var(--primary-dark);
-            font-weight: 700; border: none; cursor: pointer; font-size: 1rem;
-            transition: 0.3s; font-family: inherit;
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 60px 24px 30px;
+            border-top: 1px solid var(--border-color);
+            background: var(--footer-bg);
+            backdrop-filter: blur(12px);
         }
-        .load-more-btn:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(212,175,55,0.25); }
+        .footer .container {
+            max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+        }
+        .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
+        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
+        .footer .brand .socials a {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted); transition: 0.3s;
+        }
+        .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--text-color); }
+        .footer ul li { margin-bottom: 6px; }
+        .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
+        .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
+        .footer-bottom {
+            max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center; color: var(--text-muted); font-size: 0.8rem;
+        }
+        .footer-bottom span { color: var(--gold); }
 
         /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
@@ -484,7 +351,7 @@
         .whatsapp-float .wa-label {
             font-size: 0.65rem; color: var(--text-muted); background: rgba(0,0,0,0.5);
             padding: 3px 14px; border-radius: 50px; backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
         }
         @keyframes waPulse { 0%,100%{box-shadow:0 8px 40px rgba(37,211,102,0.3)} 50%{box-shadow:0 8px 60px rgba(37,211,102,0.55),0 0 0 12px rgba(37,211,102,0.06)} }
 
@@ -503,15 +370,15 @@
         .ai-chat-box {
             position: fixed; bottom: 175px; right: 28px; z-index: 9997;
             width: 400px; max-width: calc(100vw - 56px); max-height: 550px;
-            border-radius: 24px; background: rgba(6,29,58,0.96); backdrop-filter: blur(30px);
-            border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            border-radius: 24px; background: var(--header-bg); backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
             display: none; flex-direction: column; overflow: hidden;
         }
         .ai-chat-box.open { display: flex; animation: chatSlideUp 0.4s ease; }
         @keyframes chatSlideUp { from { opacity:0; transform:translateY(30px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
         .ai-chat-header {
             padding: 16px 20px; background: rgba(108,60,224,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
         }
         .ai-chat-header .title { display: flex; align-items: center; gap: 10px; font-weight: 700; }
@@ -541,13 +408,13 @@
         }
         .ai-chat-messages .msg .time { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; display: block; opacity: 0.5; }
         .ai-chat-input {
-            padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.04);
+            padding: 12px 16px 16px; border-top: 1px solid var(--border-color);
             display: flex; gap: 10px; flex-shrink: 0;
         }
         .ai-chat-input input {
             flex: 1; padding: 10px 16px; border-radius: 50px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-            color: #fff; font-family: inherit; font-size: 0.9rem; outline: none;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            color: var(--text-color); font-family: inherit; font-size: 0.9rem; outline: none;
         }
         .ai-chat-input input:focus { border-color: #a855f7; }
         .ai-chat-input input::placeholder { color: rgba(255,255,255,0.25); }
@@ -560,41 +427,6 @@
         .ai-chat-typing { display: none; padding: 8px 16px; color: var(--text-muted); font-size: 0.8rem; font-style: italic; }
         .ai-chat-typing.show { display: block; }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            padding: 60px 24px 30px;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            background: rgba(6,29,58,0.5);
-            backdrop-filter: blur(12px);
-        }
-        .footer .container {
-            max-width: 1320px; margin: 0 auto;
-            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
-        }
-        .footer .brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 340px; margin-top: 8px; }
-        .footer .brand .socials { display: flex; gap: 10px; margin-top: 16px; }
-        .footer .brand .socials a {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--text-muted); transition: 0.3s;
-        }
-        .footer .brand .socials a:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-        .footer h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #fff; }
-        .footer ul li { margin-bottom: 6px; }
-        .footer ul li a { color: var(--text-muted); font-size: 0.9rem; transition: 0.3s; }
-        .footer ul li a:hover { color: var(--gold); padding-right: 6px; }
-        .footer-bottom {
-            max-width: 1320px; margin: 40px auto 0; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            text-align: center; color: var(--text-muted); font-size: 0.8rem;
-        }
-        .footer-bottom span { color: var(--gold); }
-
-        /* ===== REVEAL ===== */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
         /* ===== SCROLL TOP ===== */
         .scroll-top {
             position: fixed; bottom: 100px; left: 28px; z-index: 9998;
@@ -606,6 +438,10 @@
         .scroll-top:hover { transform: scale(1.1); }
         .scroll-top.show { display: flex; }
 
+        /* ===== REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width:1024px) {
             .hero .container { grid-template-columns: 1fr; text-align: center; }
@@ -613,27 +449,29 @@
             .hero-buttons { justify-content: center; }
             .hero-stats { justify-content: center; }
             .hero-card { margin: 0 auto; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .footer .container { grid-template-columns: 1fr 1fr; }
+            .contact-preview { grid-template-columns: 1fr; }
         }
         @media (max-width:768px) {
-            .hotels-grid, .packages-grid, .offers-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
+            .featured-grid { grid-template-columns: 1fr 1fr; }
             .footer .container { grid-template-columns: 1fr; text-align: center; }
             .footer .brand .socials { justify-content: center; }
             .ai-chat-box { width: calc(100vw - 32px); right: 16px; bottom: 155px; max-height: 450px; }
             .ai-chat-toggle { right: 16px; bottom: 85px; width: 50px; height: 50px; font-size: 1.4rem; }
-            .railway-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width:480px) {
-            .hotels-grid, .packages-grid, .offers-grid, .blog-grid, .railway-grid { grid-template-columns: 1fr; }
             .hero-stats { flex-direction: column; gap: 10px; align-items: center; }
             .hero-buttons .btn { width: 100%; justify-content: center; }
-            .section { padding: 56px 16px; }
-            .contact-form { padding: 24px; }
+            .contact-preview .info .item { flex-wrap: wrap; }
+        }
+        @media (max-width:480px) {
+            .featured-grid { grid-template-columns: 1fr; }
+            .section { padding: 40px 16px; }
+            .hero { padding: 110px 16px 60px; }
         }
     </style>
 </head>
 <body>
+    <!-- ===== PROGRESS BAR ===== -->
+    <div id="progress-bar"></div>
+
     <!-- ===== PARTICLES ===== -->
     <canvas id="particles-canvas"></canvas>
 
@@ -657,11 +495,10 @@
                 <a href="cars.html" id="navCars">سيارات</a>
                 <a href="about.html" id="navAbout">من نحن</a>
                 <a href="contact.html" id="navContact">اتصل بنا</a>
-                <a href="blog.html" id="navBlog">📝 مدونة</a>
-                <a href="chatbot.html" id="navChatbot">🤖 مساعد</a>
                 <a href="contact.html" class="nav-cta" id="navCta">📞 احجز الآن</a>
             </nav>
             <div style="display:flex; align-items:center; gap:12px;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
                 <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
                 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             </div>
@@ -675,9 +512,9 @@
                 <h1 id="heroTitle1">اكتشف العالم مع <br /><span class="highlight" id="heroTitle2">صعود الطائرة</span></h1>
                 <p class="subtitle" id="heroSub">وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية. رحلتك المثالية تبدأ هنا.</p>
                 <div class="hero-buttons">
-                    <a href="#packages" class="btn btn-primary" id="heroBtn1"><i class="fas fa-globe-asia"></i> استكشف الباقات</a>
+                    <a href="packages.html" class="btn btn-primary" id="heroBtn1"><i class="fas fa-globe-asia"></i> استكشف الباقات</a>
                     <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" id="heroBtn2"><i class="fab fa-whatsapp"></i> واتساب</a>
-                    <button class="btn btn-ai" onclick="toggleAIChat()" id="heroBtn3"><i class="fas fa-robot"></i> مساعد AI</button>
+                    <button class="btn btn-outline" onclick="toggleAIChat()" id="heroBtn3"><i class="fas fa-robot"></i> مساعد AI</button>
                 </div>
                 <div class="hero-stats">
                     <div class="stat"><h3 id="count1">0</h3><p id="stat1">عميل سعيد</p></div>
@@ -706,202 +543,126 @@
         </div>
     </section>
 
-    <!-- ===== SERVICES ===== -->
-    <section class="section" id="services">
+    <!-- ===== FEATURED SERVICES ===== -->
+    <section class="section section-alt" id="services">
         <div class="container">
             <div class="section-title reveal">
-                <h2 id="servicesTitle1">خدماتنا <span class="highlight" id="servicesTitle2">المتكاملة</span></h2>
-                <p id="servicesSub">اختر الخدمة التي تحتاجها، واحصل على عرض مخصص</p>
+                <h2>خدماتنا <span class="highlight">المتكاملة</span></h2>
+                <p>أشهر الخدمات التي نقدمها لعملائنا</p>
                 <div class="section-divider"></div>
             </div>
-            <div class="services-grid" id="servicesGrid"></div>
+            <div class="featured-grid" id="featuredServices"></div>
             <div style="text-align:center;margin-top:30px;">
-                <a href="services.html" class="btn btn-primary" id="servicesAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع الخدمات</a>
+                <a href="services.html" class="view-all">عرض جميع الخدمات <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- ===== OFFERS ===== -->
-    <section class="section section-alt" id="offers">
+    <!-- ===== FEATURED OFFERS ===== -->
+    <section class="section" id="offers">
         <div class="container">
             <div class="section-title reveal">
-                <h2 id="offersTitle1">🔥 عروض <span class="highlight" id="offersTitle2">خاصة</span></h2>
-                <p id="offersSub">عروض حصرية محدثة تلقائياً بالذكاء الاصطناعي</p>
+                <h2>🔥 عروض <span class="highlight">خاصة</span></h2>
+                <p>عروض حصرية محدثة تلقائياً</p>
                 <div class="section-divider"></div>
             </div>
-            <div class="offers-grid" id="offersGrid"></div>
+            <div class="featured-grid" id="featuredOffers"></div>
             <div style="text-align:center;margin-top:30px;">
-                <a href="offers.html" class="btn btn-primary" id="offersAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع العروض</a>
+                <a href="offers.html" class="view-all">عرض جميع العروض <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- ===== HOTELS ===== -->
-    <section class="section" id="hotels">
+    <!-- ===== FEATURED HOTELS ===== -->
+    <section class="section section-alt" id="hotels">
         <div class="container">
             <div class="section-title reveal">
-                <h2 id="hotelsTitle1">أفضل <span class="highlight" id="hotelsTitle2">الفنادق</span></h2>
-                <p id="hotelsSub">اختر من بين أكثر من 200 فندق حول العالم</p>
+                <h2>أفضل <span class="highlight">الفنادق</span></h2>
+                <p>اختر من بين أكثر من 200 فندق حول العالم</p>
                 <div class="section-divider"></div>
             </div>
-            <div class="hotels-grid" id="hotelsGrid"></div>
-            <button class="load-more-btn" id="loadMoreHotels">عرض المزيد من الفنادق</button>
-            <div style="text-align:center;margin-top:20px;">
-                <a href="hotels.html" class="btn btn-primary" id="hotelsAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع الفنادق</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PACKAGES ===== -->
-    <section class="section section-alt" id="packages">
-        <div class="container">
-            <div class="section-title reveal">
-                <h2 id="packagesTitle1">باقات <span class="highlight" id="packagesTitle2">السفر</span></h2>
-                <p id="packagesSub">أكثر من 200 باقة سياحية بأسعار تنافسية</p>
-                <div class="section-divider"></div>
-            </div>
-            <div class="packages-grid" id="packagesGrid"></div>
-            <button class="load-more-btn" id="loadMorePackages">عرض المزيد من الباقات</button>
-            <div style="text-align:center;margin-top:20px;">
-                <a href="packages.html" class="btn btn-primary" id="packagesAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع الباقات</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== RAILWAY ===== -->
-    <section class="section" id="railway">
-        <div class="container">
-            <div class="section-title reveal">
-                <h2 id="railwayTitle1">حجز <span class="highlight" id="railwayTitle2">القطارات</span></h2>
-                <p id="railwaySub">حجز تذاكر القطارات بأسعار تبدأ من 85 ريال</p>
-                <div class="section-divider"></div>
-            </div>
-            <div class="railway-grid" id="railwayGrid"></div>
+            <div class="featured-grid" id="featuredHotels"></div>
             <div style="text-align:center;margin-top:30px;">
-                <a href="railway.html" class="btn btn-primary" id="railwayAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع القطارات</a>
+                <a href="hotels.html" class="view-all">عرض جميع الفنادق <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- ===== BLOG ===== -->
+    <!-- ===== FEATURED PACKAGES ===== -->
+    <section class="section" id="packages">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>باقات <span class="highlight">السفر</span></h2>
+                <p>أكثر من 200 باقة سياحية بأسعار تنافسية</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="featured-grid" id="featuredPackages"></div>
+            <div style="text-align:center;margin-top:30px;">
+                <a href="packages.html" class="view-all">عرض جميع الباقات <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED BLOG ===== -->
     <section class="section section-alt" id="blog">
         <div class="container">
             <div class="section-title reveal">
-                <h2 id="blogTitle1">📝 مدونة <span class="highlight" id="blogTitle2">السفر</span></h2>
-                <p id="blogSub">أحدث المقالات والنصائح حول السفر والسياحة</p>
+                <h2>📝 مدونة <span class="highlight">السفر</span></h2>
+                <p>أحدث المقالات والنصائح حول السفر والسياحة</p>
                 <div class="section-divider"></div>
             </div>
-            <div class="blog-grid" id="blogGrid"></div>
-            <button class="load-more-btn" id="loadMoreBlog">عرض المزيد من المقالات</button>
-            <div style="text-align:center;margin-top:20px;">
-                <a href="blog.html" class="btn btn-primary" id="blogAllBtn"><i class="fas fa-arrow-left"></i> عرض جميع المقالات</a>
+            <div class="featured-grid" id="featuredBlog"></div>
+            <div style="text-align:center;margin-top:30px;">
+                <a href="blog.html" class="view-all">عرض جميع المقالات <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
-    <section class="section" id="faq">
+    <!-- ===== ABOUT PREVIEW ===== -->
+    <section class="section" id="about">
         <div class="container">
             <div class="section-title reveal">
-                <h2 id="faqTitle1">الأسئلة <span class="highlight" id="faqTitle2">الشائعة</span></h2>
-                <p id="faqSub">أجوبة على أكثر الأسئلة التي يطرحها عملاؤنا الكرام</p>
+                <h2>من نحن <span class="highlight">في صعود الطائرة</span></h2>
+                <p>وكالة سفر رائدة تقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات</p>
                 <div class="section-divider"></div>
             </div>
-            <div class="faq-grid" id="faqGrid"></div>
-        </div>
-    </section>
-
-    <!-- ===== ABOUT ===== -->
-    <section class="section section-alt" id="about">
-        <div class="container">
-            <div class="section-title reveal">
-                <h2 id="aboutTitle1">من نحن <span class="highlight" id="aboutTitle2">في صعود الطائرة</span></h2>
-                <p id="aboutSub">وكالة سفر رائدة تقدم خدمات سياحية متكاملة منذ أكثر من 5 سنوات</p>
-                <div class="section-divider"></div>
-            </div>
-            <div style="max-width:800px;margin:0 auto;text-align:center;">
-                <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.9;" id="aboutP1">
-                    <strong style="color:var(--gold);font-size:1.2rem;">صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر متكاملة في المملكة العربية السعودية،
-                    نقدم أكثر من 20 خدمة سياحية تشمل حجز الطيران، العمرة، التأشيرات، الفنادق (أكثر من 200 فندق)،
-                    الباقات السياحية (أكثر من 200 باقة)، تأجير السيارات، حجز القطارات والباصات، نقل المطار،
-                    التأمين السياحي، الرحلات الجماعية، الرحلات البحرية، سفر رجال الأعمال، والمزيد.
-                </p>
-                <p style="color:var(--text-muted);font-size:1.1rem;line-height:1.9;margin-top:16px;" id="aboutP2">
-                    فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا،
-                    مع أسعار تنافسية وخدمات متميزة.
-                </p>
-                <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:30px;">
-                    <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
-                        <h3 style="color:var(--gold);font-size:2rem;">+200</h3>
-                        <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat1">فندق</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
-                        <h3 style="color:var(--gold);font-size:2rem;">+200</h3>
-                        <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat2">باقة سياحية</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
-                        <h3 style="color:var(--gold);font-size:2rem;">+20</h3>
-                        <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat3">خدمة سياحية</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);min-width:120px;">
-                        <h3 style="color:var(--gold);font-size:2rem;">+50</h3>
-                        <p style="color:var(--text-muted);font-size:0.8rem;" id="aboutStat4">مقالة سياحية</p>
-                    </div>
-                </div>
-                <div style="margin-top:30px;">
-                    <a href="about.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> تعرف علينا أكثر</a>
-                </div>
+            <div class="about-preview reveal">
+                <p><strong>صعود الطائرة للسفر والسياحة</strong> هي وكالة سفر متكاملة في المملكة العربية السعودية، نقدم أكثر من 20 خدمة سياحية تشمل حجز الطيران، العمرة، التأشيرات، الفنادق (أكثر من 200 فندق)، الباقات السياحية (أكثر من 200 باقة)، تأجير السيارات، حجز القطارات والباصات، نقل المطار، التأمين السياحي، الرحلات الجماعية، الرحلات البحرية، سفر رجال الأعمال، والمزيد.</p>
+                <p style="margin-top:16px;">فريقنا المتخصص يعمل على مدار الساعة لضمان رحلة سلسة وممتعة لعملائنا، مع أسعار تنافسية وخدمات متميزة.</p>
+                <a href="about.html" class="view-all" style="margin-top:20px;">تعرف علينا أكثر <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section class="section" id="contact">
+    <!-- ===== CONTACT PREVIEW ===== -->
+    <section class="section section-alt" id="contact">
         <div class="container">
             <div class="section-title reveal">
-                <h2 id="contactTitle1">اتصل <span class="highlight" id="contactTitle2">بنا</span></h2>
-                <p id="contactSub">نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز</p>
+                <h2>اتصل <span class="highlight">بنا</span></h2>
+                <p>نحن هنا لخدمتك — تواصل معنا لأي استفسار أو حجز</p>
                 <div class="section-divider"></div>
             </div>
-            <div class="contact-grid">
-                <div>
-                    <div class="info-card">
-                        <div class="icon-box"><i class="fas fa-phone"></i></div>
-                        <div><div class="label" id="labelWorkPhone">هاتف العمل</div><div class="value" dir="ltr">0554126832</div></div>
-                    </div>
-                    <div class="info-card">
-                        <div class="icon-box"><i class="fas fa-phone"></i></div>
-                        <div><div class="label" id="labelOwnerPhone">هاتف المالك</div><div class="value" dir="ltr">0555382038</div></div>
-                    </div>
-                    <div class="info-card">
-                        <div class="icon-box"><i class="fas fa-envelope"></i></div>
-                        <div><div class="label" id="labelEmail">البريد الإلكتروني</div><div class="value" dir="ltr" style="font-size:0.85rem;">hamdan@sueudaltaayira.com</div><div class="value" dir="ltr" style="font-size:0.8rem;font-weight:400;">atallahalanazi@sueudaltaayira.com</div></div>
-                    </div>
-                    <div class="info-card">
-                        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
-                        <div><div class="label" id="labelAddress">العنوان</div><div class="value" style="font-weight:400;font-size:0.95rem;" id="addressText">طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</div></div>
-                    </div>
-                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
-                        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link" id="waOwnerBtn"><i class="fab fa-whatsapp"></i> واتساب المالك</a>
-                        <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn-whatsapp-link work" id="waWorkBtn"><i class="fab fa-whatsapp"></i> واتساب العمل</a>
-                    </div>
-                    <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
-                        <a href="privacy.html" style="color:var(--gold);font-size:0.85rem;" id="privacyLink"><i class="fas fa-lock"></i> سياسة الخصوصية</a>
-                        <a href="terms.html" style="color:var(--gold);font-size:0.85rem;" id="termsLink"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
-                        <a href="chatbot.html" style="color:var(--gold);font-size:0.85rem;"><i class="fas fa-robot"></i> مساعد الذكي</a>
+            <div class="contact-preview reveal">
+                <div class="info">
+                    <div class="item"><i class="fas fa-phone"></i><span>0554126832 (العمل)</span></div>
+                    <div class="item"><i class="fas fa-phone"></i><span>0555382038 (المالك)</span></div>
+                    <div class="item"><i class="fas fa-envelope"></i><span>hamdan@sueudaltaayira.com</span></div>
+                    <div class="item"><i class="fas fa-map-marker-alt"></i><span>طريق ملك عبدالعزيز، عرعر، المملكة العربية السعودية</span></div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+                        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1;justify-content:center;padding:12px;">واتساب المالك</a>
+                        <a href="https://wa.me/966554126832?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="btn btn-whatsapp" style="flex:1;justify-content:center;padding:12px;background:#1ebe5c;">واتساب العمل</a>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3 id="formTitle">📩 أرسل لنا رسالة</h3>
-                    <p class="form-sub" id="formSub">سنرد عليك في أقرب وقت ممكن</p>
-                    <form id="contactForm">
-                        <div class="form-group"><input type="text" id="contactName" placeholder="الاسم الكامل" required /></div>
-                        <div class="form-group"><input type="tel" id="contactPhone" placeholder="رقم الجوال" required /></div>
-                        <div class="form-group"><input type="email" id="contactEmail" placeholder="البريد الإلكتروني" /></div>
-                        <div class="form-group"><textarea id="contactMessage" placeholder="اكتب رسالتك هنا..." required></textarea></div>
-                        <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
+                <div class="form-box">
+                    <h3 style="text-align:center;color:var(--gold);font-size:1.3rem;margin-bottom:16px;">📩 أرسل لنا رسالة</h3>
+                    <form id="homeContactForm">
+                        <input type="text" id="homeName" placeholder="الاسم الكامل" required />
+                        <input type="tel" id="homePhone" placeholder="رقم الجوال" required />
+                        <input type="email" id="homeEmail" placeholder="البريد الإلكتروني" />
+                        <textarea id="homeMessage" placeholder="رسالتك..." required></textarea>
+                        <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> إرسال عبر واتساب</button>
+                        <div id="homeFormStatus" style="margin-top:12px;text-align:center;font-size:0.9rem;min-height:28px;"></div>
                     </form>
-                    <div class="form-status" id="formStatus"></div>
                 </div>
             </div>
         </div>
@@ -966,7 +727,7 @@
 
     <!-- ===== WHATSAPP FLOAT ===== -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمات%20السفر" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
         <span class="wa-label" id="waFloatLabel">تواصل واتساب</span>
     </div>
 
@@ -994,12 +755,10 @@
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
     <!-- ============================================================
-    JAVASCRIPT – FINAL FIXED VERSION
+    JAVASCRIPT
     ============================================================ -->
     <script>
-        // ============================================================
-        // 1. PARTICLES
-        // ============================================================
+        // ===== PARTICLES =====
         (function() {
             const canvas = document.getElementById('particles-canvas');
             if (!canvas) return;
@@ -1008,8 +767,7 @@
             const particles = [];
             const COUNT = 60;
 
-            function resize() { w = canvas.width = window.innerWidth;
-                h = canvas.height = window.innerHeight; }
+            function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
             window.addEventListener('resize', resize);
             resize();
 
@@ -1058,17 +816,37 @@
 
             function animate() {
                 ctx.clearRect(0, 0, w, h);
-                particles.forEach(p => { p.update();
-                    p.draw(); });
+                particles.forEach(p => { p.update(); p.draw(); });
                 drawLines();
                 requestAnimationFrame(animate);
             }
             animate();
         })();
 
-        // ============================================================
-        // 2. HAMBURGER
-        // ============================================================
+        // ===== PROGRESS BAR =====
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // ===== DARK MODE =====
+        const themeToggle = document.getElementById('themeToggle');
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
+            localStorage.setItem('theme', theme);
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        setTheme(currentTheme);
+        themeToggle.addEventListener('click', () => {
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            currentTheme = newTheme;
+            setTheme(newTheme);
+        });
+
+        // ===== HAMBURGER =====
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => {
@@ -1079,35 +857,28 @@
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('open');
-                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
             });
         });
 
-        // ============================================================
-        // 3. SCROLL REVEAL & TOP BUTTON
-        // ============================================================
+        // ===== SCROLL REVEAL =====
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal, .service-card, .package-card, .hotel-card, .offer-card, .blog-card, .railway-item, .faq-item')
-            .forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal, .featured-item').forEach(el => observer.observe(el));
 
+        // ===== SCROLL TOP =====
         const scrollBtn = document.getElementById('scrollTop');
         window.addEventListener('scroll', () => {
             scrollBtn.classList.toggle('show', window.pageYOffset > 300);
         });
 
-        // ============================================================
-        // 4. ANIMATED COUNTERS
-        // ============================================================
+        // ===== ANIMATED COUNTERS =====
         function animateCounter(el, target, suffix = '') {
             let current = 0;
             const step = Math.ceil(target / 60);
             const interval = setInterval(() => {
                 current += step;
-                if (current >= target) { current = target;
-                    clearInterval(interval); }
+                if (current >= target) { current = target; clearInterval(interval); }
                 el.textContent = current + suffix;
             }, 20);
         }
@@ -1127,395 +898,115 @@
         }, { threshold: 0.5 });
         document.querySelector('.hero-stats') && counterObserver.observe(document.querySelector('.hero-stats'));
 
-        // ============================================================
-        // 5. DATA DEFINITIONS (All arrays fully populated)
-        // ============================================================
-
-        // ---------- SERVICES ----------
+        // ===== DATA =====
         const servicesData = [
-            { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران مع أفضل شركات الطيران العالمية',
-                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop' },
-            { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة بأسعار تنافسية وخدمات فندقية مميزة',
-                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop' },
-            { icon: '🛂', name: 'التأشيرات', desc: 'تأشيرات سياحة، عمل، زيارة، علاج، وعمرة لكافة الدول',
-                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop' },
-            { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق الفاخرة والاقتصادية حول العالم',
-                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop' },
-            { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل',
-                img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop' },
-            { icon: '🏝️', name: 'باقات سياحية', desc: 'عطلات شاملة في أجمل وجهات العالم بأسعار لا تُقاوم',
-                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop' },
-            { icon: '🚆', name: 'حجز القطارات', desc: 'حجز تذاكر القطارات (السكك الحديدية) بأسعار مخفضة',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop' },
-            { icon: '🚌', name: 'حجز الباصات', desc: 'رحلات برية مريحة بأفضل الأسعار على شبكات الباصات',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop' },
-            { icon: '✈️', name: 'نقل المطار', desc: 'خدمة استقبال وتوديع من وإلى المطار بسيارات حديثة',
-                img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop' },
-            { icon: '🛡️', name: 'تأمين السفر', desc: 'تأمين شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة',
-                img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop' }
+            { icon: '✈️', name: 'تذاكر طيران', desc: 'أرخص أسعار تذاكر الطيران',
+            img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop' },
+            { icon: '🕋', name: 'باقات العمرة', desc: 'باقات عمرة متكاملة',
+            img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
+            { icon: '🛂', name: 'التأشيرات', desc: 'جميع أنواع التأشيرات',
+            img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop' },
+            { icon: '🏨', name: 'حجز الفنادق', desc: 'أفضل العروض على الفنادق',
+            img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
+            { icon: '🚗', name: 'تأجير السيارات', desc: 'سيارات فاخرة واقتصادية',
+            img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop' },
+            { icon: '🚆', name: 'حجز القطارات', desc: 'تذاكر قطار بأسعار مخفضة',
+            img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop' }
         ];
-
-        // ---------- OFFERS ----------
         const offersData = [
-            { icon: '🇸🇦', badge: 'عرض اليوم الوطني', title: 'خصم 93% على الفنادق',
-                desc: 'احتفل باليوم الوطني السعودي مع خصم فوري يصل إلى 93% على حجز الفنادق', price: 'ابتداءً من 435 ر.س' },
-            { icon: '🕌', badge: 'عمرة رمضان', title: 'باقات عمرة رمضان',
-                desc: 'باقات عمرة متكاملة في رمضان تشمل تأشيرة، سكن قريب من الحرم، ومواصلات', price: 'ابتداءً من 1,700 درهم' },
-            { icon: '🏨', badge: 'خصم فنادق', title: 'خصم 9% على الفنادق',
-                desc: 'احصل على خصم 9% على جميع الفنادق باستخدام الكود KSA90', price: 'خصم 9% + 900 نقطة' },
-            { icon: '🚆', badge: 'عروض القطارات', title: 'تذاكر قطار بأسعار مخفضة',
-                desc: 'رحلة مريحة بين المدن السعودية بأسعار تبدأ من 85 ريال فقط', price: 'ابتداءً من 85 ريال' },
-            { icon: '🏖️', badge: 'عرض العطلات', title: 'إقامة في مكة بأسعار مميزة',
-                desc: 'فندق أم مكة من ميلينيوم – إقامة ليلتين أو ثلاث بأسعار مخفضة', price: 'ابتداءً من 435 ر.س' },
-            { icon: '✈️', badge: 'عرض الطيران', title: 'تذاكر طيران بأسعار تنافسية',
-                desc: 'أرخص أسعار تذاكر الطيران مع فلاي ناس وطيران أديل', price: 'ابتداءً من 179 ريال' }
+            { icon: '🇸🇦', title: 'خصم 93% على الفنادق', desc: 'بمناسبة اليوم الوطني',
+                price: 'ابتداءً من 435 ر.س', img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop' },
+            { icon: '🕌', title: 'باقات عمرة رمضان', desc: 'عمرة متكاملة في رمضان',
+                price: 'ابتداءً من 1,700 درهم', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
+            { icon: '🚆', title: 'تذاكر قطار مخفضة', desc: 'أسعار تبدأ من 85 ريال',
+                price: 'ابتداءً من 85 ريال', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop' }
+        ];
+        const hotelsData = [
+            { name: 'فندق الفيرمونت', city: 'الرياض', price: 750,
+            img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=300&fit=crop' },
+            { name: 'الريتز كارلتون', city: 'جدة', price: 980,
+            img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop' },
+            { name: 'فور سيزونز', city: 'مكة', price: 1200,
+            img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop' }
+        ];
+        const packagesData = [
+            { name: 'عمرة رمضان', city: 'مكة', price: 2500, days: 5,
+            img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' },
+            { name: 'عطلة دبي الفاخرة', city: 'دبي', price: 3800, days: 7,
+            img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
+            { name: 'رحلة باريس الرومانسية', city: 'باريس', price: 4200, days: 6,
+            img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop' }
+        ];
+        const blogData = [
+            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن',
+            img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop' },
+            { title: 'دليل السفر إلى دبي', desc: 'نصائح وإرشادات',
+            img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop' },
+            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة',
+            img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop' }
         ];
 
-        // ---------- HOTELS (220) ----------
-        const hotelNames = ['فندق الفيرمونت', 'الريتز كارلتون', 'فور سيزونز', 'هيلتون', 'شيراتون', 'ماريوت', 'كيمبنسكي', 'ريتز باريس',
-            'جراند حياة', 'إنتركونتيننتال', 'ويستن', 'لو ميريديان', 'سوفيتيل', 'نوفوتيل', 'إيبيس', 'موفنبيك'
-        ];
-        const hotelCities = ['الرياض', 'جدة', 'مكة', 'المدينة', 'الدمام', 'الخبر', 'أبها', 'تبوك', 'دبي', 'أبوظبي', 'الدوحة', 'مسقط',
-            'الكويت', 'عمّان', 'القاهرة', 'اسطنبول'
-        ];
-        const hotelImages = [
-            'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&h=250&fit=crop',
-            'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=250&fit=crop',
-            'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=250&fit=crop',
-            'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=250&fit=crop',
-            'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=250&fit=crop',
-            'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=250&fit=crop'
-        ];
-        const cityPriceBase = { 'الرياض': 1477, 'جدة': 758, 'مكة': 627, 'المدينة': 550, 'الدمام': 650, 'الخبر': 600,
-            'أبها': 500, 'تبوك': 450, 'دبي': 800, 'أبوظبي': 750, 'الدوحة': 700, 'مسقط': 600, 'الكويت': 500, 'عمّان': 480,
-            'القاهرة': 400, 'اسطنبول': 450
-        };
-
-        let allHotels = [];
-        for (let i = 0; i < 220; i++) {
-            const name = hotelNames[i % hotelNames.length] + (Math.floor(i / hotelNames.length) > 0 ? ` ${Math.floor(i / hotelNames
-                    .length) + 1}` : '');
-            const city = hotelCities[i % hotelCities.length];
-            const basePrice = cityPriceBase[city] || 700;
-            const price = Math.round((basePrice * (0.7 + Math.random() * 0.6)) / 5) * 5;
-            const rating = (4 + Math.random() * 1).toFixed(1);
-            allHotels.push({ name, city, rating, price, img: hotelImages[i % hotelImages.length] });
+        function renderFeatured(containerId, items, template) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = items.map((item, i) => {
+                let html = `<div class="featured-item reveal" style="transition-delay:${i*0.1}s">`;
+                html += template(item);
+                html += '</div>';
+                return html;
+            }).join('');
+            container.querySelectorAll('.featured-item.reveal').forEach(el => observer.observe(el));
         }
 
-        // ---------- PACKAGES (220) ----------
-        const packageNames = ['عمرة رمضان', 'عطلة دبي الفاخرة', 'رحلة باريس الرومانسية', 'استكشاف اسطنبول',
-            'عطلة شاطئية في جدة', 'رحلة سياحية إلى لندن', 'سفر رجال أعمال إلى نيويورك',
-            'رحلة عائلية إلى كوالالمبور', 'سفاري في كينيا', 'رحلة شتوية إلى سويسرا'
-        ];
-        const packageCities = ['مكة', 'دبي', 'باريس', 'اسطنبول', 'جدة', 'لندن', 'نيويورك', 'كوالالمبور', 'نيروبي', 'زيرمات'];
-        const packageImages = [
-            'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1535139267832-7e3a5b2f6ae7?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&h=400&fit=crop'
-        ];
-        const packagePriceBase = { 'مكة': 2500, 'دبي': 3800, 'باريس': 4200, 'اسطنبول': 2200, 'جدة': 1800,
-            'لندن': 4500, 'نيويورك': 5500, 'كوالالمبور': 3200, 'نيروبي': 4800, 'زيرمات': 5200
-        };
+        renderFeatured('featuredServices', servicesData, item => `
+            <div class="img" style="background-image:url('${item.img}');"></div>
+            <span class="icon">${item.icon}</span>
+            <h4>${item.name}</h4>
+            <p>${item.desc}</p>
+        `);
 
-        let allPackages = [];
-        for (let i = 0; i < 220; i++) {
-            const name = packageNames[i % packageNames.length] + (Math.floor(i / packageNames.length) > 0 ? ` ${Math.floor(i /
-                    packageNames.length) + 1}` : '');
-            const city = packageCities[i % packageCities.length];
-            const basePrice = packagePriceBase[city] || 3000;
-            const price = Math.round((basePrice * (0.85 + Math.random() * 0.3)) / 50) * 50;
-            const days = 3 + Math.floor(Math.random() * 8);
-            allPackages.push({ name, city, price, days, img: packageImages[i % packageImages.length] });
-        }
+        renderFeatured('featuredOffers', offersData, item => `
+            <div class="img" style="background-image:url('${item.img}');"></div>
+            <span class="icon">${item.icon}</span>
+            <h4>${item.title}</h4>
+            <p>${item.desc}</p>
+            <div class="price">${item.price}</div>
+        `);
 
-        // ---------- RAILWAY ----------
-        const railwayRoutes = [
-            { from: 'الرياض', to: 'الدمام', duration: '3-4 ساعات', price: '85-145 ر.س',
-                detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الدمام', to: 'الرياض', duration: '3-4 ساعات', price: '85-145 ر.س',
-                detail: 'درجة اقتصادية 85 ريال، درجة أعمال 145 ريال',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'الهفوف', duration: '2.5 ساعة', price: '60-100 ر.س', detail: 'أسعار تنافسية حسب الدرجة',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الدمام', to: 'الهفوف', duration: '1.5 ساعة', price: '40-70 ر.س', detail: 'رحلة قصيرة ومريحة',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'القصيم', duration: '2.5 ساعة', price: '90-140 ر.س', detail: 'خط الشمال الغربي',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' },
-            { from: 'الرياض', to: 'حائل', duration: '4 ساعات', price: '120-180 ر.س', detail: 'خط الشمال',
-                img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop' }
-        ];
+        renderFeatured('featuredHotels', hotelsData, item => `
+            <div class="img" style="background-image:url('${item.img}');"></div>
+            <h4>${item.name}</h4>
+            <p>${item.city}</p>
+            <div class="price">${item.price} ر.س/ليلة</div>
+        `);
 
-        // ---------- BLOG ----------
-        const blogPosts = [
-            { title: 'أفضل 10 وجهات سياحية في العالم', desc: 'اكتشف أجمل الأماكن التي يجب زيارتها حول العالم', tag: 'وجهات سياحية',
-                img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop', date: '1 أغسطس 2026' },
-            { title: 'دليل السفر إلى دبي – كل ما تحتاج معرفته', desc: 'نصائح وإرشادات لرحلة مثالية إلى دبي', tag: 'دليل سفر',
-                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop', date: '29 يوليو 2026' },
-            { title: 'كيف تحجز عمرة بسهولة؟', desc: 'خطوات بسيطة لحجز عمرة مميزة ومريحة', tag: 'عمرة',
-                img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', date: '25 يوليو 2026' },
-            { title: 'أفضل فنادق مكة قرب الحرم', desc: 'دليل شامل لأفضل الفنادق القريبة من الحرم المكي', tag: 'فنادق',
-                img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop', date: '20 يوليو 2026' },
-            { title: 'رحلة إلى باريس – مدينة النور', desc: 'استكشف أجمل معالم باريس مع نصائح السفر', tag: 'سفر',
-                img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop', date: '15 يوليو 2026' },
-            { title: 'تأشيرة السياحة إلى أوروبا – دليل كامل', desc: 'كل ما تحتاج معرفته عن تأشيرة شنغن', tag: 'تأشيرات',
-                img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop', date: '10 يوليو 2026' }
-        ];
+        renderFeatured('featuredPackages', packagesData, item => `
+            <div class="img" style="background-image:url('${item.img}');"></div>
+            <h4>${item.name}</h4>
+            <p>${item.city} - ${item.days} ليالي</p>
+            <div class="price">${item.price} ر.س</div>
+        `);
 
-        // ---------- FAQ ----------
-        const faqData = [
-            { q: 'ما هي خدمات وكالة صعود الطائرة؟',
-                a: 'نقدم أكثر من 20 خدمة سياحية تشمل: تذاكر الطيران، باقات العمرة، التأشيرات، حجز الفنادق (أكثر من 200 فندق)، تأجير السيارات، باقات سياحية (أكثر من 200 باقة)، حجز القطارات والباصات، نقل المطار، تأمين السفر، رحلات جماعية، رحلات بحرية، سفر رجال الأعمال، وغيرها.' },
-            { q: 'كيف يمكنني حجز رحلة مع صعود الطائرة؟',
-                a: 'يمكنك حجز رحلتك من خلال: 1- الضغط على "احجز الآن" في الأعلى، 2- اختيار الخدمة المطلوبة من قسم الخدمات، 3- ملء نموذج الحجز، 4- سيتم تحويل طلبك مباشرة إلى واتساب لإتمام الحجز.' },
-            { q: 'هل تقدمون عروضاً خاصة؟',
-                a: 'نعم! لدينا عروض حصرية مثل خصم 93% على الفنادق بمناسبة اليوم الوطني، عروض عمرة رمضان، خصم 9% باستخدام كود KSA90، وعروض القطارات بأسعار تبدأ من 85 ريال.' },
-            { q: 'كم عدد الفنادق المتاحة للحجز؟',
-                a: 'لدينا أكثر من 200 فندق حول العالم في مختلف المدن مثل الرياض، جدة، مكة، دبي، لندن، باريس، نيويورك، طوكيو، وغيرها.' },
-            { q: 'هل تقدمون باقات عمرة؟',
-                a: 'نعم، لدينا باقات عمرة متكاملة تشمل التأشيرة، السكن القريب من الحرم، المواصلات الداخلية، الوجبات الفاخرة، ومرشد سياحي.' },
-            { q: 'كيف يمكنني التواصل معكم؟',
-                a: 'يمكنك التواصل عبر: 1- الهاتف: 0555382038 (المالك) أو 0554126832 (العمل)، 2- واتساب عبر الزر العائم، 3- البريد الإلكتروني: hamdan@sueudaltaayira.com، 4- نموذج الاتصال في الصفحة.' },
-            { q: 'هل تقدمون تأمين سفر؟',
-                a: 'نعم، نوفر تأمين سفر شامل يغطي المخاطر الطبية، إلغاء الرحلات، وفقدان الأمتعة، مع دعم 24/7.' },
-            { q: 'كم عدد الباقات السياحية المتاحة؟',
-                a: 'لدينا أكثر من 200 باقة سياحية تشمل وجهات مثل دبي، باريس، اسطنبول، لندن، نيويورك، كوالالمبور، وغيرها.' },
-            { q: 'هل تقدمون حجز قطارات؟',
-                a: 'نعم، نوفر حجز تذاكر القطارات (سار) بأسعار تبدأ من 85 ريال للدرجة الاقتصادية، و145 ريال لدرجة الأعمال.' },
-            { q: 'هل تدعمون اللغة الإنجليزية؟',
-                a: 'نعم، يمكنك تغيير لغة الموقع إلى الإنجليزية عن طريق زر "English" في الأعلى، وسيتم ترجمة جميع المحتويات.' }
-        ];
+        renderFeatured('featuredBlog', blogData, item => `
+            <div class="img" style="background-image:url('${item.img}');"></div>
+            <h4>${item.title}</h4>
+            <p>${item.desc}</p>
+        `);
 
-        // ============================================================
-        // 6. RENDER FUNCTIONS
-        // ============================================================
-
-        // ---------- Services ----------
-        const servicesGrid = document.getElementById('servicesGrid');
-        servicesData.slice(0, 10).forEach((s, i) => {
-            const card = document.createElement('div');
-            card.className = 'service-card reveal';
-            card.style.transitionDelay = `${i * 0.05}s`;
-            card.innerHTML = `
-                <div class="simg" style="background-image:url('${s.img}');"></div>
-                <div class="icon">${s.icon}</div>
-                <h4>${s.name}</h4>
-                <p>${s.desc}</p>
-                <span class="service-tag">احجز الآن</span>
-                <div class="click-hint"><i class="fas fa-phone"></i> اضغط للتواصل</div>
-            `;
-            card.addEventListener('click', () => {
-                window.open(
-                    `https://wa.me/966555382038?text=مرحباً%20أرغب%20في%20الاستفسار%20عن%20خدمة%20${encodeURIComponent(s.name)}`,
-                    '_blank');
-            });
-            servicesGrid.appendChild(card);
-        });
-
-        // ---------- Offers ----------
-        const offersGrid = document.getElementById('offersGrid');
-        offersData.forEach((offer, i) => {
-            const card = document.createElement('div');
-            card.className = 'offer-card reveal';
-            card.style.transitionDelay = `${i * 0.1}s`;
-            card.innerHTML = `
-                <div class="offer-icon">${offer.icon}</div>
-                <div class="offer-badge">${offer.badge}</div>
-                <h4>${offer.title}</h4>
-                <p>${offer.desc}</p>
-                <div class="offer-price">${offer.price}</div>
-                <button class="btn-sm" onclick="bookOffer('${offer.title}')"><i class="fab fa-whatsapp"></i> استفد من العرض</button>
-            `;
-            offersGrid.appendChild(card);
-        });
-        window.bookOffer = function(title) {
-            const msg = `🎁 عرض خاص: ${title}\nأرغب في الاستفادة من هذا العرض`;
-            window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
-        };
-
-        // ---------- Hotels ----------
-        let hotelsDisplayCount = 6;
-        const hotelsGrid = document.getElementById('hotelsGrid');
-
-        function renderHotels(count) {
-            const toShow = allHotels.slice(0, count);
-            hotelsGrid.innerHTML = '';
-            toShow.forEach(h => {
-                const card = document.createElement('div');
-                card.className = 'hotel-card reveal';
-                card.innerHTML = `
-                    <div class="img" style="background-image:url('${h.img}');"></div>
-                    <div class="body">
-                        <h4>${h.name}</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> ${h.city}</div>
-                        <div class="rating">${'★'.repeat(Math.floor(h.rating))}${h.rating % 1 >= 0.5 ? '½' : ''} (${h.rating}) <i class="fas fa-star"></i></div>
-                        <div class="price">${h.price} ر.س <small>/ ليلة</small></div>
-                        <button class="btn-sm" onclick="bookHotel('${h.name}','${h.city}',${h.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
-                    </div>
-                `;
-                hotelsGrid.appendChild(card);
-            });
-            document.querySelectorAll('.hotel-card.reveal').forEach(el => observer.observe(el));
-            const loadBtn = document.getElementById('loadMoreHotels');
-            if (count >= allHotels.length) loadBtn.style.display = 'none';
-            else loadBtn.style.display = 'block';
-        }
-
-        renderHotels(hotelsDisplayCount);
-
-        document.getElementById('loadMoreHotels').addEventListener('click', function() {
-            hotelsDisplayCount += 6;
-            renderHotels(hotelsDisplayCount);
-        });
-
-        window.bookHotel = function(name, city, price) {
-            const msg =
-                `🏨 حجز فندق\nالفندق: ${name}\nالمدينة: ${city}\nالسعر: ${price} ر.س/ليلة\nأرغب في الحصول على عرض سعر مفصل`;
-            window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
-        };
-
-        // ---------- Packages ----------
-        let packagesDisplayCount = 6;
-        const packagesGrid = document.getElementById('packagesGrid');
-
-        function renderPackages(count) {
-            const toShow = allPackages.slice(0, count);
-            packagesGrid.innerHTML = '';
-            toShow.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'package-card reveal';
-                card.innerHTML = `
-                    <div class="img" style="background-image:url('${p.img}');"></div>
-                    <div class="body">
-                        <h4>${p.name}</h4>
-                        <div class="location"><i class="fas fa-map-pin"></i> ${p.city}</div>
-                        <div class="price">${p.price} ر.س <small>/ ${p.days} ليالي</small></div>
-                        <button class="btn-sm" onclick="bookPackage('${p.name}','${p.city}',${p.price})"><i class="fas fa-calendar-check"></i> احجز الآن</button>
-                    </div>
-                `;
-                packagesGrid.appendChild(card);
-            });
-            document.querySelectorAll('.package-card.reveal').forEach(el => observer.observe(el));
-            const loadBtn = document.getElementById('loadMorePackages');
-            if (count >= allPackages.length) loadBtn.style.display = 'none';
-            else loadBtn.style.display = 'block';
-        }
-
-        renderPackages(packagesDisplayCount);
-
-        document.getElementById('loadMorePackages').addEventListener('click', function() {
-            packagesDisplayCount += 6;
-            renderPackages(packagesDisplayCount);
-        });
-
-        window.bookPackage = function(name, city, price) {
-            const msg =
-                `🏝️ حجز باقة سياحية\nالباقة: ${name}\nالوجهة: ${city}\nالسعر: ${price} ر.س\nأرغب في الحصول على عرض سعر مفصل`;
-            window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
-        };
-
-        // ---------- Railway ----------
-        const railwayGrid = document.getElementById('railwayGrid');
-        railwayRoutes.forEach((r, i) => {
-            const item = document.createElement('div');
-            item.className = 'railway-item reveal';
-            item.style.transitionDelay = `${i * 0.1}s`;
-            item.innerHTML = `
-                <div class="rimg" style="background-image:url('${r.img}');"></div>
-                <div class="icon">🚆</div>
-                <h4>${r.from} → ${r.to}</h4>
-                <p>⏱ ${r.duration}</p>
-                <p style="color:var(--gold);font-weight:700;">${r.price}</p>
-                <p style="font-size:0.7rem;color:var(--text-muted);">${r.detail}</p>
-            `;
-            item.addEventListener('click', () => {
-                const msg =
-                    `🚆 حجز تذكرة قطار\nمن: ${r.from}\nإلى: ${r.to}\nالمدة: ${r.duration}\nالسعر: ${r.price}\nأرغب في الحجز`;
-                window.open(`https://wa.me/966555382038?text=${encodeURIComponent(msg)}`, '_blank');
-            });
-            railwayGrid.appendChild(item);
-        });
-
-        // ---------- Blog ----------
-        let blogDisplayCount = 6;
-        const blogGrid = document.getElementById('blogGrid');
-
-        function renderBlog(count) {
-            const toShow = blogPosts.slice(0, count);
-            blogGrid.innerHTML = '';
-            toShow.forEach((post, i) => {
-                const card = document.createElement('div');
-                card.className = 'blog-card reveal';
-                card.style.transitionDelay = `${i * 0.04}s`;
-                card.innerHTML = `
-                    <div class="img" style="background-image:url('${post.img}');"></div>
-                    <div class="body">
-                        <span class="tag">${post.tag}</span>
-                        <h4>${post.title}</h4>
-                        <p>${post.desc}</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
-                    </div>
-                `;
-                blogGrid.appendChild(card);
-            });
-            document.querySelectorAll('.blog-card.reveal').forEach(el => observer.observe(el));
-            const loadBtn = document.getElementById('loadMoreBlog');
-            if (count >= blogPosts.length) loadBtn.style.display = 'none';
-            else loadBtn.style.display = 'block';
-        }
-
-        renderBlog(blogDisplayCount);
-
-        document.getElementById('loadMoreBlog').addEventListener('click', function() {
-            blogDisplayCount += 6;
-            renderBlog(blogDisplayCount);
-        });
-
-        // ---------- FAQ ----------
-        const faqGrid = document.getElementById('faqGrid');
-        faqData.forEach((item, i) => {
-            const div = document.createElement('div');
-            div.className = 'faq-item reveal';
-            div.style.transitionDelay = `${i * 0.05}s`;
-            div.innerHTML = `
-                <div class="faq-q" onclick="toggleFaq(this)">
-                    <span>${item.q}</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-a">${item.a}</div>
-            `;
-            faqGrid.appendChild(div);
-        });
-        window.toggleFaq = function(el) {
-            const parent = el.closest('.faq-item');
-            parent.classList.toggle('open');
-        };
-
-        // ============================================================
-        // 7. CONTACT FORM – SEND TO WORK NUMBER
-        // ============================================================
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // ===== CONTACT FORM =====
+        document.getElementById('homeContactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('contactName').value.trim();
-            const phone = document.getElementById('contactPhone').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const message = document.getElementById('contactMessage').value.trim();
-            const status = document.getElementById('formStatus');
+            const name = document.getElementById('homeName').value.trim();
+            const phone = document.getElementById('homePhone').value.trim();
+            const email = document.getElementById('homeEmail').value.trim();
+            const message = document.getElementById('homeMessage').value.trim();
+            const status = document.getElementById('homeFormStatus');
             if (!name || !phone || !message) {
                 status.textContent = '⚠️ الرجاء ملء جميع الحقول المطلوبة';
                 status.style.color = '#f87171';
                 return;
             }
-            const fullMsg =
-                `📩 رسالة جديدة من موقع صعود الطائرة\n\n👤 الاسم: ${name}\n📱 الجوال: ${phone}\n📧 البريد: ${email || 'غير مدخل'}\n\n💬 الرسالة:\n${message}`;
-            status.textContent = '✅ جاري التحويل إلى واتساب ...';
+            const fullMsg = `📩 رسالة جديدة من الموقع\n\n👤 ${name}\n📱 ${phone}\n📧 ${email || 'غير مدخل'}\n\n💬 ${message}`;
+            status.textContent = '✅ جاري التحويل ...';
             status.style.color = '#4ade80';
             setTimeout(() => {
                 window.open(`https://wa.me/966554126832?text=${encodeURIComponent(fullMsg)}`, '_blank');
@@ -1525,43 +1016,40 @@
             }, 700);
         });
 
-        // ============================================================
-        // 8. AI CHAT (Simple)
-        // ============================================================
+        // ===== AI CHAT =====
         const chatBox = document.getElementById('aiChatBox');
         const chatMessages = document.getElementById('aiChatMessages');
         const chatInput = document.getElementById('aiChatInput');
         const typingIndicator = document.getElementById('aiTyping');
 
         const aiKnowledge = {
-            'مرحبا': '👋 أهلاً بك في وكالة <strong>صعود الطائرة</strong>! كيف يمكنني مساعدتك اليوم؟',
-            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙 كيف يمكنني خدمتك؟',
-            'عمرة': '🕋 باقات العمرة لدينا تبدأ من ١٢٠٠ ريال وتشمل تأشيرة، سكن قريب من الحرم، ومواصلات.',
-            'تأشيرة': '🛂 نقدم تأشيرات سياحة، عمل، زيارة، وعلاج لكافة الدول.',
-            'تذكرة': '✈️ نوفر أرخص تذاكر الطيران مع فلاي ناس وطيران أديل بأسعار تبدأ من 179 ريال.',
-            'فندق': '🏨 لدينا أكثر من 200 فندق بأسعار حقيقية. عروض اليوم الوطني تصل إلى 93% خصم!',
-            'سيارة': '🚗 تأجير سيارات فاخرة واقتصادية بأسعار مميزة مع تأمين شامل.',
-            'باقة': '🌍 لدينا أكثر من 200 باقة سياحية بأسعار تبدأ من 1800 ريال.',
-            'قطار': '🚆 نوفر حجز تذاكر القطارات بأسعار تبدأ من 85 ريال مع سار.',
-            'عرض': '🔥 عروض اليوم الوطني: خصم 93% على الفنادق، وخصم 9% باستخدام كود KSA90!',
+            'مرحبا': '👋 أهلاً بك! كيف يمكنني مساعدتك؟',
+            'السلام عليكم': 'وعليكم السلام ورحمة الله! 🌙',
+            'عمرة': '🕋 باقات العمرة تبدأ من ١٢٠٠ ريال.',
+            'تأشيرة': '🛂 نقدم تأشيرات لكافة الدول.',
+            'تذكرة': '✈️ أرخص تذاكر الطيران تبدأ من 179 ريال.',
+            'فندق': '🏨 لدينا أكثر من 200 فندق بأسعار حقيقية.',
+            'سيارة': '🚗 تأجير سيارات فاخرة واقتصادية.',
+            'باقة': '🌍 أكثر من 200 باقة سياحية.',
+            'قطار': '🚆 تذاكر القطارات تبدأ من 85 ريال.',
+            'عرض': '🔥 خصم 93% على الفنادق بمناسبة اليوم الوطني!',
             'شكرا': '🙏 العفو! سعداء بمساعدتك.',
-            'hello': '👋 Welcome to <strong>Saeed Al-Taayira</strong> Travel Agency! How can I help you?',
-            'hi': '👋 Hi there! Welcome to Saeed Al-Taayira.',
-            'umrah': '🕋 Our Umrah packages start from 1,200 SAR.',
-            'visa': '🛂 We offer tourist, business, visit, and medical visas.',
-            'flight': '✈️ We offer cheap flights starting from 179 SAR.',
-            'hotel': '🏨 We have 200+ hotels with real prices. Up to 93% off!',
+            'hello': '👋 Welcome! How can I help?',
+            'hi': '👋 Hi there!',
+            'umrah': '🕋 Umrah packages start from 1,200 SAR.',
+            'visa': '🛂 We offer all types of visas.',
+            'flight': '✈️ Cheap flights from 179 SAR.',
+            'hotel': '🏨 200+ hotels with real prices.',
             'car': '🚗 Luxury and economy car rentals.',
-            'package': '🌍 200+ travel packages starting from 1,800 SAR.',
-            'train': '🚆 Train tickets starting from 85 SAR with SAR.',
-            'offer': '🔥 National Day offers: 93% off on hotels, 9% off with code KSA90!',
+            'package': '🌍 200+ travel packages.',
+            'train': '🚆 Train tickets from 85 SAR.',
+            'offer': '🔥 93% off on hotels for National Day!',
             'thanks': '🙏 You\'re welcome!'
         };
         const defaultReplies = [
-            '🤖 شكراً لسؤالك! سيقوم فريقنا بالتواصل معك قريباً.',
+            '🤖 شكراً! سيقوم فريقنا بالتواصل معك قريباً.',
             '📱 يرجى مراسلتنا على واتساب 0555382038.',
-            '🌍 اكتشف عروضنا المميزة في قسم العروض!',
-            '✈️ صعود الطائرة وجهتك الأولى للسفر.'
+            '🌍 اكتشف عروضنا المميزة في قسم العروض!'
         ];
 
         function getAIResponse(text) {
@@ -1598,59 +1086,249 @@
             }, 500 + Math.random() * 800);
         };
 
-        // ============================================================
-        // 9. LANGUAGE TOGGLE (minimal)
-        // ============================================================
+        // ===== LANGUAGE TOGGLE =====
         const langToggle = document.getElementById('langToggle');
-        let currentLang = 'ar';
-        // For simplicity, we keep the existing translation object from previous code
-        // The user already has that; we just need to ensure it's applied.
-        // We'll reuse the translations object from the original code (already defined).
-        // Since it's huge, we assume it's present in the file.
-        // We'll just call applyLanguage with the saved language.
-        // To avoid duplicating the massive translations object, we'll skip it here
-        // and rely on the one already in the file (which the user pasted).
-        // We'll just set the toggle event.
-        langToggle.addEventListener('click', () => {
-            const newLang = currentLang === 'ar' ? 'en' : 'ar';
-            // If the applyLanguage function exists (from the original code), call it.
-            if (typeof applyLanguage === 'function') {
-                applyLanguage(newLang);
-            } else {
-                // Fallback: just toggle direction and label
-                currentLang = newLang;
-                document.body.className = currentLang === 'ar' ? 'rtl' : 'ltr';
-                document.documentElement.lang = currentLang === 'ar' ? 'ar' : 'en';
-                document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-                langToggle.textContent = currentLang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
-                localStorage.setItem('lang', currentLang);
+        let currentLang = localStorage.getItem('lang') || 'ar';
+        const translations = {
+            ar: {
+                logoMain: 'صعود الطائرة',
+                logoSub: 'للسفر والسياحة',
+                navHome: 'الرئيسية',
+                navServices: 'خدماتنا',
+                navOffers: 'عروض',
+                navHotels: 'فنادق',
+                navPackages: 'باقات',
+                navRailway: 'قطارات',
+                navCars: 'سيارات',
+                navAbout: 'من نحن',
+                navContact: 'اتصل بنا',
+                navCta: '📞 احجز الآن',
+                heroTitle1: 'اكتشف العالم مع',
+                heroTitle2: 'صعود الطائرة',
+                heroSub: 'وجهتك المتكاملة للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وجميع الخدمات السياحية بأسعار حقيقية. رحلتك المثالية تبدأ هنا.',
+                heroBtn1: 'استكشف الباقات',
+                heroBtn2: 'واتساب',
+                heroBtn3: 'مساعد AI',
+                heroCardTitle: 'رحلتك تبدأ هنا',
+                heroCardSub: 'أكثر من 20 خدمة سياحية – احجز كل شيء في مكان واحد',
+                stat1: 'عميل سعيد',
+                stat2: 'وجهة سفر',
+                stat3: 'رضا العملاء',
+                stat4: 'سنوات خبرة',
+                footerBrand: 'صعود الطائرة',
+                footerDesc: 'وجهتك الأولى للسفر والسياحة – أكثر من 200 فندق، 200 باقة، وأكثر من 20 خدمة سياحية.',
+                footerLinksTitle: 'روابط سريعة',
+                footerServicesTitle: 'خدماتنا',
+                footerInfoTitle: 'معلومات',
+                fNavHome: 'الرئيسية',
+                fNavServices: 'خدماتنا',
+                fNavOffers: 'عروض',
+                fNavHotels: 'فنادق',
+                fNavPackages: 'باقات',
+                fNavRailway: 'قطارات',
+                fNavCars: 'سيارات',
+                fNavAbout: 'من نحن',
+                fNavContact: 'اتصل بنا',
+                fNavBlog: '📝 مدونة',
+                fNavChatbot: '🤖 مساعد',
+                fServFlights: 'تذاكر طيران',
+                fServUmrah: 'باقات العمرة',
+                fServVisa: 'تأشيرات',
+                fServHotels: 'فنادق',
+                fServCars: 'تأجير سيارات',
+                fServRailway: 'قطارات',
+                fInfoAbout: 'عن الوكالة',
+                fInfoContact: 'اتصل بنا',
+                fInfoPrivacy: 'سياسة الخصوصية',
+                fInfoTerms: 'الشروط والأحكام',
+                waFloatLabel: 'تواصل واتساب',
+                aiChatTitle: 'مساعد صعود الطائرة AI',
+                aiWelcomeMsg: '👋 مرحباً! أنا مساعد <strong>صعود الطائرة</strong> الذكي. كيف يمكنني مساعدتك اليوم؟ يمكنني الإجابة بأي لغة تختارها.',
+                aiPlaceholder: 'اكتب سؤالك بأي لغة...',
+                footerRights: 'جميع الحقوق محفوظة',
+                footerCredit: 'تصميم وتطوير ✧ برؤية عصرية'
+            },
+            en: {
+                logoMain: 'Saeed Al-Taayira',
+                logoSub: 'Travel & Tourism',
+                navHome: 'Home',
+                navServices: 'Services',
+                navOffers: 'Offers',
+                navHotels: 'Hotels',
+                navPackages: 'Packages',
+                navRailway: 'Railway',
+                navCars: 'Cars',
+                navAbout: 'About',
+                navContact: 'Contact',
+                navCta: '📞 Book Now',
+                heroTitle1: 'Discover the world with',
+                heroTitle2: 'Saeed Al-Taayira',
+                heroSub: 'Your integrated destination for travel and tourism – 200+ hotels, 200+ packages, and all travel services at real prices. Your perfect journey starts here.',
+                heroBtn1: 'Explore Packages',
+                heroBtn2: 'WhatsApp',
+                heroBtn3: 'AI Assistant',
+                heroCardTitle: 'Your journey starts here',
+                heroCardSub: '20+ travel services – book everything in one place',
+                stat1: 'Happy Clients',
+                stat2: 'Destinations',
+                stat3: 'Satisfaction',
+                stat4: 'Years Experience',
+                footerBrand: 'Saeed Al-Taayira',
+                footerDesc: 'Your first destination for travel – 200+ hotels, 200+ packages, and 20+ services.',
+                footerLinksTitle: 'Quick Links',
+                footerServicesTitle: 'Services',
+                footerInfoTitle: 'Info',
+                fNavHome: 'Home',
+                fNavServices: 'Services',
+                fNavOffers: 'Offers',
+                fNavHotels: 'Hotels',
+                fNavPackages: 'Packages',
+                fNavRailway: 'Railway',
+                fNavCars: 'Cars',
+                fNavAbout: 'About',
+                fNavContact: 'Contact',
+                fNavBlog: '📝 Blog',
+                fNavChatbot: '🤖 Assistant',
+                fServFlights: 'Flights',
+                fServUmrah: 'Umrah',
+                fServVisa: 'Visas',
+                fServHotels: 'Hotels',
+                fServCars: 'Car Rentals',
+                fServRailway: 'Trains',
+                fInfoAbout: 'About Us',
+                fInfoContact: 'Contact',
+                fInfoPrivacy: 'Privacy Policy',
+                fInfoTerms: 'Terms & Conditions',
+                waFloatLabel: 'WhatsApp',
+                aiChatTitle: 'Saeed Al-Taayira AI Assistant',
+                aiWelcomeMsg: '👋 Hello! I\'m <strong>Saeed Al-Taayira</strong>\'s AI assistant. How can I help you today? I can answer in any language you choose.',
+                aiPlaceholder: 'Type your question in any language...',
+                footerRights: 'All Rights Reserved',
+                footerCredit: 'Designed & Developed ✧ with Vision'
             }
-        });
+        };
 
-        // ============================================================
-        // 10. FINAL – Load saved language
-        // ============================================================
-        const savedLang = localStorage.getItem('lang') || 'ar';
-        if (typeof applyLanguage === 'function') {
-            applyLanguage(savedLang);
-        } else {
-            // Just set direction
-            document.body.className = savedLang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = savedLang === 'ar' ? 'ar' : 'en';
-            document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
-            langToggle.textContent = savedLang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.body.className = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            langToggle.textContent = lang === 'ar' ? '🇬🇧 English' : '🇸🇦 عربي';
+
+            const map = {
+                'logoMain': 'logoMain',
+                'logoSub': 'logoSub',
+                'navHome': 'navHome',
+                'navServices': 'navServices',
+                'navOffers': 'navOffers',
+                'navHotels': 'navHotels',
+                'navPackages': 'navPackages',
+                'navRailway': 'navRailway',
+                'navCars': 'navCars',
+                'navAbout': 'navAbout',
+                'navContact': 'navContact',
+                'navCta': 'navCta',
+                'heroBtn1': 'heroBtn1',
+                'heroBtn2': 'heroBtn2',
+                'heroBtn3': 'heroBtn3',
+                'heroCardTitle': 'heroCardTitle',
+                'heroCardSub': 'heroCardSub',
+                'stat1': 'stat1',
+                'stat2': 'stat2',
+                'stat3': 'stat3',
+                'stat4': 'stat4',
+                'footerBrand': 'footerBrand',
+                'footerDesc': 'footerDesc',
+                'footerLinksTitle': 'footerLinksTitle',
+                'footerServicesTitle': 'footerServicesTitle',
+                'footerInfoTitle': 'footerInfoTitle',
+                'fNavHome': 'fNavHome',
+                'fNavServices': 'fNavServices',
+                'fNavOffers': 'fNavOffers',
+                'fNavHotels': 'fNavHotels',
+                'fNavPackages': 'fNavPackages',
+                'fNavRailway': 'fNavRailway',
+                'fNavCars': 'fNavCars',
+                'fNavAbout': 'fNavAbout',
+                'fNavContact': 'fNavContact',
+                'fNavBlog': 'fNavBlog',
+                'fNavChatbot': 'fNavChatbot',
+                'fServFlights': 'fServFlights',
+                'fServUmrah': 'fServUmrah',
+                'fServVisa': 'fServVisa',
+                'fServHotels': 'fServHotels',
+                'fServCars': 'fServCars',
+                'fServRailway': 'fServRailway',
+                'fInfoAbout': 'fInfoAbout',
+                'fInfoContact': 'fInfoContact',
+                'fInfoPrivacy': 'fInfoPrivacy',
+                'fInfoTerms': 'fInfoTerms',
+                'waFloatLabel': 'waFloatLabel',
+                'aiChatTitle': 'aiChatTitle',
+                'aiWelcomeMsg': 'aiWelcomeMsg',
+                'aiPlaceholder': 'aiPlaceholder',
+                'footerRights': 'footerRights',
+                'footerCredit': 'footerCredit'
+            };
+
+            for (const [id, key] of Object.entries(map)) {
+                const el = document.getElementById(id);
+                if (el && translations[lang] && translations[lang][key] !== undefined) {
+                    if (id === 'logoMain' || id === 'logoSub' || id === 'footerBrand') {
+                        if (id === 'logoMain') el.textContent = translations[lang][key];
+                        else if (id === 'logoSub') el.textContent = translations[lang][key];
+                        else if (id === 'footerBrand') el.innerHTML = `<strong>${translations[lang][key]}</strong>`;
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            }
+
+            // Hero title
+            const heroH1 = document.querySelector('.hero-content h1');
+            if (heroH1) {
+                const highlight = heroH1.querySelector('.highlight');
+                if (highlight) {
+                    const s1 = document.createElement('span');
+                    s1.textContent = translations[lang]['heroTitle1'] + ' ';
+                    heroH1.innerHTML = '';
+                    heroH1.appendChild(s1);
+                    const s2 = document.createElement('span');
+                    s2.className = 'highlight';
+                    s2.textContent = translations[lang]['heroTitle2'];
+                    heroH1.appendChild(s2);
+                }
+            }
+            const heroSub = document.getElementById('heroSub');
+            if (heroSub) heroSub.textContent = translations[lang]['heroSub'];
+
+            // AI chat
+            const aiTitle = document.querySelector('.ai-chat-header .title span');
+            if (aiTitle) {
+                const status = aiTitle.querySelector('.ai-status');
+                aiTitle.innerHTML = translations[lang]['aiChatTitle'] + (status ? ` <span class="ai-status">● ${lang === 'ar' ? 'متصل' : 'Online'}</span>` : '');
+            }
+            const welcomeMsg = chatMessages.querySelector('.msg.bot');
+            if (welcomeMsg) welcomeMsg.innerHTML = translations[lang]['aiWelcomeMsg'] + '<span class="time">الآن</span>';
+            const aiInput = document.getElementById('aiChatInput');
+            if (aiInput) aiInput.placeholder = translations[lang]['aiPlaceholder'];
+
+            localStorage.setItem('lang', lang);
         }
 
-        // ============================================================
-        // 11. CONSOLE LOG (to verify data)
-        // ============================================================
-        console.log('✅ صعود الطائرة – All data loaded successfully!');
-        console.log(`🏨 Hotels: ${allHotels.length}`);
-        console.log(`🏝️ Packages: ${allPackages.length}`);
-        console.log(`🚆 Railway routes: ${railwayRoutes.length}`);
-        console.log(`📝 Blog posts: ${blogPosts.length}`);
-        console.log(`❓ FAQ items: ${faqData.length}`);
-        console.log('📩 All contact forms send to 0554126832');
+        langToggle.addEventListener('click', () => {
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguage(newLang);
+        });
+
+        applyLanguage(currentLang);
+
+        // ===== FOOTER YEAR =====
+        document.querySelector('.footer-bottom').innerHTML =
+            `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span><br style="display:block;margin-top:4px;" /><span id="footerCredit">تصميم وتطوير ✧ برؤية عصرية</span>`;
+
+        console.log('✅ صعود الطائرة – لاندينج بيدج (फिक्स्ड)');
+        console.log('🌟 नए फीचर्स: डार्क मोड, प्रोग्रेस बार, फीचर्ड कंटेंट');
     </script>
 </body>
 </html>

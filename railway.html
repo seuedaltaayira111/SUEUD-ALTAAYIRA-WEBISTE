@@ -647,7 +647,7 @@
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
     <!-- ============================================================
-    JAVASCRIPT (SINGLE TRAIN IMAGE – YOUR UNSplash PHOTO)
+    JAVASCRIPT (YOUR CHOSEN TRAIN IMAGE URL)
     ============================================================ -->
     <script>
         // ===== PARTICLES =====
@@ -766,10 +766,10 @@
             scrollBtn.classList.toggle('show', window.pageYOffset > 300);
         });
 
-        // ===== YOUR TRAIN IMAGE (Daniel Abadia - DB Train) =====
-        const trainImage = 'https://images.unsplash.com/photo-Njq3Nz6-5rQ?w=600&h=400&fit=crop&auto=format';
+        // ===== YOUR CHOSEN TRAIN IMAGE =====
+        const trainImage = 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&h=400&fit=crop&auto=format';
 
-        // ===== RAILWAY DATA =====
+        // ===== RAILWAY DATA (ALL 12 ROUTES WITH SAME IMAGE) =====
         const railwayData = [
             { id:1, from:'الرياض', to:'الدمام', duration:'3-4 ساعات', price:85, priceBusiness:145,
                 img: trainImage,
@@ -1194,7 +1194,7 @@
         document.querySelector('.footer-bottom').innerHTML =
             `&copy; ${new Date().getFullYear()} <span><strong>صعود الطائرة للسفر والسياحة</strong></span> — <span id="footerRights">جميع الحقوق محفوظة</span>`;
 
-        console.log('✅ railway.html – अब आपकी चुनी हुई ट्रेन की तस्वीर लगाई गई है!');
+        console.log('✅ railway.html – आपकी चुनी हुई ट्रेन की तस्वीर लग गई!');
         console.log('📩 सभी फॉर्म 0554126832 पर जाते हैं');
     </script>
 </body>
